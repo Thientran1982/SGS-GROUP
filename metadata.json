@@ -1,0 +1,7 @@
+{
+  "name": "SGS GROUP - AI ",
+  "description": "A cutting-edge, 3D-styled mobile-first website for SGS GROUP, featuring bilingual support, dark mode, and an integrated Gemini AI Hub.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
