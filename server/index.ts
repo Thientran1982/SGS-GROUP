@@ -2,29 +2,71 @@ import express from "express";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
-import { db } from "./db";
-import { contacts, services, chatHistory } from "../shared/schema";
-import { eq, desc } from "drizzle-orm";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.NODE_ENV === "production" ? 5000 : 3001;
+const host = process.env.NODE_ENV === "production" ? "0.0.0.0" : "localhost";
+
+// Start server IMMEDIATELY for health checks
+app.listen(PORT, host, () => {
+  console.log(`Server running on http://${host}:${PORT}`);
+});
 
 app.use(cors());
 app.use(express.json());
 
+// Production: Serve static files FIRST for fast health check
+if (process.env.NODE_ENV === "production") {
+  const distPath = path.resolve(__dirname, "../dist");
+  
+  // Root route for immediate health check response
+  app.get("/", (req, res) => {
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.sendFile(path.join(distPath, "index.html"));
+  });
+  
+  app.use(express.static(distPath, {
+    maxAge: '1h',
+    setHeaders: (res, filePath) => {
+      if (filePath.endsWith('.html')) {
+        res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+      }
+    }
+  }));
+}
+
+// Health check (no DB required)
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok", timestamp: new Date().toISOString() });
 });
 
+// Lazy load database and routes
+let db: any = null;
+let schema: any = null;
+
+async function getDb() {
+  if (!db) {
+    const { drizzle } = await import("drizzle-orm/node-postgres");
+    const pg = await import("pg");
+    schema = await import("../shared/schema");
+    
+    const pool = new pg.default.Pool({ connectionString: process.env.DATABASE_URL });
+    db = drizzle(pool, { schema });
+  }
+  return { db, schema };
+}
+
 app.get("/api/services", async (req, res) => {
   try {
+    const { db, schema } = await getDb();
+    const { eq } = await import("drizzle-orm");
     const allServices = await db
       .select()
-      .from(services)
-      .where(eq(services.isActive, true));
+      .from(schema.services)
+      .where(eq(schema.services.isActive, true));
     res.json(allServices);
   } catch (error) {
     console.error("Error fetching services:", error);
@@ -34,6 +76,7 @@ app.get("/api/services", async (req, res) => {
 
 app.post("/api/contact", async (req, res) => {
   try {
+    const { db, schema } = await getDb();
     const { name, email, phone, company, message } = req.body;
     
     if (!name || !email || !message) {
@@ -41,7 +84,7 @@ app.post("/api/contact", async (req, res) => {
     }
 
     const [newContact] = await db
-      .insert(contacts)
+      .insert(schema.contacts)
       .values({ name, email, phone, company, message })
       .returning();
 
@@ -54,10 +97,12 @@ app.post("/api/contact", async (req, res) => {
 
 app.get("/api/contacts", async (req, res) => {
   try {
+    const { db, schema } = await getDb();
+    const { desc } = await import("drizzle-orm");
     const allContacts = await db
       .select()
-      .from(contacts)
-      .orderBy(desc(contacts.createdAt));
+      .from(schema.contacts)
+      .orderBy(desc(schema.contacts.createdAt));
     res.json(allContacts);
   } catch (error) {
     console.error("Error fetching contacts:", error);
@@ -67,6 +112,7 @@ app.get("/api/contacts", async (req, res) => {
 
 app.post("/api/chat", async (req, res) => {
   try {
+    const { db, schema } = await getDb();
     const { sessionId, role, content } = req.body;
     
     if (!sessionId || !role || !content) {
@@ -74,7 +120,7 @@ app.post("/api/chat", async (req, res) => {
     }
 
     const [newMessage] = await db
-      .insert(chatHistory)
+      .insert(schema.chatHistory)
       .values({ sessionId, role, content })
       .returning();
 
@@ -87,12 +133,14 @@ app.post("/api/chat", async (req, res) => {
 
 app.get("/api/chat/:sessionId", async (req, res) => {
   try {
+    const { db, schema } = await getDb();
+    const { eq } = await import("drizzle-orm");
     const { sessionId } = req.params;
     const messages = await db
       .select()
-      .from(chatHistory)
-      .where(eq(chatHistory.sessionId, sessionId))
-      .orderBy(chatHistory.createdAt);
+      .from(schema.chatHistory)
+      .where(eq(schema.chatHistory.sessionId, sessionId))
+      .orderBy(schema.chatHistory.createdAt);
     res.json(messages);
   } catch (error) {
     console.error("Error fetching chat history:", error);
@@ -100,26 +148,9 @@ app.get("/api/chat/:sessionId", async (req, res) => {
   }
 });
 
+// SPA fallback (must be last)
 if (process.env.NODE_ENV === "production") {
   const distPath = path.resolve(__dirname, "../dist");
-  
-  // Explicit root route for fast health check response
-  app.get("/", (req, res) => {
-    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-    res.sendFile(path.join(distPath, "index.html"));
-  });
-  
-  // Serve static files with cache control
-  app.use(express.static(distPath, {
-    maxAge: '1h',
-    setHeaders: (res, filePath) => {
-      if (filePath.endsWith('.html')) {
-        res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-      }
-    }
-  }));
-  
-  // SPA fallback - serve index.html for non-API routes
   app.use((req, res, next) => {
     if (req.path.startsWith("/api")) {
       return next();
@@ -128,8 +159,3 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(distPath, "index.html"));
   });
 }
-
-const host = process.env.NODE_ENV === "production" ? "0.0.0.0" : "localhost";
-app.listen(PORT, host, () => {
-  console.log(`Server running on http://${host}:${PORT}`);
-});
