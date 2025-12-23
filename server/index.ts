@@ -23,14 +23,19 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "ok", timestamp: new Date().toISOString() });
 });
 
-// Root handler - Accept-aware for health probes vs browsers
+// Root handler - fast health check, redirect browsers to /home
 app.get("/", (req, res) => {
   const acceptsHtml = req.headers.accept?.includes("text/html");
-  if (!acceptsHtml) {
-    return res.status(200).type("text/plain").send("OK");
+  if (acceptsHtml) {
+    return res.redirect(302, "/home");
   }
+  res.status(200).type("text/plain").send("OK");
+});
+
+// Home route for browser visitors
+app.get("/home", (req, res) => {
   res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-  return res.sendFile(path.join(distPath, "index.html"));
+  res.sendFile(path.join(distPath, "index.html"));
 });
 
 // Static files

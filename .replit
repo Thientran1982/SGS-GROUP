@@ -42,4 +42,4 @@ externalPort = 80
 deploymentTarget = "vm"
 build = ["npm", "run", "build"]
 publicDir = "dist"
-run = ["bash", "-c", "NODE_ENV=production node --import tsx server/index.ts"]
+run = ["npm", "run", "start"]
