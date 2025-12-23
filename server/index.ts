@@ -103,7 +103,7 @@ app.get("/api/chat/:sessionId", async (req, res) => {
 if (process.env.NODE_ENV === "production") {
   const distPath = path.resolve(__dirname, "../dist");
   app.use(express.static(distPath));
-  app.get("/*", (req, res, next) => {
+  app.use((req, res, next) => {
     if (req.path.startsWith("/api")) {
       return next();
     }
