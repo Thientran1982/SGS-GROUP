@@ -102,11 +102,23 @@ app.get("/api/chat/:sessionId", async (req, res) => {
 
 if (process.env.NODE_ENV === "production") {
   const distPath = path.resolve(__dirname, "../dist");
-  app.use(express.static(distPath));
+  
+  // Serve static files with cache control
+  app.use(express.static(distPath, {
+    maxAge: '1h',
+    setHeaders: (res, filePath) => {
+      if (filePath.endsWith('.html')) {
+        res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+      }
+    }
+  }));
+  
+  // SPA fallback - serve index.html for non-API routes
   app.use((req, res, next) => {
     if (req.path.startsWith("/api")) {
       return next();
     }
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
     res.sendFile(path.join(distPath, "index.html"));
   });
 }
