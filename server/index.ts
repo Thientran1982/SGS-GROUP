@@ -103,6 +103,12 @@ app.get("/api/chat/:sessionId", async (req, res) => {
 if (process.env.NODE_ENV === "production") {
   const distPath = path.resolve(__dirname, "../dist");
   
+  // Explicit root route for fast health check response
+  app.get("/", (req, res) => {
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.sendFile(path.join(distPath, "index.html"));
+  });
+  
   // Serve static files with cache control
   app.use(express.static(distPath, {
     maxAge: '1h',
