@@ -23,13 +23,9 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "ok", timestamp: new Date().toISOString() });
 });
 
-// Root handler - fast health check, redirect browsers to /home
+// Root handler - always return 200 OK immediately for health checks
 app.get("/", (req, res) => {
-  const acceptsHtml = req.headers.accept?.includes("text/html");
-  if (acceptsHtml) {
-    return res.redirect(302, "/home");
-  }
-  res.status(200).type("text/plain").send("OK");
+  res.status(200).send("OK");
 });
 
 // Home route for browser visitors
