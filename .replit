@@ -39,7 +39,7 @@ localPort = 5000
 externalPort = 80
 
 [deployment]
-deploymentTarget = "autoscale"
+deploymentTarget = "vm"
 build = ["npm", "run", "build"]
 publicDir = "dist"
 run = ["bash", "-c", "NODE_ENV=production node --import tsx server/index.ts"]
