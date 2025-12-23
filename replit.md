@@ -5,9 +5,9 @@ A modern React + TypeScript website for SGS GROUP showcasing AI, Automation, and
 
 ## Tech Stack
 - **Frontend**: React 19 with TypeScript, Vite 6
-- **Backend**: Node.js with Express
+- **Backend**: Node.js with Express 5
 - **Database**: PostgreSQL with Drizzle ORM
-- **Styling**: Tailwind CSS (via CDN)
+- **Styling**: Tailwind CSS v4 (build-time compilation)
 - **AI Integration**: Google Gemini API (@google/genai)
 
 ## Project Structure
@@ -16,6 +16,7 @@ A modern React + TypeScript website for SGS GROUP showcasing AI, Automation, and
 │   ├── components/      # React components
 │   ├── services/        # Frontend API services
 │   ├── App.tsx          # Main application
+│   ├── index.css        # Tailwind CSS with custom theme
 │   ├── constants.ts     # App constants
 │   └── types.ts         # TypeScript types
 ├── server/
@@ -26,6 +27,8 @@ A modern React + TypeScript website for SGS GROUP showcasing AI, Automation, and
 ├── index.html           # Entry HTML
 ├── index.tsx            # React entry point
 ├── vite.config.ts       # Vite configuration
+├── tailwind.config.js   # Tailwind configuration
+├── postcss.config.js    # PostCSS configuration
 └── package.json         # Dependencies
 ```
 
@@ -44,8 +47,8 @@ A modern React + TypeScript website for SGS GROUP showcasing AI, Automation, and
 
 ## Development
 - **Frontend**: Port 5000 (Vite dev server)
-- **Backend**: Port 3001 (Express)
-- **Command**: `npm run dev` (runs both)
+- **Backend**: Port 3001 (Express, dev mode) / Port 5000 (production)
+- **Command**: `npm run dev` (runs both frontend and backend)
 - **Build**: `npm run build`
 - **DB Push**: `npm run db:push`
 
@@ -54,6 +57,7 @@ A modern React + TypeScript website for SGS GROUP showcasing AI, Automation, and
 - `GEMINI_API_KEY` - Google Gemini API key for AI chat
 
 ## Recent Changes
+- 2025-12-23: Migrated from Tailwind CDN to build-time Tailwind CSS v4
 - 2025-12-23: Added backend with Express, PostgreSQL, and Drizzle ORM
 - 2025-12-23: Created API endpoints for contacts, services, and chat
 - 2025-12-22: Configured for Replit environment (port 5000, allowed hosts)
