@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@source "../";
+@source "../index.tsx";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: "Inter", sans-serif;
   --font-display: "Space Grotesk", sans-serif;
@@ -10,17 +15,19 @@
   --color-canvas-elevated: #0F1115;
 
   --color-surface-glass: rgba(255, 255, 255, 0.03);
-  --color-surface-glass-high: rgba(255, 255, 255, 0.08);
+  --color-surface-glassHigh: rgba(255, 255, 255, 0.08);
   --color-surface-border: rgba(255, 255, 255, 0.08);
-  --color-surface-border-high: rgba(255, 255, 255, 0.15);
+  --color-surface-borderHigh: rgba(255, 255, 255, 0.15);
 
   --color-primary: #06B6D4;
   --color-primary-glow: #22D3EE;
   --color-primary-dim: rgba(6, 182, 212, 0.1);
   --color-primary-dark: #0891B2;
+  --color-primary-DEFAULT: #06B6D4;
 
   --color-accent: #6366F1;
   --color-accent-glow: #818CF8;
+  --color-accent-DEFAULT: #6366F1;
 
   --color-status-success: #10B981;
   --color-status-warning: #F59E0B;
