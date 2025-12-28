@@ -74,34 +74,34 @@
 }
 
 html, body {
-  height: 100%;
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-  overscroll-behavior: none;
-  -webkit-overflow-scrolling: touch;
-}
-
-body {
+  margin: 0;
+  padding: 0;
   background-color: #020408;
   color: #e2e8f0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  overscroll-behavior-y: none;
+  overflow-x: hidden;
+}
+
+@supports (-webkit-touch-callout: none) {
+  html, body {
+    height: -webkit-fill-available;
+  }
 }
 
 #root {
-  height: 100%;
-  overflow: hidden;
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .app-scroll-container {
-  height: 100svh;
-  overflow-y: auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
   overflow-x: hidden;
-  overscroll-behavior: contain;
-  overscroll-behavior-y: contain;
-  -webkit-overflow-scrolling: touch;
 }
 
 .noise-overlay {
