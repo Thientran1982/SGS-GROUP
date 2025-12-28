@@ -564,14 +564,14 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-canvas-DEFAULT text-white font-sans selection:bg-primary-DEFAULT/30 selection:text-white overflow-x-hidden transition-colors duration-500 flex flex-col">
+    <div className="app-scroll-container bg-canvas-DEFAULT text-white font-sans selection:bg-primary-DEFAULT/30 selection:text-white transition-colors duration-500 flex flex-col">
       <SEO title={TEXTS[language].heroTitle} description={TEXTS[language].heroSubtitle} language={language} />
       <BackgroundSystem theme={theme} />
       <NavBar currentView={currentView} setCurrentView={setCurrentView} language={language} setLanguage={setLanguage} theme={theme} setTheme={setTheme} />
       
       <SystemSyncAlert language={language} />
 
-      <main className="relative pt-16 flex-grow">
+      <main className="relative pt-16 flex-grow min-h-screen">
         {currentView === 'home' && <HomeView />}
         {currentView === 'services' && <ServicesView />}
         {currentView === 'service-detail' && <ServiceDetailView />}
