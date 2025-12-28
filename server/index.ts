@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import path from "path";
+import fs from "fs";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -10,6 +11,14 @@ const distPath = path.resolve(__dirname, "../dist");
 const app = express();
 const PORT = process.env.NODE_ENV === "production" ? 5000 : 3001;
 const HOST = process.env.NODE_ENV === "production" ? "0.0.0.0" : "localhost";
+
+// Preload index.html into memory for fast serving
+let cachedIndexHtml = "";
+try {
+  cachedIndexHtml = fs.readFileSync(path.join(distPath, "index.html"), "utf-8");
+} catch (e) {
+  console.log("index.html not found - build may be needed");
+}
 
 app.use(cors());
 app.use(express.json());
@@ -23,15 +32,15 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "ok", timestamp: new Date().toISOString() });
 });
 
-// Root handler - always return 200 OK immediately for health checks
+// Root handler - serve SPA for browsers, OK for health probes
 app.get("/", (req, res) => {
-  res.status(200).send("OK");
-});
-
-// Home route for browser visitors
-app.get("/home", (req, res) => {
-  res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-  res.sendFile(path.join(distPath, "index.html"));
+  const acceptsHtml = req.headers.accept?.includes("text/html");
+  if (acceptsHtml && cachedIndexHtml) {
+    res.setHeader("Content-Type", "text/html");
+    res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+    return res.status(200).send(cachedIndexHtml);
+  }
+  res.status(200).type("text/plain").send("OK");
 });
 
 // Static files
