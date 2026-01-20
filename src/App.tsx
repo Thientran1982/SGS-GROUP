@@ -277,7 +277,7 @@ const App: React.FC = () => {
                             <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-cyan-500/50 rounded-br-lg translate-x-2 translate-y-2 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
                             
                             <DisplayHeading className="leading-[1.1] md:leading-tight">
-                                <ScrambleText text={TEXTS[language].heroTitle} />
+                                {TEXTS[language].heroTitle}
                             </DisplayHeading>
                         </div>
 
