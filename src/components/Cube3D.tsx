@@ -108,12 +108,17 @@ const Cube3D: React.FC<Cube3DProps> = ({ onInteract, language }) => {
     };
   }, []);
 
-  const handleBurst = () => {
-    // Chuyên gia Fullstack: Luôn ưu tiên phản hồi người dùng ngay lập tức
+  const handleBurst = (e: React.MouseEvent | React.TouchEvent) => {
+    // Chuyên gia Fullstack: Ngăn chặn sự kiện nổi bọt và mặc định
+    e.preventDefault();
+    e.stopPropagation();
+
     if (!isBursting) {
       setIsBursting(true);
       // Kích hoạt chuyển trang/hành động ngay khi nhấn
-      if (onInteract) onInteract();
+      if (onInteract) {
+        onInteract();
+      }
       setTimeout(() => setIsBursting(false), 1200);
     }
   };
@@ -124,7 +129,7 @@ const Cube3D: React.FC<Cube3DProps> = ({ onInteract, language }) => {
       onMouseDown={(e) => handleStart(e.clientX, e.clientY)}
       onTouchStart={(e) => handleStart(e.touches[0].clientX, e.touches[0].clientY)}
       onTouchMove={(e) => handleMove(e.touches[0].clientX, e.touches[0].clientY)}
-      onClick={handleBurst}
+      onClick={(e) => handleBurst(e)}
     >
       <style>{`
         .preserve-3d { transform-style: preserve-3d; }
