@@ -244,7 +244,7 @@ const App: React.FC = () => {
   const [theme, setTheme] = useState<Theme>('dark');
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [aiInitialMessage, setAiInitialMessage] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => { if (theme === 'dark') document.documentElement.classList.add('dark'); else document.documentElement.classList.remove('dark'); }, [theme]);
   useEffect(() => { window.scrollTo(0, 0); }, [currentView, selectedServiceId]);
