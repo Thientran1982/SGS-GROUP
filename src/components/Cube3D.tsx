@@ -145,12 +145,14 @@ const Cube3D: React.FC<Cube3DProps> = ({ onInteract, language }) => {
       {/* Holographic Platform (Floor) - Brighter */}
       <div className="absolute bottom-0 md:bottom-12 left-1/2 -translate-x-1/2 w-48 h-48 md:w-72 md:h-72 bg-cyan-500/10 rounded-full blur-[50px] transform rotateX(70deg) pointer-events-none transition-all duration-700 group-hover:bg-cyan-500/20 group-hover:scale-125"></div>
 
-      {/* Interaction Hint (HUD Style - No Background) */}
+      {/* Interaction Hint (HUD Style - No Background) - HIDDEN as per user request */}
+      {/* 
       <div className={`absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 text-[10px] font-mono tracking-[0.3em] uppercase text-cyan-400 font-bold transition-all duration-300 pointer-events-none whitespace-nowrap select-none ${isDragging.current ? 'opacity-0 scale-90' : 'opacity-100 animate-pulse'}`}>
          <span className="opacity-50 mr-2 text-cyan-600">[</span>
          {TEXTS[language].tapToInit}
          <span className="opacity-50 ml-2 text-cyan-600">]</span>
       </div>
+      */}
 
       {/* Burst Energy Wave */}
       <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-gradient-to-r from-blue-500 via-cyan-400 to-white rounded-full blur-[80px] transition-all duration-500 ease-out pointer-events-none ${isBursting ? 'scale-[5] opacity-0' : 'scale-0 opacity-40'}`}></div>
