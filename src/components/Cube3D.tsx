@@ -109,9 +109,11 @@ const Cube3D: React.FC<Cube3DProps> = ({ onInteract, language }) => {
   }, []);
 
   const handleBurst = () => {
-    if (!isBursting && totalDragDistance.current < 5) {
+    // Chuyên gia Fullstack: Luôn ưu tiên phản hồi người dùng ngay lập tức
+    if (!isBursting) {
       setIsBursting(true);
-      if (onInteract) setTimeout(onInteract, 600);
+      // Kích hoạt chuyển trang/hành động ngay khi nhấn
+      if (onInteract) onInteract();
       setTimeout(() => setIsBursting(false), 1200);
     }
   };
