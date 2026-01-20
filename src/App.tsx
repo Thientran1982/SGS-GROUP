@@ -272,7 +272,7 @@ const App: React.FC = () => {
                         </div>
 
                         {/* HUD Targeting Corners */}
-                        <div className="relative inline-block group mb-6 md:mb-8 animate-fade-in-up [animation-delay:200ms]">
+                        <div className="relative inline-block group mb-6 md:mb-8">
                             <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-cyan-500/50 rounded-tl-lg -translate-x-2 -translate-y-2 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
                             <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-cyan-500/50 rounded-br-lg translate-x-2 translate-y-2 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
                             
