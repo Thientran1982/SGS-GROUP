@@ -115,10 +115,7 @@ const Cube3D: React.FC<Cube3DProps> = ({ onInteract, language }) => {
 
     if (!isBursting) {
       setIsBursting(true);
-      // Kích hoạt chuyển trang/hành động ngay khi nhấn
-      if (onInteract) {
-        onInteract();
-      }
+      // Hiệu ứng burst vẫn giữ lại để tăng tính tương tác, nhưng không chuyển hướng
       setTimeout(() => setIsBursting(false), 1200);
     }
   };

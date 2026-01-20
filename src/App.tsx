@@ -296,7 +296,7 @@ const App: React.FC = () => {
                         {/* Background Glow for 3D Object */}
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-cyan-500/20 rounded-full blur-[100px] animate-pulse-slow pointer-events-none"></div>
                         <div className="w-full max-w-md scale-110 lg:scale-125">
-                            <Cube3D language={language} onInteract={() => setCurrentView('ai-hub')} />
+                            <Cube3D language={language} />
                         </div>
                     </div>
 
