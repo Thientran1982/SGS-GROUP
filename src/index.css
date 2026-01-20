@@ -82,7 +82,10 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   overscroll-behavior-y: none;
-  overflow-x: hidden;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: fixed;
 }
 
 @supports (-webkit-touch-callout: none) {
@@ -92,16 +95,20 @@ html, body {
 }
 
 #root {
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
 .app-scroll-container {
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none;
 }
 
 .noise-overlay {
