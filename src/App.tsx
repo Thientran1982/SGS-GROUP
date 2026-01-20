@@ -564,18 +564,18 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="app-scroll-container bg-canvas-DEFAULT text-white font-sans selection:bg-primary-DEFAULT/30 selection:text-white transition-colors duration-500 flex flex-col">
+    <div className="app-scroll-container bg-canvas-DEFAULT text-white font-sans selection:bg-primary-DEFAULT/30 selection:text-white transition-colors duration-500 flex flex-col min-h-screen">
       <SEO title={TEXTS[language].heroTitle} description={TEXTS[language].heroSubtitle} language={language} />
       <BackgroundSystem theme={theme} />
       <NavBar currentView={currentView} setCurrentView={setCurrentView} language={language} setLanguage={setLanguage} theme={theme} setTheme={setTheme} />
       
       <SystemSyncAlert language={language} />
 
-      <main className="relative pt-16 flex-grow min-h-screen">
+      <main className="relative pt-16 flex-grow flex flex-col">
         {currentView === 'home' && <HomeView />}
         {currentView === 'services' && <ServicesView />}
         {currentView === 'service-detail' && <ServiceDetailView />}
-        {currentView === 'ai-hub' && (<div className="min-h-[85dvh] md:min-h-[90vh] flex flex-col pt-4 md:pt-8 px-2 md:px-4 pb-4"><AiHub language={language} initialMessage={aiInitialMessage} onInitialMessageSent={() => setAiInitialMessage(null)} /></div>)}
+        {currentView === 'ai-hub' && (<div className="flex-grow flex flex-col pt-4 md:pt-8 px-2 md:px-4 pb-4"><AiHub language={language} initialMessage={aiInitialMessage} onInitialMessageSent={() => setAiInitialMessage(null)} /></div>)}
         {currentView === 'about' && <AboutView />}
         {currentView === 'contact' && <ContactView />}
         {(currentView === 'privacy' || currentView === 'terms') && <LegalView type={currentView as any} />}
