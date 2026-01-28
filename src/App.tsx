@@ -253,11 +253,11 @@ const App: React.FC = () => {
   const handleConsultAI = (title: string) => { setAiInitialMessage(language === 'en' ? `Tell me about ${title}` : `Nói cho tôi về ${title}`); setCurrentView('ai-hub'); };
   const navigateToService = (id: string) => { setSelectedServiceId(id); setCurrentView('service-detail'); };
 
-  if (loading) return <LoadingScreen onComplete={() => setLoading(false)} />;
+  if (loading) return null;
 
   const HomeView = () => (
     <>
-        <div className="relative z-10 min-h-screen flex flex-col justify-center pt-24 pb-8 overflow-hidden">
+        <div className="relative z-10 min-h-screen flex flex-col justify-center pt-24 pb-8 overflow-hidden bg-canvas">
             <TechGridBackground />
             
             <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full flex-grow flex flex-col justify-center">
