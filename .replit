@@ -42,3 +42,4 @@ externalPort = 80
 deploymentTarget = "vm"
 build = ["npm", "run", "build"]
 run = ["npm", "start"]
+publicDir = "dist/public"
