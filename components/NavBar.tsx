@@ -114,7 +114,7 @@ const NavBar: React.FC<NavBarProps> = ({
             </div>
             
             <div className="flex flex-col justify-center">
-                <span className="font-display font-black text-base md:text-xl tracking-tighter text-slate-900 dark:text-white leading-none group-hover:tracking-widest transition-all duration-500">SGS</span>
+                <span className="font-display font-black text-base md:text-xl tracking-tighter text-slate-900 dark:text-white leading-none group-hover:tracking-widest transition-all duration-500">SGS GROUP</span>
             </div>
           </div>
 
