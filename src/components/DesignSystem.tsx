@@ -82,7 +82,7 @@ interface NeonButtonProps {
 }
 
 export const NeonButton: React.FC<NeonButtonProps> = ({ children, onClick, variant = 'primary', icon, fullWidth = false, type = "button" }) => {
-  const baseStyles = "relative overflow-hidden rounded-lg font-medium text-xs sm:text-sm py-3 px-6 transition-all duration-200 active:scale-[0.98] flex items-center justify-center gap-2 group select-none backdrop-blur-md";
+  const baseStyles = "relative overflow-hidden rounded-lg font-medium text-xs sm:text-sm py-3 px-6 h-12 whitespace-nowrap transition-all duration-200 active:scale-[0.98] flex items-center justify-center gap-2 group select-none backdrop-blur-md";
   
   const variants = {
     // Primary: "Condensed Light"
