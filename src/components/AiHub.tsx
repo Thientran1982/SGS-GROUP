@@ -726,7 +726,7 @@ const AiHub: React.FC<AiHubProps> = ({ language, initialMessage, onInitialMessag
   };
 
   return (
-    <div className="flex flex-col h-[85dvh] md:h-[calc(100vh-12rem)] min-h-[500px] max-h-[800px] w-full max-w-6xl mx-auto mt-4 md:mt-8 relative rounded-[1.5rem] md:rounded-[2rem] overflow-hidden bg-[#0a0a0c]/90 backdrop-blur-3xl border border-white/10 shadow-glass-lg group perspective-1000">
+    <div className="flex flex-col h-[85dvh] md:h-[calc(100vh-12rem)] min-h-[500px] max-h-[800px] w-full max-w-6xl mx-auto mt-4 md:mt-8 relative rounded-[1.5rem] md:rounded-[2rem] overflow-hidden bg-[#0a0a0c]/95 backdrop-blur-xl border border-white/10 shadow-glass-lg group perspective-1000">
         
         {/* === LAYER 1: TACTILE FRAME === */}
         <div className="absolute inset-0 rounded-[1.5rem] md:rounded-[2rem] shadow-inner-light pointer-events-none z-50">
