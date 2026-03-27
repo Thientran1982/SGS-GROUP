@@ -63,6 +63,15 @@ A modern React + TypeScript website for SGS GROUP showcasing AI, Automation, and
 - `TRUST_BADGES`, `TESTIMONIALS` — trust signals on Home page
 
 ## Recent Changes
+- 2026-03-27: Homepage 10/10 redesign — 6 major trust improvements:
+  - Hero subtitle contrast improved (text-slate-300 from text-slate-400)
+  - Micro-copy under CTA buttons ("⚡ Free 30-min audit · No commitment")
+  - 4-stat quick-proof strip in hero (200+ Projects, 4.9/5, 99.98% Uptime, 6 Wks)
+  - New "3 Guarantees" section (⚡ 6-Week Deployment, 💰 100% Money-Back, 🔒 Zero Breaches)
+  - Testimonials now render result badge, company name, and verified badge from existing data
+  - Final CTA Banner "See Results in 6 Weeks — Or Pay Nothing" with trust checklist
+  - Ticker expanded from 6 to 14 bilingual trust signals
+  - CTA buttons properly sized (no truncation on desktop)
 - 2026-03-27: Full SEO audit — 7 critical issues fixed (see below)
 - 2026-03-27: SEO.tsx rewritten — per-view dynamic title/description/keywords + full structured data
 - 2026-03-27: index.html improved — static fallback meta, hreflang, OG tags, JSON-LD, favicon refs
