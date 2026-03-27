@@ -261,7 +261,7 @@ const App: React.FC = () => {
 
   const HomeView = () => (
     <>
-        <div className="relative z-10 min-h-screen flex flex-col justify-center pt-20 sm:pt-24 pb-8 overflow-hidden bg-[#f8fafc] dark:bg-canvas w-full">
+        <div className="relative z-10 min-h-screen flex flex-col justify-center pt-20 sm:pt-24 pb-8 overflow-hidden bg-[#f8fafc] dark:bg-transparent w-full">
             <TechGridBackground />
             
             <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full flex-grow flex flex-col justify-center">
