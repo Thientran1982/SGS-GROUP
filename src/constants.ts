@@ -571,7 +571,7 @@ export const CONTACT_CONTENT = {
         subtitle: "Ready to transform your business? Our team is here to help.",
         connectNodeId: "CONNECT_NODE_ID_883",
         responseTime: "We respond to all enquiries within 1 business day (Mon–Fri, 9 AM–6 PM GMT+7)",
-        registrationNote: "SGS GROUP Co., Ltd — Business Reg. No. 0316547821 — Issued by HCM City Dept. of Planning & Investment",
+        registrationNote: "Sai Gon Sun Co., Ltd — Business Reg. No. 0312960439 — Issued by HCM City Dept. of Planning & Investment",
         info: [
             { 
                 label: "Address", 
@@ -600,7 +600,7 @@ export const CONTACT_CONTENT = {
         subtitle: "Sẵn sàng chuyển đổi doanh nghiệp của bạn? Đội ngũ của chúng tôi luôn sẵn sàng hỗ trợ.",
         connectNodeId: "MÃ_KẾT_NỐI_NÚT_883",
         responseTime: "Chúng tôi phản hồi mọi liên hệ trong vòng 1 ngày làm việc (Thứ 2–6, 9:00–18:00 GMT+7)",
-        registrationNote: "Công ty TNHH SGS GROUP — MST: 0316547821 — Cấp bởi Sở KH&ĐT TP.HCM",
+        registrationNote: "Công ty TNHH Sai Gon Sun — MST: 0312960439 — Cấp bởi Sở KH&ĐT TP.HCM",
         info: [
             { 
                 label: "Địa chỉ", 
