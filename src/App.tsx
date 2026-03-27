@@ -320,9 +320,10 @@ const App: React.FC = () => {
 
                     {/* RIGHT COLUMN: 3D ARTIFACT */}
                     <div className="order-2 flex justify-center items-center relative h-[220px] sm:h-[340px] md:h-[500px] overflow-hidden">
-                        {/* Background Glow — Dual-tone Cyan+Violet (2026) */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] bg-cyan-500/25 rounded-full blur-[80px] animate-pulse-slow pointer-events-none"></div>
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 translate-x-12 translate-y-8 w-[200px] h-[200px] bg-violet-500/15 rounded-full blur-[80px] animate-pulse-slow pointer-events-none [animation-delay:1.5s]"></div>
+                        {/* Circular Glow — replaces canvas drop-shadow (no box artifact) */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-cyan-500/30 rounded-full blur-[70px] animate-pulse-slow pointer-events-none"></div>
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] h-[180px] bg-cyan-400/20 rounded-full blur-[40px] animate-pulse-slow pointer-events-none"></div>
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 translate-x-16 translate-y-10 w-[220px] h-[220px] bg-violet-500/15 rounded-full blur-[80px] animate-pulse-slow pointer-events-none [animation-delay:1.5s]"></div>
                         <div className="w-full max-w-[280px] sm:max-w-sm md:max-w-md md:scale-110 lg:scale-125">
                             <Cube3D language={language} />
                         </div>

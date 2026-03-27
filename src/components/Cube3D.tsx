@@ -75,10 +75,15 @@ const Cube3D: React.FC<Cube3DProps> = () => {
     };
 
     // ── Ambient particle field ────────────────────────────────────
+    // Particles confined within R*2.2 radius circle so drop-shadow stays circular,
+    // not rectangular (which creates a visible "box" around the canvas)
     const drawParticles = () => {
       particles.forEach(p => {
         p.x = (p.x + p.vx + S) % S;
         p.y = (p.y + p.vy + S) % S;
+        const dx = p.x - cx;
+        const dy = p.y - cy;
+        if (dx * dx + dy * dy > (R * 2.2) * (R * 2.2)) return;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(6,182,212,${p.alpha})`;
@@ -377,7 +382,6 @@ const Cube3D: React.FC<Cube3DProps> = () => {
       <canvas
         ref={canvasRef}
         className="w-full h-full max-w-[520px] max-h-[520px] object-contain"
-        style={{ filter: 'drop-shadow(0 0 60px rgba(6,182,212,0.38)) drop-shadow(0 0 120px rgba(6,182,212,0.15))' }}
       />
     </div>
   );
