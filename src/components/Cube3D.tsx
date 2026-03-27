@@ -1,242 +1,382 @@
 
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 import { Language } from '../types';
-import { TEXTS } from '../constants';
 
 interface Cube3DProps {
   onInteract?: () => void;
   language: Language;
 }
 
-const Cube3D: React.FC<Cube3DProps> = ({ onInteract, language }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const outerRef = useRef<HTMLDivElement>(null);
-  const innerRef = useRef<HTMLDivElement>(null);
-  const coreRef = useRef<HTMLDivElement>(null);
-  
-  const rotation = useRef({ x: -20, y: 45 });
-  const isDragging = useRef(false);
-  const lastMousePos = useRef({ x: 0, y: 0 });
-  const lastTime = useRef(0);
-  const inertia = useRef({ x: 0, y: 0 });
-  
-  const [isBursting, setIsBursting] = useState(false);
-  const totalDragDistance = useRef(0);
+const Cube3D: React.FC<Cube3DProps> = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const animRef = useRef<number>(0);
+  const mouseRef = useRef({ x: 0.5, y: 0.5 });
 
   useEffect(() => {
-    let animationFrameId: number;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d', { alpha: true });
+    if (!ctx) return;
 
-    const animate = (time: number) => {
-      if (!lastTime.current) lastTime.current = time;
-      lastTime.current = time;
+    const S = 600;
+    canvas.width = S;
+    canvas.height = S;
+    const cx = S / 2;
+    const cy = S / 2;
+    const R = 138;
 
-      if (!isDragging.current) {
-        if (Math.abs(inertia.current.x) > 0.01 || Math.abs(inertia.current.y) > 0.01) {
-            rotation.current.x += inertia.current.x;
-            rotation.current.y += inertia.current.y;
-            inertia.current.x *= 0.96;
-            inertia.current.y *= 0.96;
-        } else {
-            rotation.current.y += 0.3; 
-            rotation.current.x = -20 + Math.sin(time * 0.001) * 8;
-        }
-      }
+    // ─── ORBITAL RINGS ───────────────────────────────────────────
+    // tiltDeg: inclination from horizontal (0=flat line, 90=full circle)
+    const rings = [
+      { tiltDeg: 22,  speed:  0.38, orbitR: R + 68, color: [6, 182, 212]  as [number,number,number], phase: 0   },
+      { tiltDeg: 74,  speed: -0.27, orbitR: R + 90, color: [99, 102, 241] as [number,number,number], phase: 2.1 },
+      { tiltDeg: 50,  speed:  0.54, orbitR: R + 50, color: [34, 211, 238] as [number,number,number], phase: 4.3 },
+    ];
 
-      if (containerRef.current) {
-        containerRef.current.style.transform = `rotateX(${rotation.current.x}deg) rotateY(${rotation.current.y}deg)`;
-      }
-      
-      if (innerRef.current) {
-          innerRef.current.style.transform = `rotateY(${rotation.current.y * -0.3}deg) rotateX(${rotation.current.x * -0.3}deg)`;
-      }
+    // ─── FLOATING DATA NODES ──────────────────────────────────────
+    const nodeLabels = ['AI', '99.9%', 'ML', 'v8.0', 'RPA', '+78%', 'API', 'GPU'];
+    const nodes = Array.from({ length: 8 }, (_, i) => ({
+      angle:       (i / 8) * Math.PI * 2,
+      dist:         R + 100 + (i % 3) * 22,
+      speed:        0.12 + (i % 4) * 0.04,
+      orbitB:       0.52 + (i % 3) * 0.12,
+      fadeOffset:   Math.random() * Math.PI * 2,
+      label:        nodeLabels[i],
+    }));
 
-      if (coreRef.current) {
-          const pulse = 1 + Math.sin(time * 0.005) * 0.15;
-          coreRef.current.style.transform = `rotateX(${time * 0.1}deg) rotateY(${time * 0.2}deg) scale(${pulse})`;
-      }
+    // ─── AMBIENT PARTICLES ────────────────────────────────────────
+    const particles = Array.from({ length: 60 }, () => ({
+      x:     Math.random() * S,
+      y:     Math.random() * S,
+      vx:    (Math.random() - 0.5) * 0.28,
+      vy:    (Math.random() - 0.5) * 0.28,
+      r:     Math.random() * 1.4 + 0.3,
+      alpha: Math.random() * 0.32 + 0.05,
+    }));
 
-      animationFrameId = requestAnimationFrame(animate);
+    // ─── PULSE WAVES ─────────────────────────────────────────────
+    const pulses: { r: number; alpha: number }[] = [];
+    let pulseTimer = 0;
+
+    let t = 0;
+
+    // ── Ambient glow around orb ───────────────────────────────────
+    const drawAmbientGlow = () => {
+      const g = ctx.createRadialGradient(cx, cy, R * 0.55, cx, cy, R * 2.6);
+      g.addColorStop(0,   'rgba(6,182,212,0.13)');
+      g.addColorStop(0.5, 'rgba(6,182,212,0.04)');
+      g.addColorStop(1,   'rgba(6,182,212,0)');
+      ctx.beginPath();
+      ctx.arc(cx, cy, R * 2.6, 0, Math.PI * 2);
+      ctx.fillStyle = g;
+      ctx.fill();
     };
 
-    animationFrameId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationFrameId);
-  }, []); 
-
-  const handleStart = useCallback((clientX: number, clientY: number) => {
-    isDragging.current = true;
-    lastMousePos.current = { x: clientX, y: clientY };
-    totalDragDistance.current = 0;
-    inertia.current = { x: 0, y: 0 };
-    if (containerRef.current) containerRef.current.style.cursor = 'grabbing';
-  }, []);
-
-  const handleMove = useCallback((clientX: number, clientY: number) => {
-    if (!isDragging.current) return;
-    const deltaX = clientX - lastMousePos.current.x;
-    const deltaY = clientY - lastMousePos.current.y;
-    totalDragDistance.current += Math.abs(deltaX) + Math.abs(deltaY);
-
-    const rotateSpeed = 0.6;
-    rotation.current.y += deltaX * rotateSpeed;
-    rotation.current.x -= deltaY * rotateSpeed;
-    rotation.current.x = Math.max(-90, Math.min(90, rotation.current.x));
-
-    inertia.current = { x: -deltaY * rotateSpeed, y: deltaX * rotateSpeed };
-    lastMousePos.current = { x: clientX, y: clientY };
-  }, []);
-
-  const handleEnd = useCallback(() => {
-    isDragging.current = false;
-    if (containerRef.current) containerRef.current.style.cursor = 'grab';
-  }, []);
-
-  useEffect(() => {
-    const onWinUp = () => handleEnd();
-    const onWinMove = (e: MouseEvent) => { if (isDragging.current) handleMove(e.clientX, e.clientY); };
-    window.addEventListener('mouseup', onWinUp);
-    window.addEventListener('mousemove', onWinMove);
-    window.addEventListener('touchend', onWinUp, { passive: true });
-    window.addEventListener('touchcancel', onWinUp, { passive: true });
-    return () => {
-      window.removeEventListener('mouseup', onWinUp);
-      window.removeEventListener('mousemove', onWinMove);
-      window.removeEventListener('touchend', onWinUp);
-      window.removeEventListener('touchcancel', onWinUp);
+    // ── Ambient particle field ────────────────────────────────────
+    const drawParticles = () => {
+      particles.forEach(p => {
+        p.x = (p.x + p.vx + S) % S;
+        p.y = (p.y + p.vy + S) % S;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(6,182,212,${p.alpha})`;
+        ctx.fill();
+      });
     };
-  }, [handleEnd, handleMove]);
 
-  const handleBurst = useCallback(() => {
-    if (!isBursting) {
-      setIsBursting(true);
-      setTimeout(() => setIsBursting(false), 1200);
-    }
-  }, [isBursting]);
+    // ── Expanding pulse rings ─────────────────────────────────────
+    const drawPulses = () => {
+      pulseTimer += 0.016;
+      if (pulseTimer > 3.2) {
+        pulses.push({ r: R + 6, alpha: 0.48 });
+        pulseTimer = 0;
+      }
+      for (let i = pulses.length - 1; i >= 0; i--) {
+        pulses[i].r    += 1.1;
+        pulses[i].alpha *= 0.971;
+        if (pulses[i].alpha < 0.008) { pulses.splice(i, 1); continue; }
+        ctx.beginPath();
+        ctx.arc(cx, cy, pulses[i].r, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(6,182,212,${pulses[i].alpha})`;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+      }
+    };
 
-  const onTouchStart = useCallback((e: React.TouchEvent) => {
-    if (e.touches && e.touches.length > 0) {
-      handleStart(e.touches[0].clientX, e.touches[0].clientY);
-    }
-  }, [handleStart]);
+    // ── Glass orb — the centrepiece ───────────────────────────────
+    const drawOrb = (mx: number, my: number) => {
+      // Subtle parallax shift based on mouse position
+      const ox = (mx - 0.5) * 12;
+      const oy = (my - 0.5) * 8;
+      const px = cx + ox * 0.5;
+      const py = cy + oy * 0.5;
 
-  const onTouchMove = useCallback((e: React.TouchEvent) => {
-    if (e.touches && e.touches.length > 0) {
-      handleMove(e.touches[0].clientX, e.touches[0].clientY);
-    }
-  }, [handleMove]);
+      // ── Chromatic aberration (RGB fringe at sphere edge) ──────
+      ctx.save();
+      ctx.globalCompositeOperation = 'screen';
+      const caData: [number, string, string][] = [
+        [ 3, 'rgba(255,40,40,0.12)', 'rgba(255,0,0,0)'],
+        [-3, 'rgba(40,40,255,0.12)', 'rgba(0,0,255,0)'],
+      ];
+      caData.forEach(([d, c1, c2]) => {
+        const gca = ctx.createRadialGradient(px - R * 0.3 + d, py - R * 0.35, R * 0.06, px + d, py, R + 5);
+        gca.addColorStop(0,    'rgba(0,0,0,0)');
+        gca.addColorStop(0.74, 'rgba(0,0,0,0)');
+        gca.addColorStop(0.88, c1);
+        gca.addColorStop(1,    c2);
+        ctx.beginPath();
+        ctx.arc(px + d, py, R + 5, 0, Math.PI * 2);
+        ctx.fillStyle = gca;
+        ctx.fill();
+      });
+      ctx.restore();
+
+      // ── Clipped interior ──────────────────────────────────────
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(px, py, R, 0, Math.PI * 2);
+      ctx.clip();
+
+      // Main body: deep glass
+      const body = ctx.createRadialGradient(px - R * 0.32, py - R * 0.38, R * 0.03, px, py, R);
+      body.addColorStop(0,    'rgba(185,248,255,0.62)');
+      body.addColorStop(0.14, 'rgba(75,215,245,0.30)');
+      body.addColorStop(0.40, 'rgba(10,44,88,0.56)');
+      body.addColorStop(0.76, 'rgba(3,12,36,0.84)');
+      body.addColorStop(1,    'rgba(0,3,14,0.97)');
+      ctx.fillStyle = body;
+      ctx.fillRect(px - R - 6, py - R - 6, (R + 6) * 2, (R + 6) * 2);
+
+      // Iridescent inner glow — hue slowly shifts cyan → indigo
+      const hue = (Math.sin(t * 0.45) + 1) * 0.5;
+      const ir = Math.round(6  + hue * 48);
+      const ig = Math.round(182 - hue * 78);
+      const ib = Math.round(212 + hue * 28);
+      const innerGlow = ctx.createRadialGradient(px, py, 0, px, py, R * 0.78);
+      innerGlow.addColorStop(0,   `rgba(${ir},${ig},${ib},0.22)`);
+      innerGlow.addColorStop(0.55, `rgba(${ir},${ig},${ib},0.08)`);
+      innerGlow.addColorStop(1,    'rgba(0,0,0,0)');
+      ctx.fillStyle = innerGlow;
+      ctx.fillRect(px - R - 6, py - R - 6, (R + 6) * 2, (R + 6) * 2);
+
+      // Surface grid — latitude & longitude lines
+      ctx.globalAlpha = 0.07;
+      ctx.strokeStyle = '#22d3ee';
+      ctx.lineWidth = 0.75;
+
+      // Latitude rings (horizontal ellipses)
+      for (let lat = -60; lat <= 60; lat += 30) {
+        const yr  = py + R * Math.sin(lat * Math.PI / 180);
+        const xr  = R  * Math.cos(lat * Math.PI / 180);
+        ctx.beginPath();
+        ctx.ellipse(px, yr, xr, xr * 0.11, 0, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+      // Longitude arcs (rotating — creates sense of sphere spin)
+      for (let i = 0; i < 5; i++) {
+        const lng = t * 0.14 + i * (Math.PI / 5);
+        const ew  = R * Math.abs(Math.cos(lng));
+        ctx.beginPath();
+        ctx.ellipse(px, py, ew, R, 0, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+      ctx.restore(); // end clip
+
+      // ── Rim light — cyan halo at sphere edge ──────────────────
+      const rim = ctx.createRadialGradient(px, py, R * 0.58, px, py, R * 1.02);
+      rim.addColorStop(0,    'rgba(6,182,212,0)');
+      rim.addColorStop(0.68, 'rgba(6,182,212,0)');
+      rim.addColorStop(0.82, 'rgba(6,182,212,0.22)');
+      rim.addColorStop(0.93, 'rgba(34,211,238,0.40)');
+      rim.addColorStop(1,    'rgba(6,182,212,0)');
+      ctx.beginPath();
+      ctx.arc(px, py, R, 0, Math.PI * 2);
+      ctx.fillStyle = rim;
+      ctx.fill();
+
+      // ── Primary specular — bright white spot top-left ─────────
+      const spec = ctx.createRadialGradient(
+        px - R * 0.42, py - R * 0.45, 0,
+        px - R * 0.27, py - R * 0.30, R * 0.55
+      );
+      spec.addColorStop(0,    'rgba(255,255,255,0.94)');
+      spec.addColorStop(0.22, 'rgba(215,250,255,0.60)');
+      spec.addColorStop(0.60, 'rgba(145,225,255,0.12)');
+      spec.addColorStop(1,    'rgba(0,0,0,0)');
+      ctx.beginPath();
+      ctx.arc(px, py, R, 0, Math.PI * 2);
+      ctx.fillStyle = spec;
+      ctx.fill();
+
+      // ── Secondary specular — cyan tint bottom-right ───────────
+      const spec2 = ctx.createRadialGradient(
+        px + R * 0.5, py + R * 0.5, 0,
+        px + R * 0.38, py + R * 0.38, R * 0.30
+      );
+      spec2.addColorStop(0, 'rgba(6,182,212,0.32)');
+      spec2.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.beginPath();
+      ctx.arc(px, py, R, 0, Math.PI * 2);
+      ctx.fillStyle = spec2;
+      ctx.fill();
+    };
+
+    // ── Orbital ring + comet trail ────────────────────────────────
+    // inFront=false → draw "behind" (before orb), inFront=true → "in front" (after orb)
+    const drawRing = (ring: typeof rings[0], time: number, inFront: boolean) => {
+      const { tiltDeg, speed, orbitR, color, phase } = ring;
+      const b    = orbitR * Math.sin(tiltDeg * Math.PI / 180); // semi-minor axis
+      const a    = orbitR;
+      const angle = time * speed + phase;
+      const TRAIL = 30;
+
+      // Full dashed orbit path drawn once (before orb pass)
+      if (!inFront) {
+        ctx.save();
+        ctx.setLineDash([5, 13]);
+        ctx.beginPath();
+        ctx.ellipse(cx, cy, a, b, 0, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(${color[0]},${color[1]},${color[2]},0.16)`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.restore();
+      }
+
+      // Comet trail — only draw segments that match current depth pass
+      for (let i = TRAIL; i >= 0; i--) {
+        const ta  = angle - i * 0.10;
+        const tx  = cx + a * Math.cos(ta);
+        const ty  = cy + b * Math.sin(ta);
+        const isFront = ty >= cy; // lower-half of ellipse = closer to viewer
+        if (isFront !== inFront) continue;
+
+        const progress = 1 - i / TRAIL;
+        ctx.beginPath();
+        ctx.arc(tx, ty, progress * 4.5, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${color[0]},${color[1]},${color[2]},${progress * 0.88})`;
+        ctx.fill();
+      }
+
+      // Particle head
+      const hx = cx + a * Math.cos(angle);
+      const hy = cy + b * Math.sin(angle);
+      if ((hy >= cy) === inFront) {
+        ctx.save();
+        ctx.shadowColor = `rgb(${color[0]},${color[1]},${color[2]})`;
+        ctx.shadowBlur  = 22;
+        ctx.beginPath();
+        ctx.arc(hx, hy, 7, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${color[0]},${color[1]},${color[2]},1)`;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.restore();
+      }
+    };
+
+    // ── Floating data nodes ───────────────────────────────────────
+    const drawNodes = (time: number) => {
+      nodes.forEach((node, i) => {
+        node.angle += node.speed * 0.009;
+        const alpha = 0.55 + 0.45 * Math.sin(time * 1.1 + node.fadeOffset);
+        const nx = cx + node.dist * Math.cos(node.angle);
+        const ny = cy + node.dist * node.orbitB * Math.sin(node.angle);
+
+        ctx.save();
+        ctx.globalAlpha = alpha;
+        ctx.translate(nx, ny);
+
+        // Slowly rotating diamond marker
+        const rot = time * 0.28 + i * 0.85;
+        ctx.rotate(rot);
+        const s = 5.5;
+        ctx.beginPath();
+        ctx.moveTo(0, -s * 1.3);
+        ctx.lineTo(s, 0);
+        ctx.lineTo(0, s * 1.3);
+        ctx.lineTo(-s, 0);
+        ctx.closePath();
+        ctx.strokeStyle = 'rgba(6,182,212,0.95)';
+        ctx.fillStyle   = 'rgba(6,182,212,0.14)';
+        ctx.lineWidth   = 1.2;
+        ctx.stroke();
+        ctx.fill();
+        ctx.rotate(-rot);
+
+        // Monospace label below diamond
+        ctx.font      = 'bold 9px JetBrains Mono, monospace';
+        ctx.fillStyle = 'rgba(34,211,238,0.95)';
+        ctx.textAlign = 'center';
+        ctx.fillText(node.label, 0, s * 1.3 + 15);
+
+        // Faint connection line to orb center
+        ctx.globalAlpha = alpha * 0.13;
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(-nx + cx, -ny + cy);
+        ctx.strokeStyle = 'rgba(6,182,212,0.6)';
+        ctx.lineWidth   = 0.6;
+        ctx.stroke();
+
+        ctx.restore();
+      });
+    };
+
+    // ─── MAIN ANIMATION LOOP ──────────────────────────────────────
+    const animate = (ts: number) => {
+      ctx.clearRect(0, 0, S, S);
+      t = ts * 0.001;
+
+      const mx = mouseRef.current.x;
+      const my = mouseRef.current.y;
+
+      // Z-order:
+      // 1. ambient layer
+      drawAmbientGlow();
+      drawParticles();
+      drawPulses();
+
+      // 2. ring segments behind sphere
+      rings.forEach(r => drawRing(r, t, false));
+
+      // 3. glass orb (covers behind-sphere ring segments)
+      drawOrb(mx, my);
+
+      // 4. ring segments + nodes in front
+      rings.forEach(r => drawRing(r, t, true));
+      drawNodes(t);
+
+      animRef.current = requestAnimationFrame(animate);
+    };
+
+    animRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animRef.current);
+  }, []);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    mouseRef.current = {
+      x: (e.clientX - rect.left) / rect.width,
+      y: (e.clientY - rect.top)  / rect.height,
+    };
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    mouseRef.current = { x: 0.5, y: 0.5 };
+  }, []);
 
   return (
-    <div 
-      className="w-full h-full min-h-[280px] flex items-center justify-center overflow-visible py-6 md:py-10 relative group touch-none cursor-grab select-none"
-      style={{ perspective: '1000px' }}
-      onMouseDown={(e) => handleStart(e.clientX, e.clientY)}
-      onTouchStart={onTouchStart}
-      onTouchMove={onTouchMove}
-      onClick={handleBurst}
+    <div
+      className="w-full h-full min-h-[280px] flex items-center justify-center relative select-none"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
     >
-      <style>{`
-        .preserve-3d { transform-style: preserve-3d; }
-        
-        @keyframes gyro-spin-x { 0% { transform: rotateX(0deg); } 100% { transform: rotateX(360deg); } }
-        @keyframes gyro-spin-y { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
-        @keyframes data-scan { 
-            0% { background-position: 0% 0%; } 
-            100% { background-position: 0% 200%; } 
-        }
-        @keyframes laser-sweep {
-            0% { top: -10%; opacity: 0; }
-            20% { opacity: 1; }
-            80% { opacity: 1; }
-            100% { top: 110%; opacity: 0; }
-        }
-      `}</style>
-
-      <div className="absolute bottom-0 md:bottom-12 left-1/2 -translate-x-1/2 w-48 h-48 md:w-72 md:h-72 bg-cyan-500/10 rounded-full blur-[50px] transform rotateX(70deg) pointer-events-none transition-all duration-700 group-hover:bg-cyan-500/20 group-hover:scale-125"></div>
-
-      <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-gradient-to-r from-blue-500 via-cyan-400 to-white rounded-full blur-[80px] transition-all duration-500 ease-out pointer-events-none ${isBursting ? 'scale-[5] opacity-0' : 'scale-0 opacity-40'}`}></div>
-
-      <div 
-        ref={containerRef}
-        className={`relative w-[50vmin] h-[50vmin] max-w-[16rem] max-h-[16rem] md:w-64 md:h-64 preserve-3d will-change-transform transition-transform duration-300 cube-root ${isBursting ? 'scale-95' : ''}`}
-      >
-        
-        <div className="absolute inset-[-50px] rounded-full border border-slate-500/30 dark:border-cyan-500/40 border-dashed preserve-3d animate-[gyro-spin-x_30s_linear_infinite] pointer-events-none shadow-[0_0_15px_rgba(6,182,212,0.1)]">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-cyan-400 rounded-full shadow-[0_0_10px_cyan]"></div>
-        </div>
-        <div className="absolute inset-[-30px] rounded-full border border-slate-500/30 dark:border-blue-500/40 preserve-3d animate-[gyro-spin-y_35s_linear_infinite_reverse] pointer-events-none shadow-[0_0_15px_rgba(59,130,246,0.1)]">
-             <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-blue-500 rounded-full shadow-[0_0_10px_blue]"></div>
-        </div>
-
-        <div ref={outerRef} className="absolute inset-0 preserve-3d">
-             {[
-               'rotateY(0deg) translateZ(calc(var(--cube-size)/2))',    
-               'rotateY(180deg) translateZ(calc(var(--cube-size)/2))',  
-               'rotateY(90deg) translateZ(calc(var(--cube-size)/2))',   
-               'rotateY(-90deg) translateZ(calc(var(--cube-size)/2))',  
-               'rotateX(90deg) translateZ(calc(var(--cube-size)/2))',   
-               'rotateX(-90deg) translateZ(calc(var(--cube-size)/2))'   
-             ].map((transform, i) => (
-                <div key={`outer-${i}`} 
-                    className="absolute inset-0 border border-white/30 bg-[#0a0a0c]/60 backdrop-blur-[6px] flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:bg-cyan-500/10 group-hover:border-cyan-400/60 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)]"
-                    style={{ transform }}
-                >
-                    <div className="absolute inset-0 opacity-20 bg-[linear-gradient(transparent_0%,rgba(6,182,212,0.6)_50%,transparent_100%)] bg-[length:100%_200%] animate-[data-scan_3s_linear_infinite]"></div>
-                    
-                    <div className="absolute left-0 right-0 h-[2px] bg-cyan-400 shadow-[0_0_10px_cyan] animate-[laser-sweep_3s_ease-in-out_infinite]" style={{ animationDelay: `${i * 0.5}s` }}></div>
-
-                    <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-cyan-500"></div>
-                    <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-cyan-500"></div>
-                    <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-cyan-500"></div>
-                    <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-cyan-500"></div>
-                    
-                    <div className="absolute inset-0 flex items-center justify-center opacity-40">
-                        <div className="w-6 h-[1px] bg-cyan-400"></div>
-                        <div className="h-6 w-[1px] bg-cyan-400 absolute"></div>
-                    </div>
-                </div>
-             ))}
-        </div>
-
-        <div ref={innerRef} className="absolute inset-10 preserve-3d pointer-events-none">
-             {[
-               'rotateY(0deg) translateZ(calc(var(--inner-size)/2))',    
-               'rotateY(180deg) translateZ(calc(var(--inner-size)/2))',  
-               'rotateY(90deg) translateZ(calc(var(--inner-size)/2))',   
-               'rotateY(-90deg) translateZ(calc(var(--inner-size)/2))',  
-               'rotateX(90deg) translateZ(calc(var(--inner-size)/2))',   
-               'rotateX(-90deg) translateZ(calc(var(--inner-size)/2))'   
-             ].map((transform, i) => (
-                <div key={`inner-${i}`} 
-                    className="absolute inset-0 border-2 border-blue-500/60 bg-transparent flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.2)]"
-                    style={{ transform }}
-                >
-                    <div className="w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_10px_white]"></div>
-                </div>
-             ))}
-        </div>
-
-        <div 
-            ref={coreRef}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[25%] h-[25%] preserve-3d will-change-transform"
-        >
-            <div className="absolute inset-0 rounded-full bg-black border-2 border-cyan-400 shadow-[0_0_50px_rgba(6,182,212,1)]"></div>
-            <div className="absolute inset-[-12px] border-2 border-transparent border-l-cyan-400 border-r-blue-500 rounded-full animate-[spin_1s_linear_infinite] opacity-90"></div>
-            <div className="absolute inset-[-6px] border border-white/50 rounded-full animate-[spin_3s_linear_infinite_reverse]"></div>
-        </div>
-
-      </div>
-      
-      <style>{`
-          .cube-root {
-             --cube-size: min(50vmin, 16rem);
-             --inner-size: calc(min(50vmin, 16rem) - 5rem);
-          }
-          @media (min-width: 768px) {
-             .cube-root {
-                --cube-size: 16rem;
-                --inner-size: 10rem;
-             }
-          }
-      `}</style>
+      <canvas
+        ref={canvasRef}
+        className="w-full h-full max-w-[520px] max-h-[520px] object-contain"
+        style={{ filter: 'drop-shadow(0 0 50px rgba(6,182,212,0.28))' }}
+      />
     </div>
   );
 };
