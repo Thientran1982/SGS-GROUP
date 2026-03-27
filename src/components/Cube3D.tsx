@@ -45,13 +45,14 @@ const Cube3D: React.FC<Cube3DProps> = () => {
     }));
 
     // ─── AMBIENT PARTICLES ────────────────────────────────────────
+    // Reduced alpha so canvas doesn't create visible "haze box" over background
     const particles = Array.from({ length: 60 }, () => ({
       x:     Math.random() * S,
       y:     Math.random() * S,
       vx:    (Math.random() - 0.5) * 0.28,
       vy:    (Math.random() - 0.5) * 0.28,
       r:     Math.random() * 1.4 + 0.3,
-      alpha: Math.random() * 0.32 + 0.05,
+      alpha: Math.random() * 0.12 + 0.03,
     }));
 
     // ─── PULSE WAVES ─────────────────────────────────────────────
@@ -61,13 +62,14 @@ const Cube3D: React.FC<Cube3DProps> = () => {
     let t = 0;
 
     // ── Ambient glow around orb ───────────────────────────────────
+    // Tighter radius + lower opacity so it doesn't create visible canvas-box on background
     const drawAmbientGlow = () => {
-      const g = ctx.createRadialGradient(cx, cy, R * 0.55, cx, cy, R * 2.6);
-      g.addColorStop(0,   'rgba(6,182,212,0.13)');
-      g.addColorStop(0.5, 'rgba(6,182,212,0.04)');
+      const g = ctx.createRadialGradient(cx, cy, R * 0.6, cx, cy, R * 1.8);
+      g.addColorStop(0,   'rgba(6,182,212,0.08)');
+      g.addColorStop(0.6, 'rgba(6,182,212,0.02)');
       g.addColorStop(1,   'rgba(6,182,212,0)');
       ctx.beginPath();
-      ctx.arc(cx, cy, R * 2.6, 0, Math.PI * 2);
+      ctx.arc(cx, cy, R * 1.8, 0, Math.PI * 2);
       ctx.fillStyle = g;
       ctx.fill();
     };
@@ -137,13 +139,13 @@ const Cube3D: React.FC<Cube3DProps> = () => {
       ctx.arc(px, py, R, 0, Math.PI * 2);
       ctx.clip();
 
-      // Main body: deep glass
+      // Main body: deep glass — darkest stop matches canvas #030712 (3,7,18)
       const body = ctx.createRadialGradient(px - R * 0.32, py - R * 0.38, R * 0.03, px, py, R);
       body.addColorStop(0,    'rgba(185,248,255,0.62)');
       body.addColorStop(0.14, 'rgba(75,215,245,0.30)');
       body.addColorStop(0.40, 'rgba(10,44,88,0.56)');
-      body.addColorStop(0.76, 'rgba(3,12,36,0.84)');
-      body.addColorStop(1,    'rgba(0,3,14,0.97)');
+      body.addColorStop(0.76, 'rgba(4,10,28,0.84)');
+      body.addColorStop(1,    'rgba(3,7,18,0.97)');
       ctx.fillStyle = body;
       ctx.fillRect(px - R - 6, py - R - 6, (R + 6) * 2, (R + 6) * 2);
 
@@ -375,7 +377,7 @@ const Cube3D: React.FC<Cube3DProps> = () => {
       <canvas
         ref={canvasRef}
         className="w-full h-full max-w-[520px] max-h-[520px] object-contain"
-        style={{ filter: 'drop-shadow(0 0 50px rgba(6,182,212,0.28))' }}
+        style={{ filter: 'drop-shadow(0 0 60px rgba(6,182,212,0.38)) drop-shadow(0 0 120px rgba(6,182,212,0.15))' }}
       />
     </div>
   );
