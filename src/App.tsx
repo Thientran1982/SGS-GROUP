@@ -31,7 +31,9 @@ import {
   LEADERSHIP_CONTENT,
   PARTNERS_CONTENT,
   TESTIMONIALS,
-  TRUST_BADGES
+  TRUST_BADGES,
+  HOW_WE_WORK,
+  TECH_STACK_LIST
 } from './constants';
 import { Language, Theme } from './types';
 
@@ -409,17 +411,80 @@ const App: React.FC = () => {
     </>
   );
 
-  const ServicesView = () => (
+  const ServicesView = () => {
+    const howWeWork = language === 'en' ? HOW_WE_WORK.en : HOW_WE_WORK.vi;
+    return (
     <SectionContainer>
         <SectionHeading title={TEXTS[language].features} subtitle={TEXTS[language].techStack} />
+
+        {/* === TECH STACK STRIP === */}
+        <div className="flex flex-wrap gap-2 justify-center mb-14 pb-14 border-b border-surface-border">
+            {TECH_STACK_LIST.map((tech, i) => (
+                <div key={i} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/10 hover:border-primary-DEFAULT/30 hover:bg-primary-DEFAULT/5 transition-all cursor-default group">
+                    <span className="text-[9px] font-mono text-slate-600 uppercase tracking-wider group-hover:text-primary-DEFAULT/60 transition-colors">{tech.category}</span>
+                    <span className="text-slate-700">·</span>
+                    <span className="text-xs font-semibold text-slate-400 group-hover:text-white transition-colors">{tech.name}</span>
+                </div>
+            ))}
+        </div>
+
+        {/* === HOW WE DELIVER SECTION === */}
+        <div className="mb-20">
+            <div className="text-center mb-12">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-DEFAULT/10 border border-primary-DEFAULT/20 text-primary-DEFAULT text-[10px] font-mono uppercase tracking-widest mb-4">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary-DEFAULT animate-pulse"></span>
+                    {language === 'en' ? 'Our Process' : 'Quy Trình Của Chúng Tôi'}
+                </div>
+                <h2 className="text-3xl md:text-4xl font-black text-white mb-3">{howWeWork.title}</h2>
+                <p className="text-slate-400 max-w-xl mx-auto text-sm">{howWeWork.subtitle}</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+                <div className="hidden lg:block absolute top-10 left-[14%] right-[14%] h-px bg-gradient-to-r from-transparent via-primary-DEFAULT/25 to-transparent pointer-events-none"></div>
+                {howWeWork.steps.map((step, i) => (
+                    <div key={i} className="relative">
+                        <GlassCard className="p-6 h-full" hoverEffect={false}>
+                            <div className="flex items-start gap-3 mb-5">
+                                <span className="text-4xl font-black text-white/10 font-mono leading-none select-none">{step.number}</span>
+                                <div className="w-9 h-9 rounded-lg bg-primary-DEFAULT/10 border border-primary-DEFAULT/20 flex items-center justify-center text-primary-DEFAULT shrink-0 mt-1">
+                                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={step.icon} />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3 className="font-bold text-white text-sm mb-1">{step.title}</h3>
+                            <span className="text-[10px] font-mono text-primary-DEFAULT uppercase tracking-widest">{step.duration}</span>
+                            <p className="text-xs text-slate-400 leading-relaxed mt-3">{step.desc}</p>
+                        </GlassCard>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        {/* === SERVICE CARDS === */}
         <div className="grid grid-cols-1 gap-8 md:gap-12">
             {SERVICES.map((service, index) => (
                 <GlassCard key={service.id} className="p-0 overflow-hidden" hoverEffect={false} onClick={() => navigateToService(service.id)}>
                     <div className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} cursor-pointer group/card`}>
                         <div className="p-6 md:p-8 lg:p-12 flex-1 flex flex-col justify-center transition-colors group-hover/card:bg-white/5">
-                             <div className="flex items-center gap-3 mb-4"><div className="p-2 rounded-lg bg-primary-DEFAULT/10 text-primary-DEFAULT border border-primary-DEFAULT/20"><svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="currentColor"><path d={service.icon}/></svg></div><MonoLabel className="text-primary-DEFAULT">{language === 'en' ? 'Module' : 'Mô-đun'} 0{index + 1}</MonoLabel></div>
+                             <div className="flex items-center gap-3 mb-4">
+                                 <div className="p-2 rounded-lg bg-primary-DEFAULT/10 text-primary-DEFAULT border border-primary-DEFAULT/20"><svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="currentColor"><path d={service.icon}/></svg></div>
+                                 <MonoLabel className="text-primary-DEFAULT">{language === 'en' ? 'Module' : 'Mô-đun'} 0{index + 1}</MonoLabel>
+                                 {(language === 'en' ? service.deployTimeEn : service.deployTimeVi) && (
+                                     <span className="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-[9px] font-mono text-emerald-400 uppercase tracking-wider">
+                                         <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                         {language === 'en' ? service.deployTimeEn : service.deployTimeVi}
+                                     </span>
+                                 )}
+                             </div>
                              <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-white mb-4 group-hover/card:text-primary-glow transition-colors">{language === 'en' ? service.titleEn : service.titleVi}</h3>
-                             <p className="text-sm md:text-base text-slate-300 leading-relaxed mb-6 md:mb-8">{language === 'en' ? service.longDescEn : service.longDescVi}</p>
+                             <p className="text-sm md:text-base text-slate-300 leading-relaxed mb-5">{language === 'en' ? service.longDescEn : service.longDescVi}</p>
+                             {service.techStack && (
+                                 <div className="flex flex-wrap gap-1.5 mb-6">
+                                     {service.techStack.map((t, ti) => (
+                                         <span key={ti} className="text-[10px] px-2 py-0.5 rounded bg-black/40 border border-white/10 text-slate-400 font-mono">{t}</span>
+                                     ))}
+                                 </div>
+                             )}
                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-6 md:mb-8">{(language === 'en' ? service.featuresEn : service.featuresVi).slice(0, 4).map((feat, i) => (<div key={i} className="flex items-start gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary-DEFAULT mt-1.5 shrink-0"></div><span className="text-xs md:text-sm font-medium text-slate-400">{feat}</span></div>))}</div>
                              <div className="pt-6 border-t border-surface-border"><div className="flex items-center justify-between gap-4"><div><div className="text-xl md:text-2xl font-bold text-white">{service.useCases[0].stat}</div><div className="text-[9px] md:text-[10px] uppercase tracking-wider text-slate-500">{language === 'en' ? service.useCases[0].statLabelEn : service.useCases[0].statLabelVi}</div></div><span className="text-xs font-bold uppercase tracking-wider text-primary-DEFAULT group-hover/card:underline underline-offset-4 decoration-2">{language === 'en' ? 'View Details & ROI' : 'Xem Chi Tiết & ROI'} &rarr;</span></div></div>
                         </div>
@@ -432,7 +497,8 @@ const App: React.FC = () => {
             ))}
         </div>
     </SectionContainer>
-  );
+    );
+  };
 
   const ServiceDetailView = () => {
       const serviceIndex = SERVICES.findIndex(s => s.id === selectedServiceId);
@@ -467,7 +533,7 @@ const App: React.FC = () => {
                       <GlassCard className="p-8 h-full" hoverEffect={false}><h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2"><svg className="w-5 h-5 text-status-success" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>{language === 'en' ? 'Strategic Benefits' : 'Lợi Ích Chiến Lược'}</h3><ul className="space-y-4">{(language === 'en' ? service.benefitsEn : service.benefitsVi).map((ben, i) => (<li key={i} className="flex items-start gap-3"><svg className="w-4 h-4 text-status-success mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg><span className="text-sm text-slate-300">{ben}</span></li>))}</ul></GlassCard>
                       <GlassCard className="p-8 h-full" hoverEffect={false}><h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2"><svg className="w-5 h-5 text-accent-DEFAULT" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>{TEXTS[language].useCases}</h3><div className="space-y-6">{service.useCases.map((uc, i) => (<div key={i} className="border-l-2 border-white/10 pl-4 group hover:border-primary-DEFAULT transition-colors"><div className="text-sm font-bold text-white mb-1 group-hover:text-primary-glow">{language === 'en' ? uc.titleEn : uc.titleVi}</div><div className="text-xs text-slate-400 mb-2">{language === 'en' ? uc.descEn : uc.descVi}</div><div className="flex items-center gap-2"><span className="text-lg font-bold text-primary-DEFAULT">{uc.stat}</span><span className="text-[10px] uppercase text-slate-500 font-mono">{language === 'en' ? uc.statLabelEn : uc.statLabelVi}</span></div></div>))}</div></GlassCard>
                   </div>
-                  {roi && <div className="mb-20"><SectionHeading title={TEXTS[language].roiTitle} subtitle={TEXTS[language].roiSubtitle} align="center" /><div className="max-w-4xl mx-auto"><GlassCard className="p-8 md:p-12 relative overflow-hidden" hoverEffect={false}><div className="absolute top-0 right-0 w-64 h-64 bg-primary-DEFAULT/5 rounded-full blur-[80px]"></div><div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10"><div className="space-y-8"><RangeSlider label={language === 'en' ? roi.inputALabelEn : roi.inputALabelVi} value={inputA} min={0} max={roi.inputAMax} step={roi.inputAStep} unit={roi.inputAUnit} onChange={setInputA} /><RangeSlider label={language === 'en' ? roi.inputBLabelEn : roi.inputBLabelVi} value={inputB} min={0} max={roi.inputBMax} step={roi.inputBStep} unit={roi.inputBUnit} onChange={setInputB} /><div className="p-4 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-400 italic">* {language === 'en' ? 'Estimated annual savings based on standard efficiency metrics.' : 'Ước tính tiết kiệm hàng năm dựa trên các chỉ số hiệu quả tiêu chuẩn.'}</div></div><div className="text-center md:text-right"><div className="text-xs font-mono font-bold uppercase text-slate-500 mb-2 tracking-widest">{TEXTS[language].estimatedSavings}</div><div className="text-5xl md:text-6xl font-black text-white mb-2 tracking-tight text-shadow-neon"><AnimatedCounter end={calculatedSavings} prefix={roi.currency} /></div><div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-status-success/10 text-status-success text-xs font-bold border border-status-success/20"><svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>{Math.floor(roi.efficiencyFactor * 100)}% {language === 'en' ? 'Efficiency Boost' : 'Tăng Hiệu Suất'}</div></div></div></GlassCard></div></div>}
+                  {roi && <div className="mb-20"><SectionHeading title={TEXTS[language].roiTitle} subtitle={TEXTS[language].roiSubtitle} align="center" /><div className="max-w-4xl mx-auto"><GlassCard className="p-8 md:p-12 relative overflow-hidden" hoverEffect={false}><div className="absolute top-0 right-0 w-64 h-64 bg-primary-DEFAULT/5 rounded-full blur-[80px]"></div><div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10"><div className="space-y-8"><RangeSlider label={language === 'en' ? roi.inputALabelEn : roi.inputALabelVi} value={inputA} min={0} max={roi.inputAMax} step={roi.inputAStep} unit={roi.inputAUnit} onChange={setInputA} /><RangeSlider label={language === 'en' ? roi.inputBLabelEn : roi.inputBLabelVi} value={inputB} min={0} max={roi.inputBMax} step={roi.inputBStep} unit={roi.inputBUnit} onChange={setInputB} /><div className="p-4 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-400 italic">* {language === 'en' ? 'Estimated annual savings based on standard efficiency metrics from client deployments.' : 'Ước tính tiết kiệm hàng năm dựa trên các chỉ số hiệu quả từ triển khai thực tế của khách hàng.'}</div></div><div className="text-center md:text-right"><div className="text-xs font-mono font-bold uppercase text-slate-500 mb-2 tracking-widest">{TEXTS[language].estimatedSavings}</div><div className="text-5xl md:text-6xl font-black text-white mb-2 tracking-tight text-shadow-neon"><AnimatedCounter end={calculatedSavings} prefix={roi.currency} /></div><div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-status-success/10 text-status-success text-xs font-bold border border-status-success/20"><svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>{language === 'en' ? (roi.badgeLabelEn ?? `${Math.floor(roi.efficiencyFactor * 100)}% Efficiency Boost`) : (roi.badgeLabelVi ?? `Tăng ${Math.floor(roi.efficiencyFactor * 100)}% Hiệu Suất`)}</div></div></div></GlassCard></div></div>}
               </div>
           </div>
       );

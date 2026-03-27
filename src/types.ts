@@ -25,7 +25,6 @@ export interface UseCase {
 }
 
 export interface RoiConfig {
-    // Variable A (e.g., Number of Employees / Volume)
     inputALabelEn: string;
     inputALabelVi: string;
     inputAUnit: string;
@@ -33,7 +32,6 @@ export interface RoiConfig {
     inputAStep: number;
     inputADefault: number;
 
-    // Variable B (e.g., Hourly Rate / Cost per Unit)
     inputBLabelEn: string;
     inputBLabelVi: string;
     inputBUnit: string;
@@ -41,9 +39,11 @@ export interface RoiConfig {
     inputBStep: number;
     inputBDefault: number;
 
-    // Calculation Factors
-    efficiencyFactor: number; // e.g., 0.4 for 40% improvement
+    efficiencyFactor: number;
     currency: string;
+
+    badgeLabelEn?: string;
+    badgeLabelVi?: string;
 }
 
 export interface ServiceItem {
@@ -53,7 +53,9 @@ export interface ServiceItem {
   descEn: string;
   descVi: string;
   icon: string;
-  // Detailed Content
+  deployTimeEn?: string;
+  deployTimeVi?: string;
+  techStack?: string[];
   longDescEn: string;
   longDescVi: string;
   featuresEn: string[];
@@ -61,7 +63,7 @@ export interface ServiceItem {
   benefitsEn: string[];
   benefitsVi: string[];
   useCases: UseCase[];
-  roiConfig?: RoiConfig; // Updated for Advanced Calculator
+  roiConfig?: RoiConfig;
 }
 
 export interface ChatSession {

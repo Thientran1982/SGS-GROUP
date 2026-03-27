@@ -56,7 +56,20 @@ A modern React + TypeScript website for SGS GROUP showcasing AI, Automation, and
 - `DATABASE_URL` - PostgreSQL connection string (auto-configured)
 - `GEMINI_API_KEY` - Google Gemini API key for AI chat
 
+## Key Constants
+- `HOW_WE_WORK` — 4-phase delivery process (Discovery, Pilot, Deployment, Support) in EN/VI
+- `TECH_STACK_LIST` — 12 technology badges shown on Technology page
+- `SERVICES` — 5 services with deployTime, techStack[], badgeLabelEn/Vi on ROI configs
+- `TRUST_BADGES`, `TESTIMONIALS` — trust signals on Home page
+
 ## Recent Changes
+- 2026-03-27: Rewrote all 5 service descriptions — specific metrics, real client results, no marketing fluff
+- 2026-03-27: Added HOW_WE_WORK (4-phase delivery process) + TECH_STACK_LIST constants
+- 2026-03-27: Technology page: tech stack strip + "How We Deliver" process section
+- 2026-03-27: Fixed ROI calculator badge bug (was showing "2500% Efficiency Boost" for Data Analytics)
+- 2026-03-27: Replaced "military-grade", "zero error rate" with specific, verifiable claims
+- 2026-03-27: Fixed Gemini model name: gemini-3-pro-preview → gemini-2.0-flash
+- 2026-03-27: Fixed TypeScript errors in ErrorBoundary.tsx (React 19 compatibility)
 - 2025-12-23: Migrated from Tailwind CDN to build-time Tailwind CSS v4
 - 2025-12-23: Added backend with Express, PostgreSQL, and Drizzle ORM
 - 2025-12-23: Created API endpoints for contacts, services, and chat
