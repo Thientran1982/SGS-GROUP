@@ -261,15 +261,15 @@ const App: React.FC = () => {
 
   const HomeView = () => (
     <>
-        <div className="relative z-10 min-h-screen flex flex-col justify-center pt-24 pb-8 overflow-hidden bg-[#f8fafc] dark:bg-canvas w-full">
+        <div className="relative z-10 min-h-screen flex flex-col justify-center pt-20 sm:pt-24 pb-8 overflow-hidden bg-[#f8fafc] dark:bg-canvas w-full">
             <TechGridBackground />
             
             <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full flex-grow flex flex-col justify-center">
                 {/* 2026 LAYOUT: SPLIT SCREEN FOR PROFESSIONAL DASHBOARD FEEL */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 lg:gap-8 items-center">
                     
                     {/* LEFT COLUMN: INFORMATION ARCHITECTURE */}
-                    <div className="order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left relative z-40">
+                    <div className="order-1 flex flex-col items-center lg:items-start text-center lg:text-left relative z-40">
                         {/* Status Bar / Ticker - Now Left Aligned on Desktop */}
                         <div className="w-full max-w-lg mb-4">
                             <TechTicker language={language} className="mx-auto lg:mx-0" />
@@ -285,7 +285,7 @@ const App: React.FC = () => {
                             </DisplayHeading>
                         </div>
 
-                        <p className="text-base md:text-lg text-slate-300 max-w-xl leading-relaxed mb-6 md:mb-8 animate-fade-in-up [animation-delay:400ms]">
+                        <p className="text-base md:text-lg text-slate-600 dark:text-slate-300 max-w-xl leading-relaxed mb-6 md:mb-8 animate-fade-in-up [animation-delay:400ms]">
                             {TEXTS[language].heroSubtitle}
                         </p>
 
@@ -302,7 +302,7 @@ const App: React.FC = () => {
                             {language === 'en' ? '⚡ Free 30-min audit · No commitment · Response <24h' : '⚡ Tư vấn miễn phí 30 phút · Không ràng buộc · Phản hồi <24h'}
                         </p>
 
-                        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 mt-5 pt-5 border-t border-white/5 animate-fade-in-up [animation-delay:900ms]">
+                        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 mt-5 pt-5 border-t border-slate-200 dark:border-white/5 animate-fade-in-up [animation-delay:900ms]">
                             {[
                                 { value: '200+', labelEn: 'Projects', labelVi: 'Dự án' },
                                 { value: '4.9/5', labelEn: 'Avg. Rating', labelVi: 'Đánh giá' },
@@ -310,16 +310,16 @@ const App: React.FC = () => {
                                 { value: '6 Wks', labelEn: 'Deployment', labelVi: 'Triển khai' },
                             ].map((s, i) => (
                                 <div key={i} className="flex items-center gap-1.5">
-                                    <span className="text-sm font-black text-white">{s.value}</span>
+                                    <span className="text-sm font-black text-slate-900 dark:text-white">{s.value}</span>
                                     <span className="text-[10px] text-slate-500 uppercase tracking-wider font-mono">{language === 'en' ? s.labelEn : s.labelVi}</span>
-                                    {i < 3 && <span className="hidden sm:block w-px h-3.5 bg-white/10 ml-1.5"></span>}
+                                    {i < 3 && <span className="hidden sm:block w-px h-3.5 bg-slate-300 dark:bg-white/10 ml-1.5"></span>}
                                 </div>
                             ))}
                         </div>
                     </div>
 
                     {/* RIGHT COLUMN: 3D ARTIFACT */}
-                    <div className="order-1 lg:order-2 flex justify-center items-center relative h-[320px] sm:h-[400px] md:h-[600px] overflow-hidden">
+                    <div className="order-2 flex justify-center items-center relative h-[220px] sm:h-[340px] md:h-[500px] overflow-hidden">
                         {/* Background Glow for 3D Object */}
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-cyan-500/20 rounded-full blur-[100px] animate-pulse-slow pointer-events-none"></div>
                         <div className="w-full max-w-[280px] sm:max-w-sm md:max-w-md md:scale-110 lg:scale-125">
@@ -382,7 +382,7 @@ const App: React.FC = () => {
                             descVi: 'ISO 27001 · AES-256 · Tuân thủ PDPA. Dữ liệu của bạn không bao giờ rời khỏi hệ thống của bạn.',
                         },
                     ].map((item, i) => (
-                        <div key={i} className={`relative p-8 rounded-2xl border bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300 group ${item.colorClass}`}>
+                        <div key={i} className={`relative p-6 md:p-8 rounded-2xl border bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300 group ${item.colorClass}`}>
                             <div className="text-4xl mb-5">{item.emoji}</div>
                             <div className={`text-[10px] font-mono font-bold uppercase tracking-widest mb-1 flex items-center gap-2 ${item.tagClass}`}>
                                 <span className={`w-1.5 h-1.5 rounded-full ${item.dotClass} animate-pulse`}></span>
@@ -526,7 +526,7 @@ const App: React.FC = () => {
                     <span className="w-1.5 h-1.5 rounded-full bg-primary-DEFAULT animate-pulse"></span>
                     {language === 'en' ? 'Zero-Risk Engagement' : 'Cam Kết Không Rủi Ro'}
                 </div>
-                <h2 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight whitespace-pre-line">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 leading-tight whitespace-pre-line">
                     {language === 'en'
                         ? 'See Results in 6 Weeks —\nOr Pay Nothing.'
                         : 'Kết Quả Trong 6 Tuần —\nHoặc Hoàn Tiền 100%.'}
