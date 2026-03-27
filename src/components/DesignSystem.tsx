@@ -103,9 +103,9 @@ export const NeonButton: React.FC<NeonButtonProps> = ({ children, onClick, varia
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shine_0.8s_ease-in-out]"></div>
       )}
       
-      <span className="relative z-20 flex items-center gap-2 font-sans tracking-wide font-bold">
-        {children}
-        {icon && <span className="text-current opacity-80 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-0.5 duration-200">{icon}</span>}
+      <span className="relative z-20 flex items-center gap-2 font-sans tracking-wide font-bold min-w-0">
+        {icon && <span className="shrink-0 text-current opacity-80 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-0.5 duration-200">{icon}</span>}
+        <span className="truncate">{children}</span>
       </span>
     </button>
   );
