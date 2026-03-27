@@ -37,42 +37,6 @@ import {
 } from './constants';
 import { Language, Theme } from './types';
 
-// --- SYSTEM SYNC ALERT COMPONENT ---
-const SystemSyncAlert: React.FC<{ language: Language }> = ({ language }) => {
-    const [visible, setVisible] = useState(false);
-    
-    useEffect(() => {
-        const timer = setTimeout(() => setVisible(true), 1500);
-        const hideTimer = setTimeout(() => setVisible(false), 5000);
-        return () => { clearTimeout(timer); clearTimeout(hideTimer); };
-    }, []);
-
-    if (!visible) return null;
-
-    return (
-        <div className="fixed bottom-6 right-6 z-[60] max-w-[calc(100vw-3rem)] w-full sm:max-w-xs animate-fade-in-up pointer-events-none">
-            <div className="relative overflow-hidden rounded-lg bg-white/95 dark:bg-[#0a0a0c]/90 border-l-2 border-primary-DEFAULT backdrop-blur-xl shadow-neon-cyan p-4 pointer-events-auto">
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-DEFAULT/10 to-transparent pointer-events-none"></div>
-                <div className="flex items-start gap-3 relative z-10">
-                    <div className="mt-1">
-                        <div className="w-2 h-2 rounded-full bg-primary-DEFAULT animate-pulse shadow-[0_0_10px_cyan]"></div>
-                    </div>
-                    <div>
-                        <div className="text-[10px] font-mono font-bold text-primary-DEFAULT uppercase tracking-widest mb-1">
-                            {language === 'en' ? "System Online" : "Hệ Thống Trực Tuyến"}
-                        </div>
-                        <div className="text-xs text-slate-600 dark:text-slate-300 font-mono">
-                            SGS AI CORE <span className="text-slate-900 dark:text-white font-bold">v8.0</span>
-                        </div>
-                    </div>
-                    <button onClick={() => setVisible(false)} className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    );
-};
 
 const AnimatedCounter: React.FC<{ end: number; duration?: number; prefix?: string; suffix?: string; decimals?: number }> = ({ end, duration = 1500, prefix = '', suffix = '', decimals = 0 }) => {
   const [count, setCount] = useState(0);
@@ -886,8 +850,6 @@ const App: React.FC = () => {
       <BackgroundSystem theme={theme} />
       <NavBar currentView={currentView} setCurrentView={setCurrentView} language={language} setLanguage={setLanguage} theme={theme} setTheme={setTheme} />
       
-      <SystemSyncAlert language={language} />
-
       <main className="relative pt-16 flex-grow flex flex-col">
         {currentView === 'home' && <HomeView />}
         {currentView === 'services' && <ServicesView />}
