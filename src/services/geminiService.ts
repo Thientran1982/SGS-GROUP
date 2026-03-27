@@ -61,7 +61,7 @@ export const startChat = (previousMessages: Message[] = [], language: Language =
 
   try {
       chatSession = ai.chats.create({
-        model: 'gemini-3-pro-preview', // Upgraded to 3.0 Pro for maximum intelligence
+        model: 'gemini-2.0-flash',
         history: history,
         config: {
           systemInstruction: `You are SGS AI v8.0, the advanced intelligence core for SGS GROUP. 

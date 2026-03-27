@@ -9,6 +9,9 @@ interface State {
 }
 
 class ErrorBoundary extends Component<Props, State> {
+  declare state: State;
+  declare props: Readonly<Props>;
+
   constructor(props: Props) {
     super(props);
     this.state = { hasError: false };
@@ -22,7 +25,7 @@ class ErrorBoundary extends Component<Props, State> {
     console.error('ErrorBoundary caught:', error, errorInfo);
   }
 
-  render() {
+  render(): ReactNode {
     if (this.state.hasError) {
       return (
         <div className="min-h-screen bg-[#050505] flex items-center justify-center p-6">
