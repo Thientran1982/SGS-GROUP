@@ -106,19 +106,19 @@ const NavBar: React.FC<NavBarProps> = ({
         ${scrolled ? 'top-2 md:top-4' : 'top-4 md:top-6'}
       `}>
         {/* Main HUD Container - CRYSTALLINE SHARD */}
-        <div className={`pointer-events-auto relative rounded-full flex items-center justify-between gap-1.5 md:gap-8 border transition-all duration-500 w-full max-w-[98%] md:max-w-fit backdrop-blur-xl overflow-hidden group/nav-container shadow-inner-light
+        <div className={`pointer-events-auto relative rounded-full flex items-center justify-between gap-1.5 md:gap-4 border transition-all duration-500 w-full max-w-[98%] md:max-w-fit backdrop-blur-xl overflow-hidden group/nav-container shadow-inner-light
             ${scrolled 
-                ? 'bg-white/80 dark:bg-[#050505]/80 border-slate-200/80 dark:border-white/10 p-1.5 pl-3 md:pl-4 pr-1.5 backdrop-saturate-150 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.1)]' 
-                : 'bg-white/60 dark:bg-[#050505]/50 border-white/40 dark:border-white/10 p-1.5 md:p-2.5 md:pl-6 md:pr-2.5 shadow-[0_4px_20px_-5px_rgba(0,0,0,0.05)]'
+                ? 'bg-white/85 dark:bg-[#050505]/85 border-slate-200/80 dark:border-white/10 p-1 pl-2.5 md:pl-3 pr-1 backdrop-saturate-150 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.1)]' 
+                : 'bg-white/65 dark:bg-[#050505]/55 border-white/40 dark:border-white/10 p-1 md:p-1.5 md:pl-4 md:pr-1.5 shadow-[0_4px_20px_-5px_rgba(0,0,0,0.05)]'
             }
         `}>
           
           {/* Logo Area */}
           <div 
-            className="flex items-center gap-2 md:gap-3 cursor-pointer group flex-shrink-0 pl-1"
+            className="flex items-center gap-1.5 md:gap-2 cursor-pointer group flex-shrink-0"
             onClick={() => setCurrentView('home')}
           >
-            <div className="relative w-8 h-8 md:w-10 md:h-10 flex items-center justify-center">
+            <div className="relative w-7 h-7 flex items-center justify-center">
                 <div className="absolute inset-0 bg-blue-500/20 dark:bg-cyan-400/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-all duration-500 scale-125"></div>
                 <svg viewBox="0 0 100 100" className="w-full h-full transform transition-transform duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:rotate-[360deg] drop-shadow-sm">
                     <path d="M50 15 L85 35 V75 L50 95 L15 75 V35 Z" className="stroke-slate-900 dark:stroke-white stroke-[6] fill-white dark:fill-[#0a0a0a] transition-colors" strokeLinejoin="round" />
@@ -127,19 +127,17 @@ const NavBar: React.FC<NavBarProps> = ({
                 </svg>
             </div>
             
-            <div className="flex flex-col justify-center">
-                <span className="font-display font-black text-base md:text-xl tracking-tighter text-slate-900 dark:text-white leading-none group-hover:tracking-widest transition-all duration-500">SGS GROUP</span>
-            </div>
+            <span className="font-display font-black text-sm tracking-tight text-slate-900 dark:text-white leading-none group-hover:tracking-wide transition-all duration-500">SGS GROUP</span>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center bg-slate-100/50 dark:bg-white/5 rounded-full p-1 border border-white/40 dark:border-white/5 backdrop-blur-md shadow-inner-light">
+          <div className="hidden md:flex items-center bg-slate-100/50 dark:bg-white/5 rounded-full p-0.5 border border-white/40 dark:border-white/5 backdrop-blur-md shadow-inner-light">
             {NAV_ITEMS.map((item) => (
               <MagneticButton
                 key={item.id}
                 onClick={() => setCurrentView(item.id)}
                 isActive={currentView === item.id}
-                className={`relative px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider overflow-hidden group/nav ${
+                className={`relative px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider overflow-hidden group/nav ${
                   currentView === item.id 
                     ? 'text-white shadow-[0_2px_10px_rgba(59,130,246,0.3)]' 
                     : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
@@ -161,27 +159,27 @@ const NavBar: React.FC<NavBarProps> = ({
           </div>
 
           {/* Right Action Area */}
-          <div className="flex items-center gap-1.5 md:gap-3 pl-2 md:pl-6 md:border-l border-slate-200/80 dark:border-white/10 h-8">
+          <div className="flex items-center gap-1.5 md:gap-2 pl-1.5 md:pl-3 md:border-l border-slate-200/80 dark:border-white/10 h-7">
               {/* Language Switch */}
               <button 
                   onClick={() => setLanguage(language === 'en' ? 'vi' : 'en')}
-                  className="relative w-10 md:w-12 h-6 md:h-7 rounded-full border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-black/40 overflow-hidden group transition-all hover:border-blue-400 dark:hover:border-cyan-400 shadow-inner-light"
+                  className="relative w-10 h-5 rounded-full border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-black/40 overflow-hidden group transition-all hover:border-blue-400 dark:hover:border-cyan-400 shadow-inner-light"
                   title="Toggle Language"
               >
-                   <div className={`absolute top-0.5 bottom-0.5 w-[50%] bg-white dark:bg-cyan-900/80 dark:border dark:border-cyan-400/50 rounded-full shadow-[0_0_10px_rgba(6,182,212,0.3)] transition-all duration-500 cubic-bezier(0.175, 0.885, 0.32, 1.275) ${language === 'en' ? 'left-0.5' : 'left-[46%]'}`}>
+                   <div className={`absolute top-0.5 bottom-0.5 w-[50%] bg-white dark:bg-cyan-900/80 dark:border dark:border-cyan-400/50 rounded-full shadow-[0_0_10px_rgba(6,182,212,0.3)] transition-all duration-500 ${language === 'en' ? 'left-0.5' : 'left-[46%]'}`}>
                       <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-white/40 to-transparent rounded-full opacity-70"></div>
                    </div>
                    
-                   <div className="relative z-10 flex w-full h-full items-center justify-between px-1.5 md:px-2">
-                       <span className={`text-[7px] md:text-[8px] font-bold font-mono transition-colors duration-300 ${language === 'en' ? 'text-blue-600 dark:text-white' : 'text-slate-400 opacity-50'}`}>EN</span>
-                       <span className={`text-[7px] md:text-[8px] font-bold font-mono transition-colors duration-300 ${language === 'vi' ? 'text-blue-600 dark:text-white' : 'text-slate-400 opacity-50'}`}>VN</span>
+                   <div className="relative z-10 flex w-full h-full items-center justify-between px-1.5">
+                       <span className={`text-[7px] font-bold font-mono transition-colors duration-300 ${language === 'en' ? 'text-blue-600 dark:text-white' : 'text-slate-400 opacity-50'}`}>EN</span>
+                       <span className={`text-[7px] font-bold font-mono transition-colors duration-300 ${language === 'vi' ? 'text-blue-600 dark:text-white' : 'text-slate-400 opacity-50'}`}>VN</span>
                    </div>
               </button>
 
-              {/* Theme Switch - PRISM BUTTON v6.1 */}
+              {/* Theme Switch */}
               <button
                   onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                  className={`relative w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-500 overflow-hidden group flex-shrink-0 shadow-inner-light
+                  className={`relative w-7 h-7 rounded-full flex items-center justify-center border transition-all duration-500 overflow-hidden group flex-shrink-0 shadow-inner-light
                     ${theme === 'light' 
                         ? 'bg-amber-50 border-amber-200 shadow-[0_0_15px_rgba(251,191,36,0.3)] hover:bg-amber-100' 
                         : 'bg-slate-900 border-white/10 hover:border-cyan-500/50 hover:bg-black'
@@ -204,7 +202,7 @@ const NavBar: React.FC<NavBarProps> = ({
               {/* Mobile Menu Trigger */}
                <button 
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  className={`md:hidden w-8 h-8 rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-all duration-200 border flex-shrink-0 touch-manipulation shadow-inner-light
+                  className={`md:hidden w-7 h-7 rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-all duration-200 border flex-shrink-0 touch-manipulation shadow-inner-light
                     ${isMobileMenuOpen 
                         ? 'bg-red-500 text-white border-red-400 rotate-90' 
                         : 'bg-slate-900 dark:bg-white/10 text-white dark:text-white border-transparent hover:border-cyan-400'
