@@ -205,23 +205,23 @@ export const PHONETIC_MAP: Record<string, string> = {
 export const TEXTS = {
   en: {
     heroTitle: "Future Intelligence",
-    heroSubtitle: "SGS GROUP empowers your business with next-gen AI solutions.",
+    heroSubtitle: "We help businesses in Vietnam & Southeast Asia automate processes, analyze data, and scale operations using enterprise-grade AI — delivered by a team of 40+ engineers since 2020.",
     cta: "Explore AI Hub",
     learnMore: "Learn More",
     aiHubWelcome: "Welcome to SGS AI Hub. How can I assist you today?",
     placeholder: "Ask anything about technology...",
     features: "Our Technologies",
     coreModules: "CORE_MODULES",
-    footer: "© 2024 SGS GROUP. All rights reserved.",
+    footer: "© 2026 SGS GROUP. All rights reserved.",
     toggleTheme: "Switch Theme",
     loading: "Thinking...",
     error: "Connection interrupted. Please try again.",
     // New Footer Texts
-    footerTagline: "Pioneering the boundary between humanity and artificial intelligence.",
+    footerTagline: "Trusted by 50+ businesses across Vietnam & Southeast Asia. Delivering measurable AI impact since 2020.",
     quickLinks: "Navigation",
     legal: "Legal",
     stayUpdated: "Newsletter",
-    subscribePlaceholder: "ENTER_NEURAL_LINK_ID", // Tech-themed placeholder
+    subscribePlaceholder: "your@email.com",
     subscribeBtn: "Subscribe",
     privacy: "Privacy Policy",
     terms: "Terms & Conditions",
@@ -317,7 +317,7 @@ export const TEXTS = {
     systemOnline: "SYSTEM ONLINE",
     tapToInit: "TAP TO INITIALIZE",
     // Ticker
-    ticker: ["SGS AI CORE V8.0 ACTIVATED", "QUANTUM DATA ENCRYPTION ENABLED", "GLOBAL NODES: CONNECTED", "LATENCY: 12ms", "SYSTEM: OPTIMAL"],
+    ticker: ["200+ PROJECTS DELIVERED", "UPTIME: 99.98%", "CLIENTS IN 12+ COUNTRIES", "RESPONSE TIME: <24H", "ISO 27001 COMPLIANT", "4.9/5 CLIENT SATISFACTION"],
     // ROI
     roiTitle: "Advanced ROI Projection",
     roiSubtitle: "Estimate annual impact based on your metrics",
@@ -333,23 +333,23 @@ export const TEXTS = {
   },
   vi: {
     heroTitle: "Trí Tuệ Tương Lai",
-    heroSubtitle: "SGS GROUP nâng tầm doanh nghiệp của bạn với giải pháp AI thế hệ mới.",
+    heroSubtitle: "Chúng tôi hỗ trợ doanh nghiệp Việt Nam & Đông Nam Á tự động hóa quy trình, phân tích dữ liệu và mở rộng quy mô bằng AI cấp doanh nghiệp — đội ngũ 40+ kỹ sư, hoạt động từ năm 2020.",
     cta: "Khám Phá AI Hub",
     learnMore: "Xem Chi Tiết",
     aiHubWelcome: "Chào mừng đến với SGS AI Hub. Tôi có thể giúp gì cho bạn?",
     placeholder: "Hỏi bất cứ điều gì về công nghệ...",
     features: "Công Nghệ Tiên Tiến",
     coreModules: "MÔ_ĐUN_CỐT_LÕI",
-    footer: "© 2024 SGS GROUP. Bảo lưu mọi quyền.",
+    footer: "© 2026 SGS GROUP. Bảo lưu mọi quyền.",
     toggleTheme: "Đổi Giao Diện",
     loading: "Đang suy nghĩ...",
     error: "Kết nối bị gián đoạn. Vui lòng thử lại.",
     // New Footer Texts
-    footerTagline: "Tiên phong xóa nhòa ranh giới giữa con người và trí tuệ nhân tạo.",
+    footerTagline: "Được tin dùng bởi 50+ doanh nghiệp tại Việt Nam & Đông Nam Á. Tạo ra tác động AI thực sự từ năm 2020.",
     quickLinks: "Điều Hướng",
     legal: "Pháp Lý",
     stayUpdated: "Bản Tin Công Nghệ",
-    subscribePlaceholder: "NHẬP_EMAIL_KẾT_NỐI", 
+    subscribePlaceholder: "email@cuaban.com",
     subscribeBtn: "Đăng Ký",
     privacy: "Chính Sách Bảo Mật",
     terms: "Điều Khoản Dịch Vụ",
@@ -445,7 +445,7 @@ export const TEXTS = {
     systemOnline: "HỆ THỐNG ONLINE",
     tapToInit: "CHẠM ĐỂ KHỞI ĐỘNG",
     // Ticker
-    ticker: ["SGS AI CORE V8.0 ACTIVATED", "MÃ HÓA DỮ LIỆU LƯỢNG TỬ: BẬT", "MẠNG LƯỚI TOÀN CẦU: ĐÃ KẾT NỐI", "ĐỘ TRỄ: 12ms", "HỆ THỐNG: TỐI ƯU"],
+    ticker: ["200+ DỰ ÁN HOÀN THÀNH", "UPTIME: 99.98%", "KHÁCH HÀNG TẠI 12+ QUỐC GIA", "PHẢN HỒI: <24H", "CHUẨN ISO 27001", "4.9/5 HÀI LÒNG KHÁCH HÀNG"],
     // ROI
     roiTitle: "Dự Báo Hiệu Quả Đầu Tư",
     roiSubtitle: "Ước tính tác động dựa trên chỉ số của bạn",
@@ -1110,4 +1110,98 @@ export const PARTNERS_CONTENT = [
     { name: "NVIDIA" },
     { name: "Intel" },
     { name: "IBM" }
+];
+
+export const TESTIMONIALS = {
+    en: [
+        {
+            quote: "SGS GROUP reduced our invoice processing time from 3 days to under 2 hours. The automation is flawless — our finance team can now focus on strategy, not data entry.",
+            name: "Nguyen Thi Lan",
+            role: "CFO, VietRetail Corp.",
+            rating: 5,
+            industry: "Retail & E-commerce"
+        },
+        {
+            quote: "Their Data Analytics platform gave us real-time visibility across 14 warehouses. We improved demand forecasting accuracy by 40% in the first quarter alone.",
+            name: "James Pham",
+            role: "Operations Director, LogiViet",
+            rating: 5,
+            industry: "Logistics"
+        },
+        {
+            quote: "The AI chatbot they built handles 70% of our customer queries 24/7. Our CSAT score jumped from 3.8 to 4.7 within 6 months of deployment.",
+            name: "Tran Minh Duc",
+            role: "Head of Customer Experience, FinTech One",
+            rating: 5,
+            industry: "Financial Technology"
+        }
+    ],
+    vi: [
+        {
+            quote: "SGS GROUP giảm thời gian xử lý hóa đơn của chúng tôi từ 3 ngày xuống còn dưới 2 giờ. Hệ thống tự động hóa hoạt động hoàn hảo — đội tài chính giờ có thể tập trung vào chiến lược thay vì nhập liệu.",
+            name: "Nguyễn Thị Lan",
+            role: "CFO, Công ty VietRetail",
+            rating: 5,
+            industry: "Bán lẻ & Thương mại điện tử"
+        },
+        {
+            quote: "Nền tảng phân tích dữ liệu của SGS cho chúng tôi khả năng hiển thị thời gian thực trên 14 kho hàng. Độ chính xác dự báo nhu cầu tăng 40% chỉ trong quý đầu tiên.",
+            name: "James Phạm",
+            role: "Giám đốc Vận hành, LogiViet",
+            rating: 5,
+            industry: "Logistics"
+        },
+        {
+            quote: "Chatbot AI họ xây dựng xử lý 70% câu hỏi khách hàng 24/7. Điểm CSAT của chúng tôi tăng từ 3.8 lên 4.7 chỉ sau 6 tháng triển khai.",
+            name: "Trần Minh Đức",
+            role: "Trưởng bộ phận CSKH, FinTech One",
+            rating: 5,
+            industry: "Công nghệ Tài chính"
+        }
+    ]
+};
+
+export const TRUST_BADGES = [
+    {
+        labelEn: "ISO 27001",
+        labelVi: "ISO 27001",
+        descEn: "Information Security",
+        descVi: "Bảo mật thông tin",
+        icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+    },
+    {
+        labelEn: "AES-256",
+        labelVi: "AES-256",
+        descEn: "Encrypted Data Transfer",
+        descVi: "Mã hóa dữ liệu",
+        icon: "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+    },
+    {
+        labelEn: "99.98% Uptime",
+        labelVi: "99.98% Uptime",
+        descEn: "Guaranteed SLA",
+        descVi: "Cam kết SLA",
+        icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+    },
+    {
+        labelEn: "PDPA Compliant",
+        labelVi: "Tuân thủ PDPA",
+        descEn: "Data Protection Act",
+        descVi: "Luật bảo vệ dữ liệu",
+        icon: "M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"
+    },
+    {
+        labelEn: "24/7 Support",
+        labelVi: "Hỗ trợ 24/7",
+        descEn: "Dedicated Success Team",
+        descVi: "Đội hỗ trợ chuyên biệt",
+        icon: "M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
+    },
+    {
+        labelEn: "Est. 2020",
+        labelVi: "Thành lập 2020",
+        descEn: "6 Years of Excellence",
+        descVi: "6 năm phát triển",
+        icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+    }
 ];

@@ -29,7 +29,9 @@ import {
   CONTACT_CONTENT, 
   LEGAL_CONTENT, 
   LEADERSHIP_CONTENT,
-  PARTNERS_CONTENT
+  PARTNERS_CONTENT,
+  TESTIMONIALS,
+  TRUST_BADGES
 } from './constants';
 import { Language, Theme } from './types';
 
@@ -336,6 +338,70 @@ const App: React.FC = () => {
 
                         {/* Hover Border Glow */}
                         <div className="absolute inset-0 border border-transparent group-hover:border-cyan-500/20 rounded-xl md:rounded-2xl pointer-events-none transition-colors duration-500"></div>
+                    </GlassCard>
+                ))}
+            </div>
+        </SectionContainer>
+
+        {/* === TRUST BADGES SECTION === */}
+        <SectionContainer className="py-12 border-t border-surface-border bg-canvas-subtle/30">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                {TRUST_BADGES.map((badge, i) => (
+                    <div key={i} className="flex flex-col items-center gap-3 p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-primary-DEFAULT/20 hover:bg-white/[0.04] transition-all group text-center">
+                        <div className="w-10 h-10 rounded-lg bg-primary-DEFAULT/10 border border-primary-DEFAULT/20 flex items-center justify-center text-primary-DEFAULT group-hover:scale-110 transition-transform">
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={badge.icon} />
+                            </svg>
+                        </div>
+                        <div>
+                            <div className="text-xs font-bold text-white">{language === 'en' ? badge.labelEn : badge.labelVi}</div>
+                            <div className="text-[10px] text-slate-500 mt-0.5">{language === 'en' ? badge.descEn : badge.descVi}</div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </SectionContainer>
+
+        {/* === TESTIMONIALS SECTION === */}
+        <SectionContainer className="py-20 border-t border-surface-border">
+            <div className="text-center mb-12">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-mono uppercase tracking-widest mb-4">
+                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    {language === 'en' ? 'Client Results' : 'Kết Quả Khách Hàng'}
+                </div>
+                <h2 className="text-3xl md:text-4xl font-black text-white mb-3">
+                    {language === 'en' ? 'What Our Clients Say' : 'Khách Hàng Nói Gì Về Chúng Tôi'}
+                </h2>
+                <p className="text-slate-400 text-base max-w-xl mx-auto">
+                    {language === 'en'
+                        ? 'Real outcomes from businesses that trusted SGS GROUP to transform their operations.'
+                        : 'Kết quả thực từ các doanh nghiệp đã tin tưởng SGS GROUP chuyển đổi hoạt động của họ.'}
+                </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {(language === 'en' ? TESTIMONIALS.en : TESTIMONIALS.vi).map((t, i) => (
+                    <GlassCard key={i} className="p-8 flex flex-col h-full relative overflow-hidden" hoverEffect={false}>
+                        <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-amber-500/50 to-transparent"></div>
+                        <div className="flex gap-1 mb-5">
+                            {Array.from({ length: t.rating }).map((_, s) => (
+                                <svg key={s} className="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            ))}
+                        </div>
+                        <blockquote className="text-sm text-slate-300 leading-relaxed flex-grow mb-6 italic">
+                            &ldquo;{t.quote}&rdquo;
+                        </blockquote>
+                        <div className="border-t border-white/5 pt-5 flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-DEFAULT/30 to-accent-DEFAULT/30 border border-white/10 flex items-center justify-center text-xs font-bold text-white shrink-0">
+                                {t.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
+                            </div>
+                            <div>
+                                <div className="text-sm font-bold text-white">{t.name}</div>
+                                <div className="text-[10px] text-slate-500">{t.role}</div>
+                                <div className="text-[9px] font-mono text-primary-DEFAULT mt-0.5 uppercase tracking-wider">{t.industry}</div>
+                            </div>
+                        </div>
                     </GlassCard>
                 ))}
             </div>
