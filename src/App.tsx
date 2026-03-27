@@ -46,7 +46,7 @@ const SystemSyncAlert: React.FC<{ language: Language }> = ({ language }) => {
     if (!visible) return null;
 
     return (
-        <div className="fixed bottom-6 right-6 z-[60] max-w-xs animate-fade-in-up pointer-events-none">
+        <div className="fixed bottom-6 right-6 z-[60] max-w-[calc(100vw-3rem)] w-full sm:max-w-xs animate-fade-in-up pointer-events-none">
             <div className="relative overflow-hidden rounded-lg bg-[#0a0a0c]/90 border-l-2 border-primary-DEFAULT backdrop-blur-xl shadow-neon-cyan p-4 pointer-events-auto">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary-DEFAULT/10 to-transparent pointer-events-none"></div>
                 <div className="flex items-start gap-3 relative z-10">
@@ -257,7 +257,7 @@ const App: React.FC = () => {
 
   const HomeView = () => (
     <>
-        <div className="relative z-10 min-h-screen flex flex-col justify-center pt-24 pb-8 overflow-hidden bg-canvas">
+        <div className="relative z-10 min-h-screen flex flex-col justify-center pt-24 pb-8 overflow-hidden bg-canvas w-full">
             <TechGridBackground />
             
             <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full flex-grow flex flex-col justify-center">
@@ -292,10 +292,10 @@ const App: React.FC = () => {
                     </div>
 
                     {/* RIGHT COLUMN: 3D ARTIFACT */}
-                    <div className="order-1 lg:order-2 flex justify-center items-center relative h-[400px] md:h-[600px]">
+                    <div className="order-1 lg:order-2 flex justify-center items-center relative h-[320px] sm:h-[400px] md:h-[600px] overflow-hidden">
                         {/* Background Glow for 3D Object */}
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-cyan-500/20 rounded-full blur-[100px] animate-pulse-slow pointer-events-none"></div>
-                        <div className="w-full max-w-md scale-110 lg:scale-125">
+                        <div className="w-full max-w-[280px] sm:max-w-sm md:max-w-md md:scale-110 lg:scale-125">
                             <Cube3D language={language} />
                         </div>
                     </div>
@@ -309,11 +309,11 @@ const App: React.FC = () => {
             {/* V6.1 DATA MODULES (CARTRIDGES) */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {SERVICES.slice(0, 3).map((service, i) => (
-                    <GlassCard key={service.id} className="p-0 group relative overflow-hidden h-full" onClick={() => navigateToService(service.id)}>
+                    <GlassCard key={service.id} className="p-0 group relative overflow-hidden h-full flex flex-col" onClick={() => navigateToService(service.id)}>
                         <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         
                         {/* Module Header */}
-                        <div className="px-6 pt-6 pb-2 flex justify-between items-start">
+                        <div className="px-6 pt-6 pb-2 flex justify-between items-start shrink-0">
                             <div className="w-12 h-12 rounded-lg bg-surface-glassHigh border border-surface-borderHigh flex items-center justify-center text-primary-DEFAULT group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(6,182,212,0.1)] group-hover:shadow-[0_0_20px_rgba(6,182,212,0.3)]">
                                 <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d={service.icon} /></svg>
                             </div>
@@ -323,7 +323,7 @@ const App: React.FC = () => {
                         </div>
 
                         {/* Content Body */}
-                        <div className="px-6 py-4 flex flex-col h-[calc(100%-80px)]">
+                        <div className="px-6 py-4 flex flex-col flex-1">
                             <h3 className="text-lg font-bold text-white mb-2 group-hover:text-primary-glow transition-colors">{language === 'en' ? service.titleEn : service.titleVi}</h3>
                             <p className="text-sm text-slate-400 leading-relaxed line-clamp-2 mb-4 flex-grow">{language === 'en' ? service.descEn : service.descVi}</p>
                             
