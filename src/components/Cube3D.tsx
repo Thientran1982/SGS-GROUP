@@ -126,7 +126,8 @@ const Cube3D: React.FC<Cube3DProps> = ({ onInteract, language }) => {
 
   return (
     <div 
-      className="w-full h-[45vh] md:h-[500px] flex items-center justify-center overflow-visible py-10 perspective-1000 relative group touch-none cursor-grab select-none"
+      className="w-full h-full min-h-[280px] flex items-center justify-center overflow-visible py-6 md:py-10 relative group touch-none cursor-grab select-none"
+      style={{ perspective: '1000px' }}
       onMouseDown={(e) => handleStart(e.clientX, e.clientY)}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
@@ -155,7 +156,7 @@ const Cube3D: React.FC<Cube3DProps> = ({ onInteract, language }) => {
 
       <div 
         ref={containerRef}
-        className={`relative w-[50vmin] h-[50vmin] max-w-[16rem] max-h-[16rem] md:w-64 md:h-64 preserve-3d will-change-transform transition-transform duration-300 ${isBursting ? 'scale-95' : ''}`}
+        className={`relative w-[50vmin] h-[50vmin] max-w-[16rem] max-h-[16rem] md:w-64 md:h-64 preserve-3d will-change-transform transition-transform duration-300 cube-root ${isBursting ? 'scale-95' : ''}`}
       >
         
         <div className="absolute inset-[-50px] rounded-full border border-slate-500/30 dark:border-cyan-500/40 border-dashed preserve-3d animate-[gyro-spin-x_30s_linear_infinite] pointer-events-none shadow-[0_0_15px_rgba(6,182,212,0.1)]">
@@ -225,13 +226,13 @@ const Cube3D: React.FC<Cube3DProps> = ({ onInteract, language }) => {
       </div>
       
       <style>{`
-          div[class*="preserve-3d"] {
-             --cube-size: 50vmin;
-             --inner-size: 30vmin;
+          .cube-root {
+             --cube-size: min(50vmin, 16rem);
+             --inner-size: calc(min(50vmin, 16rem) - 5rem);
           }
           @media (min-width: 768px) {
-             div[class*="preserve-3d"] {
-                --cube-size: 16rem; 
+             .cube-root {
+                --cube-size: 16rem;
                 --inner-size: 10rem;
              }
           }
