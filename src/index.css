@@ -73,7 +73,14 @@
   }
 }
 
-html, body {
+html {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
   margin: 0;
   padding: 0;
   background-color: #020408;
@@ -84,13 +91,14 @@ html, body {
   overscroll-behavior-y: contain;
   overscroll-behavior-x: none;
   overflow-x: hidden;
+  overflow-y: auto;
   min-height: 100%;
   -webkit-overflow-scrolling: touch;
 }
 
 @supports (-webkit-touch-callout: none) {
-  html, body {
-    height: -webkit-fill-available;
+  body {
+    min-height: -webkit-fill-available;
   }
 }
 
