@@ -136,14 +136,14 @@ const NavBar: React.FC<NavBarProps> = ({
               <MagneticButton
                 key={item.id}
                 onClick={() => setCurrentView(item.id)}
-                isActive={currentView === item.id}
+                isActive={currentView === item.id || (currentView === 'service-detail' && item.id === 'services')}
                 className={`relative px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider overflow-hidden group/nav ${
-                  currentView === item.id 
+                  (currentView === item.id || (currentView === 'service-detail' && item.id === 'services'))
                     ? 'text-white shadow-[0_2px_10px_rgba(59,130,246,0.3)]' 
                     : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                 }`}
               >
-                {currentView === item.id && (
+                {(currentView === item.id || (currentView === 'service-detail' && item.id === 'services')) && (
                   <div className="absolute inset-0 bg-slate-900 dark:bg-cyan-600 rounded-full border border-white/10">
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[shine_3s_infinite]"></div>
                   </div>
@@ -232,7 +232,7 @@ const NavBar: React.FC<NavBarProps> = ({
                         key={item.id}
                         onClick={() => handleMobileNav(item.id)}
                         className={`w-full py-4 px-6 text-xl font-display font-bold text-left transition-all duration-500 transform border border-slate-200 dark:border-white/10 rounded-xl relative overflow-hidden group hover:scale-[1.02] active:scale-95 touch-manipulation shadow-lg
-                            ${currentView === item.id 
+                            ${(currentView === item.id || (currentView === 'service-detail' && item.id === 'services'))
                                 ? 'bg-white dark:bg-[#0f1115] border-blue-500 dark:border-cyan-500 shadow-[0_0_20px_rgba(6,182,212,0.15)] translate-x-2' 
                                 : 'bg-white/50 dark:bg-white/5 hover:border-blue-400 dark:hover:border-cyan-400'
                             }
@@ -240,10 +240,10 @@ const NavBar: React.FC<NavBarProps> = ({
                         `}
                         style={{ transitionDelay: isMobileMenuOpen ? `${idx * 75}ms` : '0ms' }}
                     >
-                        {currentView === item.id && <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-blue-500 dark:bg-cyan-500 shadow-[0_0_10px_cyan]"></div>}
+                        {(currentView === item.id || (currentView === 'service-detail' && item.id === 'services')) && <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-blue-500 dark:bg-cyan-500 shadow-[0_0_10px_cyan]"></div>}
                         
                         <div className="flex items-center justify-between pl-2">
-                            <span className={`${currentView === item.id ? 'text-blue-600 dark:text-cyan-300' : 'text-slate-800 dark:text-slate-300'}`}>
+                            <span className={`${(currentView === item.id || (currentView === 'service-detail' && item.id === 'services')) ? 'text-blue-600 dark:text-cyan-300' : 'text-slate-800 dark:text-slate-300'}`}>
                                 {language === 'en' ? item.labelEn : item.labelVi}
                             </span>
                             <span className="text-xs font-mono text-slate-400 opacity-50">0{idx + 1}</span>

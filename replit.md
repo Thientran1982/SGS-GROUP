@@ -63,6 +63,31 @@ A modern React + TypeScript website for SGS GROUP showcasing AI, Automation, and
 - `TRUST_BADGES`, `TESTIMONIALS` — trust signals on Home page
 
 ## Recent Changes
+- 2026-03-27: Full UX/UI audit across all pages — 16 issues fixed:
+  - NavBar: highlights "Technology" tab when viewing service-detail (desktop + mobile)
+  - Contact: form input borders now visible in light mode (border-slate-300)
+  - Contact: Google Maps filter now conditional on theme (dark=inverted, light=normal)
+  - About: "Est. 2020" corrected to "Est. 2018" (consistent with ticker)
+  - About: leadership card header gradient now correct in light mode (light gray)
+  - About: leadership card ID text visible in light mode
+  - About: subtitle, section card headings/text all have dark: prefix for light mode
+  - Services: How We Work title + step titles have dark: prefix
+  - Services: service card descriptions/titles visible in both themes
+  - Services: tech stack pills visible in light mode (bg-slate-100, border-slate-200)
+  - Home: guarantee cards have white background in light mode
+  - Home: guarantee card descriptions have dark: prefix
+  - Home: "Three Guarantees" title has dark: prefix
+  - Home: testimonials subtitle has dark: prefix
+  - Home: CTA Banner border visible in light mode (border-slate-100)
+- 2026-03-27: Mobile responsiveness — 8 issues fixed:
+  - Hero grid order: text/CTA now first on mobile (order-1), orb second (order-2)
+  - Hero subtitle contrast: text-slate-600 light / text-slate-300 dark
+  - Hero padding: pt-20 mobile → pt-24 sm+
+  - 3D Orb height: 220px mobile → 340px tablet → 500px desktop
+  - Hero grid gap: gap-4 mobile → gap-8 desktop
+  - Stats strip border: visible in light mode (border-slate-200)
+  - Stats values: text-slate-900 light / text-white dark
+  - CTA Banner heading: text-3xl mobile → text-4xl tablet → text-5xl desktop
 - 2026-03-27: Homepage 10/10 redesign — 6 major trust improvements:
   - Hero subtitle contrast improved (text-slate-300 from text-slate-400)
   - Micro-copy under CTA buttons ("⚡ Free 30-min audit · No commitment")

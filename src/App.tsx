@@ -339,7 +339,7 @@ const App: React.FC = () => {
                     <p className="text-[10px] font-mono uppercase tracking-widest text-primary-DEFAULT mb-3">
                         {language === 'en' ? '— Why 200+ Companies Choose SGS GROUP —' : '— Tại Sao 200+ Công Ty Chọn SGS GROUP —'}
                     </p>
-                    <h2 className="text-2xl md:text-3xl font-black text-white">
+                    <h2 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white">
                         {language === 'en' ? 'Three Guarantees That Remove All Risk' : 'Ba Cam Kết Loại Bỏ Mọi Rủi Ro'}
                     </h2>
                 </div>
@@ -382,14 +382,14 @@ const App: React.FC = () => {
                             descVi: 'ISO 27001 · AES-256 · Tuân thủ PDPA. Dữ liệu của bạn không bao giờ rời khỏi hệ thống của bạn.',
                         },
                     ].map((item, i) => (
-                        <div key={i} className={`relative p-6 md:p-8 rounded-2xl border bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300 group ${item.colorClass}`}>
+                        <div key={i} className={`relative p-6 md:p-8 rounded-2xl border bg-white dark:bg-white/[0.02] hover:bg-slate-50 dark:hover:bg-white/[0.04] transition-all duration-300 group ${item.colorClass}`}>
                             <div className="text-4xl mb-5">{item.emoji}</div>
                             <div className={`text-[10px] font-mono font-bold uppercase tracking-widest mb-1 flex items-center gap-2 ${item.tagClass}`}>
                                 <span className={`w-1.5 h-1.5 rounded-full ${item.dotClass} animate-pulse`}></span>
                                 {language === 'en' ? item.labelEn : item.labelVi}
                             </div>
                             <div className="text-xs text-slate-500 mb-4 font-mono">{language === 'en' ? item.statEn : item.statVi}</div>
-                            <p className="text-sm text-slate-300 leading-relaxed">{language === 'en' ? item.descEn : item.descVi}</p>
+                            <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{language === 'en' ? item.descEn : item.descVi}</p>
                         </div>
                     ))}
                 </div>
@@ -463,7 +463,7 @@ const App: React.FC = () => {
                 <h2 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-3">
                     {language === 'en' ? 'What Our Clients Say' : 'Khách Hàng Nói Gì Về Chúng Tôi'}
                 </h2>
-                <p className="text-slate-400 text-base max-w-xl mx-auto">
+                <p className="text-slate-500 dark:text-slate-400 text-base max-w-xl mx-auto">
                     {language === 'en'
                         ? 'Real outcomes from businesses that trusted SGS GROUP to transform their operations.'
                         : 'Kết quả thực từ các doanh nghiệp đã tin tưởng SGS GROUP chuyển đổi hoạt động của họ.'}
@@ -518,7 +518,7 @@ const App: React.FC = () => {
         </SectionContainer>
 
         {/* ═══ FINAL CTA BANNER ═══ */}
-        <div className="relative z-10 border-t border-white/5 bg-gradient-to-b from-canvas to-canvas-subtle/80 py-20 md:py-28 overflow-hidden">
+        <div className="relative z-10 border-t border-slate-100 dark:border-white/5 bg-gradient-to-b from-canvas to-canvas-subtle/80 py-20 md:py-28 overflow-hidden">
             <div className="absolute inset-0 bg-tech-grid opacity-[0.04] pointer-events-none"></div>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] bg-primary-DEFAULT/6 rounded-full blur-[120px] pointer-events-none"></div>
             <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
@@ -566,10 +566,10 @@ const App: React.FC = () => {
         {/* === TECH STACK STRIP === */}
         <div className="flex flex-wrap gap-2 justify-center mb-14 pb-14 border-b border-surface-border">
             {TECH_STACK_LIST.map((tech, i) => (
-                <div key={i} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/10 hover:border-primary-DEFAULT/30 hover:bg-primary-DEFAULT/5 transition-all cursor-default group">
-                    <span className="text-[9px] font-mono text-slate-600 uppercase tracking-wider group-hover:text-primary-DEFAULT/60 transition-colors">{tech.category}</span>
-                    <span className="text-slate-700">·</span>
-                    <span className="text-xs font-semibold text-slate-400 group-hover:text-white transition-colors">{tech.name}</span>
+                <div key={i} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 hover:border-primary-DEFAULT/30 hover:bg-primary-DEFAULT/5 transition-all cursor-default group">
+                    <span className="text-[9px] font-mono text-slate-400 dark:text-slate-600 uppercase tracking-wider group-hover:text-primary-DEFAULT/60 transition-colors">{tech.category}</span>
+                    <span className="text-slate-300 dark:text-slate-700">·</span>
+                    <span className="text-xs font-semibold text-slate-700 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">{tech.name}</span>
                 </div>
             ))}
         </div>
@@ -581,8 +581,8 @@ const App: React.FC = () => {
                     <span className="w-1.5 h-1.5 rounded-full bg-primary-DEFAULT animate-pulse"></span>
                     {language === 'en' ? 'Our Process' : 'Quy Trình Của Chúng Tôi'}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-black text-white mb-3">{howWeWork.title}</h2>
-                <p className="text-slate-400 max-w-xl mx-auto text-sm">{howWeWork.subtitle}</p>
+                <h2 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-3">{howWeWork.title}</h2>
+                <p className="text-slate-500 dark:text-slate-400 max-w-xl mx-auto text-sm">{howWeWork.subtitle}</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
                 <div className="hidden lg:block absolute top-10 left-[14%] right-[14%] h-px bg-gradient-to-r from-transparent via-primary-DEFAULT/25 to-transparent pointer-events-none"></div>
@@ -597,9 +597,9 @@ const App: React.FC = () => {
                                     </svg>
                                 </div>
                             </div>
-                            <h3 className="font-bold text-white text-sm mb-1">{step.title}</h3>
+                            <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">{step.title}</h3>
                             <span className="text-[10px] font-mono text-primary-DEFAULT uppercase tracking-widest">{step.duration}</span>
-                            <p className="text-xs text-slate-400 leading-relaxed mt-3">{step.desc}</p>
+                            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mt-3">{step.desc}</p>
                         </GlassCard>
                     </div>
                 ))}
@@ -622,8 +622,8 @@ const App: React.FC = () => {
                                      </span>
                                  )}
                              </div>
-                             <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-white mb-4 group-hover/card:text-primary-glow transition-colors">{language === 'en' ? service.titleEn : service.titleVi}</h3>
-                             <p className="text-sm md:text-base text-slate-300 leading-relaxed mb-5">{language === 'en' ? service.longDescEn : service.longDescVi}</p>
+                             <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-slate-900 dark:text-white mb-4 group-hover/card:text-primary-glow transition-colors">{language === 'en' ? service.titleEn : service.titleVi}</h3>
+                             <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-5">{language === 'en' ? service.longDescEn : service.longDescVi}</p>
                              {service.techStack && (
                                  <div className="flex flex-wrap gap-1.5 mb-6">
                                      {service.techStack.map((t, ti) => (
@@ -696,15 +696,15 @@ const App: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 mb-24 items-center">
                 <div className="space-y-8 relative z-10">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-mono uppercase tracking-widest">
-                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span> Est. 2020
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span> Est. 2018
                     </div>
                     <DisplayHeading className="text-4xl md:text-5xl lg:text-6xl">{content.title}</DisplayHeading>
-                    <p className="text-lg md:text-xl text-slate-400 leading-relaxed border-l-2 border-primary-DEFAULT/30 pl-6">{content.subtitle}</p>
+                    <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed border-l-2 border-primary-DEFAULT/30 pl-6">{content.subtitle}</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
                         {content.sections.slice(1).map((section, idx) => (
-                            <div key={idx} className="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 transition-colors group">
-                                <h4 className="font-bold text-white mb-2 flex items-center gap-2"><svg className="w-4 h-4 text-primary-DEFAULT" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>{section.heading}</h4>
-                                {section.text && <p className="text-sm text-slate-400 leading-relaxed">{section.text}</p>}
+                            <div key={idx} className="bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl p-5 hover:bg-slate-100 dark:hover:bg-white/10 transition-colors group">
+                                <h4 className="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2"><svg className="w-4 h-4 text-primary-DEFAULT" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>{section.heading}</h4>
+                                {section.text && <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{section.text}</p>}
                                 {section.items && (<div className="flex flex-wrap gap-2 mt-2">{section.items.map((item, i) => (<span key={i} className="text-[10px] px-2 py-1 rounded bg-black/40 border border-white/10 text-slate-300 font-mono">{item}</span>))}</div>)}
                             </div>
                         ))}
@@ -741,7 +741,7 @@ const App: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
                     {leaderData.members.map((member, idx) => (
                         <GlassCard key={idx} className="p-0 overflow-hidden group h-full" hoverEffect={false}>
-                            <div className="h-24 bg-gradient-to-b from-slate-800 to-[#0a0a0c] relative overflow-hidden"><div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div><div className="absolute top-4 right-4 text-[10px] font-mono text-white/30 tracking-widest">ID: 00{idx + 1}</div></div>
+                            <div className="h-24 bg-gradient-to-b from-slate-200 dark:from-slate-800 to-slate-100 dark:to-[#0a0a0c] relative overflow-hidden"><div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div><div className="absolute top-4 right-4 text-[10px] font-mono text-slate-400 dark:text-white/30 tracking-widest">ID: 00{idx + 1}</div></div>
                             <div className="px-8 pb-8 -mt-12 relative">
                                 <div className="w-24 h-24 rounded-2xl bg-[#0F1115] border-2 border-white/10 p-1 mb-6 shadow-2xl relative group-hover:border-primary-DEFAULT/50 transition-colors">
                                     <div className="w-full h-full rounded-xl bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center overflow-hidden relative">
@@ -819,12 +819,12 @@ const App: React.FC = () => {
                         <form className="space-y-8" onSubmit={handleSubmit}>
                             <div className="group/field relative">
                                 <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500 mb-2 transition-colors group-focus-within/field:text-cyan-400">{TEXTS[language].name}</label>
-                                <input name="name" type="text" className="w-full bg-transparent border-b border-slate-300 dark:border-white/20 py-3 text-slate-900 dark:text-white focus:border-cyan-500 focus:outline-none transition-all placeholder-slate-400 dark:placeholder-slate-600 font-mono text-sm" placeholder={TEXTS[language].namePlaceholder} required />
+                                <input name="name" type="text" className="w-full bg-transparent border-b border-slate-300 dark:border-slate-600 py-3 text-slate-900 dark:text-white focus:border-cyan-500 focus:outline-none transition-all placeholder-slate-400 dark:placeholder-slate-600 font-mono text-sm" placeholder={TEXTS[language].namePlaceholder} required />
                                 <div className="absolute bottom-0 left-0 h-px w-0 bg-cyan-500 transition-all duration-500 group-focus-within/field:w-full"></div>
                             </div>
                             <div className="group/field relative">
                                 <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500 mb-2 transition-colors group-focus-within/field:text-cyan-400">{TEXTS[language].email}</label>
-                                <input name="email" type="email" className="w-full bg-transparent border-b border-slate-300 dark:border-white/20 py-3 text-slate-900 dark:text-white focus:border-cyan-500 focus:outline-none transition-all placeholder-slate-400 dark:placeholder-slate-600 font-mono text-sm" placeholder="email@company.com" required />
+                                <input name="email" type="email" className="w-full bg-transparent border-b border-slate-300 dark:border-slate-600 py-3 text-slate-900 dark:text-white focus:border-cyan-500 focus:outline-none transition-all placeholder-slate-400 dark:placeholder-slate-600 font-mono text-sm" placeholder="email@company.com" required />
                                 <div className="absolute bottom-0 left-0 h-px w-0 bg-cyan-500 transition-all duration-500 group-focus-within/field:w-full"></div>
                             </div>
                             <div className="group/field relative">
@@ -865,7 +865,7 @@ const App: React.FC = () => {
                         <div className="absolute top-0 left-0 w-full h-full bg-cyan-500/5 mix-blend-overlay pointer-events-none z-20"></div>
                         <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden opacity-30"><div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent rotate-45 animate-[spin_4s_linear_infinite]"></div></div>
                         <div className="absolute top-4 left-4 z-30 px-3 py-1 bg-black/80 backdrop-blur-md rounded border border-cyan-500/50 text-[10px] font-mono text-cyan-400 uppercase tracking-widest flex items-center gap-2 shadow-lg"><span className="w-2 h-2 bg-cyan-500 rounded-full animate-ping"></span> {language === 'en' ? 'Live Satellite Feed' : 'Vệ Tinh Trực Tuyến'}</div>
-                        <iframe src="https://maps.google.com/maps?q=122+B2,+Sala+Urban+Area,+Thu+Duc+City,+Ho+Chi+Minh+City&t=&z=16&ie=UTF8&iwloc=B&output=embed" width="100%" height="100%" style={{ border: 0, filter: 'invert(100%) hue-rotate(180deg) brightness(0.8) contrast(1.2)' }} allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="SGS Group Location" className="relative z-10 opacity-80 group-hover:opacity-100 transition-opacity duration-500"></iframe>
+                        <iframe src="https://maps.google.com/maps?q=122+B2,+Sala+Urban+Area,+Thu+Duc+City,+Ho+Chi+Minh+City&t=&z=16&ie=UTF8&iwloc=B&output=embed" width="100%" height="100%" style={{ border: 0, filter: theme === 'dark' ? 'invert(100%) hue-rotate(180deg) brightness(0.8) contrast(1.2)' : 'brightness(0.95) contrast(1.1)' }} allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="SGS Group Location" className="relative z-10 opacity-80 group-hover:opacity-100 transition-opacity duration-500"></iframe>
                     </div>
                 </div>
             </div>
