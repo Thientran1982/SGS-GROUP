@@ -470,6 +470,44 @@ export const NAV_ITEMS: NavItem[] = [
   { id: 'contact', labelEn: 'Contact', labelVi: 'Liên Hệ' },
 ];
 
+export const SEO_CONTENT: Record<string, { titleEn: string; titleVi: string; descriptionEn: string; descriptionVi: string; keywords: string }> = {
+    home: {
+        titleEn: "SGS GROUP — Enterprise AI & Automation for Vietnam & Southeast Asia",
+        titleVi: "SGS GROUP — AI Doanh Nghiệp & Tự Động Hóa cho Việt Nam & Đông Nam Á",
+        descriptionEn: "SGS GROUP delivers production-grade AI, process automation, and data analytics to enterprises in Vietnam, Thailand, Indonesia, and Singapore. 200+ projects since 2020. Free technical audit. Results in 6 weeks or your money back.",
+        descriptionVi: "SGS GROUP cung cấp AI cấp sản xuất, tự động hóa quy trình và phân tích dữ liệu cho doanh nghiệp tại Việt Nam, Thái Lan, Indonesia và Singapore. 200+ dự án từ 2020. Kiểm tra kỹ thuật miễn phí. Kết quả trong 6 tuần hoặc hoàn tiền.",
+        keywords: "AI doanh nghiệp, tự động hóa, phân tích dữ liệu, machine learning, SGS GROUP, Việt Nam, Đông Nam Á, enterprise AI, automation Vietnam"
+    },
+    services: {
+        titleEn: "AI & Automation Services — Document AI, RPA, Data Analytics | SGS GROUP",
+        titleVi: "Dịch Vụ AI & Tự Động Hóa — Document AI, RPA, Phân Tích Dữ Liệu | SGS GROUP",
+        descriptionEn: "Explore SGS GROUP's 5 core AI services: Intelligent Document Processing, Robotic Process Automation, Conversational AI, Data Analytics, and Cloud Infrastructure. Real client results with measurable ROI.",
+        descriptionVi: "Khám phá 5 dịch vụ AI cốt lõi của SGS GROUP: Xử lý Tài liệu Thông minh, Tự động hóa Quy trình, AI Hội thoại, Phân tích Dữ liệu và Hạ tầng Cloud. Kết quả thực tế từ khách hàng với ROI có thể đo được.",
+        keywords: "Document AI Vietnam, RPA automation, chatbot AI, data analytics, cloud infrastructure, AI services Vietnam"
+    },
+    "ai-hub": {
+        titleEn: "AI Hub — Chat with SGS GROUP's Business Intelligence Assistant",
+        titleVi: "AI Hub — Trò Chuyện với Trợ Lý Thông Minh Doanh Nghiệp của SGS GROUP",
+        descriptionEn: "Ask our AI assistant about AI implementation, ROI projections, automation feasibility, and enterprise solutions for your industry. Available in English and Vietnamese.",
+        descriptionVi: "Hỏi trợ lý AI của chúng tôi về triển khai AI, dự báo ROI, khả năng tự động hóa và giải pháp doanh nghiệp cho ngành của bạn. Hỗ trợ tiếng Anh và tiếng Việt.",
+        keywords: "AI assistant Vietnam, business intelligence chatbot, AI consultation, tư vấn AI, trợ lý AI doanh nghiệp"
+    },
+    about: {
+        titleEn: "About SGS GROUP — Vietnamese AI Engineering Company Since 2020",
+        titleVi: "Về Chúng Tôi — Công ty Kỹ Thuật AI Việt Nam từ 2020 | SGS GROUP",
+        descriptionEn: "Learn about SGS GROUP: 40+ AI engineers, headquartered in Ho Chi Minh City, serving clients across Vietnam and Southeast Asia. Delivery guarantee: results in 6 weeks or 100% refund.",
+        descriptionVi: "Tìm hiểu về SGS GROUP: 40+ kỹ sư AI, trụ sở tại TP.HCM, phục vụ khách hàng tại Việt Nam và Đông Nam Á. Cam kết giao hàng: kết quả trong 6 tuần hoặc hoàn tiền 100%.",
+        keywords: "SGS GROUP về chúng tôi, công ty AI Việt Nam, kỹ sư AI TPHCM, enterprise AI Vietnam company"
+    },
+    contact: {
+        titleEn: "Contact SGS GROUP — Get a Free AI Technical Audit",
+        titleVi: "Liên Hệ SGS GROUP — Nhận Kiểm Tra Kỹ Thuật AI Miễn Phí",
+        descriptionEn: "Contact SGS GROUP for a free AI technical audit, pilot project consultation, or enterprise solution inquiry. Office in Sala, Thu Duc City, HCMC. Response within 1 business day.",
+        descriptionVi: "Liên hệ SGS GROUP để nhận kiểm tra kỹ thuật AI miễn phí, tư vấn dự án pilot hoặc yêu cầu giải pháp doanh nghiệp. Văn phòng tại Sala, Thủ Đức, TP.HCM. Phản hồi trong 1 ngày làm việc.",
+        keywords: "liên hệ SGS GROUP, tư vấn AI miễn phí, contact AI company Vietnam, AI consultation HCMC"
+    }
+};
+
 export const SUGGESTED_PROMPTS = {
     en: [
         "What makes SGS GROUP different from other AI vendors in Vietnam?",

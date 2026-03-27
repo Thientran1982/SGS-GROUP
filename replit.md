@@ -63,6 +63,15 @@ A modern React + TypeScript website for SGS GROUP showcasing AI, Automation, and
 - `TRUST_BADGES`, `TESTIMONIALS` — trust signals on Home page
 
 ## Recent Changes
+- 2026-03-27: Full SEO audit — 7 critical issues fixed (see below)
+- 2026-03-27: SEO.tsx rewritten — per-view dynamic title/description/keywords + full structured data
+- 2026-03-27: index.html improved — static fallback meta, hreflang, OG tags, JSON-LD, favicon refs
+- 2026-03-27: Dynamic html lang update — switches vi/en when user toggles language
+- 2026-03-27: SEO_CONTENT constant added — bilingual title/description/keywords per view (5 views)
+- 2026-03-27: public/robots.txt created — User-agent:*, Disallow:/api/, Sitemap reference
+- 2026-03-27: public/sitemap.xml created — 5 URLs with hreflang alternates
+- 2026-03-27: public/site.webmanifest + public/favicon.svg created
+- 2026-03-27: Organization schema expanded — LocalBusiness, address, foundingDate, areaServed, WebSite + WebPage types
 - 2026-03-27: AI Hub, About Us, Contact pages redesigned for trust (see below)
 - 2026-03-27: Added SUGGESTED_PROMPTS constant (6 questions EN/VI) + clickable chips in AI Hub empty state
 - 2026-03-27: Rewrote ABOUT_CONTENT — real founding story, verifiable commitments, removed buzzwords

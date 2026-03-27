@@ -1,0 +1,22 @@
+{
+  "name": "SGS GROUP — Enterprise AI Vietnam",
+  "short_name": "SGS GROUP",
+  "description": "Enterprise AI & Automation for Vietnam & Southeast Asia",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020408",
+  "theme_color": "#06b6d4",
+  "lang": "vi",
+  "icons": [
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
