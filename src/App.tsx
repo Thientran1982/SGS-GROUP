@@ -51,7 +51,7 @@ const SystemSyncAlert: React.FC<{ language: Language }> = ({ language }) => {
 
     return (
         <div className="fixed bottom-6 right-6 z-[60] max-w-[calc(100vw-3rem)] w-full sm:max-w-xs animate-fade-in-up pointer-events-none">
-            <div className="relative overflow-hidden rounded-lg bg-[#0a0a0c]/90 border-l-2 border-primary-DEFAULT backdrop-blur-xl shadow-neon-cyan p-4 pointer-events-auto">
+            <div className="relative overflow-hidden rounded-lg bg-white/95 dark:bg-[#0a0a0c]/90 border-l-2 border-primary-DEFAULT backdrop-blur-xl shadow-neon-cyan p-4 pointer-events-auto">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary-DEFAULT/10 to-transparent pointer-events-none"></div>
                 <div className="flex items-start gap-3 relative z-10">
                     <div className="mt-1">
@@ -61,11 +61,11 @@ const SystemSyncAlert: React.FC<{ language: Language }> = ({ language }) => {
                         <div className="text-[10px] font-mono font-bold text-primary-DEFAULT uppercase tracking-widest mb-1">
                             {language === 'en' ? "System Online" : "Hệ Thống Trực Tuyến"}
                         </div>
-                        <div className="text-xs text-slate-300 font-mono">
-                            SGS AI CORE <span className="text-white font-bold">v8.0</span>
+                        <div className="text-xs text-slate-600 dark:text-slate-300 font-mono">
+                            SGS AI CORE <span className="text-slate-900 dark:text-white font-bold">v8.0</span>
                         </div>
                     </div>
-                    <button onClick={() => setVisible(false)} className="text-slate-500 hover:text-white transition-colors">
+                    <button onClick={() => setVisible(false)} className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
                     </button>
                 </div>
@@ -261,7 +261,7 @@ const App: React.FC = () => {
 
   const HomeView = () => (
     <>
-        <div className="relative z-10 min-h-screen flex flex-col justify-center pt-24 pb-8 overflow-hidden bg-canvas w-full">
+        <div className="relative z-10 min-h-screen flex flex-col justify-center pt-24 pb-8 overflow-hidden bg-[#f8fafc] dark:bg-canvas w-full">
             <TechGridBackground />
             
             <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full flex-grow flex flex-col justify-center">
@@ -308,7 +308,7 @@ const App: React.FC = () => {
             </div>
         </div>
 
-        <SectionContainer className="bg-canvas-subtle/50 backdrop-blur-sm border-t border-surface-border mt-0">
+        <SectionContainer className="bg-slate-50/80 dark:bg-canvas-subtle/50 backdrop-blur-sm border-t border-surface-border mt-0">
             <SectionHeading title={TEXTS[language].features} subtitle={TEXTS[language].coreModules} />
             {/* V6.1 DATA MODULES (CARTRIDGES) */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -328,11 +328,11 @@ const App: React.FC = () => {
 
                         {/* Content Body */}
                         <div className="px-6 py-4 flex flex-col flex-1">
-                            <h3 className="text-lg font-bold text-white mb-2 group-hover:text-primary-glow transition-colors">{language === 'en' ? service.titleEn : service.titleVi}</h3>
-                            <p className="text-sm text-slate-400 leading-relaxed line-clamp-2 mb-4 flex-grow">{language === 'en' ? service.descEn : service.descVi}</p>
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary-glow transition-colors">{language === 'en' ? service.titleEn : service.titleVi}</h3>
+                            <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-2 mb-4 flex-grow">{language === 'en' ? service.descEn : service.descVi}</p>
                             
                             {/* Action Footer */}
-                            <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-slate-500 group-hover:text-white transition-colors mt-auto pt-4 border-t border-white/5">
+                            <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-slate-500 group-hover:text-slate-900 dark:group-hover:text-white transition-colors mt-auto pt-4 border-t border-slate-200 dark:border-white/5">
                                 <span className="w-4 h-[1px] bg-slate-600 group-hover:bg-cyan-500 transition-colors"></span>
                                 {language === 'en' ? 'Initialize' : 'Khởi Chạy'}
                             </div>
@@ -346,18 +346,18 @@ const App: React.FC = () => {
         </SectionContainer>
 
         {/* === TRUST BADGES SECTION === */}
-        <SectionContainer className="py-12 border-t border-surface-border bg-canvas-subtle/30">
+        <SectionContainer className="py-12 border-t border-surface-border bg-slate-100/50 dark:bg-canvas-subtle/30">
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
                 {TRUST_BADGES.map((badge, i) => (
-                    <div key={i} className="flex flex-col items-center gap-3 p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-primary-DEFAULT/20 hover:bg-white/[0.04] transition-all group text-center">
+                    <div key={i} className="flex flex-col items-center gap-3 p-4 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 hover:border-primary-DEFAULT/30 dark:hover:border-primary-DEFAULT/20 hover:bg-slate-50 dark:hover:bg-white/[0.04] transition-all group text-center shadow-sm dark:shadow-none">
                         <div className="w-10 h-10 rounded-lg bg-primary-DEFAULT/10 border border-primary-DEFAULT/20 flex items-center justify-center text-primary-DEFAULT group-hover:scale-110 transition-transform">
                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={badge.icon} />
                             </svg>
                         </div>
                         <div>
-                            <div className="text-xs font-bold text-white">{language === 'en' ? badge.labelEn : badge.labelVi}</div>
-                            <div className="text-[10px] text-slate-500 mt-0.5">{language === 'en' ? badge.descEn : badge.descVi}</div>
+                            <div className="text-xs font-bold text-slate-900 dark:text-white">{language === 'en' ? badge.labelEn : badge.labelVi}</div>
+                            <div className="text-[10px] text-slate-500 dark:text-slate-500 mt-0.5">{language === 'en' ? badge.descEn : badge.descVi}</div>
                         </div>
                     </div>
                 ))}
@@ -371,7 +371,7 @@ const App: React.FC = () => {
                     <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                     {language === 'en' ? 'Client Results' : 'Kết Quả Khách Hàng'}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-black text-white mb-3">
+                <h2 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-3">
                     {language === 'en' ? 'What Our Clients Say' : 'Khách Hàng Nói Gì Về Chúng Tôi'}
                 </h2>
                 <p className="text-slate-400 text-base max-w-xl mx-auto">
@@ -391,15 +391,15 @@ const App: React.FC = () => {
                                 </svg>
                             ))}
                         </div>
-                        <blockquote className="text-sm text-slate-300 leading-relaxed flex-grow mb-6 italic">
+                        <blockquote className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed flex-grow mb-6 italic">
                             &ldquo;{t.quote}&rdquo;
                         </blockquote>
-                        <div className="border-t border-white/5 pt-5 flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-DEFAULT/30 to-accent-DEFAULT/30 border border-white/10 flex items-center justify-center text-xs font-bold text-white shrink-0">
+                        <div className="border-t border-slate-200 dark:border-white/5 pt-5 flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-DEFAULT/30 to-accent-DEFAULT/30 border border-slate-200 dark:border-white/10 flex items-center justify-center text-xs font-bold text-slate-900 dark:text-white shrink-0">
                                 {t.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
                             </div>
                             <div>
-                                <div className="text-sm font-bold text-white">{t.name}</div>
+                                <div className="text-sm font-bold text-slate-900 dark:text-white">{t.name}</div>
                                 <div className="text-[10px] text-slate-500">{t.role}</div>
                                 <div className="text-[9px] font-mono text-primary-DEFAULT mt-0.5 uppercase tracking-wider">{t.industry}</div>
                             </div>
@@ -575,7 +575,7 @@ const App: React.FC = () => {
                                 <GlassCard key={i} className="p-6 md:p-8 flex items-center justify-between group overflow-hidden border-l-4 border-l-primary-DEFAULT/50" hoverEffect={true}>
                                     <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-primary-DEFAULT/5 to-transparent pointer-events-none"></div>
                                     <div className="relative z-10">
-                                        <div className="text-4xl md:text-5xl font-black text-white mb-1 flex items-baseline gap-1 tracking-tight">{!isNaN(num) ? <AnimatedCounter end={num} /> : null}<span className="text-primary-DEFAULT">{suffix || stat.value}</span></div>
+                                        <div className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-1 flex items-baseline gap-1 tracking-tight">{!isNaN(num) ? <AnimatedCounter end={num} /> : null}<span className="text-primary-DEFAULT">{suffix || stat.value}</span></div>
                                         <div className="text-xs font-mono font-bold uppercase tracking-widest text-slate-500 mt-2 flex items-center gap-2"><span className="w-1 h-1 bg-slate-500 rounded-full"></span>{stat.label}</div>
                                     </div>
                                     <div className="w-16 h-16 rounded-2xl bg-[#0a0a0c] border border-white/10 flex items-center justify-center text-primary-DEFAULT shadow-[0_0_20px_rgba(6,182,212,0.15)] group-hover:scale-110 transition-transform duration-500">
@@ -603,7 +603,7 @@ const App: React.FC = () => {
                                         <div className="absolute top-0 w-full h-full bg-gradient-to-b from-transparent via-primary-DEFAULT/20 to-transparent -translate-y-full group-hover:animate-[scanline_2s_linear_infinite]"></div>
                                     </div>
                                 </div>
-                                <h3 className="text-xl font-bold text-white mb-1 group-hover:text-primary-glow transition-colors">{member.name}</h3>
+                                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary-glow transition-colors">{member.name}</h3>
                                 <div className="text-xs font-mono text-primary-DEFAULT uppercase tracking-wider mb-4">{member.role}</div>
                                 <div className="h-px w-full bg-white/10 mb-4"></div>
                                 <p className="text-sm text-slate-400 font-light leading-relaxed">{member.bio}</p>
@@ -621,7 +621,7 @@ const App: React.FC = () => {
                             <svg className="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                             <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400">{language === 'en' ? 'Our Delivery Guarantee' : 'Cam Kết Giao Hàng'}</span>
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-3">{language === 'en' ? 'No results in 6 weeks? You pay nothing.' : 'Không có kết quả trong 6 tuần? Bạn không phải trả tiền.'}</h3>
+                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{language === 'en' ? 'No results in 6 weeks? You pay nothing.' : 'Không có kết quả trong 6 tuần? Bạn không phải trả tiền.'}</h3>
                         <p className="text-sm text-slate-400 leading-relaxed">{language === 'en' ? 'Every engagement begins with a fixed-scope pilot on your real data. We define success metrics together before writing a single line of code. If we cannot demonstrate measurable improvement within the pilot window, we refund 100% of pilot fees — no questions asked.' : 'Mỗi hợp đồng bắt đầu bằng giai đoạn pilot có phạm vi cố định trên dữ liệu thực của bạn. Chúng tôi cùng xác định chỉ số thành công trước khi viết bất kỳ dòng code nào. Nếu không thể chứng minh cải thiện đo được trong giai đoạn pilot, chúng tôi hoàn tiền 100% phí pilot — không cần giải thích.'}</p>
                     </div>
                     <div className="flex flex-col gap-3">
@@ -667,28 +667,28 @@ const App: React.FC = () => {
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-transparent"></div>
                     <div>
                         <div className="flex justify-between items-center mb-8">
-                            <h3 className="text-2xl font-bold text-white font-display">{TEXTS[language].sendMessageTitle}</h3>
+                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white font-display">{TEXTS[language].sendMessageTitle}</h3>
                             <div className="px-3 py-1 rounded bg-emerald-500/10 border border-emerald-500/30 text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-widest flex items-center gap-2 animate-pulse"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>{language === 'en' ? 'Secure Channel' : 'Kênh Bảo Mật'}</div>
                         </div>
                         <form className="space-y-8" onSubmit={handleSubmit}>
                             <div className="group/field relative">
                                 <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500 mb-2 transition-colors group-focus-within/field:text-cyan-400">{TEXTS[language].name}</label>
-                                <input name="name" type="text" className="w-full bg-transparent border-b border-white/20 py-3 text-white focus:border-cyan-500 focus:outline-none transition-all placeholder-slate-600 font-mono text-sm" placeholder={TEXTS[language].namePlaceholder} required />
+                                <input name="name" type="text" className="w-full bg-transparent border-b border-slate-300 dark:border-white/20 py-3 text-slate-900 dark:text-white focus:border-cyan-500 focus:outline-none transition-all placeholder-slate-400 dark:placeholder-slate-600 font-mono text-sm" placeholder={TEXTS[language].namePlaceholder} required />
                                 <div className="absolute bottom-0 left-0 h-px w-0 bg-cyan-500 transition-all duration-500 group-focus-within/field:w-full"></div>
                             </div>
                             <div className="group/field relative">
                                 <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500 mb-2 transition-colors group-focus-within/field:text-cyan-400">{TEXTS[language].email}</label>
-                                <input name="email" type="email" className="w-full bg-transparent border-b border-white/20 py-3 text-white focus:border-cyan-500 focus:outline-none transition-all placeholder-slate-600 font-mono text-sm" placeholder="email@company.com" required />
+                                <input name="email" type="email" className="w-full bg-transparent border-b border-slate-300 dark:border-white/20 py-3 text-slate-900 dark:text-white focus:border-cyan-500 focus:outline-none transition-all placeholder-slate-400 dark:placeholder-slate-600 font-mono text-sm" placeholder="email@company.com" required />
                                 <div className="absolute bottom-0 left-0 h-px w-0 bg-cyan-500 transition-all duration-500 group-focus-within/field:w-full"></div>
                             </div>
                             <div className="group/field relative">
                                 <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500 mb-2 transition-colors group-focus-within/field:text-cyan-400">{TEXTS[language].message}</label>
-                                <textarea name="message" rows={4} className="w-full bg-white/5 rounded-lg border border-white/10 p-4 text-white focus:border-cyan-500 focus:outline-none transition-all placeholder-slate-600 font-mono text-sm resize-none" placeholder="..." required></textarea>
+                                <textarea name="message" rows={4} className="w-full bg-slate-50 dark:bg-white/5 rounded-lg border border-slate-200 dark:border-white/10 p-4 text-slate-900 dark:text-white focus:border-cyan-500 focus:outline-none transition-all placeholder-slate-400 dark:placeholder-slate-600 font-mono text-sm resize-none" placeholder="..." required></textarea>
                             </div>
                             <NeonButton variant="primary" fullWidth type="submit">{TEXTS[language].sendBtn}</NeonButton>
                         </form>
                     </div>
-                    <div className="mt-8 pt-6 border-t border-white/10 space-y-3">
+                    <div className="mt-8 pt-6 border-t border-slate-200 dark:border-white/10 space-y-3">
                         <div className="flex items-start gap-3 text-xs text-slate-400">
                             <svg className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                             <span>{language === 'en' ? CONTACT_CONTENT.en.responseTime : CONTACT_CONTENT.vi.responseTime}</span>
@@ -700,16 +700,16 @@ const App: React.FC = () => {
                     </div>
                 </GlassCard>
                 <div className="space-y-8 flex flex-col h-full">
-                    <div className="grid grid-cols-1 gap-0 bg-[#0a0a0c] border border-white/10 rounded-2xl overflow-hidden shadow-inner-light">
+                    <div className="grid grid-cols-1 gap-0 bg-slate-50 dark:bg-[#0a0a0c] border border-slate-200 dark:border-white/10 rounded-2xl overflow-hidden shadow-inner-light">
                         {infoList.map((info, i) => (
-                            <div key={i} className="group p-5 flex items-start gap-5 border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors relative cursor-default">
+                            <div key={i} className="group p-5 flex items-start gap-5 border-b border-slate-100 dark:border-white/5 last:border-0 hover:bg-slate-100 dark:hover:bg-white/[0.02] transition-colors relative cursor-default">
                                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                                 <div className="w-10 h-10 rounded bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 group-hover:text-cyan-400 group-hover:border-cyan-500/30 transition-all shrink-0">
                                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d={info.icon} /></svg>
                                 </div>
                                 <div className="flex-1 min-w-0">
                                     <div className="text-[9px] font-mono font-bold uppercase tracking-widest text-slate-500 mb-1">{info.label}</div>
-                                    <div className="text-sm text-white font-medium break-words leading-relaxed">{info.value}</div>
+                                    <div className="text-sm text-slate-900 dark:text-white font-medium break-words leading-relaxed">{info.value}</div>
                                 </div>
                             </div>
                         ))}
@@ -729,11 +729,11 @@ const App: React.FC = () => {
 
   const LegalView = ({ type }: { type: 'privacy' | 'terms' }) => {
     const data = type === 'privacy' ? (language === 'en' ? LEGAL_CONTENT.privacy.en : LEGAL_CONTENT.privacy.vi) : (language === 'en' ? LEGAL_CONTENT.terms.en : LEGAL_CONTENT.terms.vi);
-    return (<SectionContainer><GlassCard className="p-6 md:p-12 max-w-4xl mx-auto" hoverEffect={false}><div className="border-b border-surface-border pb-8 mb-8"><MonoLabel className="mb-2">LEGAL DOC_ID #{type === 'privacy' ? '001' : '002'}</MonoLabel><h1 className="text-2xl md:text-4xl font-display font-bold text-white mb-2">{data.title}</h1><p className="text-slate-500 font-mono text-xs">{data.updated}</p></div><div className="space-y-8 text-slate-300 leading-relaxed text-sm md:text-base">{data.sections.map((section, i) => (<div key={i}><h3 className="font-bold text-base md:text-lg text-white mb-3">{section.heading}</h3><p className="opacity-90">{section.content}</p></div>))}</div><div className="mt-12 pt-8 border-t border-surface-border text-center"><NeonButton variant="ghost" onClick={() => setCurrentView('home')}>&larr; {TEXTS[language].backToServices}</NeonButton></div></GlassCard></SectionContainer>);
+    return (<SectionContainer><GlassCard className="p-6 md:p-12 max-w-4xl mx-auto" hoverEffect={false}><div className="border-b border-surface-border pb-8 mb-8"><MonoLabel className="mb-2">LEGAL DOC_ID #{type === 'privacy' ? '001' : '002'}</MonoLabel><h1 className="text-2xl md:text-4xl font-display font-bold text-slate-900 dark:text-white mb-2">{data.title}</h1><p className="text-slate-500 font-mono text-xs">{data.updated}</p></div><div className="space-y-8 text-slate-700 dark:text-slate-300 leading-relaxed text-sm md:text-base">{data.sections.map((section, i) => (<div key={i}><h3 className="font-bold text-base md:text-lg text-slate-900 dark:text-white mb-3">{section.heading}</h3><p className="opacity-90">{section.content}</p></div>))}</div><div className="mt-12 pt-8 border-t border-surface-border text-center"><NeonButton variant="ghost" onClick={() => setCurrentView('home')}>&larr; {TEXTS[language].backToServices}</NeonButton></div></GlassCard></SectionContainer>);
   };
 
   return (
-    <div className="app-scroll-container bg-canvas-DEFAULT text-white font-sans selection:bg-primary-DEFAULT/30 selection:text-white transition-colors duration-500 flex flex-col min-h-screen">
+    <div className="app-scroll-container bg-white dark:bg-canvas-DEFAULT text-slate-900 dark:text-white font-sans selection:bg-primary-DEFAULT/30 selection:text-white transition-colors duration-500 flex flex-col min-h-screen">
       <SEO currentView={currentView} language={language} />
       <BackgroundSystem theme={theme} />
       <NavBar currentView={currentView} setCurrentView={setCurrentView} language={language} setLanguage={setLanguage} theme={theme} setTheme={setTheme} />
