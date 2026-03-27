@@ -155,7 +155,7 @@ const Cube3D: React.FC<Cube3DProps> = ({ onInteract, language }) => {
 
       <div 
         ref={containerRef}
-        className={`relative w-[50vmin] h-[50vmin] max-w-[16rem] max-h-[16rem] md:w-64 md:h-64 preserve-3d will-change-transform ${isBursting ? 'scale-0 opacity-0 duration-500' : ''}`}
+        className={`relative w-[50vmin] h-[50vmin] max-w-[16rem] max-h-[16rem] md:w-64 md:h-64 preserve-3d will-change-transform transition-transform duration-300 ${isBursting ? 'scale-95' : ''}`}
       >
         
         <div className="absolute inset-[-50px] rounded-full border border-slate-500/30 dark:border-cyan-500/40 border-dashed preserve-3d animate-[gyro-spin-x_30s_linear_infinite] pointer-events-none shadow-[0_0_15px_rgba(6,182,212,0.1)]">
