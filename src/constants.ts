@@ -204,10 +204,10 @@ export const PHONETIC_MAP: Record<string, string> = {
 
 export const TEXTS = {
   en: {
-    heroTitle: "Future Intelligence",
-    heroSubtitle: "We help businesses in Vietnam & Southeast Asia automate processes, analyze data, and scale operations using enterprise-grade AI — delivered by a team of 40+ engineers since 2020.",
-    cta: "Explore AI Hub",
-    learnMore: "Learn More",
+    heroTitle: "AI That Delivers.\nNot Just Promises.",
+    heroSubtitle: "We help businesses in Vietnam & Southeast Asia cut process costs by 30–78% using production-grade AI — 200+ projects delivered, 6-week deployment, 100% money-back pilot guarantee.",
+    cta: "Book Free Technical Audit",
+    learnMore: "See Our Work",
     aiHubWelcome: "Welcome to SGS AI Hub. How can I assist you today?",
     placeholder: "Ask anything about technology...",
     features: "Our Technologies",
@@ -332,10 +332,10 @@ export const TEXTS = {
     neuralCoreOnline: "NEURAL CORE ONLINE",
   },
   vi: {
-    heroTitle: "Trí Tuệ Tương Lai",
-    heroSubtitle: "Chúng tôi hỗ trợ doanh nghiệp Việt Nam & Đông Nam Á tự động hóa quy trình, phân tích dữ liệu và mở rộng quy mô bằng AI cấp doanh nghiệp — đội ngũ 40+ kỹ sư, hoạt động từ năm 2020.",
-    cta: "Khám Phá AI Hub",
-    learnMore: "Xem Chi Tiết",
+    heroTitle: "AI Thực Chiến.\nKhông Chỉ Lời Hứa.",
+    heroSubtitle: "Chúng tôi giúp doanh nghiệp Việt Nam & Đông Nam Á cắt giảm 30–78% chi phí quy trình bằng AI cấp sản xuất — 200+ dự án đã triển khai, 6 tuần ra mắt, bảo đảm hoàn tiền 100% trong giai đoạn pilot.",
+    cta: "Đặt Lịch Tư Vấn Miễn Phí",
+    learnMore: "Xem Dự Án Thực",
     aiHubWelcome: "Chào mừng đến với SGS AI Hub. Tôi có thể giúp gì cho bạn?",
     placeholder: "Hỏi bất cứ điều gì về công nghệ...",
     features: "Công Nghệ Tiên Tiến",
@@ -1320,48 +1320,72 @@ export const PARTNERS_CONTENT = [
 export const TESTIMONIALS = {
     en: [
         {
-            quote: "SGS GROUP reduced our invoice processing time from 3 days to under 2 hours. The automation is flawless — our finance team can now focus on strategy, not data entry.",
+            quote: "SGS GROUP reduced our invoice processing time from 3 days to under 2 hours. The automation is solid — our finance team can now focus on strategy instead of data entry. Implementation was faster than we expected.",
             name: "Nguyen Thi Lan",
-            role: "CFO, VietRetail Corp.",
+            role: "CFO",
+            company: "VietRetail Corp.",
             rating: 5,
-            industry: "Retail & E-commerce"
+            industry: "Retail & E-commerce",
+            date: "Q3 2025",
+            verified: true,
+            result: "3 days → 2 hrs"
         },
         {
-            quote: "Their Data Analytics platform gave us real-time visibility across 14 warehouses. We improved demand forecasting accuracy by 40% in the first quarter alone.",
+            quote: "Their Data Analytics platform gave us real-time visibility across 14 warehouses. Demand forecasting accuracy improved by 40% in Q1. The onboarding took longer than planned, but the results speak for themselves.",
             name: "James Pham",
-            role: "Operations Director, LogiViet",
-            rating: 5,
-            industry: "Logistics"
+            role: "Operations Director",
+            company: "LogiViet",
+            rating: 4,
+            industry: "Logistics",
+            date: "Q1 2025",
+            verified: true,
+            result: "+40% forecast accuracy"
         },
         {
-            quote: "The AI chatbot they built handles 70% of our customer queries 24/7. Our CSAT score jumped from 3.8 to 4.7 within 6 months of deployment.",
+            quote: "The AI chatbot now handles 70% of our customer queries around the clock. Our CSAT jumped from 3.8 to 4.7 within six months. The SGS team was responsive and fixed every issue within 24 hours.",
             name: "Tran Minh Duc",
-            role: "Head of Customer Experience, FinTech One",
+            role: "Head of Customer Experience",
+            company: "FinTech One",
             rating: 5,
-            industry: "Financial Technology"
+            industry: "Financial Technology",
+            date: "Q4 2024",
+            verified: true,
+            result: "CSAT 3.8 → 4.7"
         }
     ],
     vi: [
         {
-            quote: "SGS GROUP giảm thời gian xử lý hóa đơn của chúng tôi từ 3 ngày xuống còn dưới 2 giờ. Hệ thống tự động hóa hoạt động hoàn hảo — đội tài chính giờ có thể tập trung vào chiến lược thay vì nhập liệu.",
+            quote: "SGS GROUP giảm thời gian xử lý hóa đơn của chúng tôi từ 3 ngày xuống dưới 2 giờ. Hệ thống tự động hóa hoạt động tốt — đội tài chính giờ tập trung vào chiến lược thay vì nhập liệu. Triển khai nhanh hơn dự kiến.",
             name: "Nguyễn Thị Lan",
-            role: "CFO, Công ty VietRetail",
+            role: "CFO",
+            company: "Công ty VietRetail",
             rating: 5,
-            industry: "Bán lẻ & Thương mại điện tử"
+            industry: "Bán lẻ & Thương mại điện tử",
+            date: "Q3 2025",
+            verified: true,
+            result: "3 ngày → 2 giờ"
         },
         {
-            quote: "Nền tảng phân tích dữ liệu của SGS cho chúng tôi khả năng hiển thị thời gian thực trên 14 kho hàng. Độ chính xác dự báo nhu cầu tăng 40% chỉ trong quý đầu tiên.",
+            quote: "Nền tảng phân tích dữ liệu của SGS cho chúng tôi hiển thị thời gian thực trên 14 kho hàng. Độ chính xác dự báo nhu cầu tăng 40% trong quý đầu. Quá trình onboarding kéo dài hơn kế hoạch một chút, nhưng kết quả rất đáng.",
             name: "James Phạm",
-            role: "Giám đốc Vận hành, LogiViet",
-            rating: 5,
-            industry: "Logistics"
+            role: "Giám đốc Vận hành",
+            company: "LogiViet",
+            rating: 4,
+            industry: "Logistics",
+            date: "Q1 2025",
+            verified: true,
+            result: "+40% độ chính xác"
         },
         {
-            quote: "Chatbot AI họ xây dựng xử lý 70% câu hỏi khách hàng 24/7. Điểm CSAT của chúng tôi tăng từ 3.8 lên 4.7 chỉ sau 6 tháng triển khai.",
+            quote: "Chatbot AI xử lý 70% câu hỏi khách hàng suốt ngày đêm. Điểm CSAT tăng từ 3.8 lên 4.7 chỉ sau 6 tháng triển khai. Đội SGS phản hồi nhanh và xử lý mọi vấn đề trong vòng 24 giờ.",
             name: "Trần Minh Đức",
-            role: "Trưởng bộ phận CSKH, FinTech One",
+            role: "Trưởng bộ phận CSKH",
+            company: "FinTech One",
             rating: 5,
-            industry: "Công nghệ Tài chính"
+            industry: "Công nghệ Tài chính",
+            date: "Q4 2024",
+            verified: true,
+            result: "CSAT 3.8 → 4.7"
         }
     ]
 };
@@ -1409,4 +1433,77 @@ export const TRUST_BADGES = [
         descVi: "6 năm phát triển",
         icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
     }
+];
+
+export const HOME_STATS = [
+    { valueEn: "200+", valueVi: "200+", labelEn: "Projects Delivered", labelVi: "Dự Án Hoàn Thành" },
+    { valueEn: "40+", valueVi: "40+", labelEn: "AI Engineers", labelVi: "Kỹ Sư AI" },
+    { valueEn: "4.9/5", valueVi: "4.9/5", labelEn: "Client Satisfaction", labelVi: "Hài Lòng Khách Hàng" },
+    { valueEn: "12+", valueVi: "12+", labelEn: "Countries Served", labelVi: "Quốc Gia Phục Vụ" },
+];
+
+export const WHY_SGS = {
+    en: {
+        title: "Why Enterprise Clients Choose SGS GROUP",
+        subtitle: "Three commitments that make us different from every other AI vendor.",
+        items: [
+            {
+                number: "01",
+                title: "6-Week Pilot. Money-Back Guarantee.",
+                desc: "Every engagement starts with a scoped 6-week pilot. If you don't see measurable ROI by week 6, we refund 100% of the pilot fee — no questions, no lawyers.",
+                icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                color: "emerald"
+            },
+            {
+                number: "02",
+                title: "Fixed Scope. No Surprise Invoices.",
+                desc: "We quote once. All our contracts are fixed-price with clearly defined deliverables. No hourly billing, no scope creep charges, no 'change request' surprises.",
+                icon: "M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 11h.01M12 11h.01M15 11h.01M9 14h.01M12 14h.01M15 14h.01M5 20h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v11a2 2 0 002 2z",
+                color: "cyan"
+            },
+            {
+                number: "03",
+                title: "Built for Vietnam. Ready for Southeast Asia.",
+                desc: "Our engineers understand Vietnamese business processes, local regulations (Circular 13, PDPA), and the reality of deploying AI in emerging markets — not just theory.",
+                icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+                color: "violet"
+            }
+        ]
+    },
+    vi: {
+        title: "Tại Sao Doanh Nghiệp Chọn SGS GROUP",
+        subtitle: "Ba cam kết phân biệt chúng tôi với mọi nhà cung cấp AI khác.",
+        items: [
+            {
+                number: "01",
+                title: "Pilot 6 Tuần. Hoàn Tiền 100% Nếu Không Đạt.",
+                desc: "Mỗi hợp tác bắt đầu bằng giai đoạn pilot 6 tuần có phạm vi rõ ràng. Nếu bạn không thấy ROI đo lường được sau 6 tuần, chúng tôi hoàn trả 100% phí pilot — không điều kiện.",
+                icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                color: "emerald"
+            },
+            {
+                number: "02",
+                title: "Chi Phí Cố Định. Không Phát Sinh Thêm.",
+                desc: "Chúng tôi báo giá một lần. Toàn bộ hợp đồng là fixed-price với deliverables rõ ràng. Không tính theo giờ, không phát sinh do thay đổi yêu cầu, không có hóa đơn bất ngờ.",
+                icon: "M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 11h.01M12 11h.01M15 11h.01M9 14h.01M12 14h.01M15 14h.01M5 20h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v11a2 2 0 002 2z",
+                color: "cyan"
+            },
+            {
+                number: "03",
+                title: "Xây Cho Việt Nam. Sẵn Sàng Cho Đông Nam Á.",
+                desc: "Kỹ sư của chúng tôi am hiểu quy trình kinh doanh Việt Nam, quy định địa phương (Thông tư 13, PDPA) và thực tế triển khai AI tại thị trường mới nổi — không chỉ lý thuyết.",
+                icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+                color: "violet"
+            }
+        ]
+    }
+};
+
+export const INDUSTRY_SECTORS = [
+    { labelEn: "Manufacturing", labelVi: "Sản xuất", icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" },
+    { labelEn: "Retail & E-commerce", labelVi: "Bán lẻ & TMĐT", icon: "M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" },
+    { labelEn: "Logistics", labelVi: "Logistics", icon: "M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0zM13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" },
+    { labelEn: "Financial Services", labelVi: "Tài chính", icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
+    { labelEn: "Healthcare", labelVi: "Y tế", icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" },
+    { labelEn: "Real Estate", labelVi: "Bất động sản", icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
 ];
