@@ -82,15 +82,14 @@ interface NeonButtonProps {
 }
 
 export const NeonButton: React.FC<NeonButtonProps> = ({ children, onClick, variant = 'primary', icon, fullWidth = false, type = "button" }) => {
-  const baseStyles = "relative overflow-hidden rounded-lg font-medium text-xs sm:text-sm py-3 px-6 h-12 whitespace-nowrap transition-all duration-200 active:scale-[0.98] flex items-center justify-center gap-2 group select-none backdrop-blur-md";
+  const baseStyles = "relative overflow-hidden rounded-lg font-medium text-sm py-3 px-6 h-12 whitespace-nowrap transition-all duration-200 active:scale-[0.98] flex items-center justify-center gap-2 group select-none backdrop-blur-md";
   
   const variants = {
-    // Primary: "Condensed Light"
-    // Dark Mode: White text on dark. Light Mode: White text on blue (standard primary)
-    primary: "bg-slate-900 dark:bg-white text-white dark:text-black shadow-lg dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.6),0_0_20px_rgba(255,255,255,0.1)] hover:bg-slate-800 dark:hover:bg-[#f0f4f8] hover:shadow-xl dark:hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] border border-transparent",
+    // Primary: Brand Cyan — consistent with nav active state & all cyan accents
+    primary: "bg-primary-DEFAULT text-slate-950 font-bold shadow-[0_4px_16px_rgba(6,182,212,0.35),inset_0_1px_0_rgba(255,255,255,0.25)] hover:bg-primary-glow hover:shadow-[0_4px_28px_rgba(6,182,212,0.65)] border border-primary-glow/30 hover:border-primary-glow/60",
     
-    // Secondary: "Glass Plate"
-    secondary: "bg-white/50 dark:bg-[#1A1A1C]/60 text-slate-900 dark:text-white border border-slate-200 dark:border-white/10 shadow-inner-light hover:bg-white dark:hover:bg-[#27272a] hover:border-blue-300 dark:hover:border-white/20 hover:shadow-md",
+    // Secondary: Glass Plate with cyan hover border
+    secondary: "bg-white/50 dark:bg-white/[0.04] text-slate-900 dark:text-white border border-slate-200 dark:border-white/[0.12] shadow-inner-light hover:bg-white dark:hover:bg-white/[0.08] hover:border-blue-300 dark:hover:border-primary-DEFAULT/40 hover:shadow-md",
     
     // Ghost: Pure text
     ghost: "bg-transparent text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/50 dark:hover:bg-white/5"
