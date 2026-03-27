@@ -613,8 +613,36 @@ const App: React.FC = () => {
                 </div>
             </div>
 
+            <GlassCard className="p-8 md:p-10 mb-16 relative overflow-hidden border-l-4 border-l-emerald-500/50" hoverEffect={false}>
+                <div className="absolute top-0 right-0 w-64 h-full bg-emerald-500/5 blur-3xl pointer-events-none"></div>
+                <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                    <div className="md:col-span-2">
+                        <div className="flex items-center gap-2 mb-3">
+                            <svg className="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400">{language === 'en' ? 'Our Delivery Guarantee' : 'Cam Kết Giao Hàng'}</span>
+                        </div>
+                        <h3 className="text-xl font-bold text-white mb-3">{language === 'en' ? 'No results in 6 weeks? You pay nothing.' : 'Không có kết quả trong 6 tuần? Bạn không phải trả tiền.'}</h3>
+                        <p className="text-sm text-slate-400 leading-relaxed">{language === 'en' ? 'Every engagement begins with a fixed-scope pilot on your real data. We define success metrics together before writing a single line of code. If we cannot demonstrate measurable improvement within the pilot window, we refund 100% of pilot fees — no questions asked.' : 'Mỗi hợp đồng bắt đầu bằng giai đoạn pilot có phạm vi cố định trên dữ liệu thực của bạn. Chúng tôi cùng xác định chỉ số thành công trước khi viết bất kỳ dòng code nào. Nếu không thể chứng minh cải thiện đo được trong giai đoạn pilot, chúng tôi hoàn tiền 100% phí pilot — không cần giải thích.'}</p>
+                    </div>
+                    <div className="flex flex-col gap-3">
+                        {[
+                            { en: '6-week pilot window', vi: '6 tuần thử nghiệm' },
+                            { en: 'Signed SLA before start', vi: 'Ký SLA trước khi bắt đầu' },
+                            { en: '100% refund if no results', vi: 'Hoàn tiền 100% nếu không có kết quả' },
+                            { en: '12-month support included', vi: 'Bao gồm hỗ trợ 12 tháng' },
+                        ].map((item, i) => (
+                            <div key={i} className="flex items-center gap-3 text-sm text-slate-300">
+                                <svg className="w-4 h-4 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                                {language === 'en' ? item.en : item.vi}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </GlassCard>
+
             <div className="text-center">
-                <MonoLabel className="justify-center mb-10 text-slate-500">{TEXTS[language].trustedPartners}</MonoLabel>
+                <MonoLabel className="justify-center mb-2 text-slate-500">{language === 'en' ? 'CLOUD & INFRASTRUCTURE PARTNERS' : 'ĐỐI TÁC HẠ TẦNG & CÔNG NGHỆ'}</MonoLabel>
+                <p className="text-xs text-slate-600 mb-8 font-mono">{language === 'en' ? '// Platforms we build and deploy on' : '// Nền tảng chúng tôi xây dựng và triển khai'}</p>
                 <div className="flex flex-wrap justify-center gap-4">
                     {PARTNERS_CONTENT.map((partner, idx) => (
                         <div key={idx} className="group px-6 py-3 rounded-full border border-white/5 bg-white/[0.02] hover:bg-white/10 hover:border-primary-DEFAULT/30 transition-all cursor-default flex items-center gap-3 backdrop-blur-sm shadow-inner-light">
@@ -660,7 +688,16 @@ const App: React.FC = () => {
                             <NeonButton variant="primary" fullWidth type="submit">{TEXTS[language].sendBtn}</NeonButton>
                         </form>
                     </div>
-                    <div className="mt-8 pt-6 border-t border-white/10 text-[10px] text-slate-500 font-mono text-center">ID: {language === 'en' ? CONTACT_CONTENT.en.connectNodeId : CONTACT_CONTENT.vi.connectNodeId} // ENCRYPTION: AES-256</div>
+                    <div className="mt-8 pt-6 border-t border-white/10 space-y-3">
+                        <div className="flex items-start gap-3 text-xs text-slate-400">
+                            <svg className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span>{language === 'en' ? CONTACT_CONTENT.en.responseTime : CONTACT_CONTENT.vi.responseTime}</span>
+                        </div>
+                        <div className="flex items-start gap-3 text-[10px] text-slate-500 font-mono">
+                            <svg className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+                            <span>{language === 'en' ? CONTACT_CONTENT.en.registrationNote : CONTACT_CONTENT.vi.registrationNote}</span>
+                        </div>
+                    </div>
                 </GlassCard>
                 <div className="space-y-8 flex flex-col h-full">
                     <div className="grid grid-cols-1 gap-0 bg-[#0a0a0c] border border-white/10 rounded-2xl overflow-hidden shadow-inner-light">

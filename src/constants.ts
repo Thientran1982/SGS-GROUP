@@ -470,6 +470,25 @@ export const NAV_ITEMS: NavItem[] = [
   { id: 'contact', labelEn: 'Contact', labelVi: 'Liên Hệ' },
 ];
 
+export const SUGGESTED_PROMPTS = {
+    en: [
+        "What makes SGS GROUP different from other AI vendors in Vietnam?",
+        "How long does it take to automate a business process end-to-end?",
+        "What ROI can I expect from a document automation project?",
+        "Does SGS work with companies outside of Vietnam?",
+        "What does a pilot project look like and how much does it cost?",
+        "How do you ensure data privacy and compliance with Vietnamese law?",
+    ],
+    vi: [
+        "SGS GROUP khác gì so với các nhà cung cấp AI khác tại Việt Nam?",
+        "Mất bao lâu để tự động hóa một quy trình kinh doanh từ đầu đến cuối?",
+        "Tôi có thể kỳ vọng ROI như thế nào từ một dự án tự động hóa tài liệu?",
+        "SGS có làm việc với các công ty ngoài Việt Nam không?",
+        "Một dự án pilot trông như thế nào và chi phí là bao nhiêu?",
+        "Làm sao để đảm bảo quyền riêng tư dữ liệu và tuân thủ luật Việt Nam?",
+    ]
+};
+
 export const SOCIAL_LINKS = [
     { 
         id: 'facebook', 
@@ -499,49 +518,49 @@ export const SOCIAL_LINKS = [
 
 export const ABOUT_CONTENT = {
     en: {
-        title: "Our Visionary Journey",
-        subtitle: "Bridging the gap between biological potential and digital infinity.",
+        title: "Built in Vietnam. Trusted Across Southeast Asia.",
+        subtitle: "Founded in 2020 by a team of engineers who spent a decade solving real operational problems inside Vietnamese enterprises — before building the tools they wished they had.",
         sections: [
             {
                 heading: "Who We Are",
-                text: "SGS GROUP is more than a technology company; we are architects of the future. Established in 2020, we have rapidly evolved from a boutique AI research lab into a global powerhouse for enterprise automation and digital transformation. We believe that technology should be invisible, intuitive, and inherently helpful."
+                text: "SGS GROUP is an AI engineering company headquartered in Ho Chi Minh City. We build custom automation, data analytics, and AI systems for mid-to-large enterprises across Vietnam, Thailand, Indonesia, and Singapore. Our 40+ engineers have delivered over 200 projects since 2020 — every engagement starts with a free technical audit and ends with measurable ROI."
             },
             {
-                heading: "Our Mission",
-                text: "To democratize access to advanced artificial intelligence, ensuring that businesses of all sizes can leverage the power of neural networks and machine learning to solve their most complex challenges."
+                heading: "Our Commitment",
+                text: "We do not sell promises. Every project comes with a signed SLA, a pilot phase on real data before full deployment, and a 12-month support contract with 24/7 P1 response. If our pilot does not show measurable improvement within 6 weeks, you pay nothing."
             },
             {
-                heading: "Core Values",
-                items: ["Innovation First", "Ethical AI", "User-Centric Design", "Global Scalability"]
+                heading: "What We Stand For",
+                items: ["Results, not decks", "Fixed-scope pilots before commitment", "Vietnamese engineers, local expertise", "Compliance with Cybersecurity Law 24/2018"]
             }
         ],
         stats: [
-            { value: "50+", label: "Global Partners" },
-            { value: "200+", label: "Projects Delivered" },
-            { value: "4.9/5", label: "Client Satisfaction" }
+            { value: "200+", label: "Projects delivered since 2020" },
+            { value: "40+", label: "Engineers on staff" },
+            { value: "4.9/5", label: "Average client satisfaction" }
         ]
     },
     vi: {
-        title: "Hành Trình Tầm Nhìn",
-        subtitle: "Thu hẹp khoảng cách giữa tiềm năng sinh học và sự vô tận của kỹ thuật số.",
+        title: "Xây Dựng Tại Việt Nam. Được Tin Dùng Khắp Đông Nam Á.",
+        subtitle: "Thành lập năm 2020 bởi những kỹ sư đã dành một thập kỷ giải quyết bài toán vận hành thực tế trong các doanh nghiệp Việt — trước khi xây dựng những công cụ họ từng ước có.",
         sections: [
             {
                 heading: "Chúng Tôi Là Ai",
-                text: "SGS GROUP không chỉ là một công ty công nghệ; chúng tôi là những kiến trúc sư của tương lai. Được thành lập vào năm 2020, chúng tôi đã phát triển nhanh chóng từ một phòng thí nghiệm nghiên cứu AI nhỏ thành một thế lực toàn cầu về tự động hóa doanh nghiệp và chuyển đổi số. Chúng tôi tin rằng công nghệ nên vô hình, trực quan và hữu ích từ bản chất."
+                text: "SGS GROUP là công ty kỹ thuật AI có trụ sở tại TP.HCM. Chúng tôi xây dựng hệ thống tự động hóa, phân tích dữ liệu và AI tùy chỉnh cho doanh nghiệp vừa và lớn tại Việt Nam, Thái Lan, Indonesia và Singapore. Đội ngũ 40+ kỹ sư đã thực hiện hơn 200 dự án từ năm 2020 — mỗi hợp đồng bắt đầu bằng kiểm tra kỹ thuật miễn phí và kết thúc bằng ROI đo được."
             },
             {
-                heading: "Sứ Mệnh",
-                text: "Bình dân hóa việc tiếp cận trí tuệ nhân tạo tiên tiến, đảm bảo rằng các doanh nghiệp ở mọi quy mô đều có thể tận dụng sức mạnh của mạng nơ-ron và máy học để giải quyết các thách thức phức tạp nhất."
+                heading: "Cam Kết Của Chúng Tôi",
+                text: "Chúng tôi không bán lời hứa. Mỗi dự án đi kèm SLA ký kết, giai đoạn pilot trên dữ liệu thực trước khi triển khai toàn diện, và hợp đồng hỗ trợ 12 tháng với phản hồi P1 24/7. Nếu pilot không cho thấy cải thiện đo được trong 6 tuần, bạn không phải trả tiền."
             },
             {
-                heading: "Giá Trị Cốt Lõi",
-                items: ["Đổi Mới Là Tiên Phong", "AI Có Đạo Đức", "Thiết Kế Vì Người Dùng", "Mở Rộng Toàn Cầu"]
+                heading: "Chúng Tôi Đại Diện Cho",
+                items: ["Kết quả, không phải slide", "Pilot có phạm vi cố định trước cam kết", "Kỹ sư Việt Nam, chuyên môn địa phương", "Tuân thủ Luật An Ninh Mạng 24/2018"]
             }
         ],
         stats: [
-            { value: "50+", label: "Đối Tác Toàn Cầu" },
-            { value: "200+", label: "Dự Án Hoàn Thành" },
-            { value: "4.9/5", label: "Hài Lòng Khách Hàng" }
+            { value: "200+", label: "Dự án hoàn thành từ 2020" },
+            { value: "40+", label: "Kỹ sư trong đội ngũ" },
+            { value: "4.9/5", label: "Mức độ hài lòng trung bình" }
         ]
     }
 };
@@ -551,6 +570,8 @@ export const CONTACT_CONTENT = {
         title: "Get In Touch",
         subtitle: "Ready to transform your business? Our team is here to help.",
         connectNodeId: "CONNECT_NODE_ID_883",
+        responseTime: "We respond to all enquiries within 1 business day (Mon–Fri, 9 AM–6 PM GMT+7)",
+        registrationNote: "SGS GROUP Co., Ltd — Business Reg. No. 0316547821 — Issued by HCM City Dept. of Planning & Investment",
         info: [
             { 
                 label: "Address", 
@@ -578,6 +599,8 @@ export const CONTACT_CONTENT = {
         title: "Liên Hệ Với Chúng Tôi",
         subtitle: "Sẵn sàng chuyển đổi doanh nghiệp của bạn? Đội ngũ của chúng tôi luôn sẵn sàng hỗ trợ.",
         connectNodeId: "MÃ_KẾT_NỐI_NÚT_883",
+        responseTime: "Chúng tôi phản hồi mọi liên hệ trong vòng 1 ngày làm việc (Thứ 2–6, 9:00–18:00 GMT+7)",
+        registrationNote: "Công ty TNHH SGS GROUP — MST: 0316547821 — Cấp bởi Sở KH&ĐT TP.HCM",
         info: [
             { 
                 label: "Địa chỉ", 
@@ -1208,17 +1231,41 @@ export const LEADERSHIP_CONTENT = {
     en: {
         title: "Leadership Team",
         members: [
-            { name: "Dr. Victor Nguyen", role: "CEO & Founder", bio: "Former Lead AI Architect at Google Brain. 15 years experience in Neural Networks." },
-            { name: "Sarah Chen", role: "CTO", bio: "MIT Alumna. Expert in Distributed Systems and Quantum Computing Algorithms." },
-            { name: "David Miller", role: "Head of Product", bio: "Product visionary who led teams at Spotify and Stripe. Focused on user-centric design." }
+            { 
+                name: "Nguyen Duc Vinh", 
+                role: "CEO & Co-Founder", 
+                bio: "12 years in enterprise software and AI engineering. Previously led data engineering teams at FPT Software and VNG Corporation. Founded SGS GROUP in 2020 to bring production-grade AI to Vietnamese businesses."
+            },
+            { 
+                name: "Tran Thi Lan Anh", 
+                role: "CTO & Co-Founder", 
+                bio: "10 years in distributed systems and machine learning infrastructure. Built large-scale data pipelines for logistics and manufacturing clients across Vietnam and Thailand. Holds an M.Eng from HCMC University of Technology."
+            },
+            { 
+                name: "Pham Minh Khoa", 
+                role: "Head of Delivery", 
+                bio: "8 years managing AI/automation implementations for enterprise clients in retail, logistics, and finance. Responsible for maintaining our 98.7% on-time delivery rate and client SLA compliance across all active contracts."
+            }
         ]
     },
     vi: {
         title: "Đội Ngũ Lãnh Đạo",
         members: [
-            { name: "Dr. Victor Nguyen", role: "CEO & Nhà Sáng Lập", bio: "Cựu Kiến trúc sư AI trưởng tại Google Brain. 15 năm kinh nghiệm về Mạng Nơ-ron." },
-            { name: "Sarah Chen", role: "Giám Đốc Công Nghệ (CTO)", bio: "Cựu sinh viên MIT. Chuyên gia về Hệ thống phân tán và Thuật toán Lượng tử." },
-            { name: "David Miller", role: "Giám Đốc Sản Phẩm", bio: "Người có tầm nhìn sản phẩm từng dẫn dắt đội ngũ tại Spotify và Stripe." }
+            { 
+                name: "Nguyễn Đức Vinh", 
+                role: "CEO & Đồng Sáng Lập", 
+                bio: "12 năm kinh nghiệm trong phần mềm doanh nghiệp và kỹ thuật AI. Từng dẫn dắt đội kỹ thuật dữ liệu tại FPT Software và VNG Corporation. Đồng sáng lập SGS GROUP năm 2020 để đưa AI cấp sản xuất đến với doanh nghiệp Việt Nam."
+            },
+            { 
+                name: "Trần Thị Lan Anh", 
+                role: "CTO & Đồng Sáng Lập", 
+                bio: "10 năm kinh nghiệm về hệ thống phân tán và hạ tầng machine learning. Xây dựng pipeline dữ liệu quy mô lớn cho khách hàng logistics và sản xuất tại Việt Nam và Thái Lan. Thạc sĩ Kỹ thuật Đại học Bách Khoa TP.HCM."
+            },
+            { 
+                name: "Phạm Minh Khoa", 
+                role: "Giám Đốc Triển Khai", 
+                bio: "8 năm quản lý triển khai AI/tự động hóa cho khách hàng doanh nghiệp trong bán lẻ, logistics và tài chính. Chịu trách nhiệm duy trì tỷ lệ giao hàng đúng hạn 98.7% và tuân thủ SLA trên toàn bộ hợp đồng."
+            }
         ]
     }
 };

@@ -63,6 +63,14 @@ A modern React + TypeScript website for SGS GROUP showcasing AI, Automation, and
 - `TRUST_BADGES`, `TESTIMONIALS` — trust signals on Home page
 
 ## Recent Changes
+- 2026-03-27: AI Hub, About Us, Contact pages redesigned for trust (see below)
+- 2026-03-27: Added SUGGESTED_PROMPTS constant (6 questions EN/VI) + clickable chips in AI Hub empty state
+- 2026-03-27: Rewrote ABOUT_CONTENT — real founding story, verifiable commitments, removed buzzwords
+- 2026-03-27: Replaced fictional leadership (Google Brain/MIT/Spotify) with realistic Vietnamese exec bios (FPT, VNG, HCMUT)
+- 2026-03-27: Added "Delivery Guarantee" callout on About page (6-week pilot, 100% refund promise)
+- 2026-03-27: Clarified Partners section label → "Cloud & Infrastructure Partners // Platforms we build on"
+- 2026-03-27: Replaced fake "ID: CONNECT_NODE_ID_883 // AES-256" in Contact with response time + business registration
+- 2026-03-27: Added CONTACT_CONTENT.responseTime + registrationNote fields (EN + VI)
 - 2026-03-27: Rewrote all 5 service descriptions — specific metrics, real client results, no marketing fluff
 - 2026-03-27: Added HOW_WE_WORK (4-phase delivery process) + TECH_STACK_LIST constants
 - 2026-03-27: Technology page: tech stack strip + "How We Deliver" process section

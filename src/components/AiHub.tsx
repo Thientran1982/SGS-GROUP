@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { sendMessageToGemini, startChat, resetChat, generateSpeech } from '../services/geminiService';
 import { BackendService } from '../services/backend';
 import { Message, Language, ChatSession } from '../types';
-import { TEXTS, PHONETIC_MAP, GEMINI_VOICES } from '../constants';
+import { TEXTS, PHONETIC_MAP, GEMINI_VOICES, SUGGESTED_PROMPTS } from '../constants';
 
 // Add type definition for Web Speech API
 declare global {
@@ -844,20 +844,32 @@ const AiHub: React.FC<AiHubProps> = ({ language, initialMessage, onInitialMessag
 
             <div className="flex-1 flex flex-col relative z-10">
                 <div ref={scrollContainerRef} className="flex-1 overflow-y-auto p-3 md:p-8 space-y-6 md:space-y-8 scroll-smooth custom-scrollbar relative">
-                    <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center transition-opacity duration-1000 ${messages.length > 1 ? 'opacity-0 pointer-events-none' : 'opacity-40 pointer-events-none select-none'}`}>
-                        <div className="relative w-48 h-48 mb-6">
-                            <div className="absolute inset-0 rounded-full border border-cyan-500/20 border-dashed animate-[spin_20s_linear_infinite]"></div>
-                            <div className="absolute inset-8 rounded-full border border-blue-500/20 border-dotted animate-[spin_15s_linear_infinite_reverse]"></div>
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-br from-cyan-500/5 to-blue-500/5 rounded-full blur-xl animate-pulse"></div>
+                    {messages.length <= 1 && (
+                        <div className="flex flex-col items-center justify-center py-8 px-4 animate-fade-in">
+                            <div className="relative w-32 h-32 mb-6 pointer-events-none select-none opacity-40">
+                                <div className="absolute inset-0 rounded-full border border-cyan-500/20 border-dashed animate-[spin_20s_linear_infinite]"></div>
+                                <div className="absolute inset-8 rounded-full border border-blue-500/20 border-dotted animate-[spin_15s_linear_infinite_reverse]"></div>
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-gradient-to-br from-cyan-500/5 to-blue-500/5 rounded-full blur-xl animate-pulse"></div>
+                            </div>
+                            <p className="text-[10px] font-mono text-cyan-500/60 tracking-[0.4em] uppercase mb-6 select-none">
+                                {TEXTS[language].neuralCoreOnline}
+                            </p>
+                            <p className="text-xs text-slate-500 mb-4 text-center select-none">
+                                {language === 'en' ? 'Not sure where to start? Try one of these:' : 'Chưa biết bắt đầu từ đâu? Thử một trong những câu hỏi này:'}
+                            </p>
+                            <div className="flex flex-wrap gap-2 justify-center max-w-2xl">
+                                {SUGGESTED_PROMPTS[language].map((prompt, i) => (
+                                    <button
+                                        key={i}
+                                        onClick={() => handleSend(prompt)}
+                                        className="text-xs px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:bg-cyan-500/10 hover:border-cyan-500/30 hover:text-cyan-300 transition-all duration-200 text-left cursor-pointer shadow-inner-light"
+                                    >
+                                        {prompt}
+                                    </button>
+                                ))}
+                            </div>
                         </div>
-                        <div className="flex flex-col items-center gap-2 text-center h-4">
-                            {TEXTS[language].neuralCoreOnline && (
-                                <span className="text-[10px] font-mono text-cyan-500 tracking-[0.5em] uppercase animate-pulse whitespace-nowrap animate-fade-in">
-                                    {TEXTS[language].neuralCoreOnline}
-                                </span>
-                            )}
-                        </div>
-                    </div>
+                    )}
 
                     {messages.map((msg) => (
                         <div key={msg.id} className={`flex flex-col animate-fade-in-up ${msg.role === 'user' ? 'items-end' : 'items-start'}`}>
