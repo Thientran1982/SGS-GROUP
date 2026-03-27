@@ -17,8 +17,8 @@ export const GlassCard: React.FC<GlassCardProps> = ({ children, className = "", 
       relative overflow-hidden rounded-xl md:rounded-2xl
       /* v6.1 MATERIAL SYSTEM: */
       /* Dark: Obsidian Glass (Black/80%) | Light: Ceramic Glass (White/60%) */
-      bg-white/60 dark:bg-[#0a0a0c]/80 
-      border border-slate-200 dark:border-white/[0.08] 
+      bg-white/60 dark:bg-[#0C1428]/80 
+      border border-slate-200 dark:border-white/[0.10] 
       backdrop-blur-xl
       shadow-lg transition-all duration-300 group/card
       ${hoverEffect ? 'hover:border-blue-300/50 dark:hover:border-white/[0.15] hover:bg-white/80 dark:hover:bg-[#0f1115]/90 hover:shadow-xl dark:hover:shadow-2xl cursor-pointer' : ''}
@@ -86,7 +86,7 @@ export const NeonButton: React.FC<NeonButtonProps> = ({ children, onClick, varia
   
   const variants = {
     // Primary: Brand Cyan — consistent with nav active state & all cyan accents
-    primary: "bg-primary-DEFAULT text-slate-950 font-bold shadow-[0_4px_16px_rgba(6,182,212,0.35),inset_0_1px_0_rgba(255,255,255,0.25)] hover:bg-primary-glow hover:shadow-[0_4px_28px_rgba(6,182,212,0.65)] border border-primary-glow/30 hover:border-primary-glow/60",
+    primary: "bg-primary-DEFAULT text-slate-950 font-bold shadow-[0_4px_20px_rgba(6,182,212,0.50),inset_0_1px_0_rgba(255,255,255,0.30)] hover:bg-primary-glow hover:shadow-[0_4px_35px_rgba(6,182,212,0.75),0_0_60px_rgba(6,182,212,0.25)] border border-primary-glow/30 hover:border-primary-glow/60",
     
     // Secondary: Glass Plate with cyan hover border
     secondary: "bg-white/50 dark:bg-white/[0.04] text-slate-900 dark:text-white border border-slate-200 dark:border-white/[0.12] shadow-inner-light hover:bg-white dark:hover:bg-white/[0.08] hover:border-blue-300 dark:hover:border-primary-DEFAULT/40 hover:shadow-md",

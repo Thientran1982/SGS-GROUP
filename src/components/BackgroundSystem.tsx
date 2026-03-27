@@ -186,18 +186,21 @@ const BackgroundSystem: React.FC<BackgroundSystemProps> = ({ theme }) => {
             
             .bg-void {
                 position: absolute; inset: 0;
-                /* v6.1 DUALITY: Void vs Lab */
+                /* 2026 CHROMATIC VOID: Deep Space Navy w/ dual-tone aurora */
                 background: ${theme === 'dark' 
-                    ? 'radial-gradient(circle at center, #0a0a0c 0%, #000000 100%)' 
+                    ? `radial-gradient(ellipse at 30% 0%, rgba(6, 182, 212, 0.12) 0%, transparent 50%),
+                       radial-gradient(ellipse at 70% 0%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
+                       radial-gradient(ellipse at 50% 100%, rgba(99, 102, 241, 0.06) 0%, transparent 60%),
+                       linear-gradient(180deg, #04091A 0%, #030712 40%, #020510 100%)` 
                     : 'radial-gradient(circle at center, #f8fafc 0%, #e2e8f0 100%)'};
                 transition: background 1.5s cubic-bezier(0.16, 1, 0.3, 1);
             }
 
             .grid-hologram {
                 position: absolute; inset: -150%; width: 400%; height: 400%;
-                /* Dark: Glowing Cyan Grid | Light: Subtle Indigo Blueprint Grid */
+                /* 2026: Cyan-tinted grid (chromatic, not white) */
                 background-image: ${theme === 'dark'
-                    ? 'linear-gradient(rgba(34, 211, 238, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(34, 211, 238, 0.15) 1px, transparent 1px)'
+                    ? 'linear-gradient(rgba(6, 182, 212, 0.10) 1px, transparent 1px), linear-gradient(90deg, rgba(6, 182, 212, 0.10) 1px, transparent 1px)'
                     : 'linear-gradient(rgba(99, 102, 241, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(99, 102, 241, 0.08) 1px, transparent 1px)'
                 };
                 background-size: 80px 80px; 

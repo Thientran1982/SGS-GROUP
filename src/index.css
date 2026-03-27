@@ -10,34 +10,72 @@
   --font-display: "Space Grotesk", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  --color-canvas: #020408;
-  --color-canvas-subtle: #08090B;
-  --color-canvas-elevated: #0F1115;
+  /* ══════════════════════════════════════════════════
+     CANVAS — "Deep Space Navy" (2026 Chromatic Dark)
+     Layer separation: void → deep navy → elevated card
+  ══════════════════════════════════════════════════ */
+  --color-canvas: #030712;
+  --color-canvas-subtle: #06091A;
+  --color-canvas-elevated: #0C1428;
 
-  --color-surface-glass: rgba(255, 255, 255, 0.03);
-  --color-surface-glassHigh: rgba(255, 255, 255, 0.08);
-  --color-surface-border: rgba(255, 255, 255, 0.08);
-  --color-surface-borderHigh: rgba(255, 255, 255, 0.15);
+  /* ══════════════════════════════════════════════════
+     SURFACES — "Crystalline Glass" (2026 Glassmorphism)
+     Slightly more visible glass layers vs 2024/25
+  ══════════════════════════════════════════════════ */
+  --color-surface-glass: rgba(255, 255, 255, 0.05);
+  --color-surface-glassHigh: rgba(255, 255, 255, 0.10);
+  --color-surface-border: rgba(255, 255, 255, 0.10);
+  --color-surface-borderHigh: rgba(255, 255, 255, 0.20);
 
+  /* ══════════════════════════════════════════════════
+     PRIMARY — "Electric AI Cyan" (2026 AI Core)
+     The defining color of AI interfaces in 2026
+  ══════════════════════════════════════════════════ */
   --color-primary: #06B6D4;
   --color-primary-glow: #22D3EE;
-  --color-primary-dim: rgba(6, 182, 212, 0.1);
+  --color-primary-dim: rgba(6, 182, 212, 0.12);
   --color-primary-dark: #0891B2;
   --color-primary-DEFAULT: #06B6D4;
 
+  /* ══════════════════════════════════════════════════
+     ACCENT — "Luminous Indigo" (2026 AI Depth)
+     Intelligence / data / neural network color
+  ══════════════════════════════════════════════════ */
   --color-accent: #6366F1;
   --color-accent-glow: #818CF8;
   --color-accent-DEFAULT: #6366F1;
 
+  /* ══════════════════════════════════════════════════
+     WARM — "Electric Violet" (NEW 2026 — AI brand standard)
+     Third tone in cyan+indigo+violet AI color system
+     Used for gradients, highlights, and warm CTAs
+  ══════════════════════════════════════════════════ */
+  --color-warm: #A855F7;
+  --color-warm-glow: #C084FC;
+  --color-warm-dim: rgba(168, 85, 247, 0.10);
+  --color-warm-DEFAULT: #A855F7;
+
+  /* ══════════════════════════════════════════════════
+     STATUS — Semantic Colors (2026 Standard)
+  ══════════════════════════════════════════════════ */
   --color-status-success: #10B981;
   --color-status-warning: #F59E0B;
   --color-status-error: #EF4444;
 
-  --shadow-neon-cyan: 0 0 20px rgba(6, 182, 212, 0.25);
-  --shadow-glass-lg: 0 24px 60px -12px rgba(0, 0, 0, 0.6);
+  /* ══════════════════════════════════════════════════
+     SHADOWS — "Neon Plasma" (2026 Stronger Glow)
+     2026 neon shadows are 60-80% stronger than 2024
+  ══════════════════════════════════════════════════ */
+  --shadow-neon-cyan: 0 0 30px rgba(6, 182, 212, 0.45), 0 0 60px rgba(6, 182, 212, 0.15);
+  --shadow-neon-violet: 0 0 30px rgba(168, 85, 247, 0.40), 0 0 60px rgba(168, 85, 247, 0.15);
+  --shadow-neon-indigo: 0 0 25px rgba(99, 102, 241, 0.40), 0 0 50px rgba(99, 102, 241, 0.15);
+  --shadow-glass-lg: 0 24px 60px -12px rgba(0, 0, 0, 0.75);
   --shadow-inner-light: inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
-  --shadow-inner-glow: inset 0 0 20px rgba(6, 182, 212, 0.05);
+  --shadow-inner-glow: inset 0 0 30px rgba(6, 182, 212, 0.07);
 
+  /* ══════════════════════════════════════════════════
+     ANIMATIONS
+  ══════════════════════════════════════════════════ */
   --animate-spin-slow: spin 12s linear infinite;
   --animate-shine: shine 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -83,7 +121,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #020408;
+  background-color: #030712;
   color: #e2e8f0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -134,7 +172,7 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #020408;
+  background: #030712;
 }
 ::-webkit-scrollbar-thumb {
   background: #1e293b;
@@ -163,14 +201,41 @@ body {
 }
 
 ::selection {
-  background: rgba(6, 182, 212, 0.2);
+  background: rgba(6, 182, 212, 0.25);
   color: #22d3ee;
 }
 
+/* ══════════════════════════════════════════════════
+   CHROMATIC TECH GRID — Cyan-tinted (2026 standard)
+   White grids are 2023. Cyan grids are 2026 AI.
+══════════════════════════════════════════════════ */
 .bg-tech-grid {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-image: 
+    linear-gradient(rgba(6, 182, 212, 0.06) 1px, transparent 1px), 
+    linear-gradient(90deg, rgba(6, 182, 212, 0.06) 1px, transparent 1px);
 }
 
+/* ══════════════════════════════════════════════════
+   AURORA GRADIENT — Dual-tone Cyan+Violet (2026)
+   Single-color aurora is 2024. Dual-tone is 2026.
+══════════════════════════════════════════════════ */
 .bg-aurora-gradient {
-  background-image: radial-gradient(circle at 50% -20%, rgba(6, 182, 212, 0.15) 0%, rgba(2, 4, 8, 0) 50%);
+  background-image: 
+    radial-gradient(ellipse at 30% -10%, rgba(6, 182, 212, 0.18) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% -10%, rgba(168, 85, 247, 0.12) 0%, transparent 50%);
+}
+
+/* ══════════════════════════════════════════════════
+   CYBER GRADIENT — Primary brand gradient (2026)
+   Cyan → Indigo → Violet tri-tone
+══════════════════════════════════════════════════ */
+.bg-cyber-gradient {
+  background: linear-gradient(135deg, #06B6D4 0%, #6366F1 50%, #A855F7 100%);
+}
+
+.text-cyber-gradient {
+  background: linear-gradient(135deg, #22D3EE 0%, #818CF8 50%, #C084FC 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

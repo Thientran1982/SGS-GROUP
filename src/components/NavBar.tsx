@@ -108,8 +108,8 @@ const NavBar: React.FC<NavBarProps> = ({
         {/* Main HUD Container - CRYSTALLINE SHARD */}
         <div className={`pointer-events-auto relative rounded-full flex items-center justify-between gap-1.5 md:gap-4 border transition-all duration-500 w-full max-w-[98%] md:max-w-fit backdrop-blur-xl overflow-hidden group/nav-container shadow-inner-light
             ${scrolled 
-                ? 'bg-white/85 dark:bg-[#050505]/85 border-slate-200/80 dark:border-white/10 p-1 pl-2.5 md:pl-3 pr-1 backdrop-saturate-150 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.1)]' 
-                : 'bg-white/65 dark:bg-[#050505]/55 border-white/40 dark:border-white/10 p-1 md:p-1.5 md:pl-4 md:pr-1.5 shadow-[0_4px_20px_-5px_rgba(0,0,0,0.05)]'
+                ? 'bg-white/85 dark:bg-[#04091A]/85 border-slate-200/80 dark:border-cyan-900/30 p-1 pl-2.5 md:pl-3 pr-1 backdrop-saturate-150 shadow-[0_8px_32px_-8px_rgba(6,182,212,0.08),0_4px_16px_rgba(0,0,0,0.3)]' 
+                : 'bg-white/65 dark:bg-[#030712]/60 border-white/40 dark:border-white/10 p-1 md:p-1.5 md:pl-4 md:pr-1.5 shadow-[0_4px_20px_-5px_rgba(0,0,0,0.05)]'
             }
         `}>
           
