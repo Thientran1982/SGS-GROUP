@@ -63,6 +63,7 @@ A modern React + TypeScript website for SGS GROUP showcasing AI, Automation, and
 - `TRUST_BADGES`, `TESTIMONIALS` — trust signals on Home page
 
 ## Recent Changes
+- 2026-03-31: Full Gemini-style content rewrite — applied 5 principles from deepmind.google/models/gemini/: (1) "Best for X" positioning on all 5 service cards; (2) Hero subtitle → 2 clear, honest sentences; (3) Ticker: removed "4.9/5" → "50+ ENTERPRISE CLIENTS", "6 YRS EXPERIENCE" → "40+ ENGINEERS", "ISO 27001 COMPLIANT" → "ISO 27001 ALIGNED"; (4) Cloud computing features: "certified" → "aligned"; (5) About page: replaced "Our Commitment" section with Gemini-style progression narrative "How We Got Here"; About stats: "4.9/5 satisfaction" → "6 Countries served"
 - 2026-03-31: Homepage truth & clarity audit — 8 content fixes (no exaggeration):
   - Mini stats: "4.9/5 Avg. Rating" removed (unverifiable sample) → "50+ Enterprise Clients" (matches footer, defensible)
   - Guarantee Card 1 stat: "vs. 6–12 month industry average" (unsourced) → "vs. traditional multi-month deployments"

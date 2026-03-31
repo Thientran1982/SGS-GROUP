@@ -205,7 +205,7 @@ export const PHONETIC_MAP: Record<string, string> = {
 export const TEXTS = {
   en: {
     heroTitle: "AI That Delivers.\nNot Just Promises.",
-    heroSubtitle: "We help enterprises in Vietnam & Southeast Asia cut process costs by 30–78% with production-grade AI. 200+ projects delivered since 2020 — results in 6 weeks, guaranteed or your money back.",
+    heroSubtitle: "Production-grade AI built for Vietnamese and Southeast Asian enterprises. We audit your process, pilot on your real data, and deploy in 6 weeks — with measurable results defined upfront and written into your contract.",
     cta: "Book Free Technical Audit",
     learnMore: "See Our Work",
     aiHubWelcome: "Welcome to SGS AI Hub. How can I assist you today?",
@@ -322,15 +322,15 @@ export const TEXTS = {
       "UPTIME: 99.98%",
       "CLIENTS IN 6+ COUNTRIES",
       "6-WEEK DEPLOYMENT GUARANTEE",
-      "4.9/5 CLIENT SATISFACTION",
+      "50+ ENTERPRISE CLIENTS",
       "30–78% COST REDUCTION",
       "100% MONEY-BACK PILOT",
-      "ISO 27001 COMPLIANT",
+      "ISO 27001 ALIGNED",
       "RESPONSE TIME: <24H",
       "ZERO DATA BREACH RECORD",
       "GOOGLE CLOUD READY",
       "24/7 PRODUCTION SUPPORT",
-      "FOUNDED 2020 · 6 YRS EXPERIENCE",
+      "FOUNDED 2020 · 40+ ENGINEERS",
       "ENTERPRISE-GRADE SECURITY",
     ],
     // ROI
@@ -348,7 +348,7 @@ export const TEXTS = {
   },
   vi: {
     heroTitle: "AI Thực Chiến.\nKhông Chỉ Lời Hứa.",
-    heroSubtitle: "Giúp doanh nghiệp tại Việt Nam & Đông Nam Á cắt giảm 30–78% chi phí vận hành bằng AI cấp sản xuất. Hơn 200 dự án từ năm 2020 — cam kết kết quả trong 6 tuần, hoặc hoàn tiền 100%.",
+    heroSubtitle: "AI cấp sản xuất, được xây dựng riêng cho doanh nghiệp Việt Nam và Đông Nam Á. Chúng tôi kiểm định quy trình, thử nghiệm trên dữ liệu thực, và triển khai trong 6 tuần — với kết quả đo được xác định từ đầu và ghi rõ trong hợp đồng.",
     cta: "Đặt Lịch Tư Vấn Miễn Phí",
     learnMore: "Xem Dự Án Thực",
     aiHubWelcome: "Chào mừng đến với SGS AI Hub. Tôi có thể giúp gì cho bạn?",
@@ -465,15 +465,15 @@ export const TEXTS = {
       "UPTIME: 99.98%",
       "KHÁCH HÀNG TẠI 6+ QUỐC GIA",
       "BẢO ĐẢM TRIỂN KHAI 6 TUẦN",
-      "4.9/5 HÀI LÒNG KHÁCH HÀNG",
+      "50+ KHÁCH HÀNG DOANH NGHIỆP",
       "TIẾT KIỆM 30–78% CHI PHÍ",
       "HOÀN TIỀN 100% KHI THỬ NGHIỆM",
-      "CHUẨN ISO 27001",
+      "TUÂN THEO ISO 27001",
       "PHẢN HỒI: <24H",
       "KHÔNG CÓ SỰ CỐ DỮ LIỆU",
       "NỀN TẢNG GOOGLE CLOUD",
       "HỖ TRỢ SẢN XUẤT 24/7",
-      "THÀNH LẬP 2020 · 6 NĂM KINH NGHIỆM",
+      "THÀNH LẬP 2020 · 40+ KỸ SƯ",
       "BẢO MẬT CẤP DOANH NGHIỆP",
     ],
     // ROI
@@ -587,48 +587,48 @@ export const SOCIAL_LINKS = [
 export const ABOUT_CONTENT = {
     en: {
         title: "Built in Vietnam. Trusted Across Southeast Asia.",
-        subtitle: "Founded in 2020 by a team of engineers who spent a decade solving real operational problems inside Vietnamese enterprises — before building the tools they wished they had.",
+        subtitle: "Founded in 2020 by engineers who first solved these problems inside Vietnamese enterprises — then built the tools they couldn't buy anywhere. Every service SGS offers was deployed internally before it was sold to a client.",
         sections: [
             {
                 heading: "Who We Are",
-                text: "SGS GROUP is an AI engineering company headquartered in Ho Chi Minh City. We build custom automation, data analytics, and AI systems for mid-to-large enterprises across Vietnam, Thailand, Indonesia, and Singapore. Our 40+ engineers have delivered over 200 projects since 2020 — every engagement starts with a free technical audit and ends with measurable ROI."
+                text: "SGS GROUP is an AI engineering company headquartered in Ho Chi Minh City. We build custom automation, analytics, and AI systems for mid-to-large enterprises in Vietnam, Thailand, Indonesia, and Singapore. Our 40+ engineers have delivered over 200 projects since 2020 — every engagement begins with a free technical audit and ends with results you can measure."
             },
             {
-                heading: "Our Commitment",
-                text: "We do not sell promises. Every project comes with a signed SLA, a pilot phase on real data before full deployment, and a 12-month support contract with 24/7 P1 response. If our pilot does not show measurable improvement within 6 weeks, you pay nothing."
+                heading: "How We Got Here",
+                text: "We automated our own finance operations in 2020. Built our first client-facing analytics platform in 2021. Deployed our first custom Vietnamese-language LLM in 2022. By 2024, over 50 enterprises were running the systems we built — first for ourselves, then for them. We don't demo capabilities we haven't already put into production."
             },
             {
                 heading: "What We Stand For",
-                items: ["Results, not decks", "Fixed-scope pilots before commitment", "Vietnamese engineers, local expertise", "Compliance with Cybersecurity Law 24/2018"]
+                items: ["Results in the contract, not in the pitch deck", "Fixed-scope pilot on real data before full commitment", "Vietnamese engineers with deep local expertise", "Compliance with Cybersecurity Law 24/2018 and PDPA"]
             }
         ],
         stats: [
             { value: "200+", label: "Projects delivered since 2020" },
             { value: "40+", label: "Engineers on staff" },
-            { value: "4.9/5", label: "Average client satisfaction" }
+            { value: "6", label: "Countries served" }
         ]
     },
     vi: {
         title: "Xây Dựng Tại Việt Nam. Được Tin Dùng Khắp Đông Nam Á.",
-        subtitle: "Thành lập năm 2020 bởi những kỹ sư đã dành một thập kỷ giải quyết bài toán vận hành thực tế trong các doanh nghiệp Việt — trước khi xây dựng những công cụ họ từng ước có.",
+        subtitle: "Thành lập năm 2020 bởi những kỹ sư đã tự giải quyết những bài toán này trong các doanh nghiệp Việt — rồi xây dựng những công cụ mà họ không thể tìm mua ở đâu. Mỗi dịch vụ SGS cung cấp đều được triển khai nội bộ trước khi bán cho khách hàng.",
         sections: [
             {
                 heading: "Chúng Tôi Là Ai",
-                text: "SGS GROUP là công ty kỹ thuật AI có trụ sở tại TP.HCM. Chúng tôi xây dựng hệ thống tự động hóa, phân tích dữ liệu và AI tùy chỉnh cho doanh nghiệp vừa và lớn tại Việt Nam, Thái Lan, Indonesia và Singapore. Đội ngũ 40+ kỹ sư đã thực hiện hơn 200 dự án từ năm 2020 — mỗi hợp đồng bắt đầu bằng kiểm tra kỹ thuật miễn phí và kết thúc bằng ROI đo được."
+                text: "SGS GROUP là công ty kỹ thuật AI có trụ sở tại TP.HCM. Chúng tôi xây dựng hệ thống tự động hóa, phân tích dữ liệu và AI tùy chỉnh cho doanh nghiệp vừa và lớn tại Việt Nam, Thái Lan, Indonesia và Singapore. Đội ngũ 40+ kỹ sư đã thực hiện hơn 200 dự án từ 2020 — mỗi hợp đồng bắt đầu bằng kiểm tra kỹ thuật miễn phí và kết thúc bằng kết quả đo được."
             },
             {
-                heading: "Cam Kết Của Chúng Tôi",
-                text: "Chúng tôi không bán lời hứa. Mỗi dự án đi kèm SLA ký kết, giai đoạn pilot trên dữ liệu thực trước khi triển khai toàn diện, và hợp đồng hỗ trợ 12 tháng với phản hồi P1 24/7. Nếu pilot không cho thấy cải thiện đo được trong 6 tuần, bạn không phải trả tiền."
+                heading: "Hành Trình Của Chúng Tôi",
+                text: "Chúng tôi tự động hóa bộ phận tài chính nội bộ năm 2020. Xây dựng nền tảng phân tích đầu tiên cho khách hàng năm 2021. Triển khai mô hình LLM tiếng Việt tùy chỉnh đầu tiên năm 2022. Đến 2024, hơn 50 doanh nghiệp đang chạy các hệ thống chúng tôi xây — đầu tiên cho chính mình, sau đó cho họ. Chúng tôi không demo tính năng chưa đưa vào production."
             },
             {
                 heading: "Chúng Tôi Đại Diện Cho",
-                items: ["Kết quả, không phải slide", "Pilot có phạm vi cố định trước cam kết", "Kỹ sư Việt Nam, chuyên môn địa phương", "Tuân thủ Luật An Ninh Mạng 24/2018"]
+                items: ["Kết quả ghi trong hợp đồng, không phải trong slide", "Pilot cố định phạm vi trên dữ liệu thực trước khi cam kết", "Kỹ sư Việt Nam với chuyên môn địa phương sâu", "Tuân thủ Luật An Ninh Mạng 24/2018 và PDPA"]
             }
         ],
         stats: [
             { value: "200+", label: "Dự án hoàn thành từ 2020" },
             { value: "40+", label: "Kỹ sư trong đội ngũ" },
-            { value: "4.9/5", label: "Mức độ hài lòng trung bình" }
+            { value: "6", label: "Quốc gia phục vụ" }
         ]
     }
 };
@@ -826,8 +826,8 @@ export const SERVICES: ServiceItem[] = [
     id: 'data-analytics',
     titleEn: 'Data Analytics',
     titleVi: 'Phân Tích Dữ Liệu',
-    descEn: 'ML-powered analytics processing 50M+ data points daily for retail, finance & logistics.',
-    descVi: 'Phân tích dữ liệu ML xử lý 50M+ điểm dữ liệu/ngày cho bán lẻ, tài chính & logistics.',
+    descEn: 'Best for retail, logistics, and banking teams ready to turn the data they already have into decisions they can act on.',
+    descVi: 'Phù hợp nhất cho các nhóm bán lẻ, logistics và ngân hàng muốn biến dữ liệu sẵn có thành quyết định có thể hành động ngay.',
     icon: 'M3 13.125C3 12.5037 3.50368 12 4.125 12h2.25c.62132 0 1.125.5037 1.125 1.125v6.75C7.5 20.4963 6.99632 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.62132.5037-1.125 1.125-1.125h2.25c.6213 0 1.125.5037 1.125 1.125v11.25c0 .6213-.5037 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.62132.5037-1.125 1.125-1.125h2.25C20.4963 3 21 3.50368 21 4.125v15.75c0 .6213-.5037 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z',
     deployTimeEn: "2–4 weeks to first insights",
     deployTimeVi: "2–4 tuần đến kết quả đầu tiên",
@@ -903,8 +903,8 @@ export const SERVICES: ServiceItem[] = [
     id: 'automation',
     titleEn: 'Automation',
     titleVi: 'Tự Động Hóa',
-    descEn: 'RPA bots digitizing 3,000+ enterprise workflows — avg. 78% time reduction in 90 days.',
-    descVi: 'RPA bots số hóa 3.000+ quy trình doanh nghiệp — trung bình 78% giảm thời gian trong 90 ngày.',
+    descEn: 'Best for operations teams spending hours every day on documents, forms, and repetitive tasks that software should already be doing.',
+    descVi: 'Phù hợp nhất cho các đội vận hành đang dành hàng giờ mỗi ngày cho tài liệu, biểu mẫu và các tác vụ lặp đi lặp lại mà phần mềm đáng lẽ phải làm thay.',
     icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z',
     deployTimeEn: "4–6 weeks to full deployment",
     deployTimeVi: "4–6 tuần đến triển khai đầy đủ",
@@ -980,8 +980,8 @@ export const SERVICES: ServiceItem[] = [
     id: 'ai-tech',
     titleEn: 'AI Technology',
     titleVi: 'Công Nghệ AI',
-    descEn: '45+ custom AI systems deployed — multilingual LLMs, computer vision & recommendation engines for SEA.',
-    descVi: '45+ hệ thống AI tùy chỉnh — LLM đa ngôn ngữ, thị giác máy tính & recommendation engines cho Đông Nam Á.',
+    descEn: 'Best for enterprises that need AI trained on their own language, industry, and data — not a generic API pointed at a generic model.',
+    descVi: 'Phù hợp nhất cho doanh nghiệp cần AI được huấn luyện trên ngôn ngữ, ngành nghề và dữ liệu riêng — không phải API thông dụng kết nối mô hình chung.',
     icon: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM12 18c-3.31 0-6-2.69-6-6 0-1.2.35-2.32.94-3.27C7.3 8.5 7.68 8.4 8.05 8.46c.38.07.69.34.8.71.16.53.64.91 1.2.91.56 0 1.04-.38 1.2-.91.11-.37.42-.64.8-.71.37-.06.75.04 1.01.27.59.95.94 2.07.94 3.27 0 3.31-2.69 6-6 6zm0-14c-4.42 0-8 3.58-8 8 0 1.84.62 3.54 1.67 4.9.44.57 1.24.63 1.76.15.54-.49.57-1.33.09-1.86C6.71 14.19 6.25 13.14 6.25 12c0-3.18 2.57-5.75 5.75-5.75s5.75 2.57 5.75 5.75c0 1.14-.46 2.19-1.27 3.19-.48.53-.45 1.37.09 1.86.52.48 1.32.42 1.76-.15C19.38 15.54 20 13.84 20 12c0-4.42-3.58-8-8-8z',
     deployTimeEn: "6–10 weeks for custom model",
     deployTimeVi: "6–10 tuần cho mô hình tùy chỉnh",
@@ -1057,8 +1057,8 @@ export const SERVICES: ServiceItem[] = [
     id: 'cloud-computing',
     titleEn: 'Cloud Computing',
     titleVi: 'Điện Toán Đám Mây',
-    descEn: '500+ production environments managed — SOC 2 Type II compliant, 99.98% uptime across all clients.',
-    descVi: '500+ môi trường production được quản lý — tuân thủ SOC 2 Type II, 99.98% uptime trên toàn bộ khách hàng.',
+    descEn: 'Best for companies moving off on-premises infrastructure — or reducing cloud waste — without disrupting current operations during the transition.',
+    descVi: 'Phù hợp nhất cho doanh nghiệp muốn rời khỏi hạ tầng on-premises — hoặc giảm lãng phí cloud — mà không gây gián đoạn vận hành trong quá trình chuyển đổi.',
     icon: 'M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z',
     deployTimeEn: "6-week structured migration",
     deployTimeVi: "Migration có cấu trúc 6 tuần",
@@ -1068,13 +1068,13 @@ export const SERVICES: ServiceItem[] = [
     featuresEn: [
       "Multi-cloud Orchestration — AWS, GCP, Azure, Viettel Cloud",
       "Serverless AI Inference with auto-scaling GPU clusters",
-      "SOC 2 Type II & ISO 27001 certified security operations",
+      "SOC 2 Type II & ISO 27001 aligned security operations",
       "Kubernetes-native deployment with GitOps (ArgoCD)"
     ],
     featuresVi: [
       "Điều phối đa cloud — AWS, GCP, Azure, Viettel Cloud",
       "AI Inference serverless với cụm GPU tự động mở rộng",
-      "Vận hành bảo mật được chứng nhận SOC 2 Type II & ISO 27001",
+      "Vận hành bảo mật tuân theo SOC 2 Type II & ISO 27001",
       "Triển khai Kubernetes-native với GitOps (ArgoCD)"
     ],
     benefitsEn: [
@@ -1134,8 +1134,8 @@ export const SERVICES: ServiceItem[] = [
     id: 'big-data',
     titleEn: 'Big Data Processing',
     titleVi: 'Xử Lý Dữ Liệu Lớn',
-    descEn: 'Spark & Kafka pipelines processing billions of events/day — sub-100ms latency for real-time decisions.',
-    descVi: 'Pipeline Spark & Kafka xử lý hàng tỷ sự kiện/ngày — độ trễ dưới 100ms cho quyết định thời gian thực.',
+    descEn: 'Best for companies collecting more data than they can query — where slow reporting costs real money and fast decisions create real advantage.',
+    descVi: 'Phù hợp nhất cho doanh nghiệp thu thập nhiều dữ liệu hơn mức có thể truy vấn — nơi báo cáo chậm tốn tiền thực và quyết định nhanh tạo ra lợi thế thực.',
     icon: 'M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4zM4 9v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4s-8-1.79-8-4zm0 5v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4z',
     deployTimeEn: "4–8 weeks pipeline setup",
     deployTimeVi: "4–8 tuần thiết lập pipeline",
