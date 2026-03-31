@@ -20,10 +20,10 @@ export default {
           elevated: '#0C1428',
         },
         surface: {
-          glass: 'rgba(255, 255, 255, 0.05)',
-          glassHigh: 'rgba(255, 255, 255, 0.10)',
-          border: 'rgba(255, 255, 255, 0.10)',
-          borderHigh: 'rgba(255, 255, 255, 0.20)',
+          glass: 'var(--color-surface-glass)',
+          glassHigh: 'var(--color-surface-glassHigh)',
+          border: 'var(--color-surface-border)',
+          borderHigh: 'var(--color-surface-borderHigh)',
         },
         primary: {
           DEFAULT: '#06B6D4',
@@ -51,7 +51,7 @@ export default {
         'neon-violet': '0 0 30px rgba(168, 85, 247, 0.40), 0 0 60px rgba(168, 85, 247, 0.15)',
         'neon-indigo': '0 0 25px rgba(99, 102, 241, 0.40), 0 0 50px rgba(99, 102, 241, 0.15)',
         'glass-lg':    '0 24px 60px -12px rgba(0, 0, 0, 0.75)',
-        'inner-light': 'inset 0 1px 0 0 rgba(255, 255, 255, 0.15)',
+        'inner-light': 'var(--shadow-inner-light)',
         'inner-glow':  'inset 0 0 30px rgba(6, 182, 212, 0.07)',
       },
       backgroundImage: {
