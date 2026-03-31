@@ -115,9 +115,6 @@ html {
   margin: 0;
   padding: 0;
   min-height: 100%;
-  /* overflow-x on html, not body — avoids iOS Safari bug that breaks
-     momentum scrolling when overflow-x:hidden is set on body */
-  overflow-x: clip;
   scroll-behavior: smooth;
 }
 
@@ -131,15 +128,13 @@ body {
   text-rendering: optimizeLegibility;
   overscroll-behavior-y: contain;
   overscroll-behavior-x: none;
-  /* Use clip instead of hidden — doesn't create a new scroll context,
-     preserves iOS momentum scrolling */
-  overflow-x: clip;
-  overflow-y: auto;
+  /* overflow-x: hidden alone (without setting overflow-y) is the
+     safe cross-browser way to prevent horizontal scroll. Setting
+     BOTH overflow-x and overflow-y on body triggers an iOS Safari
+     bug that breaks momentum/rubber-band vertical scrolling. */
+  overflow-x: hidden;
   min-height: 100%;
   -webkit-overflow-scrolling: touch;
-  /* Explicitly allow vertical pan and pinch-zoom on mobile.
-     Without this, some iOS versions block scroll if any child
-     has touch-action conflict */
   touch-action: pan-y pinch-zoom;
 }
 
@@ -150,10 +145,9 @@ body {
 }
 
 #root {
-  min-height: 100vh;
+  /* Block-level — natural height, no flex constraint that would
+     cap the child container to exactly 100dvh */
   min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
 }
 
 .app-scroll-container {
@@ -161,13 +155,13 @@ body {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  /* clip instead of hidden — same reasoning as body */
-  overflow-x: clip;
-  flex: 1;
-  /* touch-action allows vertical pan without creating a separate
-     scroll context (do NOT add -webkit-overflow-scrolling here —
-     that would make iOS treat this as a scroll container and trap
-     touch events, preventing the body from scrolling) */
+  /* Do NOT set overflow-x here: setting overflow-x:clip would
+     implicitly set overflow-y:auto, turning this into a scroll
+     container and trapping content (including the footer) inside
+     it instead of letting body scroll naturally. */
+  /* Do NOT use flex:1 here — that would lock this container to
+     exactly the parent (#root) height and prevent growth beyond
+     100dvh. Without flex:1 the container grows with its content. */
   touch-action: pan-y pinch-zoom;
 }
 
