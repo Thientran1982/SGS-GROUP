@@ -12,3 +12,9 @@ id = "-yyVIv_kWtsArbTFNnbEY"
 uri = "file://screenshots/home_v2.jpg"
 type = "image"
 title = "Sau — 9.5/10"
+
+[[outputs]]
+id = "zmiA2ksbZxdJ9wNgyvjqP"
+uri = "file://screenshots/dark_after.jpg"
+type = "image"
+title = "Dark Mode — ✅ Đã kiểm tra"

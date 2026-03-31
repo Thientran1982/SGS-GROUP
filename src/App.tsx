@@ -236,9 +236,9 @@ const App: React.FC = () => {
                     <div className="order-1 flex flex-col items-center lg:items-start text-center lg:text-left relative z-40">
 
                         {/* TRUST BADGE — above headline */}
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 mb-6 animate-fade-in-up">
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_rgba(52,211,153,0.8)]"></span>
-                            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-emerald-400">
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-600/30 dark:border-emerald-500/25 mb-6 animate-fade-in-up">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400 animate-pulse shadow-[0_0_6px_rgba(52,211,153,0.6)]"></span>
+                            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-400">
                                 {language === 'en' ? 'Trusted by 50+ Enterprises · Vietnam & Southeast Asia' : 'Tin tưởng bởi 50+ doanh nghiệp · Việt Nam & Đông Nam Á'}
                             </span>
                         </div>

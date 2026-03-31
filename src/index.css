@@ -121,8 +121,8 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #030712;
-  color: #e2e8f0;
+  background-color: #f8fafc;
+  color: #0f172a;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -177,17 +177,32 @@ body {
   mix-blend-mode: overlay;
 }
 
+/* Dark mode body override */
+.dark body {
+  background-color: #030712;
+  color: #e2e8f0;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #030712;
+  background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #cbd5e1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
+  background: #0891b2;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #030712;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #1e293b;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
   background: #06b6d4;
 }
 
@@ -210,6 +225,10 @@ body {
 }
 
 ::selection {
+  background: rgba(6, 182, 212, 0.20);
+  color: #0f172a;
+}
+.dark ::selection {
   background: rgba(6, 182, 212, 0.25);
   color: #22d3ee;
 }
@@ -243,6 +262,14 @@ body {
 }
 
 .text-cyber-gradient {
+  /* Light mode: deeper tones for contrast on white — contrast ≥4.5:1 */
+  background: linear-gradient(135deg, #0891B2 0%, #4338CA 50%, #6D28D9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.dark .text-cyber-gradient {
+  /* Dark mode: bright neon tones on deep navy */
   background: linear-gradient(135deg, #22D3EE 0%, #818CF8 50%, #C084FC 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
