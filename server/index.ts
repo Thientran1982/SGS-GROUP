@@ -236,8 +236,17 @@ app.use((req, res, next) => {
   if (req.path.startsWith("/api")) {
     return next();
   }
+  const indexPath = path.join(distPath, "index.html");
   res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-  res.sendFile(path.join(distPath, "index.html"));
+  if (cachedIndexHtml) {
+    res.setHeader("Content-Type", "text/html");
+    return res.status(200).send(cachedIndexHtml);
+  }
+  res.sendFile(indexPath, (err) => {
+    if (err) {
+      res.status(503).send("App build not found. Please run: npm run build");
+    }
+  });
 });
 
 // Start server AFTER all routes are registered
