@@ -310,7 +310,7 @@ export const TEXTS = {
     aboutTitle: "About SGS", 
     joinNetworkTitle: "Join Our Network", 
     joinNetworkDesc: "Partner with us to redefine the future.", 
-    trustedPartners: "Trusted by Industry Leaders", 
+    trustedPartners: "Technology Partners", 
     // Menu
     menu: "Menu",
     corporateProfile: "SGS_CORPORATE_PROFILE",
@@ -320,7 +320,7 @@ export const TEXTS = {
     ticker: [
       "200+ PROJECTS DELIVERED",
       "UPTIME: 99.98%",
-      "CLIENTS IN 12+ COUNTRIES",
+      "CLIENTS IN 6+ COUNTRIES",
       "6-WEEK DEPLOYMENT GUARANTEE",
       "4.9/5 CLIENT SATISFACTION",
       "30–78% COST REDUCTION",
@@ -330,7 +330,7 @@ export const TEXTS = {
       "ZERO DATA BREACH RECORD",
       "GOOGLE CLOUD PARTNER",
       "24/7 PRODUCTION SUPPORT",
-      "FOUNDED 2018 · 6 YRS EXPERIENCE",
+      "FOUNDED 2020 · 6 YRS EXPERIENCE",
       "ENTERPRISE-GRADE SECURITY",
     ],
     // ROI
@@ -453,7 +453,7 @@ export const TEXTS = {
     aboutTitle: "Về SGS", 
     joinNetworkTitle: "Tham Gia Mạng Lưới", 
     joinNetworkDesc: "Hợp tác cùng chúng tôi để định nghĩa lại tương lai.", 
-    trustedPartners: "Đối Tác Chiến Lược", 
+    trustedPartners: "Đối Tác Công Nghệ", 
     // Menu
     menu: "Danh Mục",
     corporateProfile: "SGS_HỒ_SƠ_DOANH_NGHIỆP",
@@ -463,7 +463,7 @@ export const TEXTS = {
     ticker: [
       "200+ DỰ ÁN HOÀN THÀNH",
       "UPTIME: 99.98%",
-      "KHÁCH HÀNG TẠI 12+ QUỐC GIA",
+      "KHÁCH HÀNG TẠI 6+ QUỐC GIA",
       "BẢO ĐẢM TRIỂN KHAI 6 TUẦN",
       "4.9/5 HÀI LÒNG KHÁCH HÀNG",
       "TIẾT KIỆM 30–78% CHI PHÍ",
@@ -473,7 +473,7 @@ export const TEXTS = {
       "KHÔNG CÓ SỰ CỐ DỮ LIỆU",
       "ĐỐI TÁC GOOGLE CLOUD",
       "HỖ TRỢ SẢN XUẤT 24/7",
-      "THÀNH LẬP 2018 · 6 NĂM KINH NGHIỆM",
+      "THÀNH LẬP 2020 · 6 NĂM KINH NGHIỆM",
       "BẢO MẬT CẤP DOANH NGHIỆP",
     ],
     // ROI
@@ -560,25 +560,25 @@ export const SUGGESTED_PROMPTS = {
 export const SOCIAL_LINKS = [
     { 
         id: 'facebook', 
-        url: 'https://facebook.com', 
+        url: 'https://www.facebook.com/sgsgroupvietnam', 
         label: 'Facebook',
         icon: 'M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z'
     },
     { 
         id: 'twitter', 
-        url: 'https://twitter.com', 
+        url: 'https://x.com/sgsgroupvn', 
         label: 'X (Twitter)',
         icon: 'M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z'
     },
     { 
         id: 'linkedin', 
-        url: 'https://linkedin.com', 
+        url: 'https://www.linkedin.com/company/sgs-group-vietnam', 
         label: 'LinkedIn',
         icon: 'M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 23.222 0h.003z'
     },
     { 
         id: 'instagram', 
-        url: 'https://instagram.com', 
+        url: 'https://www.instagram.com/sgsgroupvn', 
         label: 'Instagram',
         icon: 'M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.336 1.347 20.667.935 19.879.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 5.838a6.162 6.162 0 1 1 0 12.324 6.162 6.162 0 0 1 0-12.324zm0 10.162a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm6.406-11.845a1.44 1.44 0 1 1 0 2.881 1.44 1.44 0 0 1 0-2.881z'
     }
@@ -698,7 +698,7 @@ export const LEGAL_CONTENT = {
     privacy: {
         en: {
             title: "Data Privacy & Protection Policy",
-            updated: "Effective Date: June 20, 2024",
+            updated: "Effective Date: January 1, 2025",
             sections: [
                 {
                     heading: "1. Institutional Commitment",
@@ -728,7 +728,7 @@ export const LEGAL_CONTENT = {
         },
         vi: {
             title: "Chính Sách Bảo Mật Dữ Liệu",
-            updated: "Ngày hiệu lực: 20/06/2024",
+            updated: "Ngày hiệu lực: 01/01/2025",
             sections: [
                 {
                     heading: "1. Cam Kết Tổ Chức",
@@ -760,7 +760,7 @@ export const LEGAL_CONTENT = {
     terms: {
         en: {
             title: "Terms of Service & Usage Agreement",
-            updated: "Effective Date: June 20, 2024",
+            updated: "Effective Date: January 1, 2025",
             sections: [
                 {
                     heading: "1. Acceptance of Protocol",
@@ -790,7 +790,7 @@ export const LEGAL_CONTENT = {
         },
         vi: {
             title: "Điều Khoản Dịch Vụ & Thỏa Thuận Sử Dụng",
-            updated: "Ngày hiệu lực: 20/06/2024",
+            updated: "Ngày hiệu lực: 01/01/2025",
             sections: [
                 {
                     heading: "1. Chấp Nhận Giao Thức",
@@ -1469,7 +1469,7 @@ export const HOME_STATS = [
     { valueEn: "200+", valueVi: "200+", labelEn: "Projects Delivered", labelVi: "Dự Án Hoàn Thành" },
     { valueEn: "40+", valueVi: "40+", labelEn: "AI Engineers", labelVi: "Kỹ Sư AI" },
     { valueEn: "4.9/5", valueVi: "4.9/5", labelEn: "Client Satisfaction", labelVi: "Hài Lòng Khách Hàng" },
-    { valueEn: "12+", valueVi: "12+", labelEn: "Countries Served", labelVi: "Quốc Gia Phục Vụ" },
+    { valueEn: "6+", valueVi: "6+", labelEn: "Countries Served", labelVi: "Quốc Gia Phục Vụ" },
 ];
 
 export const WHY_SGS = {
