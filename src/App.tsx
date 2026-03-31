@@ -354,9 +354,9 @@ const App: React.FC = () => {
                             iconPath: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
                             iconBg: 'bg-cyan-500/10',
                             iconBorder: 'border-cyan-500/25',
-                            iconColor: 'text-cyan-400',
+                            iconColor: 'text-cyan-600 dark:text-cyan-400',
                             cardBorder: 'border-slate-200 dark:border-cyan-500/15 hover:border-cyan-500/40 dark:hover:border-cyan-500/40',
-                            tagClass: 'text-cyan-500 dark:text-cyan-400',
+                            tagClass: 'text-cyan-700 dark:text-cyan-400',
                             dotClass: 'bg-cyan-500',
                             labelEn: '6-WEEK DEPLOYMENT',
                             labelVi: 'TRIỂN KHAI 6 TUẦN',
@@ -369,7 +369,7 @@ const App: React.FC = () => {
                             iconPath: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
                             iconBg: 'bg-emerald-500/10',
                             iconBorder: 'border-emerald-500/25',
-                            iconColor: 'text-emerald-400',
+                            iconColor: 'text-emerald-600 dark:text-emerald-400',
                             cardBorder: 'border-slate-200 dark:border-emerald-500/15 hover:border-emerald-500/40 dark:hover:border-emerald-500/40',
                             tagClass: 'text-emerald-600 dark:text-emerald-400',
                             dotClass: 'bg-emerald-500',
@@ -384,7 +384,7 @@ const App: React.FC = () => {
                             iconPath: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z',
                             iconBg: 'bg-violet-500/10',
                             iconBorder: 'border-violet-500/25',
-                            iconColor: 'text-violet-400',
+                            iconColor: 'text-violet-600 dark:text-violet-400',
                             cardBorder: 'border-slate-200 dark:border-violet-500/15 hover:border-violet-500/40 dark:hover:border-violet-500/40',
                             tagClass: 'text-violet-600 dark:text-violet-400',
                             dotClass: 'bg-violet-500',
@@ -425,7 +425,7 @@ const App: React.FC = () => {
                         
                         {/* Module Header */}
                         <div className="px-6 pt-6 pb-2 flex justify-between items-start shrink-0">
-                            <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 group-hover:bg-cyan-500/15 group-hover:border-cyan-500/40 transition-all duration-300">
+                            <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-700 dark:text-cyan-400 group-hover:scale-110 group-hover:bg-cyan-500/15 group-hover:border-cyan-500/40 transition-all duration-300">
                                 <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d={service.icon} /></svg>
                             </div>
                             <div className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.07] text-[9px] font-mono text-slate-400 group-hover:text-cyan-400 group-hover:border-cyan-500/25 group-hover:bg-cyan-500/5 uppercase tracking-widest transition-all">
@@ -467,7 +467,7 @@ const App: React.FC = () => {
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
                 {TRUST_BADGES.map((badge, i) => (
                     <div key={i} className="flex flex-col items-center gap-3 p-4 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 hover:border-cyan-500/30 dark:hover:border-cyan-500/20 hover:bg-slate-50 dark:hover:bg-white/[0.04] transition-all group text-center shadow-sm dark:shadow-none">
-                        <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 group-hover:bg-cyan-500/15 transition-all">
+                        <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-700 dark:text-cyan-400 group-hover:scale-110 group-hover:bg-cyan-500/15 transition-all">
                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={badge.icon} />
                             </svg>
@@ -485,7 +485,7 @@ const App: React.FC = () => {
         {/* === TESTIMONIALS SECTION === */}
         <SectionContainer className="py-20 border-t border-surface-border">
             <div className="text-center mb-12">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-mono uppercase tracking-widest mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 text-[10px] font-mono uppercase tracking-widest mb-4">
                     <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                     {language === 'en' ? 'Client Results' : 'Kết Quả Khách Hàng'}
                 </div>
@@ -507,13 +507,13 @@ const App: React.FC = () => {
                         <div className="flex items-center justify-between gap-2 mb-5">
                             <div className="flex gap-1">
                                 {Array.from({ length: t.rating }).map((_, s) => (
-                                    <svg key={s} className="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <svg key={s} className="w-4 h-4 text-amber-500 dark:text-amber-400" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                                     </svg>
                                 ))}
                             </div>
                             {t.result && (
-                                <div className="px-2 py-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-[9px] font-mono font-bold text-emerald-400 uppercase tracking-wider whitespace-nowrap shrink-0">
+                                <div className="px-2 py-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-[9px] font-mono font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider whitespace-nowrap shrink-0">
                                     {t.result}
                                 </div>
                             )}
@@ -599,7 +599,7 @@ const App: React.FC = () => {
             {TECH_STACK_LIST.map((tech, i) => (
                 <div key={i} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 hover:border-primary-DEFAULT/30 hover:bg-primary-DEFAULT/5 transition-all cursor-default group">
                     <span className="text-[9px] font-mono text-slate-400 dark:text-slate-400 uppercase tracking-wider group-hover:text-primary-DEFAULT/60 transition-colors">{tech.category}</span>
-                    <span className="text-slate-300 dark:text-white/20">·</span>
+                    <span className="text-slate-400 dark:text-white/20">·</span>
                     <span className="text-xs font-semibold text-slate-700 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">{tech.name}</span>
                 </div>
             ))}
@@ -647,7 +647,7 @@ const App: React.FC = () => {
                                  <div className="p-2 rounded-lg bg-primary-DEFAULT/10 text-primary-DEFAULT border border-primary-DEFAULT/20"><svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="currentColor"><path d={service.icon}/></svg></div>
                                  <MonoLabel className="text-primary-DEFAULT">{language === 'en' ? 'Module' : 'Mô-đun'} 0{index + 1}</MonoLabel>
                                  {(language === 'en' ? service.deployTimeEn : service.deployTimeVi) && (
-                                     <span className="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-[9px] font-mono text-emerald-400 uppercase tracking-wider">
+                                     <span className="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-[9px] font-mono text-emerald-700 dark:text-emerald-400 uppercase tracking-wider">
                                          <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                                          {language === 'en' ? service.deployTimeEn : service.deployTimeVi}
                                      </span>
@@ -658,12 +658,12 @@ const App: React.FC = () => {
                              {service.techStack && (
                                  <div className="flex flex-wrap gap-1.5 mb-6">
                                      {service.techStack.map((t, ti) => (
-                                         <span key={ti} className="text-[10px] px-2 py-0.5 rounded bg-black/40 border border-white/10 text-slate-400 font-mono">{t}</span>
+                                         <span key={ti} className="text-[10px] px-2 py-0.5 rounded bg-slate-100 dark:bg-black/40 border border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-400 font-mono">{t}</span>
                                      ))}
                                  </div>
                              )}
-                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-6 md:mb-8">{(language === 'en' ? service.featuresEn : service.featuresVi).slice(0, 4).map((feat, i) => (<div key={i} className="flex items-start gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary-DEFAULT mt-1.5 shrink-0"></div><span className="text-xs md:text-sm font-medium text-slate-400">{feat}</span></div>))}</div>
-                             <div className="pt-6 border-t border-surface-border"><div className="flex items-center justify-between gap-4"><div><div className="text-xl md:text-2xl font-bold text-white">{service.useCases[0].stat}</div><div className="text-[9px] md:text-[10px] uppercase tracking-wider text-slate-500">{language === 'en' ? service.useCases[0].statLabelEn : service.useCases[0].statLabelVi}</div></div><span className="text-xs font-bold uppercase tracking-wider text-primary-DEFAULT group-hover/card:underline underline-offset-4 decoration-2">{language === 'en' ? 'View Details & ROI' : 'Xem Chi Tiết & ROI'} &rarr;</span></div></div>
+                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-6 md:mb-8">{(language === 'en' ? service.featuresEn : service.featuresVi).slice(0, 4).map((feat, i) => (<div key={i} className="flex items-start gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary-DEFAULT mt-1.5 shrink-0"></div><span className="text-xs md:text-sm font-medium text-slate-600 dark:text-slate-400">{feat}</span></div>))}</div>
+                             <div className="pt-6 border-t border-surface-border"><div className="flex items-center justify-between gap-4"><div><div className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">{service.useCases[0].stat}</div><div className="text-[9px] md:text-[10px] uppercase tracking-wider text-slate-500">{language === 'en' ? service.useCases[0].statLabelEn : service.useCases[0].statLabelVi}</div></div><span className="text-xs font-bold uppercase tracking-wider text-primary-DEFAULT group-hover/card:underline underline-offset-4 decoration-2">{language === 'en' ? 'View Details & ROI' : 'Xem Chi Tiết & ROI'} &rarr;</span></div></div>
                         </div>
                         <div className="h-64 lg:h-auto lg:w-1/3 bg-canvas-subtle relative overflow-hidden flex items-center justify-center border-l border-surface-border">
                              <div className="absolute inset-0 bg-tech-grid opacity-20"></div>
@@ -692,7 +692,7 @@ const App: React.FC = () => {
       return (
           <div className="pt-8 pb-20">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                  <div className="sticky top-20 z-30 md:static bg-canvas-DEFAULT/80 backdrop-blur-md md:bg-transparent py-2 md:py-0 md:mb-8 mb-4"><button onClick={() => setCurrentView('services')} className="flex items-center gap-2 text-xs font-mono text-slate-500 hover:text-white transition-colors uppercase tracking-wider px-2 py-1 rounded hover:bg-white/5">&larr; {TEXTS[language].backToServices}</button></div>
+                  <div className="sticky top-20 z-30 md:static bg-canvas-DEFAULT/80 backdrop-blur-md md:bg-transparent py-2 md:py-0 md:mb-8 mb-4"><button onClick={() => setCurrentView('services')} className="flex items-center gap-2 text-xs font-mono text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors uppercase tracking-wider px-2 py-1 rounded hover:bg-slate-100 dark:hover:bg-white/5">&larr; {TEXTS[language].backToServices}</button></div>
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mb-16 items-start">
                       <div className="order-1 lg:order-1">
                           <div className="flex items-center gap-4 mb-6">
@@ -700,17 +700,17 @@ const App: React.FC = () => {
                               <MonoLabel>{language === 'en' ? 'Module' : 'Mô-đun'} 0{serviceIndex + 1}</MonoLabel>
                           </div>
                           <DisplayHeading className="mb-6">{title}</DisplayHeading>
-                          <p className="text-lg text-slate-400 leading-relaxed mb-8">{desc}</p>
+                          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8">{desc}</p>
                           <div className="flex flex-col sm:flex-row gap-4"><NeonButton onClick={() => handleConsultAI(title)} icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>}>{language === 'en' ? "Request Deep Analysis (AI)" : "Yêu Cầu Phân Tích (AI)"}</NeonButton><NeonButton variant="secondary" onClick={() => setCurrentView('contact')}>{TEXTS[language].contactSales}</NeonButton></div>
                       </div>
                       <div className="order-2 lg:order-2 relative"><div className="absolute -inset-1 bg-gradient-to-r from-primary-DEFAULT/20 to-accent-DEFAULT/20 blur-2xl rounded-2xl"></div><TechPanel className="aspect-[4/3] w-full flex items-center justify-center bg-canvas-subtle shadow-2xl"><div className="w-full h-full will-change-transform"><ServiceDemoStage id={service.id} language={language} /></div></TechPanel></div>
                   </div>
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
-                      <GlassCard className="p-8 h-full" hoverEffect={false}><h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2"><svg className="w-5 h-5 text-primary-DEFAULT" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>{language === 'en' ? 'Core Capabilities' : 'Tính Năng Cốt Lõi'}</h3><ul className="space-y-4">{(language === 'en' ? service.featuresEn : service.featuresVi).map((feat, i) => (<li key={i} className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-primary-DEFAULT mt-2 shrink-0 shadow-neon-cyan"></span><span className="text-sm text-slate-300">{feat}</span></li>))}</ul></GlassCard>
-                      <GlassCard className="p-8 h-full" hoverEffect={false}><h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2"><svg className="w-5 h-5 text-status-success" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>{language === 'en' ? 'Strategic Benefits' : 'Lợi Ích Chiến Lược'}</h3><ul className="space-y-4">{(language === 'en' ? service.benefitsEn : service.benefitsVi).map((ben, i) => (<li key={i} className="flex items-start gap-3"><svg className="w-4 h-4 text-status-success mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg><span className="text-sm text-slate-300">{ben}</span></li>))}</ul></GlassCard>
-                      <GlassCard className="p-8 h-full" hoverEffect={false}><h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2"><svg className="w-5 h-5 text-accent-DEFAULT" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>{TEXTS[language].useCases}</h3><div className="space-y-6">{service.useCases.map((uc, i) => (<div key={i} className="border-l-2 border-white/10 pl-4 group hover:border-primary-DEFAULT transition-colors"><div className="text-sm font-bold text-white mb-1 group-hover:text-primary-glow">{language === 'en' ? uc.titleEn : uc.titleVi}</div><div className="text-xs text-slate-400 mb-2">{language === 'en' ? uc.descEn : uc.descVi}</div><div className="flex items-center gap-2"><span className="text-lg font-bold text-primary-DEFAULT">{uc.stat}</span><span className="text-[10px] uppercase text-slate-500 font-mono">{language === 'en' ? uc.statLabelEn : uc.statLabelVi}</span></div></div>))}</div></GlassCard>
+                      <GlassCard className="p-8 h-full" hoverEffect={false}><h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2"><svg className="w-5 h-5 text-primary-DEFAULT" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>{language === 'en' ? 'Core Capabilities' : 'Tính Năng Cốt Lõi'}</h3><ul className="space-y-4">{(language === 'en' ? service.featuresEn : service.featuresVi).map((feat, i) => (<li key={i} className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-primary-DEFAULT mt-2 shrink-0 shadow-neon-cyan"></span><span className="text-sm text-slate-700 dark:text-slate-300">{feat}</span></li>))}</ul></GlassCard>
+                      <GlassCard className="p-8 h-full" hoverEffect={false}><h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2"><svg className="w-5 h-5 text-status-success" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>{language === 'en' ? 'Strategic Benefits' : 'Lợi Ích Chiến Lược'}</h3><ul className="space-y-4">{(language === 'en' ? service.benefitsEn : service.benefitsVi).map((ben, i) => (<li key={i} className="flex items-start gap-3"><svg className="w-4 h-4 text-status-success mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg><span className="text-sm text-slate-700 dark:text-slate-300">{ben}</span></li>))}</ul></GlassCard>
+                      <GlassCard className="p-8 h-full" hoverEffect={false}><h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2"><svg className="w-5 h-5 text-accent-DEFAULT" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>{TEXTS[language].useCases}</h3><div className="space-y-6">{service.useCases.map((uc, i) => (<div key={i} className="border-l-2 border-slate-200 dark:border-white/10 pl-4 group hover:border-primary-DEFAULT transition-colors"><div className="text-sm font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary-glow">{language === 'en' ? uc.titleEn : uc.titleVi}</div><div className="text-xs text-slate-600 dark:text-slate-400 mb-2">{language === 'en' ? uc.descEn : uc.descVi}</div><div className="flex items-center gap-2"><span className="text-lg font-bold text-primary-DEFAULT">{uc.stat}</span><span className="text-[10px] uppercase text-slate-500 font-mono">{language === 'en' ? uc.statLabelEn : uc.statLabelVi}</span></div></div>))}</div></GlassCard>
                   </div>
-                  {roi && <div className="mb-20"><SectionHeading title={TEXTS[language].roiTitle} subtitle={TEXTS[language].roiSubtitle} align="center" /><div className="max-w-4xl mx-auto"><GlassCard className="p-8 md:p-12 relative overflow-hidden" hoverEffect={false}><div className="absolute top-0 right-0 w-64 h-64 bg-primary-DEFAULT/5 rounded-full blur-[80px]"></div><div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10"><div className="space-y-8"><RangeSlider label={language === 'en' ? roi.inputALabelEn : roi.inputALabelVi} value={inputA} min={0} max={roi.inputAMax} step={roi.inputAStep} unit={roi.inputAUnit} onChange={setInputA} /><RangeSlider label={language === 'en' ? roi.inputBLabelEn : roi.inputBLabelVi} value={inputB} min={0} max={roi.inputBMax} step={roi.inputBStep} unit={roi.inputBUnit} onChange={setInputB} /><div className="p-4 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-400 italic">* {language === 'en' ? 'Estimated annual savings based on standard efficiency metrics from client deployments.' : 'Ước tính tiết kiệm hàng năm dựa trên các chỉ số hiệu quả từ triển khai thực tế của khách hàng.'}</div></div><div className="text-center md:text-right"><div className="text-xs font-mono font-bold uppercase text-slate-500 mb-2 tracking-widest">{TEXTS[language].estimatedSavings}</div><div className="text-5xl md:text-6xl font-black text-white mb-2 tracking-tight text-shadow-neon"><AnimatedCounter end={calculatedSavings} prefix={roi.currency} /></div><div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-status-success/10 text-status-success text-xs font-bold border border-status-success/20"><svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>{language === 'en' ? (roi.badgeLabelEn ?? `${Math.floor(roi.efficiencyFactor * 100)}% Efficiency Boost`) : (roi.badgeLabelVi ?? `Tăng ${Math.floor(roi.efficiencyFactor * 100)}% Hiệu Suất`)}</div></div></div></GlassCard></div></div>}
+                  {roi && <div className="mb-20"><SectionHeading title={TEXTS[language].roiTitle} subtitle={TEXTS[language].roiSubtitle} align="center" /><div className="max-w-4xl mx-auto"><GlassCard className="p-8 md:p-12 relative overflow-hidden" hoverEffect={false}><div className="absolute top-0 right-0 w-64 h-64 bg-primary-DEFAULT/5 rounded-full blur-[80px]"></div><div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10"><div className="space-y-8"><RangeSlider label={language === 'en' ? roi.inputALabelEn : roi.inputALabelVi} value={inputA} min={0} max={roi.inputAMax} step={roi.inputAStep} unit={roi.inputAUnit} onChange={setInputA} /><RangeSlider label={language === 'en' ? roi.inputBLabelEn : roi.inputBLabelVi} value={inputB} min={0} max={roi.inputBMax} step={roi.inputBStep} unit={roi.inputBUnit} onChange={setInputB} /><div className="p-4 rounded-lg bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs text-slate-600 dark:text-slate-400 italic">* {language === 'en' ? 'Estimated annual savings based on standard efficiency metrics from client deployments.' : 'Ước tính tiết kiệm hàng năm dựa trên các chỉ số hiệu quả từ triển khai thực tế của khách hàng.'}</div></div><div className="text-center md:text-right"><div className="text-xs font-mono font-bold uppercase text-slate-500 mb-2 tracking-widest">{TEXTS[language].estimatedSavings}</div><div className="text-5xl md:text-6xl font-black text-slate-900 dark:text-white mb-2 tracking-tight text-shadow-neon"><AnimatedCounter end={calculatedSavings} prefix={roi.currency} /></div><div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-status-success/10 text-status-success text-xs font-bold border border-status-success/20"><svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>{language === 'en' ? (roi.badgeLabelEn ?? `${Math.floor(roi.efficiencyFactor * 100)}% Efficiency Boost`) : (roi.badgeLabelVi ?? `Tăng ${Math.floor(roi.efficiencyFactor * 100)}% Hiệu Suất`)}</div></div></div></GlassCard></div></div>}
               </div>
           </div>
       );
@@ -726,8 +726,8 @@ const App: React.FC = () => {
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 mb-24 items-center">
                 <div className="space-y-8 relative z-10">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-mono uppercase tracking-widest">
-                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span> Est. 2020
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-blue-500/10 border border-blue-500/20 text-blue-700 dark:text-blue-400 text-[10px] font-mono uppercase tracking-widest">
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-500 animate-pulse"></span> Est. 2020
                     </div>
                     <DisplayHeading className="text-4xl md:text-5xl lg:text-6xl">{content.title}</DisplayHeading>
                     <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed border-l-2 border-primary-DEFAULT/30 pl-6">{content.subtitle}</p>
@@ -736,7 +736,7 @@ const App: React.FC = () => {
                             <div key={idx} className="bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl p-5 hover:bg-slate-100 dark:hover:bg-white/10 transition-colors group">
                                 <h4 className="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2"><svg className="w-4 h-4 text-primary-DEFAULT" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>{section.heading}</h4>
                                 {section.text && <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{section.text}</p>}
-                                {section.items && (<div className="flex flex-wrap gap-2 mt-2">{section.items.map((item, i) => (<span key={i} className="text-[10px] px-2 py-1 rounded bg-black/40 border border-white/10 text-slate-300 font-mono">{item}</span>))}</div>)}
+                                {section.items && (<div className="flex flex-wrap gap-2 mt-2">{section.items.map((item, i) => (<span key={i} className="text-[10px] px-2 py-1 rounded bg-slate-100 dark:bg-black/40 border border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-300 font-mono">{item}</span>))}</div>)}
                             </div>
                         ))}
                     </div>
@@ -755,7 +755,7 @@ const App: React.FC = () => {
                                         <div className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-1 flex items-baseline gap-1 tracking-tight">{!isNaN(num) ? <AnimatedCounter end={num} /> : null}<span className="text-primary-DEFAULT">{suffix || stat.value}</span></div>
                                         <div className="text-xs font-mono font-bold uppercase tracking-widest text-slate-500 mt-2 flex items-center gap-2"><span className="w-1 h-1 bg-slate-500 rounded-full"></span>{stat.label}</div>
                                     </div>
-                                    <div className="w-16 h-16 rounded-2xl bg-[#0a0a0c] border border-white/10 flex items-center justify-center text-primary-DEFAULT shadow-[0_0_20px_rgba(6,182,212,0.15)] group-hover:scale-110 transition-transform duration-500">
+                                    <div className="w-16 h-16 rounded-2xl bg-slate-100 dark:bg-[#0a0a0c] border border-slate-200 dark:border-white/10 flex items-center justify-center text-primary-DEFAULT shadow-[0_0_20px_rgba(6,182,212,0.15)] group-hover:scale-110 transition-transform duration-500">
                                         <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             {i === 0 ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /> : i === 1 ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /> : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />}
                                         </svg>
@@ -783,7 +783,7 @@ const App: React.FC = () => {
                                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary-glow transition-colors">{member.name}</h3>
                                 <div className="text-xs font-mono text-primary-DEFAULT uppercase tracking-wider mb-4">{member.role}</div>
                                 <div className="h-px w-full bg-white/10 mb-4"></div>
-                                <p className="text-sm text-slate-400 font-light leading-relaxed">{member.bio}</p>
+                                <p className="text-sm text-slate-600 dark:text-slate-400 font-light leading-relaxed">{member.bio}</p>
                             </div>
                         </GlassCard>
                     ))}
@@ -795,11 +795,11 @@ const App: React.FC = () => {
                 <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
                     <div className="md:col-span-2">
                         <div className="flex items-center gap-2 mb-3">
-                            <svg className="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                            <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400">{language === 'en' ? 'Our Delivery Guarantee' : 'Cam Kết Giao Hàng'}</span>
+                            <svg className="w-5 h-5 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-400">{language === 'en' ? 'Our Delivery Guarantee' : 'Cam Kết Giao Hàng'}</span>
                         </div>
                         <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{language === 'en' ? 'No results in 6 weeks? You pay nothing.' : 'Không có kết quả trong 6 tuần? Bạn không phải trả tiền.'}</h3>
-                        <p className="text-sm text-slate-400 leading-relaxed">{language === 'en' ? 'Every engagement begins with a fixed-scope pilot on your real data. We define success metrics together before writing a single line of code. If we cannot demonstrate measurable improvement within the pilot window, we refund 100% of pilot fees — no questions asked.' : 'Mỗi hợp đồng bắt đầu bằng giai đoạn pilot có phạm vi cố định trên dữ liệu thực của bạn. Chúng tôi cùng xác định chỉ số thành công trước khi viết bất kỳ dòng code nào. Nếu không thể chứng minh cải thiện đo được trong giai đoạn pilot, chúng tôi hoàn tiền 100% phí pilot — không cần giải thích.'}</p>
+                        <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{language === 'en' ? 'Every engagement begins with a fixed-scope pilot on your real data. We define success metrics together before writing a single line of code. If we cannot demonstrate measurable improvement within the pilot window, we refund 100% of pilot fees — no questions asked.' : 'Mỗi hợp đồng bắt đầu bằng giai đoạn pilot có phạm vi cố định trên dữ liệu thực của bạn. Chúng tôi cùng xác định chỉ số thành công trước khi viết bất kỳ dòng code nào. Nếu không thể chứng minh cải thiện đo được trong giai đoạn pilot, chúng tôi hoàn tiền 100% phí pilot — không cần giải thích.'}</p>
                     </div>
                     <div className="flex flex-col gap-3">
                         {[
@@ -808,8 +808,8 @@ const App: React.FC = () => {
                             { en: '100% refund if no results', vi: 'Hoàn tiền 100% nếu không có kết quả' },
                             { en: '12-month support included', vi: 'Bao gồm hỗ trợ 12 tháng' },
                         ].map((item, i) => (
-                            <div key={i} className="flex items-center gap-3 text-sm text-slate-300">
-                                <svg className="w-4 h-4 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                            <div key={i} className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300">
+                                <svg className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                                 {language === 'en' ? item.en : item.vi}
                             </div>
                         ))}
@@ -822,9 +822,9 @@ const App: React.FC = () => {
                 <p className="text-xs text-slate-600 mb-8 font-mono">{language === 'en' ? '// Platforms we build and deploy on' : '// Nền tảng chúng tôi xây dựng và triển khai'}</p>
                 <div className="flex flex-wrap justify-center gap-4">
                     {PARTNERS_CONTENT.map((partner, idx) => (
-                        <div key={idx} className="group px-6 py-3 rounded-full border border-white/5 bg-white/[0.02] hover:bg-white/10 hover:border-primary-DEFAULT/30 transition-all cursor-default flex items-center gap-3 backdrop-blur-sm shadow-inner-light">
-                            <span className="w-1.5 h-1.5 rounded-full bg-slate-600 group-hover:bg-primary-DEFAULT transition-colors shadow-[0_0_5px_currentColor]"></span>
-                            <span className="text-xs font-bold text-slate-400 group-hover:text-white uppercase tracking-wider transition-colors">{partner.name}</span>
+                        <div key={idx} className="group px-6 py-3 rounded-full border border-slate-200 dark:border-white/5 bg-slate-50 dark:bg-white/[0.02] hover:bg-white dark:hover:bg-white/10 hover:border-primary-DEFAULT/30 transition-all cursor-default flex items-center gap-3 backdrop-blur-sm shadow-inner-light">
+                            <span className="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-600 group-hover:bg-primary-DEFAULT transition-colors"></span>
+                            <span className="text-xs font-bold text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white uppercase tracking-wider transition-colors">{partner.name}</span>
                         </div>
                     ))}
                 </div>
@@ -867,7 +867,7 @@ const App: React.FC = () => {
                     <div>
                         <div className="flex justify-between items-center mb-8">
                             <h3 className="text-2xl font-bold text-slate-900 dark:text-white font-display">{TEXTS[language].sendMessageTitle}</h3>
-                            <div className="px-3 py-1 rounded bg-emerald-500/10 border border-emerald-500/30 text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-widest flex items-center gap-2 animate-pulse"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>{language === 'en' ? 'Secure Channel' : 'Kênh Bảo Mật'}</div>
+                            <div className="px-3 py-1 rounded bg-emerald-500/10 border border-emerald-500/30 text-[10px] font-mono font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-widest flex items-center gap-2 animate-pulse"><span className="w-1.5 h-1.5 rounded-full bg-emerald-600 dark:bg-emerald-500"></span>{language === 'en' ? 'Secure Channel' : 'Kênh Bảo Mật'}</div>
                         </div>
                         <form className="space-y-8" onSubmit={handleSubmit}>
                             <div className="group/field relative">
@@ -888,8 +888,8 @@ const App: React.FC = () => {
                         </form>
                     </div>
                     <div className="mt-8 pt-6 border-t border-slate-200 dark:border-white/10 space-y-3">
-                        <div className="flex items-start gap-3 text-xs text-slate-400">
-                            <svg className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <div className="flex items-start gap-3 text-xs text-slate-600 dark:text-slate-400">
+                            <svg className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                             <span>{language === 'en' ? CONTACT_CONTENT.en.responseTime : CONTACT_CONTENT.vi.responseTime}</span>
                         </div>
                         <div className="flex items-start gap-3 text-[10px] text-slate-500 font-mono">
