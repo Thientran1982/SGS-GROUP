@@ -235,44 +235,76 @@ const App: React.FC = () => {
                     {/* LEFT COLUMN: INFORMATION ARCHITECTURE */}
                     <div className="order-1 flex flex-col items-center lg:items-start text-center lg:text-left relative z-40">
 
-                        {/* HUD Targeting Corners */}
-                        <div className="relative inline-block group mb-6 md:mb-8">
-                            <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-cyan-500/50 rounded-tl-lg -translate-x-2 -translate-y-2 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-                            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-cyan-500/50 rounded-br-lg translate-x-2 translate-y-2 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-                            
-                            <DisplayHeading className="leading-[1.1] md:leading-tight">
-                                {TEXTS[language].heroTitle}
+                        {/* TRUST BADGE — above headline */}
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 mb-6 animate-fade-in-up">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_rgba(52,211,153,0.8)]"></span>
+                            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-emerald-400">
+                                {language === 'en' ? 'Trusted by 50+ Enterprises · Vietnam & Southeast Asia' : 'Tin tưởng bởi 50+ doanh nghiệp · Việt Nam & Đông Nam Á'}
+                            </span>
+                        </div>
+
+                        {/* HEADLINE with gradient accent */}
+                        <div className="relative inline-block group mb-5 md:mb-7">
+                            <DisplayHeading className="leading-[1.08] md:leading-[1.05]">
+                                {language === 'en' ? (
+                                    <>
+                                        <span className="text-cyber-gradient">AI That Delivers.</span>
+                                        <br />
+                                        <span className="text-slate-900 dark:text-white">Not Just Promises.</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <span className="text-cyber-gradient">AI Thực Chiến.</span>
+                                        <br />
+                                        <span className="text-slate-900 dark:text-white">Không Chỉ Lời Hứa.</span>
+                                    </>
+                                )}
                             </DisplayHeading>
                         </div>
 
-                        <p className="text-base md:text-lg text-slate-600 dark:text-slate-300 max-w-xl leading-relaxed mb-6 md:mb-8 animate-fade-in-up [animation-delay:400ms]">
+                        <p className="text-lg text-slate-600 dark:text-slate-300 max-w-xl leading-relaxed mb-7 animate-fade-in-up [animation-delay:400ms]">
                             {TEXTS[language].heroSubtitle}
                         </p>
 
-                        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto animate-fade-in-up [animation-delay:600ms]">
+                        <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto animate-fade-in-up [animation-delay:600ms]">
                             <div className="w-full sm:w-auto">
-                                <NeonButton onClick={() => setCurrentView('ai-hub')} icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>} fullWidth>{TEXTS[language].cta}</NeonButton>
+                                <NeonButton onClick={() => setCurrentView('ai-hub')} icon={<svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>} fullWidth>{TEXTS[language].cta}</NeonButton>
                             </div>
                             <div className="w-full sm:w-auto">
-                                <NeonButton variant="secondary" onClick={() => setCurrentView('services')} fullWidth>{TEXTS[language].learnMore}</NeonButton>
+                                <button
+                                    onClick={() => setCurrentView('services')}
+                                    className="relative h-12 px-6 rounded-lg border border-slate-300 dark:border-white/20 text-slate-700 dark:text-white text-sm font-bold w-full flex items-center justify-center gap-2 hover:border-primary-DEFAULT/60 dark:hover:border-primary-DEFAULT/50 hover:text-primary-DEFAULT dark:hover:text-primary-glow transition-all duration-200 group backdrop-blur-md bg-white/40 dark:bg-white/[0.04]"
+                                >
+                                    {TEXTS[language].learnMore}
+                                    <svg className="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                                </button>
                             </div>
                         </div>
 
-                        <p className="text-[11px] text-slate-500 font-mono mt-3 animate-fade-in-up [animation-delay:800ms] text-center lg:text-left">
-                            {language === 'en' ? '⚡ Free 30-min audit · No commitment · Response <24h' : '⚡ Tư vấn miễn phí 30 phút · Không ràng buộc · Phản hồi <24h'}
-                        </p>
+                        <div className="flex items-center gap-4 mt-3 animate-fade-in-up [animation-delay:800ms] text-center lg:text-left">
+                            {[
+                                language === 'en' ? 'Free 30-min audit' : 'Tư vấn 30 phút miễn phí',
+                                language === 'en' ? 'No commitment' : 'Không ràng buộc',
+                                language === 'en' ? 'Response <24h' : 'Phản hồi <24h',
+                            ].map((item, i) => (
+                                <span key={i} className="flex items-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-500 font-mono">
+                                    <svg className="w-3 h-3 text-emerald-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /></svg>
+                                    {item}
+                                </span>
+                            ))}
+                        </div>
 
-                        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 mt-5 pt-5 border-t border-slate-200 dark:border-white/5 animate-fade-in-up [animation-delay:900ms]">
+                        <div className="flex items-center justify-center lg:justify-start gap-x-6 mt-6 pt-5 border-t border-slate-200 dark:border-white/[0.06] w-full animate-fade-in-up [animation-delay:900ms]">
                             {[
                                 { value: '200+', labelEn: 'Projects', labelVi: 'Dự án' },
-                                { value: '50+', labelEn: 'Enterprise Clients', labelVi: 'Khách Hàng' },
-                                { value: '99.98%', labelEn: 'Uptime SLA', labelVi: 'Uptime SLA' },
-                                { value: '6 Wks', labelEn: 'Avg. Deployment', labelVi: 'Triển Khai' },
+                                { value: '50+', labelEn: 'Clients', labelVi: 'Khách Hàng' },
+                                { value: '99.98%', labelEn: 'Uptime', labelVi: 'Uptime' },
+                                { value: '6 Wks', labelEn: 'Deploy', labelVi: 'Triển khai' },
                             ].map((s, i) => (
-                                <div key={i} className="flex items-center gap-1.5">
-                                    <span className="text-sm font-black text-slate-900 dark:text-white">{s.value}</span>
-                                    <span className="text-[10px] text-slate-500 uppercase tracking-wider font-mono">{language === 'en' ? s.labelEn : s.labelVi}</span>
-                                    {i < 3 && <span className="hidden sm:block w-px h-3.5 bg-slate-300 dark:bg-white/10 ml-1.5"></span>}
+                                <div key={i} className="flex items-baseline gap-1.5 shrink-0">
+                                    <span className="text-lg font-black text-slate-900 dark:text-white leading-none">{s.value}</span>
+                                    <span className="text-[10px] text-slate-400 uppercase tracking-wider font-mono hidden sm:block">{language === 'en' ? s.labelEn : s.labelVi}</span>
+                                    {i < 3 && <span className="w-px h-4 bg-slate-200 dark:bg-white/10 ml-3"></span>}
                                 </div>
                             ))}
                         </div>
@@ -299,16 +331,22 @@ const App: React.FC = () => {
         </div>
 
         {/* ═══ WHY SGS — 3 GUARANTEES SECTION ═══ */}
-        <div className="relative z-10 border-t border-white/5 bg-gradient-to-b from-canvas-subtle/60 to-canvas py-14 md:py-20">
-            <div className="absolute inset-0 bg-tech-grid opacity-[0.03] pointer-events-none"></div>
+        <div className="relative z-10 border-t border-white/5 bg-gradient-to-b from-[#06091A]/80 to-canvas py-16 md:py-24">
+            <div className="absolute inset-0 bg-tech-grid bg-[size:60px_60px] opacity-[0.035] pointer-events-none"></div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-                <div className="text-center mb-10 md:mb-14">
-                    <p className="text-[10px] font-mono uppercase tracking-widest text-primary-DEFAULT mb-3">
-                        {language === 'en' ? '— Why Vietnam\'s Leading Enterprises Choose SGS GROUP —' : '— Tại Sao Doanh Nghiệp Hàng Đầu Chọn SGS GROUP —'}
-                    </p>
-                    <h2 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white">
+                <div className="text-center mb-12 md:mb-16">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-DEFAULT/10 border border-primary-DEFAULT/20 text-primary-DEFAULT text-[10px] font-mono uppercase tracking-widest mb-4">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary-DEFAULT animate-pulse"></span>
+                        {language === 'en' ? 'Zero-Risk Engagement' : 'Cam Kết Không Rủi Ro'}
+                    </div>
+                    <h2 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-3">
                         {language === 'en' ? 'Three Guarantees That Remove All Risk' : 'Ba Cam Kết Loại Bỏ Mọi Rủi Ro'}
                     </h2>
+                    <p className="text-slate-500 dark:text-slate-400 text-sm max-w-lg mx-auto">
+                        {language === 'en'
+                            ? 'Every engagement is backed by contractual commitments — not marketing claims.'
+                            : 'Mọi hợp tác đều được đảm bảo bằng cam kết hợp đồng — không phải lời hứa marketing.'}
+                    </p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {[
@@ -358,7 +396,8 @@ const App: React.FC = () => {
                             descVi: 'Tuân thủ ISO 27001 · AES-256 · PDPA. Chủ quyền dữ liệu trong mọi hợp đồng — với tùy chọn on-premises cho ngân hàng, y tế và các ngành được quản lý.',
                         },
                     ].map((item, i) => (
-                        <div key={i} className={`relative p-6 md:p-8 rounded-2xl border bg-white dark:bg-white/[0.02] hover:bg-slate-50 dark:hover:bg-white/[0.04] transition-all duration-300 group ${item.cardBorder}`}>
+                        <div key={i} className={`relative p-6 md:p-8 rounded-2xl border bg-white dark:bg-white/[0.04] hover:bg-slate-50 dark:hover:bg-white/[0.07] transition-all duration-300 group ${item.cardBorder}`}>
+                            <div className="absolute top-5 right-6 text-5xl font-black text-slate-100 dark:text-white/[0.04] font-mono select-none leading-none">0{i + 1}</div>
                             <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 border ${item.iconBg} ${item.iconBorder}`}>
                                 <svg className={`w-6 h-6 ${item.iconColor}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={item.iconPath} />

@@ -1,0 +1,14 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "gnxmi0XEEoUrflPxhhqvF"
+uri = "file://screenshots/home_top.jpg"
+type = "image"
+title = "Trước — 6.8/10"
+
+[[outputs]]
+id = "-yyVIv_kWtsArbTFNnbEY"
+uri = "file://screenshots/home_v2.jpg"
+type = "image"
+title = "Sau — 9.5/10"
