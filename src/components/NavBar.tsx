@@ -63,11 +63,13 @@ const NavBar: React.FC<NavBarProps> = ({
       document.body.style.touchAction = 'none';
     } else {
       document.body.style.overflow = '';
-      document.body.style.touchAction = '';
+      // Restore to the CSS-defined value instead of '' so iOS
+      // momentum scrolling is not inadvertently disabled
+      document.body.style.touchAction = 'pan-y pinch-zoom';
     }
     return () => {
       document.body.style.overflow = '';
-      document.body.style.touchAction = '';
+      document.body.style.touchAction = 'pan-y pinch-zoom';
     };
   }, [isMobileMenuOpen]);
 

@@ -115,6 +115,9 @@ html {
   margin: 0;
   padding: 0;
   min-height: 100%;
+  /* overflow-x on html, not body — avoids iOS Safari bug that breaks
+     momentum scrolling when overflow-x:hidden is set on body */
+  overflow-x: clip;
   scroll-behavior: smooth;
 }
 
@@ -128,10 +131,16 @@ body {
   text-rendering: optimizeLegibility;
   overscroll-behavior-y: contain;
   overscroll-behavior-x: none;
-  overflow-x: hidden;
+  /* Use clip instead of hidden — doesn't create a new scroll context,
+     preserves iOS momentum scrolling */
+  overflow-x: clip;
   overflow-y: auto;
   min-height: 100%;
   -webkit-overflow-scrolling: touch;
+  /* Explicitly allow vertical pan and pinch-zoom on mobile.
+     Without this, some iOS versions block scroll if any child
+     has touch-action conflict */
+  touch-action: pan-y pinch-zoom;
 }
 
 @supports (-webkit-touch-callout: none) {
@@ -152,8 +161,12 @@ body {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
+  /* clip instead of hidden — same reasoning as body */
+  overflow-x: clip;
   flex: 1;
+  /* Ensure the scroll container is touch-friendly */
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y pinch-zoom;
 }
 
 .noise-overlay {
