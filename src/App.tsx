@@ -269,9 +269,9 @@ const App: React.FC = () => {
                         <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 mt-5 pt-5 border-t border-slate-200 dark:border-white/5 animate-fade-in-up [animation-delay:900ms]">
                             {[
                                 { value: '200+', labelEn: 'Projects', labelVi: 'Dự án' },
-                                { value: '4.9/5', labelEn: 'Avg. Rating', labelVi: 'Đánh giá' },
+                                { value: '50+', labelEn: 'Enterprise Clients', labelVi: 'Khách Hàng' },
                                 { value: '99.98%', labelEn: 'Uptime SLA', labelVi: 'Uptime SLA' },
-                                { value: '6 Wks', labelEn: 'Deployment', labelVi: 'Triển khai' },
+                                { value: '6 Wks', labelEn: 'Avg. Deployment', labelVi: 'Triển Khai' },
                             ].map((s, i) => (
                                 <div key={i} className="flex items-center gap-1.5">
                                     <span className="text-sm font-black text-slate-900 dark:text-white">{s.value}</span>
@@ -321,8 +321,8 @@ const App: React.FC = () => {
                             dotClass: 'bg-cyan-500',
                             labelEn: '6-WEEK DEPLOYMENT',
                             labelVi: 'TRIỂN KHAI 6 TUẦN',
-                            statEn: 'vs. 6–12 month industry average',
-                            statVi: 'so với 6–12 tháng bình quân ngành',
+                            statEn: 'vs. traditional multi-month deployments',
+                            statVi: 'nhanh hơn chu kỳ triển khai thông thường',
                             descEn: 'Fixed-scope pilot on your real data. We define success metrics together before writing a single line of code.',
                             descVi: 'Pilot cố định phạm vi trên dữ liệu thực. Xác định chỉ số thành công cùng bạn trước khi viết code.',
                         },
@@ -338,8 +338,8 @@ const App: React.FC = () => {
                             labelVi: 'HOÀN TIỀN 100%',
                             statEn: 'if no measurable results in pilot',
                             statVi: 'nếu không có kết quả đo được',
-                            descEn: 'No results in 6 weeks? Full refund — no questions asked, no paperwork required. Zero financial risk.',
-                            descVi: 'Không có kết quả trong 6 tuần? Hoàn tiền 100% — không cần giải thích, không thủ tục. Không rủi ro tài chính.',
+                            descEn: 'No measurable results in 6 weeks? Full refund of the pilot fee — the conditions are defined upfront and written into your contract.',
+                            descVi: 'Không có kết quả đo được trong 6 tuần? Hoàn phí pilot đầy đủ — điều kiện được xác định trước và ghi rõ trong hợp đồng.',
                         },
                         {
                             iconPath: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z',
@@ -353,8 +353,8 @@ const App: React.FC = () => {
                             labelVi: 'KHÔNG CÓ SỰ CỐ DỮ LIỆU',
                             statEn: 'across 200+ enterprise deployments',
                             statVi: 'qua 200+ triển khai doanh nghiệp',
-                            descEn: 'ISO 27001 aligned · AES-256 encryption · PDPA compliant. Your data never leaves your own infrastructure.',
-                            descVi: 'Tuân thủ ISO 27001 · AES-256 · PDPA. Dữ liệu của bạn không bao giờ rời khỏi hệ thống của bạn.',
+                            descEn: 'ISO 27001 aligned · AES-256 encryption · PDPA compliant. Data sovereignty built into every engagement — with full on-premises deployment for banking, healthcare, and regulated sectors.',
+                            descVi: 'Tuân thủ ISO 27001 · AES-256 · PDPA. Chủ quyền dữ liệu trong mọi hợp đồng — với tùy chọn on-premises cho ngân hàng, y tế và các ngành được quản lý.',
                         },
                     ].map((item, i) => (
                         <div key={i} className={`relative p-6 md:p-8 rounded-2xl border bg-white dark:bg-white/[0.02] hover:bg-slate-50 dark:hover:bg-white/[0.04] transition-all duration-300 group ${item.cardBorder}`}>
@@ -401,7 +401,7 @@ const App: React.FC = () => {
                             {/* Action Footer */}
                             <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-slate-500 group-hover:text-slate-900 dark:group-hover:text-white transition-colors mt-auto pt-4 border-t border-slate-200 dark:border-white/5">
                                 <span className="w-4 h-[1px] bg-slate-600 group-hover:bg-cyan-500 transition-colors"></span>
-                                {language === 'en' ? 'Initialize' : 'Khởi Chạy'}
+                                {language === 'en' ? 'View Details' : 'Xem Chi Tiết'}
                             </div>
                         </div>
 
@@ -409,6 +409,16 @@ const App: React.FC = () => {
                         <div className="absolute inset-0 border border-transparent group-hover:border-cyan-500/20 rounded-xl md:rounded-2xl pointer-events-none transition-colors duration-500"></div>
                     </GlassCard>
                 ))}
+            </div>
+            <div className="mt-8 text-center">
+                <button
+                    onClick={() => setCurrentView('services')}
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-primary-DEFAULT hover:text-primary-glow transition-colors underline-offset-4 hover:underline"
+                >
+                    {language === 'en'
+                        ? '+ 2 more: Cloud Computing & Big Data Processing →'
+                        : '+ 2 dịch vụ nữa: Điện toán đám mây & Xử lý Big Data →'}
+                </button>
             </div>
         </SectionContainer>
 

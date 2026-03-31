@@ -63,6 +63,13 @@ A modern React + TypeScript website for SGS GROUP showcasing AI, Automation, and
 - `TRUST_BADGES`, `TESTIMONIALS` — trust signals on Home page
 
 ## Recent Changes
+- 2026-03-31: Homepage truth & clarity audit — 8 content fixes (no exaggeration):
+  - Mini stats: "4.9/5 Avg. Rating" removed (unverifiable sample) → "50+ Enterprise Clients" (matches footer, defensible)
+  - Guarantee Card 1 stat: "vs. 6–12 month industry average" (unsourced) → "vs. traditional multi-month deployments"
+  - Guarantee Card 2 desc: "no questions asked, no paperwork required" (unrealistic for B2B) → honest refund language referencing contract
+  - Guarantee Card 3 desc: "Your data never leaves your own infrastructure" (false for cloud) → "Data sovereignty built into every engagement — with full on-premises deployment for regulated sectors"
+  - Service card CTA: "Initialize" (jargon) → "View Details" (clear)
+  - Added "+ 2 more services" link below 3-card grid (previously 2 services were hidden with no navigation)
 - 2026-03-31: Homepage content & trust audit — 10 fixes across constants.ts + App.tsx:
   - Hero subtitle: Rewritten as two clear sentences (split run-on); changed "businesses" → "enterprises"
   - Guarantees section label: Removed false "200+ Companies" claim → "Vietnam's Leading Enterprises"
