@@ -331,7 +331,7 @@ const App: React.FC = () => {
         </div>
 
         {/* ═══ WHY SGS — 3 GUARANTEES SECTION ═══ */}
-        <div className="relative z-10 border-t border-white/5 bg-gradient-to-b from-[#06091A]/80 to-canvas py-16 md:py-24">
+        <div className="relative z-10 border-t border-slate-200 dark:border-white/5 bg-gradient-to-b from-slate-100 dark:from-[#06091A]/80 to-white dark:to-canvas py-16 md:py-24">
             <div className="absolute inset-0 bg-tech-grid bg-[size:60px_60px] opacity-[0.035] pointer-events-none"></div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
                 <div className="text-center mb-12 md:mb-16">
@@ -415,7 +415,7 @@ const App: React.FC = () => {
             </div>
         </div>
 
-        <SectionContainer className="bg-slate-50/80 dark:bg-canvas-subtle/50 backdrop-blur-sm border-t border-surface-border mt-0">
+        <SectionContainer className="bg-slate-50/80 dark:bg-canvas-subtle/50 backdrop-blur-sm border-t border-slate-200 dark:border-white/10 mt-0">
             <SectionHeading title={TEXTS[language].features} subtitle={TEXTS[language].coreModules} />
             {/* V6.1 DATA MODULES (CARTRIDGES) */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -463,7 +463,7 @@ const App: React.FC = () => {
         </SectionContainer>
 
         {/* === TRUST BADGES SECTION === */}
-        <SectionContainer className="py-12 border-t border-surface-border bg-slate-100/50 dark:bg-canvas-subtle/30">
+        <SectionContainer className="py-12 border-t border-slate-200 dark:border-white/10 bg-slate-100/50 dark:bg-canvas-subtle/30">
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
                 {TRUST_BADGES.map((badge, i) => (
                     <div key={i} className="flex flex-col items-center gap-3 p-4 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 hover:border-cyan-500/30 dark:hover:border-cyan-500/20 hover:bg-slate-50 dark:hover:bg-white/[0.04] transition-all group text-center shadow-sm dark:shadow-none">
@@ -483,7 +483,7 @@ const App: React.FC = () => {
 
         {/* === TRUST BADGES HEADER === */}
         {/* === TESTIMONIALS SECTION === */}
-        <SectionContainer className="py-20 border-t border-surface-border">
+        <SectionContainer className="py-20 border-t border-slate-200 dark:border-white/10">
             <div className="text-center mb-12">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 text-[10px] font-mono uppercase tracking-widest mb-4">
                     <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -595,7 +595,7 @@ const App: React.FC = () => {
         <SectionHeading title={TEXTS[language].features} subtitle={TEXTS[language].techStack} />
 
         {/* === TECH STACK STRIP === */}
-        <div className="flex flex-wrap gap-2 justify-center mb-14 pb-14 border-b border-surface-border">
+        <div className="flex flex-wrap gap-2 justify-center mb-14 pb-14 border-b border-slate-200 dark:border-white/10">
             {TECH_STACK_LIST.map((tech, i) => (
                 <div key={i} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 hover:border-primary-DEFAULT/30 hover:bg-primary-DEFAULT/5 transition-all cursor-default group">
                     <span className="text-[9px] font-mono text-slate-400 dark:text-slate-400 uppercase tracking-wider group-hover:text-primary-DEFAULT/60 transition-colors">{tech.category}</span>
@@ -663,9 +663,9 @@ const App: React.FC = () => {
                                  </div>
                              )}
                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-6 md:mb-8">{(language === 'en' ? service.featuresEn : service.featuresVi).slice(0, 4).map((feat, i) => (<div key={i} className="flex items-start gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary-DEFAULT mt-1.5 shrink-0"></div><span className="text-xs md:text-sm font-medium text-slate-600 dark:text-slate-400">{feat}</span></div>))}</div>
-                             <div className="pt-6 border-t border-surface-border"><div className="flex items-center justify-between gap-4"><div><div className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">{service.useCases[0].stat}</div><div className="text-[9px] md:text-[10px] uppercase tracking-wider text-slate-500">{language === 'en' ? service.useCases[0].statLabelEn : service.useCases[0].statLabelVi}</div></div><span className="text-xs font-bold uppercase tracking-wider text-primary-DEFAULT group-hover/card:underline underline-offset-4 decoration-2">{language === 'en' ? 'View Details & ROI' : 'Xem Chi Tiết & ROI'} &rarr;</span></div></div>
+                             <div className="pt-6 border-t border-slate-200 dark:border-white/10"><div className="flex items-center justify-between gap-4"><div><div className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">{service.useCases[0].stat}</div><div className="text-[9px] md:text-[10px] uppercase tracking-wider text-slate-500">{language === 'en' ? service.useCases[0].statLabelEn : service.useCases[0].statLabelVi}</div></div><span className="text-xs font-bold uppercase tracking-wider text-primary-DEFAULT group-hover/card:underline underline-offset-4 decoration-2">{language === 'en' ? 'View Details & ROI' : 'Xem Chi Tiết & ROI'} &rarr;</span></div></div>
                         </div>
-                        <div className="h-64 lg:h-auto lg:w-1/3 bg-canvas-subtle relative overflow-hidden flex items-center justify-center border-l border-surface-border">
+                        <div className="h-64 lg:h-auto lg:w-1/3 bg-slate-100 dark:bg-canvas-subtle relative overflow-hidden flex items-center justify-center border-l border-slate-200 dark:border-white/10">
                              <div className="absolute inset-0 bg-tech-grid opacity-20"></div>
                              <div className="w-full max-w-[320px] aspect-[4/3] relative z-10 grayscale group-hover/card:grayscale-0 transition-all duration-500 scale-95 group-hover/card:scale-100 shadow-2xl p-4"><TechPanel className="h-full w-full shadow-2xl"><ServiceDemoStage id={service.id} language={language} /></TechPanel></div>
                         </div>
