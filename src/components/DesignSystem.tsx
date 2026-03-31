@@ -172,7 +172,7 @@ export const TechGridBackground = () => (
     {/* Subtle Grid */}
     <div className="absolute inset-0 bg-tech-grid bg-[size:40px_40px] opacity-[0.05] dark:opacity-[0.1]" />
     {/* Soft fade out — transparent in dark (BackgroundSystem handles bg) */}
-    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#f8fafc]/50 dark:via-transparent to-[#f8fafc] dark:to-transparent"></div>
+    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 dark:via-transparent to-white dark:to-transparent"></div>
   </div>
 );
 
