@@ -294,7 +294,7 @@ const App: React.FC = () => {
 
             {/* TICKER BAR — full-width at bottom of hero */}
             <div className="w-full mt-auto pt-6">
-                <TechTicker language={language} />
+                <TechTicker language={language} className="" />
             </div>
         </div>
 
@@ -559,8 +559,8 @@ const App: React.FC = () => {
         <div className="flex flex-wrap gap-2 justify-center mb-14 pb-14 border-b border-surface-border">
             {TECH_STACK_LIST.map((tech, i) => (
                 <div key={i} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 hover:border-primary-DEFAULT/30 hover:bg-primary-DEFAULT/5 transition-all cursor-default group">
-                    <span className="text-[9px] font-mono text-slate-400 dark:text-slate-600 uppercase tracking-wider group-hover:text-primary-DEFAULT/60 transition-colors">{tech.category}</span>
-                    <span className="text-slate-300 dark:text-slate-700">·</span>
+                    <span className="text-[9px] font-mono text-slate-400 dark:text-slate-400 uppercase tracking-wider group-hover:text-primary-DEFAULT/60 transition-colors">{tech.category}</span>
+                    <span className="text-slate-300 dark:text-white/20">·</span>
                     <span className="text-xs font-semibold text-slate-700 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">{tech.name}</span>
                 </div>
             ))}

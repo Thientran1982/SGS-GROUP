@@ -53,8 +53,8 @@ const TechTicker: React.FC<TechTickerProps> = ({ language, className = "max-w-lg
         <div className="absolute inset-0 bg-slate-100/90 dark:bg-[#0a0a0c]/90 backdrop-blur-xl rounded-full border border-white/20 dark:border-white/10 shadow-inner-light z-10"></div>
         
         {/* Fade Masks */}
-        <div className="absolute top-0 left-0 bottom-0 w-12 bg-gradient-to-r from-[#f8fafc] dark:from-[#020408] to-transparent z-20 rounded-l-full pointer-events-none"></div>
-        <div className="absolute top-0 right-0 bottom-0 w-12 bg-gradient-to-l from-[#f8fafc] dark:from-[#020408] to-transparent z-20 rounded-r-full pointer-events-none"></div>
+        <div className="absolute top-0 left-0 bottom-0 w-12 bg-gradient-to-r from-[#f8fafc] dark:from-[#030712] to-transparent z-20 rounded-l-full pointer-events-none"></div>
+        <div className="absolute top-0 right-0 bottom-0 w-12 bg-gradient-to-l from-[#f8fafc] dark:from-[#030712] to-transparent z-20 rounded-r-full pointer-events-none"></div>
         
         {/* Scroller */}
         <div 
