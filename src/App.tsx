@@ -312,9 +312,12 @@ const App: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {[
                         {
-                            emoji: '⚡',
-                            colorClass: 'border-cyan-500/20 hover:border-cyan-500/50',
-                            tagClass: 'text-cyan-400',
+                            iconPath: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+                            iconBg: 'bg-cyan-500/10',
+                            iconBorder: 'border-cyan-500/25',
+                            iconColor: 'text-cyan-400',
+                            cardBorder: 'border-slate-200 dark:border-cyan-500/15 hover:border-cyan-500/40 dark:hover:border-cyan-500/40',
+                            tagClass: 'text-cyan-500 dark:text-cyan-400',
                             dotClass: 'bg-cyan-500',
                             labelEn: '6-WEEK DEPLOYMENT',
                             labelVi: 'TRIỂN KHAI 6 TUẦN',
@@ -324,9 +327,12 @@ const App: React.FC = () => {
                             descVi: 'Pilot cố định phạm vi trên dữ liệu thực. Xác định chỉ số thành công cùng bạn trước khi viết code.',
                         },
                         {
-                            emoji: '💰',
-                            colorClass: 'border-emerald-500/20 hover:border-emerald-500/50',
-                            tagClass: 'text-emerald-400',
+                            iconPath: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+                            iconBg: 'bg-emerald-500/10',
+                            iconBorder: 'border-emerald-500/25',
+                            iconColor: 'text-emerald-400',
+                            cardBorder: 'border-slate-200 dark:border-emerald-500/15 hover:border-emerald-500/40 dark:hover:border-emerald-500/40',
+                            tagClass: 'text-emerald-600 dark:text-emerald-400',
                             dotClass: 'bg-emerald-500',
                             labelEn: '100% MONEY-BACK',
                             labelVi: 'HOÀN TIỀN 100%',
@@ -336,9 +342,12 @@ const App: React.FC = () => {
                             descVi: 'Không có kết quả trong 6 tuần? Hoàn tiền 100% — không cần giải thích, không thủ tục. Không rủi ro tài chính.',
                         },
                         {
-                            emoji: '🔒',
-                            colorClass: 'border-violet-500/20 hover:border-violet-500/50',
-                            tagClass: 'text-violet-400',
+                            iconPath: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z',
+                            iconBg: 'bg-violet-500/10',
+                            iconBorder: 'border-violet-500/25',
+                            iconColor: 'text-violet-400',
+                            cardBorder: 'border-slate-200 dark:border-violet-500/15 hover:border-violet-500/40 dark:hover:border-violet-500/40',
+                            tagClass: 'text-violet-600 dark:text-violet-400',
                             dotClass: 'bg-violet-500',
                             labelEn: 'ZERO DATA BREACHES',
                             labelVi: 'KHÔNG CÓ SỰ CỐ DỮ LIỆU',
@@ -348,8 +357,12 @@ const App: React.FC = () => {
                             descVi: 'ISO 27001 · AES-256 · Tuân thủ PDPA. Dữ liệu của bạn không bao giờ rời khỏi hệ thống của bạn.',
                         },
                     ].map((item, i) => (
-                        <div key={i} className={`relative p-6 md:p-8 rounded-2xl border bg-white dark:bg-white/[0.02] hover:bg-slate-50 dark:hover:bg-white/[0.04] transition-all duration-300 group ${item.colorClass}`}>
-                            <div className="text-4xl mb-5">{item.emoji}</div>
+                        <div key={i} className={`relative p-6 md:p-8 rounded-2xl border bg-white dark:bg-white/[0.02] hover:bg-slate-50 dark:hover:bg-white/[0.04] transition-all duration-300 group ${item.cardBorder}`}>
+                            <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 border ${item.iconBg} ${item.iconBorder}`}>
+                                <svg className={`w-6 h-6 ${item.iconColor}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={item.iconPath} />
+                                </svg>
+                            </div>
                             <div className={`text-[10px] font-mono font-bold uppercase tracking-widest mb-1 flex items-center gap-2 ${item.tagClass}`}>
                                 <span className={`w-1.5 h-1.5 rounded-full ${item.dotClass} animate-pulse`}></span>
                                 {language === 'en' ? item.labelEn : item.labelVi}
@@ -372,10 +385,10 @@ const App: React.FC = () => {
                         
                         {/* Module Header */}
                         <div className="px-6 pt-6 pb-2 flex justify-between items-start shrink-0">
-                            <div className="w-12 h-12 rounded-lg bg-surface-glassHigh border border-surface-borderHigh flex items-center justify-center text-primary-DEFAULT group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(6,182,212,0.1)] group-hover:shadow-[0_0_20px_rgba(6,182,212,0.3)]">
+                            <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 group-hover:bg-cyan-500/15 group-hover:border-cyan-500/40 transition-all duration-300">
                                 <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d={service.icon} /></svg>
                             </div>
-                            <div className="text-[10px] font-mono text-slate-500 group-hover:text-cyan-400 uppercase tracking-widest transition-colors">
+                            <div className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.07] text-[9px] font-mono text-slate-400 group-hover:text-cyan-400 group-hover:border-cyan-500/25 group-hover:bg-cyan-500/5 uppercase tracking-widest transition-all">
                                 {language === 'en' ? 'Module' : 'Mô-đun'} 0{i + 1}
                             </div>
                         </div>
@@ -403,8 +416,8 @@ const App: React.FC = () => {
         <SectionContainer className="py-12 border-t border-surface-border bg-slate-100/50 dark:bg-canvas-subtle/30">
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
                 {TRUST_BADGES.map((badge, i) => (
-                    <div key={i} className="flex flex-col items-center gap-3 p-4 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 hover:border-primary-DEFAULT/30 dark:hover:border-primary-DEFAULT/20 hover:bg-slate-50 dark:hover:bg-white/[0.04] transition-all group text-center shadow-sm dark:shadow-none">
-                        <div className="w-10 h-10 rounded-lg bg-primary-DEFAULT/10 border border-primary-DEFAULT/20 flex items-center justify-center text-primary-DEFAULT group-hover:scale-110 transition-transform">
+                    <div key={i} className="flex flex-col items-center gap-3 p-4 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 hover:border-cyan-500/30 dark:hover:border-cyan-500/20 hover:bg-slate-50 dark:hover:bg-white/[0.04] transition-all group text-center shadow-sm dark:shadow-none">
+                        <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 group-hover:bg-cyan-500/15 transition-all">
                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={badge.icon} />
                             </svg>
