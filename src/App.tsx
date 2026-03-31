@@ -234,10 +234,6 @@ const App: React.FC = () => {
                     
                     {/* LEFT COLUMN: INFORMATION ARCHITECTURE */}
                     <div className="order-1 flex flex-col items-center lg:items-start text-center lg:text-left relative z-40">
-                        {/* Status Bar / Ticker - Now Left Aligned on Desktop */}
-                        <div className="w-full max-w-lg mb-4">
-                            <TechTicker language={language} className="mx-auto lg:mx-0" />
-                        </div>
 
                         {/* HUD Targeting Corners */}
                         <div className="relative inline-block group mb-6 md:mb-8">
@@ -294,6 +290,11 @@ const App: React.FC = () => {
                     </div>
 
                 </div>
+            </div>
+
+            {/* TICKER BAR — full-width at bottom of hero */}
+            <div className="w-full mt-auto pt-6">
+                <TechTicker language={language} />
             </div>
         </div>
 
