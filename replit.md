@@ -63,11 +63,17 @@ A modern React + TypeScript website for SGS GROUP showcasing AI, Automation, and
 - `TRUST_BADGES`, `TESTIMONIALS` — trust signals on Home page
 
 ## Recent Changes
+- 2026-03-31: Full content accuracy audit — 5 fixes:
+  - About (App.tsx): `Est. 2018` → `Est. 2020` (hardcoded badge had wrong year)
+  - Ticker EN: "GOOGLE CLOUD PARTNER" → "GOOGLE CLOUD READY" (softened unverified claim)
+  - Ticker VI: "ĐỐI TÁC GOOGLE CLOUD" → "NỀN TẢNG GOOGLE CLOUD" (same)
+  - Cloud benefit EN/VI: "SOC 2 Type II & ISO 27001 certified" → "Supports SOC 2 Type II & ISO 27001 compliance" (accurate framing)
+  - Trust badge ISO 27001: desc "Information Security" → "Security Compliance" (clearer)
 - 2026-03-27: Full UX/UI audit across all pages — 16 issues fixed:
   - NavBar: highlights "Technology" tab when viewing service-detail (desktop + mobile)
   - Contact: form input borders now visible in light mode (border-slate-300)
   - Contact: Google Maps filter now conditional on theme (dark=inverted, light=normal)
-  - About: "Est. 2020" corrected to "Est. 2018" (consistent with ticker)
+  - About: "Est. 2018" corrected to "Est. 2020" (consistent with founding year)
   - About: leadership card header gradient now correct in light mode (light gray)
   - About: leadership card ID text visible in light mode
   - About: subtitle, section card headings/text all have dark: prefix for light mode

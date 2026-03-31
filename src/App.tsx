@@ -675,7 +675,7 @@ const App: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 mb-24 items-center">
                 <div className="space-y-8 relative z-10">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-mono uppercase tracking-widest">
-                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span> Est. 2018
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span> Est. 2020
                     </div>
                     <DisplayHeading className="text-4xl md:text-5xl lg:text-6xl">{content.title}</DisplayHeading>
                     <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed border-l-2 border-primary-DEFAULT/30 pl-6">{content.subtitle}</p>

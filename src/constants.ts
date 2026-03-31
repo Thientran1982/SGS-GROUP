@@ -328,7 +328,7 @@ export const TEXTS = {
       "ISO 27001 COMPLIANT",
       "RESPONSE TIME: <24H",
       "ZERO DATA BREACH RECORD",
-      "GOOGLE CLOUD PARTNER",
+      "GOOGLE CLOUD READY",
       "24/7 PRODUCTION SUPPORT",
       "FOUNDED 2020 · 6 YRS EXPERIENCE",
       "ENTERPRISE-GRADE SECURITY",
@@ -471,7 +471,7 @@ export const TEXTS = {
       "CHUẨN ISO 27001",
       "PHẢN HỒI: <24H",
       "KHÔNG CÓ SỰ CỐ DỮ LIỆU",
-      "ĐỐI TÁC GOOGLE CLOUD",
+      "NỀN TẢNG GOOGLE CLOUD",
       "HỖ TRỢ SẢN XUẤT 24/7",
       "THÀNH LẬP 2020 · 6 NĂM KINH NGHIỆM",
       "BẢO MẬT CẤP DOANH NGHIỆP",
@@ -1080,13 +1080,13 @@ export const SERVICES: ServiceItem[] = [
     benefitsEn: [
       "99.98% uptime SLA — backed by financial penalty clause, not just a marketing claim",
       "Avg. 34% reduction in cloud bill vs. unoptimized setups, measured across 20+ migrations",
-      "SOC 2 Type II & ISO 27001 certified — required for banking, insurance, and healthcare clients",
+      "Supports SOC 2 Type II & ISO 27001 compliance — essential for banking, insurance, and healthcare clients",
       "Dedicated SRE on-call — 15-minute response guarantee for P1 incidents"
     ],
     benefitsVi: [
       "SLA 99.98% uptime — được bảo đảm bằng điều khoản phạt tài chính, không chỉ là cam kết marketing",
       "Trung bình giảm 34% hóa đơn cloud so với cấu hình chưa tối ưu, đo trên 20+ migration",
-      "Chứng nhận SOC 2 Type II & ISO 27001 — yêu cầu bắt buộc cho khách hàng ngân hàng, bảo hiểm và y tế",
+      "Hỗ trợ tuân thủ SOC 2 Type II & ISO 27001 — yêu cầu bắt buộc cho khách hàng ngân hàng, bảo hiểm và y tế",
       "SRE trực on-call chuyên biệt — cam kết phản hồi 15 phút cho sự cố P1"
     ],
     useCases: [
@@ -1424,8 +1424,8 @@ export const TRUST_BADGES = [
     {
         labelEn: "ISO 27001",
         labelVi: "ISO 27001",
-        descEn: "Information Security",
-        descVi: "Bảo mật thông tin",
+        descEn: "Security Compliance",
+        descVi: "Tiêu chuẩn bảo mật",
         icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
     },
     {
