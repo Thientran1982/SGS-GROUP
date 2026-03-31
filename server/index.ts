@@ -138,6 +138,99 @@ app.get("/api/chat/:sessionId", async (req, res) => {
   }
 });
 
+// Gemini AI Routes (server-side, API key never exposed to client)
+app.post("/api/gemini/chat", async (req, res) => {
+  try {
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) {
+      return res.status(503).json({ error: "AI service not configured" });
+    }
+    const { GoogleGenAI } = await import("@google/genai");
+    const ai = new GoogleGenAI({ apiKey });
+
+    const { history, message, language } = req.body;
+    if (!message) {
+      return res.status(400).json({ error: "message is required" });
+    }
+    const langInstruction = language === 'vi' ? 'Vietnamese' : 'English';
+    const chat = ai.chats.create({
+      model: 'gemini-2.0-flash',
+      history: history || [],
+      config: {
+        systemInstruction: `You are SGS AI v8.0, the advanced intelligence core for SGS GROUP. 
+        Mission: Assist users with technology, code, and business automation.
+        Tone: Professional, Futuristic, Concise.
+        Language: Respond strictly in ${langInstruction}.`,
+      },
+    });
+
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+    res.setHeader('Transfer-Encoding', 'chunked');
+    res.setHeader('Cache-Control', 'no-cache');
+
+    const result = await chat.sendMessageStream({ message });
+    for await (const chunk of result) {
+      const text = (chunk as any).text;
+      if (text) {
+        res.write(text);
+      }
+    }
+    res.end();
+  } catch (error) {
+    console.error("Gemini chat error:", error);
+    if (!res.headersSent) {
+      res.status(500).json({ error: "AI request failed" });
+    } else {
+      res.end();
+    }
+  }
+});
+
+app.post("/api/gemini/tts", async (req, res) => {
+  try {
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) {
+      return res.status(503).json({ error: "AI service not configured" });
+    }
+    const { GoogleGenAI } = await import("@google/genai");
+    const ai = new GoogleGenAI({ apiKey });
+
+    const { text, language, voiceName: preferredVoice } = req.body;
+    if (!text) {
+      return res.status(400).json({ error: "text is required" });
+    }
+
+    const voiceName = preferredVoice || (language === 'vi' ? 'Zephyr' : 'Fenrir');
+    const response = await ai.models.generateContent({
+      model: "gemini-2.5-flash-preview-tts",
+      contents: {
+        parts: [{
+          text: `
+          Style: ${language === 'vi' ? 'Đọc như một người Việt Nam đang trò chuyện tự nhiên, giọng ấm áp.' : 'Professional Tech Podcast Host style.'}
+          ${language === 'vi' ? 'Các từ viết tắt (AI, API, CEO) đọc từng chữ cái: A-I, A-P-I, C-E-O.' : ''}
+          
+          Text: ${text}
+        `
+        }]
+      },
+      config: {
+        responseModalities: ['AUDIO'],
+        speechConfig: {
+          voiceConfig: {
+            prebuiltVoiceConfig: { voiceName }
+          }
+        }
+      }
+    });
+
+    const audioData = (response as any).candidates?.[0]?.content?.parts?.[0]?.inlineData?.data || null;
+    res.json({ audioData });
+  } catch (error) {
+    console.error("Gemini TTS error:", error);
+    res.status(500).json({ error: "TTS request failed" });
+  }
+});
+
 // SPA fallback - must be last
 app.use((req, res, next) => {
   if (req.path.startsWith("/api")) {
