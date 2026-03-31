@@ -850,11 +850,11 @@ const App: React.FC = () => {
       <BackgroundSystem theme={theme} />
       <NavBar currentView={currentView} setCurrentView={setCurrentView} language={language} setLanguage={setLanguage} theme={theme} setTheme={setTheme} />
       
-      <main className="relative pt-16 flex-grow flex flex-col">
+      <main className="relative pt-16 flex flex-col">
         {currentView === 'home' && <HomeView />}
         {currentView === 'services' && <ServicesView />}
         {currentView === 'service-detail' && <ServiceDetailView />}
-        {currentView === 'ai-hub' && (<div className="flex-grow flex flex-col pt-4 md:pt-8 px-2 md:px-4 pb-4"><AiHub language={language} initialMessage={aiInitialMessage} onInitialMessageSent={() => setAiInitialMessage(null)} /></div>)}
+        {currentView === 'ai-hub' && (<div className="flex flex-col pt-4 md:pt-8 px-2 md:px-4 pb-4" style={{ minHeight: 'calc(100dvh - 64px)' }}><AiHub language={language} initialMessage={aiInitialMessage} onInitialMessageSent={() => setAiInitialMessage(null)} /></div>)}
         {currentView === 'about' && <AboutView />}
         {currentView === 'contact' && <ContactView />}
         {(currentView === 'privacy' || currentView === 'terms') && <LegalView type={currentView as any} />}

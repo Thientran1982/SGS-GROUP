@@ -164,8 +164,10 @@ body {
   /* clip instead of hidden — same reasoning as body */
   overflow-x: clip;
   flex: 1;
-  /* Ensure the scroll container is touch-friendly */
-  -webkit-overflow-scrolling: touch;
+  /* touch-action allows vertical pan without creating a separate
+     scroll context (do NOT add -webkit-overflow-scrolling here —
+     that would make iOS treat this as a scroll container and trap
+     touch events, preventing the body from scrolling) */
   touch-action: pan-y pinch-zoom;
 }
 
