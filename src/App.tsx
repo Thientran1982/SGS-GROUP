@@ -303,7 +303,7 @@ const App: React.FC = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
                 <div className="text-center mb-10 md:mb-14">
                     <p className="text-[10px] font-mono uppercase tracking-widest text-primary-DEFAULT mb-3">
-                        {language === 'en' ? '— Why 200+ Companies Choose SGS GROUP —' : '— Tại Sao 200+ Công Ty Chọn SGS GROUP —'}
+                        {language === 'en' ? '— Why Vietnam\'s Leading Enterprises Choose SGS GROUP —' : '— Tại Sao Doanh Nghiệp Hàng Đầu Chọn SGS GROUP —'}
                     </p>
                     <h2 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white">
                         {language === 'en' ? 'Three Guarantees That Remove All Risk' : 'Ba Cam Kết Loại Bỏ Mọi Rủi Ro'}
@@ -353,8 +353,8 @@ const App: React.FC = () => {
                             labelVi: 'KHÔNG CÓ SỰ CỐ DỮ LIỆU',
                             statEn: 'across 200+ enterprise deployments',
                             statVi: 'qua 200+ triển khai doanh nghiệp',
-                            descEn: 'ISO 27001 certified · AES-256 encryption · PDPA compliant. Your data never leaves your own infrastructure.',
-                            descVi: 'ISO 27001 · AES-256 · Tuân thủ PDPA. Dữ liệu của bạn không bao giờ rời khỏi hệ thống của bạn.',
+                            descEn: 'ISO 27001 aligned · AES-256 encryption · PDPA compliant. Your data never leaves your own infrastructure.',
+                            descVi: 'Tuân thủ ISO 27001 · AES-256 · PDPA. Dữ liệu của bạn không bao giờ rời khỏi hệ thống của bạn.',
                         },
                     ].map((item, i) => (
                         <div key={i} className={`relative p-6 md:p-8 rounded-2xl border bg-white dark:bg-white/[0.02] hover:bg-slate-50 dark:hover:bg-white/[0.04] transition-all duration-300 group ${item.cardBorder}`}>
@@ -488,7 +488,10 @@ const App: React.FC = () => {
                                     )}
                                 </div>
                                 <div className="text-[10px] text-slate-500 mt-0.5">{t.role}{(t as any).company ? ` · ${(t as any).company}` : ''}</div>
-                                <div className="text-[9px] font-mono text-primary-DEFAULT mt-0.5 uppercase tracking-wider">{t.industry}</div>
+                                <div className="flex items-center gap-2 flex-wrap mt-0.5">
+                                    <span className="text-[9px] font-mono text-primary-DEFAULT uppercase tracking-wider">{t.industry}</span>
+                                    {(t as any).date && <span className="text-[9px] font-mono text-slate-500 uppercase tracking-wider">· {(t as any).date}</span>}
+                                </div>
                             </div>
                         </div>
                     </GlassCard>
@@ -525,10 +528,9 @@ const App: React.FC = () => {
                 </div>
                 <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] text-slate-500 font-mono">
                     {[
-                        language === 'en' ? '✓ Free 30-min session' : '✓ Miễn phí 30 phút',
-                        language === 'en' ? '✓ No credit card required' : '✓ Không cần thẻ',
-                        language === 'en' ? '✓ 100% money-back pilot' : '✓ Hoàn tiền 100%',
-                        language === 'en' ? '✓ Results or full refund' : '✓ Kết quả hoặc hoàn tiền',
+                        language === 'en' ? '✓ Free 30-min technical audit' : '✓ Tư vấn kỹ thuật miễn phí 30 phút',
+                        language === 'en' ? '✓ 100% money-back if no results' : '✓ Hoàn tiền 100% nếu không có kết quả',
+                        language === 'en' ? '✓ Response within 24 hours' : '✓ Phản hồi trong vòng 24 giờ',
                     ].map((item, i) => <span key={i}>{item}</span>)}
                 </div>
             </div>

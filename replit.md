@@ -63,6 +63,14 @@ A modern React + TypeScript website for SGS GROUP showcasing AI, Automation, and
 - `TRUST_BADGES`, `TESTIMONIALS` — trust signals on Home page
 
 ## Recent Changes
+- 2026-03-31: Homepage content & trust audit — 10 fixes across constants.ts + App.tsx:
+  - Hero subtitle: Rewritten as two clear sentences (split run-on); changed "businesses" → "enterprises"
+  - Guarantees section label: Removed false "200+ Companies" claim → "Vietnam's Leading Enterprises"
+  - Guarantee Card 3: "ISO 27001 certified" → "ISO 27001 aligned" (accurate)
+  - Services section subtitle: "CORE_MODULES" → "AI SOLUTIONS" (EN), "GIẢI PHÁP AI" (VI)
+  - Final CTA: Reduced 4 redundant checkmarks to 3 distinct, non-overlapping items
+  - Testimonial cards: Now display date (Q4 2024 – Q3 2025) alongside industry for credibility
+  - VI heroSubtitle: Rewritten for natural Vietnamese phrasing
 - 2026-03-31: Full content accuracy audit — 5 fixes:
   - About (App.tsx): `Est. 2018` → `Est. 2020` (hardcoded badge had wrong year)
   - Ticker EN: "GOOGLE CLOUD PARTNER" → "GOOGLE CLOUD READY" (softened unverified claim)
