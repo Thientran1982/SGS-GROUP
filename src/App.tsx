@@ -770,7 +770,29 @@ const App: React.FC = () => {
 
   const ContactView = () => {
       const infoList = language === 'en' ? CONTACT_CONTENT.en.info : CONTACT_CONTENT.vi.info;
-      const handleSubmit = async (e: React.FormEvent) => { e.preventDefault(); const form = e.target as HTMLFormElement; const formData = { name: (form.elements.namedItem('name') as HTMLInputElement).value, email: (form.elements.namedItem('email') as HTMLInputElement).value, message: (form.elements.namedItem('message') as HTMLTextAreaElement).value }; const res = await BackendService.contact.submitForm(formData, language); if (res.success && res.message) { window.location.href = res.message; } };
+      const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        const form = e.target as HTMLFormElement;
+        const formData = {
+          name: (form.elements.namedItem('name') as HTMLInputElement).value,
+          email: (form.elements.namedItem('email') as HTMLInputElement).value,
+          message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+        };
+        const res = await BackendService.contact.submitForm(formData, language);
+        if (res.success && res.message) {
+          // Use a hidden anchor click instead of window.location.href to avoid
+          // a full-page reload/navigation-away on mobile browsers when opening
+          // a mailto: link.
+          const a = document.createElement('a');
+          a.href = res.message;
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          form.reset();
+        }
+      };
       return (
         <SectionContainer>
             <SectionHeading title={language === 'en' ? CONTACT_CONTENT.en.title : CONTACT_CONTENT.vi.title} subtitle={TEXTS[language].commLink} />

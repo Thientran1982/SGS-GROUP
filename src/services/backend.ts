@@ -209,12 +209,21 @@ export const BackendService = {
   // --- SYSTEM STATUS MODULE ---
   system: {
     check: async (): Promise<SystemStatus> => {
-      await delay(Math.random() * 500 + 200);
-      return {
-        status: 'operational',
-        latency: Math.floor(Math.random() * 15) + 8, 
-        activeNodes: 800 + Math.floor(Math.random() * 100)
-      };
+      const start = Date.now();
+      try {
+        const res = await fetch('/api/health', { method: 'GET', cache: 'no-store' });
+        const latency = Date.now() - start;
+        if (!res.ok) {
+          return { status: 'degraded', latency, activeNodes: 0 };
+        }
+        return {
+          status: 'operational',
+          latency,
+          activeNodes: 800 + Math.floor(Math.random() * 100),
+        };
+      } catch {
+        return { status: 'degraded', latency: Date.now() - start, activeNodes: 0 };
+      }
     }
   }
 };

@@ -33,17 +33,27 @@ const Footer: React.FC<FooterProps> = ({
   const footerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    let mounted = true;
+
     const checkSystem = async () => {
-       try {
-           const result = await BackendService.system.check();
-           setSystemStatus({ status: result.status, latency: result.latency });
-       } catch (e) {
-           setSystemStatus({ status: 'degraded', latency: 999 });
-       }
+      try {
+        const result = await BackendService.system.check();
+        if (mounted) setSystemStatus({ status: result.status, latency: result.latency });
+      } catch {
+        if (mounted) setSystemStatus({ status: 'degraded', latency: 999 });
+      }
     };
-    checkSystem();
+
+    // Delay the first check by 2s so the Express server has time to
+    // fully start after Vite is up (avoids ECONNREFUSED at startup).
+    const firstCheck = setTimeout(checkSystem, 2000);
     const interval = setInterval(checkSystem, 30000);
-    return () => clearInterval(interval);
+
+    return () => {
+      mounted = false;
+      clearTimeout(firstCheck);
+      clearInterval(interval);
+    };
   }, []);
 
   // --- MOUSE TRACKING SPOTLIGHT ---
