@@ -22,10 +22,12 @@ const BackgroundSystem: React.FC<BackgroundSystemProps> = ({ theme }) => {
     const ctx = canvas.getContext('2d', { alpha: true }); 
     if (!ctx) return;
 
+    const isMobile = window.innerWidth < 768;
+
     // --- CONFIGURATION v6.1 ---
-    const starCount = window.innerWidth < 768 ? 70 : 160; 
+    const starCount = isMobile ? 40 : 160; 
     const baseSpeed = 0.3; 
-    const connectionDistance = window.innerWidth < 768 ? 120 : 180; 
+    const connectionDistance = isMobile ? 90 : 180; 
 
     class Star {
       x: number;
@@ -67,8 +69,17 @@ const BackgroundSystem: React.FC<BackgroundSystemProps> = ({ theme }) => {
     };
 
     let animationFrameId: number;
+    let lastFrameTime = 0;
+    const targetFPS = isMobile ? 30 : 60;
+    const frameInterval = 1000 / targetFPS;
     
-    const animate = () => {
+    const animate = (timestamp: number = 0) => {
+      const elapsed = timestamp - lastFrameTime;
+      if (elapsed < frameInterval) {
+        animationFrameId = requestAnimationFrame(animate);
+        return;
+      }
+      lastFrameTime = timestamp - (elapsed % frameInterval);
       ctx.clearRect(0, 0, dimensions.current.w, dimensions.current.h);
       
       const isDark = theme === 'dark';
@@ -86,7 +97,7 @@ const BackgroundSystem: React.FC<BackgroundSystemProps> = ({ theme }) => {
           containerRef.current.style.setProperty('--mouse-y-px', mouse.current.y.toFixed(1));
       }
       
-      if (gridRef.current) {
+      if (gridRef.current && !isMobile) {
           const nX = (mouse.current.x / dimensions.current.w) - 0.5;
           const nY = (mouse.current.y / dimensions.current.h) - 0.5;
           gridRef.current.style.transform = `perspective(1000px) rotateX(${60 + nY * 15}deg) rotateY(${nX * -15}deg) translateY(0) translateZ(-50px)`;
@@ -154,22 +165,26 @@ const BackgroundSystem: React.FC<BackgroundSystemProps> = ({ theme }) => {
         mouse.current.targetX = e.clientX;
         mouse.current.targetY = e.clientY;
     };
-    
+
+    let lastOrientationTime = 0;
     const handleDeviceOrientation = (e: DeviceOrientationEvent) => {
+        const now = Date.now();
+        if (now - lastOrientationTime < 100) return; // throttle to ~10fps
+        lastOrientationTime = now;
         if (e.gamma !== null && e.beta !== null) {
              const centerX = dimensions.current.w / 2;
              const centerY = dimensions.current.h / 2;
-             mouse.current.targetX = centerX + (e.gamma * 20); 
-             mouse.current.targetY = centerY + (e.beta * 20);
+             mouse.current.targetX = centerX + (e.gamma * 10); 
+             mouse.current.targetY = centerY + ((e.beta - 45) * 10);
         }
     };
 
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('deviceorientation', handleDeviceOrientation);
+    window.addEventListener('resize', handleResize, { passive: true });
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    window.addEventListener('deviceorientation', handleDeviceOrientation, { passive: true });
 
     handleResize();
-    animate();
+    animationFrameId = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener('resize', handleResize);

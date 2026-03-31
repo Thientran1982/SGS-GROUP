@@ -60,6 +60,9 @@ const Cube3D: React.FC<Cube3DProps> = () => {
     let pulseTimer = 0;
 
     let t = 0;
+    const isMobile = window.innerWidth < 768;
+    let lastCubeFrame = 0;
+    const cubeInterval = isMobile ? 1000 / 30 : 0;
 
     // ── Ambient glow around orb ───────────────────────────────────
     // Tighter radius + lower opacity so it doesn't create visible canvas-box on background
@@ -332,6 +335,14 @@ const Cube3D: React.FC<Cube3DProps> = () => {
 
     // ─── MAIN ANIMATION LOOP ──────────────────────────────────────
     const animate = (ts: number) => {
+      if (cubeInterval > 0) {
+        const elapsed = ts - lastCubeFrame;
+        if (elapsed < cubeInterval) {
+          animRef.current = requestAnimationFrame(animate);
+          return;
+        }
+        lastCubeFrame = ts - (elapsed % cubeInterval);
+      }
       ctx.clearRect(0, 0, S, S);
       t = ts * 0.001;
 
