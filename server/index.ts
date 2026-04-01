@@ -154,7 +154,7 @@ app.post("/api/gemini/chat", async (req, res) => {
     }
     const langInstruction = language === 'vi' ? 'Vietnamese' : 'English';
     const chat = ai.chats.create({
-      model: 'gemini-2.0-flash',
+      model: 'gemini-2.5-flash',
       history: history || [],
       config: {
         systemInstruction: `You are SGS AI v8.0, the advanced intelligence core for SGS GROUP. 
