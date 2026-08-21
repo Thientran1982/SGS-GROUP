@@ -1,290 +1,256 @@
 @import "tailwindcss";
 
-@source "../";
-@source "../index.tsx";
-
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: "Inter", sans-serif;
-  --font-display: "Space Grotesk", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  /* ══════════════════════════════════════════════════
-     CANVAS — "Deep Space Navy" (2026 Chromatic Dark)
-     Layer separation: void → deep navy → elevated card
-  ══════════════════════════════════════════════════ */
-  --color-canvas: #030712;
-  --color-canvas-subtle: #06091A;
-  --color-canvas-elevated: #0C1428;
+  /* ChatGPT palette (light defaults; dark overridden at runtime) */
+  --color-canvas: #ffffff;        /* main surface */
+  --color-canvas-subtle: #f9f9f9; /* sidebar / secondary surface */
+  --color-primary: #0d0d0d;       /* text emphasis (gray-1000) */
+  --color-primary-glow: #0d0d0d;
+  --color-accent: #5d5d5d;        /* text secondary (gray-500) */
+  --color-accent-glow: #8f8f8f;
+  --color-ok: #5d5d5d;
 
-  /* ══════════════════════════════════════════════════
-     SURFACES — Adaptive Light/Dark tokens
-     Light defaults here; dark overrides in .dark block below
-  ══════════════════════════════════════════════════ */
-  --color-surface-glass: rgba(0, 0, 0, 0.03);
-  --color-surface-glassHigh: rgba(0, 0, 0, 0.06);
-  --color-surface-border: #e2e8f0;
-  --color-surface-borderHigh: #cbd5e1;
-
-  /* ══════════════════════════════════════════════════
-     PRIMARY — "Electric AI Cyan" (2026 AI Core)
-     The defining color of AI interfaces in 2026
-  ══════════════════════════════════════════════════ */
-  --color-primary: #06B6D4;
-  --color-primary-glow: #22D3EE;
-  --color-primary-dim: rgba(6, 182, 212, 0.12);
-  --color-primary-dark: #0891B2;
-  --color-primary-DEFAULT: #06B6D4;
-
-  /* ══════════════════════════════════════════════════
-     ACCENT — "Luminous Indigo" (2026 AI Depth)
-     Intelligence / data / neural network color
-  ══════════════════════════════════════════════════ */
-  --color-accent: #6366F1;
-  --color-accent-glow: #818CF8;
-  --color-accent-DEFAULT: #6366F1;
-
-  /* ══════════════════════════════════════════════════
-     WARM — "Electric Violet" (NEW 2026 — AI brand standard)
-     Third tone in cyan+indigo+violet AI color system
-     Used for gradients, highlights, and warm CTAs
-  ══════════════════════════════════════════════════ */
-  --color-warm: #A855F7;
-  --color-warm-glow: #C084FC;
-  --color-warm-dim: rgba(168, 85, 247, 0.10);
-  --color-warm-DEFAULT: #A855F7;
-
-  /* ══════════════════════════════════════════════════
-     STATUS — Semantic Colors (2026 Standard)
-  ══════════════════════════════════════════════════ */
-  --color-status-success: #10B981;
-  --color-status-warning: #F59E0B;
-  --color-status-error: #EF4444;
-
-  /* ══════════════════════════════════════════════════
-     SHADOWS — "Neon Plasma" (2026 Stronger Glow)
-     2026 neon shadows are 60-80% stronger than 2024
-  ══════════════════════════════════════════════════ */
-  --shadow-neon-cyan: 0 0 30px rgba(6, 182, 212, 0.45), 0 0 60px rgba(6, 182, 212, 0.15);
-  --shadow-neon-violet: 0 0 30px rgba(168, 85, 247, 0.40), 0 0 60px rgba(168, 85, 247, 0.15);
-  --shadow-neon-indigo: 0 0 25px rgba(99, 102, 241, 0.40), 0 0 50px rgba(99, 102, 241, 0.15);
-  --shadow-glass-lg: 0 24px 60px -12px rgba(0, 0, 0, 0.75);
-  --shadow-inner-light: inset 0 1px 0 0 rgba(0, 0, 0, 0.06);
-  --shadow-inner-glow: inset 0 0 30px rgba(6, 182, 212, 0.07);
-
-  /* ══════════════════════════════════════════════════
-     ANIMATIONS
-  ══════════════════════════════════════════════════ */
-  --animate-spin-slow: spin 12s linear infinite;
-  --animate-shine: shine 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-fade-in-up: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-marquee: marquee 80s linear infinite;
-  --animate-scanline: scanline 8s linear infinite;
-  --animate-fade-in-up: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-border-beam: borderBeam 8s linear infinite;
+  --animate-marquee-fast: marquee 45s linear infinite;
+  --animate-pulse-slow: pulseSlow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-spin-slow: spin 12s linear infinite;
 
-  @keyframes shine {
-    0% { transform: translateX(-150%) skewX(-20deg); }
-    100% { transform: translateX(150%) skewX(-20deg); }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
   @keyframes marquee {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-50%); }
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
-  @keyframes scanline {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(100%); }
-  }
-  @keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-  @keyframes borderBeam {
-    0%, 100% { opacity: 0; }
-    50% { opacity: 1; }
+  @keyframes pulseSlow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
   }
 }
 
-/* ══════════════════════════════════════════════════
-   ADAPTIVE TOKEN OVERRIDES — Dark mode
-   Placed outside @layer so they beat @theme specificity
-══════════════════════════════════════════════════ */
-:root.dark,
-.dark {
-  --color-surface-glass: rgba(255, 255, 255, 0.05);
-  --color-surface-glassHigh: rgba(255, 255, 255, 0.10);
-  --color-surface-border: rgba(255, 255, 255, 0.10);
-  --color-surface-borderHigh: rgba(255, 255, 255, 0.20);
-  --shadow-inner-light: inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
-}
-
-html {
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #f8fafc;
-  color: #0f172a;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  overscroll-behavior-y: contain;
-  overscroll-behavior-x: none;
-  /* overflow-x: hidden alone (without setting overflow-y) is the
-     safe cross-browser way to prevent horizontal scroll. Setting
-     BOTH overflow-x and overflow-y on body triggers an iOS Safari
-     bug that breaks momentum/rubber-band vertical scrolling. */
-  overflow-x: hidden;
-  min-height: 100%;
-  -webkit-overflow-scrolling: touch;
-  touch-action: pan-y pinch-zoom;
-}
-
-@supports (-webkit-touch-callout: none) {
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   body {
-    min-height: -webkit-fill-available;
+    font-family: var(--font-sans);
+    background-color: #ffffff;
+    color: #0d0d0d;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    margin: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .dark body {
+    background-color: #212121;
+    color: #ececec;
+  }
+  /* Dark mode: ChatGPT dark surfaces */
+  .dark {
+    --color-canvas: #212121;
+    --color-canvas-subtle: #181818;
+    --color-primary: #ececec;
+    --color-primary-glow: #ececec;
+    --color-accent: #b4b4b4;
+    --color-accent-glow: #8f8f8f;
+    --color-ok: #afafaf;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  ::selection {
+    background: rgba(13, 13, 13, 0.2);
+  }
+  .dark ::selection {
+    background: rgba(255, 255, 255, 0.25);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+    }
   }
 }
 
-#root {
-  /* Block-level — natural height, no flex constraint that would
-     cap the child container to exactly 100dvh */
-  min-height: 100dvh;
-}
+@layer components {
+  /* Small mono micro-label */
+  .mono-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #5d5d5d;
+  }
+  .dark .mono-label { color: #afafaf; }
 
-.app-scroll-container {
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  /* Do NOT set overflow-x here: setting overflow-x:clip would
-     implicitly set overflow-y:auto, turning this into a scroll
-     container and trapping content (including the footer) inside
-     it instead of letting body scroll naturally. */
-  /* Do NOT use flex:1 here — that would lock this container to
-     exactly the parent (#root) height and prevent growth beyond
-     100dvh. Without flex:1 the container grows with its content. */
-  touch-action: pan-y pinch-zoom;
-}
+  /* Flat ChatGPT-style cards */
+  .glass {
+    background: #f9f9f9;
+    border: 1px solid rgba(13, 13, 13, 0.1);
+    border-radius: 16px;
+  }
+  .dark .glass {
+    background: #2f2f2f;
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+  .glass-high {
+    background: #f3f3f3;
+    border: 1px solid rgba(13, 13, 13, 0.14);
+    border-radius: 16px;
+  }
+  .dark .glass-high {
+    background: #383838;
+    border-color: rgba(255, 255, 255, 0.16);
+  }
 
-.noise-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: overlay;
-}
+  /* ChatGPT-style pill buttons */
+  .btn-primary {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    background: #0d0d0d;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+  }
+  .btn-primary:hover {
+    background: #2f2f2f;
+    transform: translateY(-1px);
+  }
+  .dark .btn-primary {
+    color: #0d0d0d;
+    background: #ffffff;
+  }
+  .dark .btn-primary:hover {
+    background: #e3e3e3;
+  }
+  .btn-ghost {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #0d0d0d;
+    background: transparent;
+    border: 1px solid rgba(13, 13, 13, 0.14);
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  }
+  .btn-ghost:hover {
+    background: #ececec;
+    transform: translateY(-1px);
+  }
+  .dark .btn-ghost {
+    color: #ececec;
+    border-color: rgba(255, 255, 255, 0.16);
+  }
+  .dark .btn-ghost:hover {
+    background: #2f2f2f;
+  }
 
-/* Dark mode body override */
-.dark body {
-  background-color: #030712;
-  color: #e2e8f0;
-}
+  /* Subtle shine sweep on hover */
+  .btn-shine::after {
+    content: "";
+    position: absolute;
+    top: -20%;
+    bottom: -20%;
+    left: 0;
+    width: 45%;
+    background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    transform: translateX(-150%) skew(-20deg);
+    pointer-events: none;
+  }
+  .btn-shine:hover::after {
+    animation: shine 0.9s ease forwards;
+  }
+  @keyframes shine {
+    from { transform: translateX(-150%) skew(-20deg); }
+    to { transform: translateX(320%) skew(-20deg); }
+  }
 
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #0891b2;
-}
-.dark ::-webkit-scrollbar-track {
-  background: #030712;
-}
-.dark ::-webkit-scrollbar-thumb {
-  background: #1e293b;
-}
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: #06b6d4;
-}
+  /* Emphasis — solid, no gradient */
+  .text-gradient {
+    color: #0d0d0d;
+  }
+  .dark .text-gradient { color: #ffffff; }
 
-.custom-scrollbar::-webkit-scrollbar {
-  width: 4px;
-}
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.2);
-}
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 2px;
-}
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(6, 182, 212, 0.5);
-}
+  /* Terminal flavor kept as plain container (no scanline in ChatGPT style) */
+  .terminal {
+    position: relative;
+  }
 
-.preserve-3d {
-  transform-style: preserve-3d;
-}
+  /* Flat — no hero glows, no grid */
+  .hero-bg { background: none; }
+  .grid-lines { background-image: none; }
 
-::selection {
-  background: rgba(6, 182, 212, 0.20);
-  color: #0f172a;
-}
-.dark ::selection {
-  background: rgba(6, 182, 212, 0.25);
-  color: #22d3ee;
-}
+  /* Neutral pills */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    padding: 4px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(13, 13, 13, 0.12);
+    color: #5d5d5d;
+    background: transparent;
+    white-space: nowrap;
+  }
+  .dark .chip {
+    border-color: rgba(255, 255, 255, 0.14);
+    color: #b4b4b4;
+  }
 
-/* ══════════════════════════════════════════════════
-   CHROMATIC TECH GRID — Cyan-tinted (2026 standard)
-   White grids are 2023. Cyan grids are 2026 AI.
-══════════════════════════════════════════════════ */
-.bg-tech-grid {
-  background-image: 
-    linear-gradient(rgba(6, 182, 212, 0.06) 1px, transparent 1px), 
-    linear-gradient(90deg, rgba(6, 182, 212, 0.06) 1px, transparent 1px);
-}
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
 
-/* ══════════════════════════════════════════════════
-   AURORA GRADIENT — Dual-tone Cyan+Violet (2026)
-   Single-color aurora is 2024. Dual-tone is 2026.
-══════════════════════════════════════════════════ */
-.bg-aurora-gradient {
-  background-image: 
-    radial-gradient(ellipse at 30% -10%, rgba(6, 182, 212, 0.18) 0%, transparent 50%),
-    radial-gradient(ellipse at 70% -10%, rgba(168, 85, 247, 0.12) 0%, transparent 50%);
-}
-
-/* ══════════════════════════════════════════════════
-   CYBER GRADIENT — Primary brand gradient (2026)
-   Cyan → Indigo → Violet tri-tone
-══════════════════════════════════════════════════ */
-.bg-cyber-gradient {
-  background: linear-gradient(135deg, #06B6D4 0%, #6366F1 50%, #A855F7 100%);
-}
-
-.text-cyber-gradient {
-  /* Light mode: deeper tones for contrast on white — contrast ≥4.5:1 */
-  background: linear-gradient(135deg, #0891B2 0%, #4338CA 50%, #6D28D9 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.dark .text-cyber-gradient {
-  /* Dark mode: bright neon tones on deep navy */
-  background: linear-gradient(135deg, #22D3EE 0%, #818CF8 50%, #C084FC 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  /* ChatGPT-style composer */
+  .composer {
+    border: 1px solid rgba(13, 13, 13, 0.1);
+    border-radius: 24px;
+    background: #ffffff;
+    box-shadow: 0 4px 14px rgba(13, 13, 13, 0.06);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .composer:focus-within {
+    border-color: rgba(13, 13, 13, 0.22);
+    box-shadow: 0 6px 20px rgba(13, 13, 13, 0.1);
+  }
+  .dark .composer {
+    background: #2f2f2f;
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: none;
+  }
+  .dark .composer:focus-within {
+    border-color: rgba(255, 255, 255, 0.25);
+  }
 }

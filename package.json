@@ -1,38 +1,22 @@
 {
-  "name": "sgs-group---ai",
+  "name": "sgs-group",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "tsx server/index.ts & vite",
-    "build": "vite build && drizzle-kit push",
-    "start": "NODE_ENV=production tsx server/index.ts",
-    "preview": "vite preview",
-    "db:push": "drizzle-kit push",
-    "server": "tsx server/index.ts"
+    "dev": "vite",
+    "build": "vite build",
+    "start": "npm run build && vite preview",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@google/genai": "^1.47.0",
-    "@tailwindcss/postcss": "^4.2.2",
-    "@types/cors": "^2.8.19",
-    "@types/express": "^5.0.6",
-    "@types/pg": "^8.20.0",
-    "autoprefixer": "^10.4.27",
-    "cors": "^2.8.6",
-    "drizzle-kit": "^0.31.10",
-    "drizzle-orm": "^0.45.2",
-    "express": "^5.2.1",
-    "pg": "^8.20.0",
-    "postcss": "^8.5.8",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "tailwindcss": "^4.2.2",
-    "tsx": "^4.21.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@types/node": "^22.19.15",
-    "@vitejs/plugin-react": "^5.2.0",
-    "typescript": "~5.8.2",
-    "vite": "^6.4.1"
+    "@tailwindcss/vite": "^4.1.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "tailwindcss": "^4.1.4",
+    "vite": "^6.3.5"
   }
 }
