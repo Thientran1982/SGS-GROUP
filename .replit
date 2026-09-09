@@ -26,6 +26,10 @@ author = "agent"
 outputType = "webview"
 
 [[workflows.workflow.tasks]]
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node server.mjs"
+waitForPort = 3001
 task = "shell.exec"
 args = "npm run dev"
 waitForPort = 5000
