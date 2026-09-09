@@ -60,55 +60,134 @@ async function callGemini(messages, model) {
   return { text: text.trim(), model: "gemini:" + model };
 }
 
+async function throwProviderError(name, response) {
+  const body = await response.text().catch(() => "");
+  const detail = body.replace(/\s+/g, " ").slice(0, 240);
+  console.error(`[${name}] HTTP ${response.status}`, detail);
+  throw new Error(`${name}_${response.status}`);
+}
+
+function readModelText(data) {
+  const messageContent = data?.choices?.[0]?.message?.content;
+  if (typeof messageContent === "string") return messageContent;
+  if (Array.isArray(messageContent)) {
+    const text = messageContent
+      .map((part) => (typeof part === "string" ? part : part?.text || ""))
+      .join("");
+    if (text) return text;
+  }
+  if (typeof data?.output_text === "string") return data.output_text;
+  const outputText = data?.output
+    ?.flatMap((item) => item?.content || [])
+    ?.map((part) => part?.text || "")
+    ?.join("");
+  return outputText || "";
+}
+
 async function callOpenAICompatible(messages, cfg) {
+  const key = String(cfg.key || "").trim().replace(/^Bearer\s+/i, "");
+  if (!key) throw new Error(`NO_${cfg.name.toUpperCase()}_KEY`);
+  const requestBody = {
+    model: cfg.model,
+    messages: [
+      { role: "system", content: SYSTEM_PROMPT },
+      ...messages.map((m) => ({ role: m.role, content: m.text })),
+    ],
+    max_tokens: cfg.maxTokens || 600,
+    temperature: 0.4,
+  };
+  if (cfg.maxCompletionTokens) requestBody.max_completion_tokens = cfg.maxCompletionTokens;
   const r = await fetch(cfg.baseUrl + "/chat/completions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${cfg.key}`,
+      Authorization: `Bearer ${key}`,
+      ...(cfg.headers || {}),
     },
-    body: JSON.stringify({
-      model: cfg.model,
-      messages: [
-        { role: "system", content: SYSTEM_PROMPT },
-        ...messages.map((m) => ({ role: m.role, content: m.text })),
-      ],
-      max_tokens: 600,
-      temperature: 0.4,
-    }),
+    body: JSON.stringify(requestBody),
     signal: AbortSignal.timeout(20000),
   });
-  if (!r.ok) throw new Error(`LLM_${r.status}`);
+  if (!r.ok) await throwProviderError(cfg.name.toUpperCase(), r);
   const data = await r.json();
-  const text = data?.choices?.[0]?.message?.content;
-  if (!text) throw new Error("LLM_EMPTY");
+  const text = readModelText(data);
+  if (!text) {
+    console.error(`[${cfg.name}] empty response shape:`, JSON.stringify({
+      keys: Object.keys(data || {}),
+      choice: data?.choices?.[0],
+      output: data?.output,
+    }).slice(0, 1200));
+    throw new Error(`${cfg.name.toUpperCase()}_EMPTY`);
+  }
   return { text: text.trim(), model: cfg.name + ":" + cfg.model };
+}
+
+let baiModelPromise;
+const BAI_FREE_MODEL_HINTS = ["glm-5.3-flash", "qwen3.8-flash", "mimo-v2.5", "hy3"];
+
+async function getBaiModel() {
+  if (process.env.BAI_MODEL?.trim()) return process.env.BAI_MODEL.trim();
+  if (!baiModelPromise) {
+    const key = String(process.env.BAI_API_KEY || "").trim();
+    baiModelPromise = fetch("https://api.b.ai/v1/models", {
+      headers: {
+        Authorization: `Bearer ${key}`,
+        "x-api-key": key,
+      },
+      signal: AbortSignal.timeout(10000),
+    })
+      .then(async (r) => {
+        if (!r.ok) await throwProviderError("BAI_MODELS", r);
+        const data = await r.json();
+        const models = Array.isArray(data?.data) ? data.data.filter((item) => item?.id) : [];
+        const preferredModel = models.find((item) => {
+          const id = String(item.id).toLowerCase();
+          return BAI_FREE_MODEL_HINTS.some((hint) => id.includes(hint));
+        });
+        const freeModel = models.find((item) => {
+          const id = String(item.id).toLowerCase();
+          const pricing = item.pricing || {};
+          const isZeroPriced = Object.values(pricing).length > 0 &&
+            Object.values(pricing).every((value) => Number(value) === 0 || value === "0");
+          return isZeroPriced;
+        });
+        const model = preferredModel?.id || freeModel?.id || models[0]?.id;
+        if (!model) throw new Error("BAI_NO_MODEL");
+        console.log("[bai] selected model:", model);
+        return model;
+      })
+      .catch((error) => {
+        baiModelPromise = undefined;
+        throw error;
+      });
+  }
+  return baiModelPromise;
+}
+
+async function callBai(messages) {
+  const key = String(process.env.BAI_API_KEY || "").trim().replace(/^Bearer\s+/i, "");
+  if (!key) throw new Error("NO_BAI_KEY");
+  const model = await getBaiModel();
+  return callOpenAICompatible(messages, {
+    key,
+    baseUrl: process.env.BAI_BASE_URL || "https://api.b.ai/v1",
+    model,
+    name: "bai",
+    headers: { "x-api-key": key },
+    maxTokens: 1400,
+    maxCompletionTokens: 1400,
+  });
 }
 
 /* Provider chain: try in order, first success wins */
 async function askLLM(messages) {
   const chain = [];
 
-  // 1) Gemini — all available models as fallback ladder
-  const geminiModels = (process.env.GEMINI_MODELS || "gemini-2.5-flash,gemini-flash-latest,gemini-2.5-flash-lite")
-    .split(",").map(s => s.trim()).filter(Boolean);
-  for (const m of geminiModels) {
-    chain.push(() => callGemini(messages, m));
+  // 1) B.AI — discover the first model enabled for this API key unless configured.
+  if (process.env.BAI_API_KEY) {
+    chain.push(() => callBai(messages));
   }
 
-  // 2) OpenAI (if key present)
-  if (process.env.OPENAI_API_KEY) {
-    chain.push(() =>
-      callOpenAICompatible(messages, {
-        key: process.env.OPENAI_API_KEY,
-        baseUrl: "https://api.openai.com/v1",
-        model: process.env.OPENAI_MODEL || "gpt-4o-mini",
-        name: "openai",
-      })
-    );
-  }
-
-  // 3) OpenRouter (if key present) — gives access to many models
+  // 2) OpenRouter (if key present) — gives access to many models
   if (process.env.OPENROUTER_API_KEY) {
     chain.push(() =>
       callOpenAICompatible(messages, {
@@ -116,6 +195,29 @@ async function askLLM(messages) {
         baseUrl: "https://openrouter.ai/api/v1",
         model: process.env.OPENROUTER_MODEL || "meta-llama/llama-3.1-8b-instruct:free",
         name: "openrouter",
+        headers: {
+          "HTTP-Referer": process.env.OPENROUTER_SITE_URL || "https://sgsgroup.vn",
+          "X-Title": "SGS AI Hub",
+        },
+      })
+    );
+  }
+
+  // 3) Gemini — all available models as fallback ladder
+  const geminiModels = (process.env.GEMINI_MODELS || "gemini-2.5-flash,gemini-flash-latest,gemini-2.5-flash-lite")
+    .split(",").map(s => s.trim()).filter(Boolean);
+  for (const m of geminiModels) {
+    chain.push(() => callGemini(messages, m));
+  }
+
+  // 4) OpenAI (if key present)
+  if (process.env.OPENAI_API_KEY) {
+    chain.push(() =>
+      callOpenAICompatible(messages, {
+        key: process.env.OPENAI_API_KEY,
+        baseUrl: "https://api.openai.com/v1",
+        model: process.env.OPENAI_MODEL || "gpt-4o-mini",
+        name: "openai",
       })
     );
   }
@@ -162,6 +264,7 @@ const server = http.createServer(async (req, res) => {
     return send(200, {
       ok: true,
       providers: {
+        bai: !!process.env.BAI_API_KEY,
         gemini: !!process.env.GEMINI_API_KEY,
         openai: !!process.env.OPENAI_API_KEY,
         openrouter: !!process.env.OPENROUTER_API_KEY,

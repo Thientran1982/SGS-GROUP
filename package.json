@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "node dev.mjs",
     "build": "vite build",
-    "start": "npm run build && vite preview",
+    "start": "node start.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

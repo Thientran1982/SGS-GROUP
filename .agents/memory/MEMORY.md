@@ -1,0 +1,1 @@
+- [B.AI model compatibility](bai-api-provider.md) — model availability and endpoint support vary by model; discover enabled models and prefer chat-compatible free models.
