@@ -8,18 +8,62 @@ import Technology from "./sections/Technology.jsx";
 import AIHub from "./sections/AIHub.jsx";
 import AboutUs from "./sections/AboutUs.jsx";
 import Contact from "./sections/Contact.jsx";
+import TechDetail from "./sections/TechDetail.jsx";
+
+function TechAnalytics({ onNavigate }) {
+  return <TechDetail module="analytics" onNavigate={onNavigate} />;
+}
+function TechAutomation({ onNavigate }) {
+  return <TechDetail module="automation" onNavigate={onNavigate} />;
+}
+function TechAI({ onNavigate }) {
+  return <TechDetail module="ai" onNavigate={onNavigate} />;
+}
+function TechCloud({ onNavigate }) {
+  return <TechDetail module="cloud" onNavigate={onNavigate} />;
+}
+function TechBigData({ onNavigate }) {
+  return <TechDetail module="bigdata" onNavigate={onNavigate} />;
+}
 
 const VIEWS = {
   home: Home,
   tech: Technology,
+  "tech-analytics": TechAnalytics,
+  "tech-automation": TechAutomation,
+  "tech-ai": TechAI,
+  "tech-cloud": TechCloud,
+  "tech-bigdata": TechBigData,
   aihub: AIHub,
   about: AboutUs,
   contact: Contact,
 };
 
 const TITLES = {
-  en: "SGS GROUP — Enterprise AI & Automation for Vietnam & Southeast Asia",
-  vi: "SGS GROUP — AI Doanh Nghiệp & Tự Động Hóa cho Việt Nam & Đông Nam Á",
+  en: {
+    home: "SGS GROUP — Enterprise AI & Automation for Vietnam & Southeast Asia",
+    tech: "Technologies — SGS GROUP",
+    "tech-analytics": "Data Analytics — SGS GROUP",
+    "tech-automation": "Automation — SGS GROUP",
+    "tech-ai": "AI Technology — SGS GROUP",
+    "tech-cloud": "Cloud Computing — SGS GROUP",
+    "tech-bigdata": "Big Data Processing — SGS GROUP",
+    aihub: "AI Hub — SGS GROUP",
+    about: "About Us — SGS GROUP",
+    contact: "Contact — SGS GROUP",
+  },
+  vi: {
+    home: "SGS GROUP — AI Doanh Nghiệp & Tự Động Hóa cho Việt Nam & Đông Nam Á",
+    tech: "Công nghệ — SGS GROUP",
+    "tech-analytics": "Phân tích Dữ liệu — SGS GROUP",
+    "tech-automation": "Tự động hóa — SGS GROUP",
+    "tech-ai": "Công nghệ AI — SGS GROUP",
+    "tech-cloud": "Điện toán đám mây — SGS GROUP",
+    "tech-bigdata": "Xử lý Big Data — SGS GROUP",
+    aihub: "AI Hub — SGS GROUP",
+    about: "Về chúng tôi — SGS GROUP",
+    contact: "Liên hệ — SGS GROUP",
+  },
 };
 
 export default function App() {
@@ -35,8 +79,8 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem("sgs-lang", lang);
     document.documentElement.lang = lang;
-    document.title = TITLES[lang];
-  }, [lang]);
+    document.title = (TITLES[lang] && TITLES[lang][section]) || TITLES[lang].home;
+  }, [lang, section]);
 
   useEffect(() => {
     localStorage.setItem("sgs-theme-v2", dark ? "dark" : "light");
@@ -56,7 +100,7 @@ export default function App() {
           onToggleTheme={() => setDark((d) => !d)}
         />
         <main className="flex-1">
-          <Active key={section} />
+          <Active onNavigate={setSection} key={section} />
         </main>
         <Footer onNavigate={setSection} />
         <SectionRail section={section} onNavigate={setSection} />

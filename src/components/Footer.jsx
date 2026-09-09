@@ -46,8 +46,8 @@ export default function Footer({ onNavigate }) {
           <div className="mono-label mt-2">Technology</div>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-[#5d5d5d] dark:text-[#b4b4b4]">
             {t({
-              en: "Trusted by 50+ businesses across Vietnam & Southeast Asia. Delivering measurable AI impact since 2020.",
-              vi: "Được tin cậy bởi 50+ doanh nghiệp tại Việt Nam & Đông Nam Á. Mang lại tác động AI đo lường được từ 2020.",
+              en: "AI and automation for enterprises in Vietnam & Southeast Asia. Measurable results since 2020.",
+              vi: "AI và tự động hóa cho doanh nghiệp Việt Nam & Đông Nam Á. Kết quả đo lường được từ 2020.",
             })}
           </p>
           <div className="mt-5 flex gap-2">
@@ -69,9 +69,7 @@ export default function Footer({ onNavigate }) {
         </div>
 
         <nav aria-label="Footer navigation">
-          <h4 className="text-sm font-semibold">
-            {t({ en: "Navigation", vi: "Điều hướng" })}
-          </h4>
+          <h4 className="text-sm font-semibold">{t({ en: "Navigation", vi: "Điều hướng" })}</h4>
           <ul className="mt-4 space-y-2.5">
             {SECTIONS.filter((s) => s.id !== "aihub").map((s) => (
               <li key={s.id}>
@@ -135,7 +133,7 @@ export default function Footer({ onNavigate }) {
               <rect x="5" y="11" width="14" height="10" rx="2" />
               <path d="M8 11V7a4 4 0 0 1 8 0v4" />
             </svg>
-            AES-256 {t({ en: "Encrypted", vi: "Mã hóa" })} · {t({ en: "Data transmission secured", vi: "Truyền dữ liệu an toàn" })}
+            AES-256 {t({ en: "Encrypted", vi: "Mã hóa" })}
           </div>
         </div>
       </div>
@@ -145,7 +143,7 @@ export default function Footer({ onNavigate }) {
           <span>© 2026 SGS GROUP. {t({ en: "All rights reserved.", vi: "Mọi quyền được bảo lưu." })}</span>
           <span className="flex items-center gap-2">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-ok animate-pulse-slow" />
-            {t({ en: "System Operational", vi: "Hệ thống hoạt động" })} · {latency}ms
+            {t({ en: "System operational", vi: "Hệ thống hoạt động" })} · {latency}ms
           </span>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

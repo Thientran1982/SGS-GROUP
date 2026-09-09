@@ -5,15 +5,15 @@ const INFO = [
   {
     label: { en: "Address", vi: "Địa chỉ" },
     value: {
-      en: "122 -124 B2, Sala Urban Area, Thu Duc City, HCMC",
-      vi: "122 -124 B2, Khu đô thị Sala, TP. Thủ Đức, TP.HCM",
+      en: "122–124 B2, Sala Urban Area, Thu Duc City, HCMC",
+      vi: "122–124 B2, Khu đô thị Sala, TP. Thủ Đức, TP.HCM",
     },
   },
   { label: { en: "Email", vi: "Email" }, value: "info@sgsgroup.vn" },
-  { label: { en: "Phone", vi: "Điện thoại" }, value: "(+84)9 7113 2378" },
+  { label: { en: "Phone", vi: "Điện thoại" }, value: "(+84) 9 7113 2378" },
   {
     label: { en: "Hours", vi: "Giờ làm việc" },
-    value: { en: "Mon-Fri: 9:00 AM - 6:00 PM (GMT+7)", vi: "Thứ 2–6: 9:00 - 18:00 (GMT+7)" },
+    value: { en: "Mon–Fri: 9:00–18:00 (GMT+7)", vi: "Thứ 2–6: 9:00–18:00 (GMT+7)" },
   },
 ];
 
@@ -29,8 +29,14 @@ export default function Contact() {
       <div className="animate-fade-in-up">
         <div className="mono-label">Comm_Link</div>
         <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
-          {t({ en: "Get In Touch", vi: "Liên hệ với chúng tôi" })}
+          {t({ en: "Talk to us", vi: "Liên hệ với chúng tôi" })}
         </h2>
+        <p className="mt-3 max-w-2xl text-[#5d5d5d] dark:text-[#b4b4b4]">
+          {t({
+            en: "Tell us what's slowing your business down. We reply within one business day.",
+            vi: "Cho chúng tôi biết điều gì làm chậm doanh nghiệp của bạn. Phản hồi trong 1 ngày làm việc.",
+          })}
+        </p>
       </div>
 
       <div className="mt-10 grid gap-8 lg:grid-cols-2">
@@ -38,21 +44,21 @@ export default function Contact() {
         <div className="glass terminal animate-fade-in-up p-6 md:p-8" style={{ animationDelay: "100ms" }}>
           <div className="flex items-center justify-between">
             <h3 className="text-xl font-semibold">
-              {t({ en: "Send us a message", vi: "Gửi tin nhắn cho chúng tôi" })}
+              {t({ en: "Send a message", vi: "Gửi tin nhắn" })}
             </h3>
             <span className="chip">
               <span className="h-1.5 w-1.5 rounded-full bg-ok animate-pulse-slow" />
-              {t({ en: "Secure Channel", vi: "Kênh bảo mật" })}
+              {t({ en: "Secure", vi: "Bảo mật" })}
             </span>
           </div>
 
           {sent ? (
             <div className="mt-8 rounded-lg border border-ok/40 bg-ok/10 p-6 text-center">
-              <div className="font-mono text-sm text-ok">✓ {t({ en: "Transmission Complete", vi: "Gửi thành công" })}</div>
+              <div className="font-mono text-sm text-ok">✓ {t({ en: "Message sent", vi: "Đã gửi thành công" })}</div>
               <p className="mt-2 text-sm text-[#5d5d5d] dark:text-[#b4b4b4]">
                 {t({
-                  en: "We respond to all enquiries within 1 business day (Mon–Fri, 9 AM–6 PM GMT+7)",
-                  vi: "Chúng tôi phản hồi mọi yêu cầu trong 1 ngày làm việc (Thứ 2–6, 9:00–18:00 GMT+7)",
+                  en: "We reply within 1 business day (Mon–Fri, 9:00–18:00 GMT+7).",
+                  vi: "Chúng tôi phản hồi trong 1 ngày làm việc (Thứ 2–6, 9:00–18:00 GMT+7).",
                 })}
               </p>
             </div>
@@ -71,7 +77,7 @@ export default function Contact() {
                   required
                   value={form.name}
                   onChange={set("name")}
-                  placeholder="Ex: John Doe"
+                  placeholder={t({ en: "Ex: John Doe", vi: "VD: Nguyen Van A" })}
                   className="mt-2 w-full rounded-md border border-black/10 bg-transparent px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary-glow/60 dark:border-white/15"
                 />
               </div>
@@ -95,20 +101,17 @@ export default function Contact() {
                   rows={5}
                   value={form.message}
                   onChange={set("message")}
-                  placeholder="..."
+                  placeholder={t({ en: "What process should work better?", vi: "Quy trình nào cần hoạt động tốt hơn?" })}
                   className="mt-2 w-full resize-none rounded-md border border-black/10 bg-transparent px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary-glow/60 dark:border-white/15"
                 />
               </div>
-              <button
-                type="submit"
-                className="btn-primary btn-shine w-full font-mono text-xs uppercase tracking-[0.25em]"
-              >
+              <button type="submit" className="btn-primary btn-shine w-full font-mono text-xs uppercase tracking-[0.25em]">
                 {t({ en: "Send", vi: "Gửi" })}
               </button>
               <p className="text-center font-mono text-[10px] text-[#8f8f8f]">
                 {t({
-                  en: "We respond to all enquiries within 1 business day (Mon–Fri, 9 AM–6 PM GMT+7)",
-                  vi: "Chúng tôi phản hồi mọi yêu cầu trong 1 ngày làm việc (Thứ 2–6, 9:00–18:00 GMT+7)",
+                  en: "We reply within 1 business day (Mon–Fri, 9:00–18:00 GMT+7).",
+                  vi: "Phản hồi trong 1 ngày làm việc (Thứ 2–6, 9:00–18:00 GMT+7).",
                 })}
               </p>
             </form>
@@ -121,7 +124,7 @@ export default function Contact() {
             <p className="font-mono text-[10px] uppercase leading-relaxed tracking-wider text-[#8f8f8f]">
               Sai Gon Sun Co., Ltd — {t({ en: "Business Reg. No.", vi: "Mã số DN" })} 0312960439 —{" "}
               {t({
-                en: "Issued by HCM City Dept. of Planning and Investment",
+                en: "Issued by HCMC Dept. of Planning and Investment",
                 vi: "Cấp bởi Sở Kế hoạch & Đầu tư TP.HCM",
               })}
             </p>
@@ -137,7 +140,7 @@ export default function Contact() {
 
           <div className="glass overflow-hidden">
             <div className="flex items-center justify-between border-b border-black/10 px-4 py-3 dark:border-white/10">
-              <span className="mono-label">{t({ en: "Live Satellite Feed", vi: "Trực tiếp vệ tinh" })}</span>
+              <span className="mono-label">{t({ en: "Find us", vi: "Bản đồ" })}</span>
               <span className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-ok">
                 <span className="h-1.5 w-1.5 rounded-full bg-ok animate-pulse-slow" />
                 Online
