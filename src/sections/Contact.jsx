@@ -10,7 +10,7 @@ const INFO = [
     },
   },
   { label: { en: "Email", vi: "Email" }, value: "info@sgsgroup.vn" },
-  { label: { en: "Phone", vi: "Điện thoại" }, value: "(+84) 9 7113 2378" },
+  { label: { en: "Phone", vi: "Điện thoại" }, value: "+84 379281 445" },
   {
     label: { en: "Hours", vi: "Giờ làm việc" },
     value: { en: "Mon–Fri: 9:00–18:00 (GMT+7)", vi: "Thứ 2–6: 9:00–18:00 (GMT+7)" },
