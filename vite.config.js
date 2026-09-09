@@ -6,6 +6,28 @@ const port = Number(process.env.PORT) || 5000;
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  server: { host: "0.0.0.0", port, strictPort: true, allowedHosts: true },
-  preview: { host: "0.0.0.0", port, strictPort: true, allowedHosts: true },
+  server: {
+    host: "0.0.0.0",
+    port,
+    strictPort: true,
+    allowedHosts: true,
+    proxy: {
+      "/api": {
+        target: process.env.API_TARGET || "http://127.0.0.1:3001",
+        changeOrigin: true,
+      },
+    },
+  },
+  preview: {
+    host: "0.0.0.0",
+    port,
+    strictPort: true,
+    allowedHosts: true,
+    proxy: {
+      "/api": {
+        target: process.env.API_TARGET || "http://127.0.0.1:3001",
+        changeOrigin: true,
+      },
+    },
+  },
 });

@@ -15,22 +15,14 @@ const SUGGESTIONS = [
     vi: "ROI tôi có thể kỳ vọng từ dự án tự động hóa tài liệu?",
   },
   {
-    en: "Does SGS work with companies outside of Vietnam?",
-    vi: "SGS có làm việc với công ty ngoài Việt Nam không?",
-  },
-  {
-    en: "What does a pilot project look like and how much does it cost?",
-    vi: "Một dự án pilot trông như thế nào và chi phí bao nhiêu?",
-  },
-  {
-    en: "How do you ensure data privacy and compliance with Vietnamese law?",
-    vi: "Các bạn đảm bảo quyền riêng tư dữ liệu và tuân thủ pháp luật Việt Nam thế nào?",
+    en: "I want a pilot for my factory. Reach me at john@company.com",
+    vi: "Tôi muốn pilot cho nhà máy. Liên hệ tôi qua john@company.com",
   },
 ];
 
-const REPLIES = {
-  en: "Great question. Every SGS engagement starts with a free 30-minute technical audit, followed by a fixed-scope pilot on your real data — with success metrics written into the contract. Deployment is guaranteed in 6 weeks or the pilot fee is refunded 100%. For details on your specific case, our team responds within 24 hours at info@sgsgroup.vn.",
-  vi: "Câu hỏi rất hay. Mối quan hệ hợp tác với SGS đều bắt đầu bằng buổi kiểm tra kỹ thuật miễn phí 30 phút, sau đó là pilot phạm vi cố định trên dữ liệu thực — với chỉ số thành công ghi rõ trong hợp đồng. Triển khai được đảm bảo trong 6 tuần, nếu không phí pilot sẽ được hoàn lại 100%. Để biết chi tiết cho trường hợp của bạn, đội ngũ của chúng tôi phản hồi trong 24 giờ tại info@sgsgroup.vn.",
+const FALLBACK = {
+  en: "I can't reach my reasoning engine right now. Please try again in a minute — or contact us directly at info@sgsgroup.vn / +84 379281 445 and we'll respond within 24 hours.",
+  vi: "Tôi chưa kết nối được bộ suy luận lúc này. Bạn thử lại sau một phút — hoặc liên hệ trực tiếp info@sgsgroup.vn / +84 379281 445, chúng tôi phản hồi trong 24 giờ.",
 };
 
 function NewChatIcon() {
@@ -61,16 +53,33 @@ export default function AIHub() {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages, thinking]);
 
-  const send = (text) => {
+  const send = async (text) => {
     const value = (text ?? input).trim();
     if (!value || thinking) return;
-    setMessages((m) => [...m, { role: "user", text: value }]);
+
+    const userMsg = { role: "user", text: value };
+    setMessages((m) => [...m, userMsg]);
     setInput("");
     setThinking(true);
-    setTimeout(() => {
-      setMessages((m) => [...m, { role: "assistant", text: t(REPLIES) }]);
+
+    try {
+      const res = await fetch("/api/ask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: [...messages, userMsg] }),
+        signal: AbortSignal.timeout(25000),
+      });
+      const data = await res.json().catch(() => ({}));
+      const reply =
+        res.ok && data.reply
+          ? data.reply
+          : t(FALLBACK);
+      setMessages((m) => [...m, { role: "assistant", text: reply }]);
+    } catch {
+      setMessages((m) => [...m, { role: "assistant", text: t(FALLBACK) }]);
+    } finally {
       setThinking(false);
-    }, 900);
+    }
   };
 
   return (
@@ -80,7 +89,10 @@ export default function AIHub() {
         className="hidden w-60 shrink-0 flex-col rounded-2xl bg-canvas-subtle p-2 lg:flex"
         aria-label="Chat sessions"
       >
-        <button className="mb-2 flex items-center gap-2.5 rounded-lg px-2.5 py-2.5 text-sm font-medium text-[#0d0d0d] transition-colors hover:bg-black/[0.06] dark:text-[#ececec] dark:hover:bg-white/[0.07]">
+        <button
+          onClick={() => setMessages([])}
+          className="mb-2 flex items-center gap-2.5 rounded-lg px-2.5 py-2.5 text-sm font-medium text-[#0d0d0d] transition-colors hover:bg-black/[0.06] dark:text-[#ececec] dark:hover:bg-white/[0.07]"
+        >
           <NewChatIcon />
           {t({ en: "New chat", vi: "Trò chuyện mới" })}
         </button>
@@ -89,23 +101,14 @@ export default function AIHub() {
         </div>
         <ul className="space-y-0.5 text-sm">
           <li className="cursor-default rounded-lg bg-black/[0.06] px-2.5 py-2 text-[#0d0d0d] dark:bg-white/[0.08] dark:text-[#ececec]">
-            {t({ en: "New Conversation", vi: "Trò chuyện mới" })}
-          </li>
-          <li className="cursor-pointer rounded-lg px-2.5 py-2 text-[#5d5d5d] transition-colors hover:bg-black/[0.05] hover:text-[#0d0d0d] dark:text-[#8f8f8f] dark:hover:bg-white/[0.06] dark:hover:text-[#ececec]">
-            cache_optimize.log
-          </li>
-          <li className="cursor-pointer rounded-lg px-2.5 py-2 text-[#5d5d5d] transition-colors hover:bg-black/[0.05] hover:text-[#0d0d0d] dark:text-[#8f8f8f] dark:hover:bg-white/[0.06] dark:hover:text-[#ececec]">
-            k8s_deploy.trace
+            {messages.length === 0
+              ? t({ en: "New Conversation", vi: "Trò chuyện mới" })
+              : t({ en: `${messages.length} messages`, vi: `${messages.length} tin nhắn` })}
           </li>
         </ul>
-        <div className="mono-label px-2.5 pb-1.5 pt-4">
-          {t({ en: "Yesterday", vi: "Hôm qua" })}
+        <div className="mt-auto px-2.5 pb-1 font-mono text-[10px] uppercase tracking-widest text-[#8f8f8f]">
+          SGS Neural Core · Live
         </div>
-        <ul className="space-y-0.5 text-sm">
-          <li className="cursor-pointer rounded-lg px-2.5 py-2 text-[#5d5d5d] transition-colors hover:bg-black/[0.05] hover:text-[#0d0d0d] dark:text-[#8f8f8f] dark:hover:bg-white/[0.06] dark:hover:text-[#ececec]">
-            rpa_pilot_notes
-          </li>
-        </ul>
       </aside>
 
       {/* Chat panel */}
@@ -113,7 +116,7 @@ export default function AIHub() {
         <div className="flex items-center justify-between border-b border-black/10 px-5 py-3 dark:border-white/10">
           <span className="text-sm font-semibold">SGS AI Hub</span>
           <span className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-[#8f8f8f]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#afafaf] animate-pulse-slow" />
+            <span className="h-1.5 w-1.5 rounded-full bg-ok animate-pulse-slow" />
             Neural Link Established
           </span>
         </div>
@@ -127,7 +130,7 @@ export default function AIHub() {
                   {t({ en: "What can I help with?", vi: "Tôi có thể giúp gì cho bạn?" })}
                 </h1>
                 <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.25em] text-[#8f8f8f]">
-                  Neural Core Online
+                  {t({ en: "Ask about our tech, process, pricing", vi: "Hỏi về công nghệ, quy trình, chi phí" })}
                 </p>
                 <div className="mt-8 grid w-full gap-2 sm:grid-cols-2">
                   {SUGGESTIONS.map((q, i) => (
@@ -143,12 +146,6 @@ export default function AIHub() {
               </div>
             ) : (
               <div className="space-y-6">
-                <div className="text-center text-[15px] leading-relaxed text-[#0d0d0d] dark:text-[#ececec]">
-                  {t({
-                    en: "Good morning! Welcome to SGS AI Hub. How can I assist you today?",
-                    vi: "Chào buổi sáng! Chào mừng đến SGS AI Hub. Tôi có thể hỗ trợ gì cho bạn hôm nay?",
-                  })}
-                </div>
                 {messages.map((m, i) =>
                   m.role === "user" ? (
                     <div key={i} className="flex justify-end">
@@ -157,7 +154,7 @@ export default function AIHub() {
                       </div>
                     </div>
                   ) : (
-                    <div key={i} className="max-w-[92%] text-[15px] leading-7 text-[#0d0d0d] dark:text-[#ececec]">
+                    <div key={i} className="max-w-[92%] whitespace-pre-wrap text-[15px] leading-7 text-[#0d0d0d] dark:text-[#ececec]">
                       {m.text}
                     </div>
                   )
