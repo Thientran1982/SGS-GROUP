@@ -121,7 +121,7 @@ export default function AIHub() {
           </span>
         </div>
 
-        <div ref={scrollRef} className="flex-1 overflow-y-auto">
+        <div ref={scrollRef} className="scrollbar-smart flex-1 overflow-y-auto">
           <div className="mx-auto max-w-3xl px-5 py-6">
             {messages.length === 0 ? (
               /* Empty state — centered like ChatGPT */

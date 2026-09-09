@@ -39,6 +39,39 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+  html:hover,
+  html:focus-within {
+    scrollbar-color: rgba(13, 13, 13, 0.34) transparent;
+  }
+  html::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  html::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  html::-webkit-scrollbar-thumb {
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background: transparent;
+    background-clip: padding-box;
+  }
+  html:hover::-webkit-scrollbar-thumb,
+  html:focus-within::-webkit-scrollbar-thumb {
+    background: rgba(13, 13, 13, 0.34);
+    background-clip: padding-box;
+  }
+  html.dark:hover,
+  html.dark:focus-within {
+    scrollbar-color: rgba(255, 255, 255, 0.38) transparent;
+  }
+  html.dark:hover::-webkit-scrollbar-thumb,
+  html.dark:focus-within::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.38);
+    background-clip: padding-box;
   }
   body {
     font-family: var(--font-sans);
@@ -84,6 +117,44 @@
 }
 
 @layer components {
+  /* Compact scrollbars: hidden at rest, revealed on hover or keyboard focus. */
+  .scrollbar-smart {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    scrollbar-gutter: stable;
+  }
+  .scrollbar-smart:hover,
+  .scrollbar-smart:focus-within {
+    scrollbar-color: rgba(13, 13, 13, 0.34) transparent;
+  }
+  .scrollbar-smart::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-smart::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-smart::-webkit-scrollbar-thumb {
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background: transparent;
+    background-clip: padding-box;
+  }
+  .scrollbar-smart:hover::-webkit-scrollbar-thumb,
+  .scrollbar-smart:focus-within::-webkit-scrollbar-thumb {
+    background: rgba(13, 13, 13, 0.34);
+    background-clip: padding-box;
+  }
+  .dark .scrollbar-smart:hover,
+  .dark .scrollbar-smart:focus-within {
+    scrollbar-color: rgba(255, 255, 255, 0.38) transparent;
+  }
+  .dark .scrollbar-smart:hover::-webkit-scrollbar-thumb,
+  .dark .scrollbar-smart:focus-within::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.38);
+    background-clip: padding-box;
+  }
+
   /* Small mono micro-label */
   .mono-label {
     font-family: var(--font-mono);
