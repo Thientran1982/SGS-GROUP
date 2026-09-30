@@ -136,13 +136,14 @@ export default function App() {
   return (
     <LangContext.Provider value={ctx}>
       <div className="min-h-screen flex flex-col">
-        <Header
-          section={section}
-          onNavigate={navigate}
-          dark={dark}
-          onToggleTheme={() => setDark((d) => !d)}
-        />
-        {isLegalPage && null}
+        {!isLegalPage && (
+          <Header
+            section={section}
+            onNavigate={navigate}
+            dark={dark}
+            onToggleTheme={() => setDark((d) => !d)}
+          />
+        )}
         <main className="flex-1">
           <Active onNavigate={navigate} key={section} />
         </main>
