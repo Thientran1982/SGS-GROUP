@@ -20,9 +20,23 @@ const INFO = [
 export default function Contact() {
   const t = useT();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [sent, setSent] = useState(false);
 
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const subject = t({
+      en: `Website contact from ${form.name.trim()}`,
+      vi: `Liên hệ từ website: ${form.name.trim()}`,
+    });
+    const body = [
+      `${t({ en: "Name", vi: "Tên" })}: ${form.name.trim()}`,
+      `Email: ${form.email.trim()}`,
+      `${t({ en: "Message", vi: "Nội dung" })}:`,
+      "",
+      form.message.trim(),
+    ].join("\n");
+    window.location.href = `mailto:info@sgsgroup.vn?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
 
   return (
     <div className="mx-auto max-w-6xl px-4 pb-20 pt-28 sm:px-6">
@@ -52,70 +66,52 @@ export default function Contact() {
             </span>
           </div>
 
-          {sent ? (
-            <div className="mt-8 rounded-lg border border-ok/40 bg-ok/10 p-6 text-center">
-              <div className="font-mono text-sm text-ok">✓ {t({ en: "Message sent", vi: "Đã gửi thành công" })}</div>
-              <p className="mt-2 text-sm text-[#5d5d5d] dark:text-[#b4b4b4]">
-                {t({
-                  en: "For direct contact, email info@sgsgroup.vn.",
-                  vi: "Để liên hệ trực tiếp, hãy gửi email tới info@sgsgroup.vn.",
-                })}
-              </p>
+          <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
+            <div>
+              <label className="mono-label" htmlFor="ct-name">{t({ en: "Name", vi: "Tên" })}</label>
+              <input
+                id="ct-name"
+                required
+                value={form.name}
+                onChange={set("name")}
+                placeholder={t({ en: "Ex: John Doe", vi: "VD: Nguyen Van A" })}
+                className="mt-2 w-full rounded-md border border-black/10 bg-transparent px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary-glow/60 dark:border-white/15"
+              />
             </div>
-          ) : (
-            <form
-              className="mt-6 space-y-4"
-              onSubmit={(e) => {
-                e.preventDefault();
-                setSent(true);
-              }}
-            >
-              <div>
-                <label className="mono-label" htmlFor="ct-name">{t({ en: "Name", vi: "Tên" })}</label>
-                <input
-                  id="ct-name"
-                  required
-                  value={form.name}
-                  onChange={set("name")}
-                  placeholder={t({ en: "Ex: John Doe", vi: "VD: Nguyen Van A" })}
-                  className="mt-2 w-full rounded-md border border-black/10 bg-transparent px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary-glow/60 dark:border-white/15"
-                />
-              </div>
-              <div>
-                <label className="mono-label" htmlFor="ct-email">Email</label>
-                <input
-                  id="ct-email"
-                  type="email"
-                  required
-                  value={form.email}
-                  onChange={set("email")}
-                  placeholder="email@company.com"
-                  className="mt-2 w-full rounded-md border border-black/10 bg-transparent px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary-glow/60 dark:border-white/15"
-                />
-              </div>
-              <div>
-                <label className="mono-label" htmlFor="ct-msg">{t({ en: "Message", vi: "Nội dung" })}</label>
-                <textarea
-                  id="ct-msg"
-                  required
-                  rows={5}
-                  value={form.message}
-                  onChange={set("message")}
-                  placeholder={t({ en: "What process should work better?", vi: "Quy trình nào cần hoạt động tốt hơn?" })}
-                  className="mt-2 w-full resize-none rounded-md border border-black/10 bg-transparent px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary-glow/60 dark:border-white/15"
-                />
-              </div>
-              <button type="submit" className="btn-primary btn-shine w-full font-mono text-xs uppercase tracking-[0.25em]">
-                {t({ en: "Send", vi: "Gửi" })}
-              </button>
-              <p className="text-center font-mono text-[10px] text-[#8f8f8f]">
-                {t({
-                  en: "For direct contact, email info@sgsgroup.vn.",
-                  vi: "Để liên hệ trực tiếp, hãy gửi email tới info@sgsgroup.vn.",
-                })}
-              </p>
-            </form>
-          )}
+            <div>
+              <label className="mono-label" htmlFor="ct-email">Email</label>
+              <input
+                id="ct-email"
+                type="email"
+                required
+                value={form.email}
+                onChange={set("email")}
+                placeholder="email@company.com"
+                className="mt-2 w-full rounded-md border border-black/10 bg-transparent px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary-glow/60 dark:border-white/15"
+              />
+            </div>
+            <div>
+              <label className="mono-label" htmlFor="ct-msg">{t({ en: "Message", vi: "Nội dung" })}</label>
+              <textarea
+                id="ct-msg"
+                required
+                rows={5}
+                value={form.message}
+                onChange={set("message")}
+                placeholder={t({ en: "What process should work better?", vi: "Quy trình nào cần hoạt động tốt hơn?" })}
+                className="mt-2 w-full resize-none rounded-md border border-black/10 bg-transparent px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary-glow/60 dark:border-white/15"
+              />
+            </div>
+            <button type="submit" className="btn-primary btn-shine w-full font-mono text-xs uppercase tracking-[0.25em]">
+              {t({ en: "Continue in email", vi: "Tiếp tục qua email" })}
+            </button>
+            <p className="text-center text-xs text-[#8f8f8f]">
+              {t({
+                en: "This opens an email draft addressed to info@sgsgroup.vn. SGS will receive it only after you send it from your email app.",
+                vi: "Thao tác này mở thư nháp gửi tới info@sgsgroup.vn. SGS chỉ nhận được thư sau khi bạn gửi từ ứng dụng email.",
+              })}
+            </p>
+          </form>
         </div>
 
         {/* Info + map */}

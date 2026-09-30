@@ -27,7 +27,6 @@ const SOCIALS = [
 export default function Footer({ onNavigate }) {
   const t = useT();
   const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
   const [latency, setLatency] = useState(241);
   const handleLegalLink = (section) => (event) => {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
@@ -119,7 +118,15 @@ export default function Footer({ onNavigate }) {
             className="mt-4 flex overflow-hidden rounded-md border border-black/10 focus-within:border-primary-glow/60 dark:border-white/15"
             onSubmit={(e) => {
               e.preventDefault();
-              if (email.trim()) setSubscribed(true);
+              const subject = t({
+                en: "SGS newsletter subscription request",
+                vi: "Yêu cầu đăng ký nhận bản tin SGS",
+              });
+              const body = t({
+                en: `Please add this email address to the SGS newsletter: ${email.trim()}`,
+                vi: `Vui lòng đăng ký địa chỉ email này nhận bản tin SGS: ${email.trim()}`,
+              });
+              window.location.href = `mailto:info@sgsgroup.vn?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             }}
           >
             <input
@@ -135,12 +142,15 @@ export default function Footer({ onNavigate }) {
               type="submit"
               className="bg-primary/15 px-4 font-mono text-xs font-medium text-primary-glow transition-colors hover:bg-primary/25"
             >
-              {t({ en: "Subscribe", vi: "Đăng ký" })}
+              {t({ en: "Email request", vi: "Gửi yêu cầu" })}
             </button>
           </form>
-          {subscribed && (
-            <p className="mt-2 font-mono text-[11px] text-ok">✓ {t({ en: "Subscribed", vi: "Đã đăng ký" })}</p>
-          )}
+          <p className="mt-2 text-xs leading-relaxed text-[#8f8f8f]">
+            {t({
+              en: "Opens an email draft to SGS. You are not subscribed unless you send the email and SGS processes your request.",
+              vi: "Mở thư nháp gửi tới SGS. Bạn chưa đăng ký cho đến khi gửi email và SGS xử lý yêu cầu.",
+            })}
+          </p>
         </div>
       </div>
 

@@ -24,8 +24,8 @@ const DOCUMENTS = {
             vi: "Website lưu một số tùy chọn giao diện—như ngôn ngữ, giao diện sáng/tối và mục được xem gần nhất—trong bộ nhớ local storage của trình duyệt. Mã ứng dụng được rà soát cho bản nháp này không có chức năng tạo tài khoản, thanh toán trực tuyến, pixel quảng cáo hoặc công cụ phân tích truy cập.",
           },
           {
-            en: "In the current implementation, the contact and newsletter forms only change what is displayed in your browser; they do not submit the entered information to SGS or store it on an SGS server. To contact SGS, email info@sgsgroup.vn. The form behavior should be updated or confirmed before this draft is published as a final policy.",
-            vi: "Trong phiên bản hiện tại, biểu mẫu liên hệ và đăng ký bản tin chỉ thay đổi nội dung hiển thị trên trình duyệt; chúng không gửi thông tin đã nhập cho SGS hoặc lưu trên máy chủ SGS. Để liên hệ SGS, vui lòng gửi email tới info@sgsgroup.vn. Cần cập nhật hoặc xác nhận cách hoạt động của biểu mẫu trước khi công bố chính sách chính thức.",
+            en: "The contact and newsletter forms do not send data to an SGS website server or a form/newsletter service. When you submit either form, your browser opens a draft in the email application configured on your device, addressed to info@sgsgroup.vn; the draft includes the details you entered. Nothing is sent to SGS unless you choose to send that email. If you do, your email application and email providers will process the message, and SGS may process and retain it in its mailbox to respond or handle your newsletter request. The email providers and their retention settings have not been identified by this website. A newsletter request is not an automatic subscription.",
+            vi: "Biểu mẫu liên hệ và bản tin không gửi dữ liệu tới máy chủ website SGS hoặc dịch vụ biểu mẫu/bản tin. Khi gửi biểu mẫu, trình duyệt mở thư nháp trong ứng dụng email được thiết lập trên thiết bị của bạn, gửi tới info@sgsgroup.vn; thư nháp có các thông tin bạn đã nhập. SGS chỉ nhận được thông tin nếu bạn chọn gửi email đó. Khi bạn gửi, ứng dụng email và các nhà cung cấp email sẽ xử lý thư; SGS có thể xử lý và lưu thư trong hộp thư để phản hồi hoặc giải quyết yêu cầu đăng ký bản tin. Website chưa xác định các nhà cung cấp email và cài đặt lưu trữ của họ. Yêu cầu đăng ký bản tin không đồng nghĩa với việc được tự động đăng ký.",
           },
         ],
       },
@@ -50,8 +50,8 @@ const DOCUMENTS = {
         title: { en: "4. Storage and retention", vi: "4. Lưu trữ và thời hạn lưu" },
         paragraphs: [
           {
-            en: "Interface preferences remain in your browser until you clear its local storage. The application has no account or database feature for retaining chat history. External AI and hosting providers may process or retain data under their own settings and terms; SGS must confirm the applicable providers and retention settings before this draft is finalized.",
-            vi: "Tùy chọn giao diện được lưu trong trình duyệt cho đến khi bạn xóa local storage. Ứng dụng hiện không có tài khoản hoặc cơ sở dữ liệu để lưu lịch sử chat. Nhà cung cấp AI và hosting bên ngoài có thể xử lý hoặc lưu dữ liệu theo cấu hình và điều khoản riêng; SGS cần xác nhận nhà cung cấp và thời hạn lưu áp dụng trước khi hoàn thiện bản chính thức.",
+            en: "Interface preferences remain in your browser until you clear its local storage. The application has no account or database feature for retaining chat history or form submissions. External AI and hosting providers may process or retain data under their own settings and terms. If you send a form-generated email, the email app and providers you use, as well as SGS's email service, may also process or retain it. SGS must confirm the applicable providers and retention settings before this draft is finalized.",
+            vi: "Tùy chọn giao diện được lưu trong trình duyệt cho đến khi bạn xóa local storage. Ứng dụng hiện không có tài khoản hoặc cơ sở dữ liệu để lưu lịch sử chat hoặc thông tin từ biểu mẫu. Nhà cung cấp AI và hosting bên ngoài có thể xử lý hoặc lưu dữ liệu theo cấu hình và điều khoản riêng. Nếu bạn gửi email được tạo từ biểu mẫu, ứng dụng và nhà cung cấp email bạn sử dụng cũng như dịch vụ email của SGS cũng có thể xử lý hoặc lưu thư. SGS cần xác nhận nhà cung cấp và thời hạn lưu áp dụng trước khi hoàn thiện bản chính thức.",
           },
         ],
       },
@@ -237,8 +237,8 @@ function LegalPage({ kind, onNavigate }) {
       <aside className="mt-8 rounded-lg border border-amber-300 bg-amber-50 px-4 py-4 text-sm leading-relaxed text-amber-950 dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-200">
         <strong>{t({ en: "Draft — not legal advice.", vi: "Bản nháp — không phải tư vấn pháp lý." })}</strong>{" "}
         {t({
-          en: "The active AI providers, hosting provider, and third-party data-retention settings have not been confirmed. The contact and newsletter forms are not connected to a submission service in the current code. Have qualified Vietnamese counsel review this draft and confirm these details before publication as a final policy.",
-          vi: "Nhà cung cấp AI đang hoạt động, đơn vị hosting và cấu hình lưu dữ liệu của bên thứ ba chưa được xác nhận. Biểu mẫu liên hệ và bản tin hiện chưa kết nối với dịch vụ tiếp nhận dữ liệu. Hãy nhờ luật sư đủ chuyên môn tại Việt Nam rà soát bản nháp và xác nhận các thông tin này trước khi công bố thành chính sách chính thức.",
+          en: "The active AI providers, hosting provider, email providers used by visitors and SGS, and third-party data-retention settings have not been confirmed. Have qualified Vietnamese counsel review this draft and confirm these details before publication as a final policy.",
+          vi: "Nhà cung cấp AI đang hoạt động, đơn vị hosting, nhà cung cấp email được khách truy cập và SGS sử dụng, cùng cài đặt lưu dữ liệu của bên thứ ba chưa được xác nhận. Hãy nhờ luật sư đủ chuyên môn tại Việt Nam rà soát bản nháp và xác nhận các thông tin này trước khi công bố thành chính sách chính thức.",
         })}
       </aside>
 
