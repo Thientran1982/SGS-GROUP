@@ -124,15 +124,15 @@ export default function Home({ onNavigate }) {
           </div>
 
           <h1 className="animate-fade-in-up mx-auto mt-7 max-w-4xl text-4xl font-semibold leading-[1.12] tracking-tight sm:text-5xl md:text-6xl" style={{ animationDelay: "80ms" }}>
-            {t({ en: "AI solutions for real business needs.", vi: "Giải pháp AI cho nhu cầu thực tế của doanh nghiệp." })}
+            {t({ en: "AI for your business.", vi: "AI cho doanh nghiệp." })}
             <br />
-            <span className="text-gradient">{t({ en: "Start small. Measure results before expanding.", vi: "Thử nghiệm quy mô nhỏ. Đo hiệu quả rồi mới mở rộng." })}</span>
+            <span className="text-gradient">{t({ en: "Test. Measure. Then scale.", vi: "Thử nghiệm. Đo lường. Rồi mở rộng." })}</span>
           </h1>
 
           <p className="animate-fade-in-up mx-auto mt-6 max-w-2xl text-base leading-relaxed text-[#5d5d5d] dark:text-[#b4b4b4]" style={{ animationDelay: "160ms" }}>
             {t({
-              en: "We agree on what you want to improve, test a solution with your real data and measure the results. If it works for your needs, we plan the next steps together. A scoped trial may take up to six weeks.",
-              vi: "Hai bên thống nhất điều cần cải thiện, thử giải pháp trên dữ liệu thực tế và đo kết quả. Nếu phù hợp, chúng ta sẽ cùng lên kế hoạch tiếp theo. Thời gian thử nghiệm có thể kéo dài tối đa sáu tuần, tùy phạm vi.",
+              en: "Test a solution on your data and measure results before scaling.",
+              vi: "Thử giải pháp trên dữ liệu thực, đo kết quả trước khi mở rộng.",
             })}
           </p>
 
