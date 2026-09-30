@@ -277,17 +277,6 @@ async function askLLM(messages) {
   throw lastErr || new Error("NO_PROVIDER");
 }
 
-/* ============ Lead capture (thông tin khách) ============ */
-
-function extractLead(text) {
-  const lead = {};
-  const email = text.match(/[\w.+-]+@[\w-]+\.[\w.-]+/);
-  if (email) lead.email = email[0];
-  const phone = text.match(/(?:\+?84|0)\s?\d[\d\s.-]{7,12}\d/);
-  if (phone) lead.phone = phone[0].replace(/\s+/g, " ").trim();
-  return lead;
-}
-
 /* ============ HTTP server ============ */
 
 const server = http.createServer(async (req, res) => {
@@ -330,14 +319,8 @@ const server = http.createServer(async (req, res) => {
           text: String(m.text || "").slice(0, 4000),
         }));
 
-        const lastUser = [...hist].reverse().find((m) => m.role === "user");
-        const lead = lastUser ? extractLead(lastUser.text) : {};
-        if (lead.email || lead.phone) {
-          console.log("[lead captured]", JSON.stringify(lead), "| asked:", (lastUser.text || "").slice(0, 120));
-        }
-
         const { text, model } = await askLLM(hist);
-        return send(200, { reply: text, model, lead: Object.keys(lead).length ? lead : undefined });
+        return send(200, { reply: text, model });
       } catch (e) {
         console.error("[ask] error:", e.message);
         return send(502, { error: "LLM_UNAVAILABLE", detail: e.message });

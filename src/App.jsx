@@ -9,6 +9,7 @@ import AIHub from "./sections/AIHub.jsx";
 import AboutUs from "./sections/AboutUs.jsx";
 import Contact from "./sections/Contact.jsx";
 import TechDetail from "./sections/TechDetail.jsx";
+import { PrivacyPolicy, TermsAndConditions } from "./sections/LegalPages.jsx";
 
 function TechAnalytics({ onNavigate }) {
   return <TechDetail module="analytics" onNavigate={onNavigate} />;
@@ -38,6 +39,8 @@ const VIEWS = {
   "tech-cloud": TechCloud,
   "tech-bigdata": TechBigData,
   "tech-forecast": TechForecast,
+  privacy: PrivacyPolicy,
+  terms: TermsAndConditions,
   aihub: AIHub,
   about: AboutUs,
   contact: Contact,
@@ -53,6 +56,8 @@ const TITLES = {
     "tech-cloud": "Cloud Computing — SGS GROUP",
     "tech-bigdata": "Big Data Processing — SGS GROUP",
     "tech-forecast": "Demand Forecasting — SGS GROUP",
+    privacy: "Privacy Policy — SGS GROUP",
+    terms: "Terms & Conditions — SGS GROUP",
     aihub: "AI Hub — SGS GROUP",
     about: "About Us — SGS GROUP",
     contact: "Contact — SGS GROUP",
@@ -66,21 +71,53 @@ const TITLES = {
     "tech-cloud": "Điện toán đám mây — SGS GROUP",
     "tech-bigdata": "Xử lý Big Data — SGS GROUP",
     "tech-forecast": "Dự báo nhu cầu — SGS GROUP",
+    privacy: "Chính sách bảo mật — SGS GROUP",
+    terms: "Điều khoản & Điều kiện — SGS GROUP",
     aihub: "AI Hub — SGS GROUP",
     about: "Về chúng tôi — SGS GROUP",
     contact: "Liên hệ — SGS GROUP",
   },
 };
 
+const LEGAL_PATHS = {
+  privacy: "/privacy-policy",
+  terms: "/terms-and-conditions",
+};
+
+function sectionFromPath(pathname) {
+  return Object.entries(LEGAL_PATHS).find(([, path]) => path === pathname)?.[0] || null;
+}
+
 export default function App() {
-  const [section, setSection] = useState(() => localStorage.getItem("sgs-section") || "home");
+  const [section, setSection] = useState(
+    () => sectionFromPath(window.location.pathname) || localStorage.getItem("sgs-section") || "home",
+  );
   const [lang, setLang] = useState(() => localStorage.getItem("sgs-lang") || "en");
   const [dark, setDark] = useState(() => (localStorage.getItem("sgs-theme-v2") || "light") === "dark");
+  const isLegalPage = section === "privacy" || section === "terms";
+
+  const navigate = (nextSection) => {
+    const nextPath = LEGAL_PATHS[nextSection] || "/";
+    if (window.location.pathname !== nextPath) {
+      window.history.pushState({}, "", nextPath);
+    }
+    setSection(nextSection);
+  };
 
   useEffect(() => {
-    localStorage.setItem("sgs-section", section);
+    if (section !== "privacy" && section !== "terms") {
+      localStorage.setItem("sgs-section", section);
+    }
     window.scrollTo({ top: 0 });
   }, [section]);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setSection(sectionFromPath(window.location.pathname) || localStorage.getItem("sgs-section") || "home");
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("sgs-lang", lang);
@@ -101,15 +138,16 @@ export default function App() {
       <div className="min-h-screen flex flex-col">
         <Header
           section={section}
-          onNavigate={setSection}
+          onNavigate={navigate}
           dark={dark}
           onToggleTheme={() => setDark((d) => !d)}
         />
+        {isLegalPage && null}
         <main className="flex-1">
-          <Active onNavigate={setSection} key={section} />
+          <Active onNavigate={navigate} key={section} />
         </main>
-        <Footer onNavigate={setSection} />
-        <SectionRail section={section} onNavigate={setSection} />
+        {!isLegalPage && <Footer onNavigate={navigate} />}
+        {!isLegalPage && <SectionRail section={section} onNavigate={navigate} />}
       </div>
     </LangContext.Provider>
   );

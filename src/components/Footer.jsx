@@ -29,6 +29,11 @@ export default function Footer({ onNavigate }) {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
   const [latency, setLatency] = useState(241);
+  const handleLegalLink = (section) => (event) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    onNavigate(section);
+  };
 
   useEffect(() => {
     const id = setInterval(() => setLatency(180 + Math.floor(Math.random() * 220)), 3000);
@@ -88,14 +93,22 @@ export default function Footer({ onNavigate }) {
           <h4 className="text-sm font-semibold">{t({ en: "Legal", vi: "Pháp lý" })}</h4>
           <ul className="mt-4 space-y-2.5">
             <li>
-              <button className="text-sm text-[#5d5d5d] transition-colors hover:text-primary-glow dark:text-[#8f8f8f]">
+              <a
+                href="/privacy-policy"
+                onClick={handleLegalLink("privacy")}
+                className="text-sm text-[#5d5d5d] transition-colors hover:text-primary-glow dark:text-[#8f8f8f]"
+              >
                 {t({ en: "Privacy Policy", vi: "Chính sách bảo mật" })}
-              </button>
+              </a>
             </li>
             <li>
-              <button className="text-sm text-[#5d5d5d] transition-colors hover:text-primary-glow dark:text-[#8f8f8f]">
+              <a
+                href="/terms-and-conditions"
+                onClick={handleLegalLink("terms")}
+                className="text-sm text-[#5d5d5d] transition-colors hover:text-primary-glow dark:text-[#8f8f8f]"
+              >
                 {t({ en: "Terms & Conditions", vi: "Điều khoản & Điều kiện" })}
-              </button>
+              </a>
             </li>
           </ul>
         </div>
