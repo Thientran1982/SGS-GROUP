@@ -122,7 +122,7 @@ export default function Home({ onNavigate }) {
           </div>
 
           <h1 className="animate-fade-in-up mx-auto mt-7 max-w-4xl text-4xl font-semibold leading-[1.12] tracking-tight sm:text-5xl md:text-6xl" style={{ animationDelay: "80ms" }}>
-            {t({ en: "AI and automation for business.", vi: "AI và tự động hóa cho doanh nghiệp." })}
+            {t({ en: "AI and automation for business.", vi: "AI và tự động hóa cho doanh nghiệp" })}
           </h1>
 
           <p className="animate-fade-in-up mx-auto mt-6 max-w-2xl text-base leading-relaxed text-[#5d5d5d] dark:text-[#b4b4b4]" style={{ animationDelay: "160ms" }}>
