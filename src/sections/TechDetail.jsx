@@ -19,13 +19,13 @@ const MODULES = {
       vi: "Biến dữ liệu sẵn có thành quyết định có thể hành động ngay.",
     },
     intro: {
-      en: "We connect to your existing systems, build clean pipelines, and deliver dashboards your team actually uses. First insights land in 2–4 weeks.",
-      vi: "Chúng tôi kết nối hệ thống hiện có, dựng pipeline sạch và giao dashboard đội bạn thực sự dùng. Insight đầu tiên có trong 2–4 tuần.",
+      en: "We assess your data and systems, then scope pipelines and dashboards around the questions your team needs to answer.",
+      vi: "Chúng tôi kết nối hệ thống hiện có, xây dựng pipeline và dashboard phù hợp với đội ngũ của bạn. Phạm vi và thời gian có insight đầu tiên phụ thuộc vào mức độ sẵn sàng của dữ liệu.",
     },
     stats: [
-      { value: "38%", label: { en: "Fewer stockouts", vi: "Giảm hết hàng" } },
-      { value: "2–4 wks", label: { en: "First insight", vi: "Insight đầu tiên" } },
-      { value: "50M+", label: { en: "Data points/day", vi: "Điểm dữ liệu/ngày" } },
+      { value: "KPI", label: { en: "Forecast accuracy", vi: "Độ chính xác dự báo" } },
+      { value: "KPI", label: { en: "Stockout rate", vi: "Tỷ lệ hết hàng" } },
+      { value: "KPI", label: { en: "Data freshness", vi: "Độ cập nhật dữ liệu" } },
     ],
     chips: ["Python", "TensorFlow", "Apache Spark", "dbt", "PostgreSQL", "Grafana"],
     features: [
@@ -51,12 +51,12 @@ const MODULES = {
       { title: { en: "Clean & model", vi: "Làm sạch & dựng mô hình" }, body: { en: "Data quality check, then ML trained on your numbers.", vi: "Kiểm tra chất lượng dữ liệu, rồi huấn luyện ML trên số liệu của bạn." } },
       { title: { en: "Decide", vi: "Quyết định" }, body: { en: "Dashboards and alerts your team checks every morning.", vi: "Dashboard và cảnh báo đội bạn mở mỗi sáng." } },
     ],
-    caseStudy: {
-      label: { en: "Case: Retail chain, 14 warehouses", vi: "Case: Chuỗi bán lẻ, 14 kho" },
-      result: "+40%",
+    successMeasures: {
+      label: { en: "Pilot success measures", vi: "Chỉ số đánh giá pilot" },
+      result: { en: "Baseline → agreed target", vi: "Mức cơ sở → mục tiêu thống nhất" },
       body: {
-        en: "Demand forecast accuracy up 40% in the first quarter. Inventory visibility in real time across all warehouses.",
-        vi: "Độ chính xác dự báo nhu cầu tăng 40% trong quý đầu. Nhìn tồn kho thời gian thực trên mọi kho.",
+        en: "Compare forecast accuracy, stockout rate and data freshness with a baseline established from your systems. Targets are set after reviewing data quality and scope.",
+        vi: "So sánh độ chính xác dự báo, tỷ lệ hết hàng và độ cập nhật dữ liệu với mức cơ sở từ hệ thống của bạn. Mục tiêu được xác định sau khi xem xét chất lượng dữ liệu và phạm vi.",
       },
     },
   },
@@ -70,19 +70,19 @@ const MODULES = {
       vi: "Giao việc lặp lại cho phần mềm. Đội bạn tập trung việc quan trọng.",
     },
     intro: {
-      en: "From invoices to KYC: we digitize manual workflows with bots that run 24/7. Average processing time drops 78% in the first 90 days.",
-      vi: "Từ hóa đơn đến KYC: chúng tôi số hóa quy trình thủ công bằng bot chạy 24/7. Thời gian xử lý giảm trung bình 78% trong 90 ngày đầu.",
+      en: "From invoices to KYC: we assess manual workflows and design automation around your systems. A pilot measures cycle time, manual effort and exception rates against a baseline.",
+      vi: "Từ hóa đơn đến KYC: chúng tôi đánh giá quy trình thủ công và thiết kế tự động hóa theo hệ thống hiện có. Pilot đo thời gian xử lý, công sức thủ công và tỷ lệ ngoại lệ so với mức cơ sở.",
     },
     stats: [
-      { value: "78%", label: { en: "Faster processing", vi: "Xử lý nhanh hơn" } },
-      { value: "3,000+", label: { en: "Workflows digitized", vi: "Quy trình đã số hóa" } },
-      { value: "24/7", label: { en: "Bot uptime", vi: "Bot hoạt động" } },
+      { value: "KPI", label: { en: "Cycle time", vi: "Thời gian xử lý" } },
+      { value: "KPI", label: { en: "Manual effort", vi: "Công sức thủ công" } },
+      { value: "KPI", label: { en: "Exception rate", vi: "Tỷ lệ ngoại lệ" } },
     ],
     chips: ["UiPath", "Python", "Tesseract OCR", "Apache Airflow", "Node.js", "REST APIs"],
     features: [
       {
         title: { en: "Document processing", vi: "Xử lý tài liệu" },
-        body: { en: "OCR reads Vietnamese invoices and contracts correctly.", vi: "OCR đọc đúng hóa đơn, hợp đồng tiếng Việt." },
+        body: { en: "OCR can extract fields from Vietnamese documents; accuracy is tested on representative samples.", vi: "OCR có thể trích xuất trường dữ liệu từ tài liệu tiếng Việt; độ chính xác được kiểm thử trên mẫu đại diện." },
       },
       {
         title: { en: "Workflow orchestration", vi: "Điều phối quy trình" },
@@ -94,7 +94,7 @@ const MODULES = {
       },
       {
         title: { en: "Elastic scale", vi: "Mở rộng linh hoạt" },
-        body: { en: "10× load spike? Bots stretch without reconfiguration.", vi: "Tăng gấp 10 lần nhu cầu? Bot co giãn không cần cấu hình lại." },
+        body: { en: "Capacity and exception handling are designed around expected workload and peak-volume requirements.", vi: "Năng lực xử lý và cách xử lý ngoại lệ được thiết kế theo tải dự kiến và nhu cầu cao điểm." },
       },
     ],
     steps: [
@@ -102,12 +102,12 @@ const MODULES = {
       { title: { en: "Automate", vi: "Tự động hóa" }, body: { en: "Bots built and tested against your real workflow.", vi: "Bot dựng và kiểm thử trên quy trình thực của bạn." } },
       { title: { en: "Monitor", vi: "Giám sát" }, body: { en: "Every run logged, exceptions flagged to a human.", vi: "Mỗi lần chạy có log, ngoại lệ báo cho người xử lý." } },
     ],
-    caseStudy: {
-      label: { en: "Case: Retail finance team", vi: "Case: Đội tài chính bán lẻ" },
-      result: "3 days → 2 hrs",
+    successMeasures: {
+      label: { en: "Pilot success measures", vi: "Chỉ số đánh giá pilot" },
+      result: { en: "Baseline → agreed target", vi: "Mức cơ sở → mục tiêu thống nhất" },
       body: {
-        en: "Invoice processing went from 3 days to under 2 hours. The finance team moved from data entry to strategy.",
-        vi: "Xử lý hóa đơn từ 3 ngày xuống dưới 2 giờ. Đội tài chính chuyển từ nhập liệu sang chiến lược.",
+        en: "Measure end-to-end processing time, manual touchpoints and exception handling on an agreed sample of real documents.",
+        vi: "Đo thời gian xử lý đầu-cuối, số bước cần thao tác thủ công và cách xử lý ngoại lệ trên mẫu chứng từ thực tế đã thống nhất.",
       },
     },
   },
@@ -117,23 +117,23 @@ const MODULES = {
     widget: TerminalWidget,
     title: { en: "AI Technology", vi: "Công nghệ AI" },
     lead: {
-      en: "AI trained on your language, your industry, your data.",
-      vi: "AI được huấn luyện theo ngôn ngữ, ngành và dữ liệu của bạn.",
+      en: "Evaluate AI for your language, industry and use case.",
+      vi: "Đánh giá AI theo ngôn ngữ, ngành và bài toán của bạn.",
     },
     intro: {
-      en: "Not a generic API bolted onto a generic model. We fine-tune LLMs and build computer-vision systems for Vietnamese and regional use — deployable on-premise when data is sensitive.",
-      vi: "Không phải API chung cắm vào mô hình chung. Chúng tôi tinh chỉnh LLM và dựng hệ thống thị giác máy tính cho nhu cầu Việt Nam và khu vực — triển khai on-premise khi dữ liệu nhạy cảm.",
+      en: "We assess whether a language model or computer-vision system fits your use case, then evaluate it against representative domain examples. Deployment options depend on data and security requirements.",
+      vi: "Chúng tôi đánh giá mức độ phù hợp của LLM hoặc hệ thống thị giác máy tính với bài toán, sau đó kiểm thử trên ví dụ đại diện của ngành. Phương án triển khai phụ thuộc vào yêu cầu dữ liệu và bảo mật.",
     },
     stats: [
-      { value: "45+", label: { en: "Custom AI systems", vi: "Hệ thống AI riêng" } },
-      { value: "70%", label: { en: "Tickets auto-resolved", vi: "Tự xử lý yêu cầu" } },
-      { value: "10k+", label: { en: "Queries/day served", vi: "Truy vấn/ngày" } },
+      { value: "KPI", label: { en: "Answer quality", vi: "Chất lượng câu trả lời" } },
+      { value: "KPI", label: { en: "Resolution rate", vi: "Tỷ lệ xử lý thành công" } },
+      { value: "KPI", label: { en: "Safe human handoff", vi: "Chuyển tiếp an toàn" } },
     ],
     chips: ["Python", "PyTorch", "LangChain", "HuggingFace", "FastAPI", "OpenCV"],
     features: [
       {
         title: { en: "Fine-tuned LLMs", vi: "LLM tinh chỉnh riêng" },
-        body: { en: "Fluent Vietnamese and domain-specific vocabulary.", vi: "Tiếng Việt trôi chảy, đúng thuật ngữ ngành." },
+        body: { en: "Evaluate Vietnamese fluency and domain terminology on examples supplied or approved by your team.", vi: "Đánh giá độ tự nhiên tiếng Việt và thuật ngữ ngành trên ví dụ do đội ngũ của bạn cung cấp hoặc phê duyệt." },
       },
       {
         title: { en: "Computer vision", vi: "Thị giác máy tính" },
@@ -141,7 +141,7 @@ const MODULES = {
       },
       {
         title: { en: "Multilingual NLU", vi: "Hiểu ngôn ngữ tự nhiên" },
-        body: { en: "VI / EN / TH / ID in one system.", vi: "VI / EN / TH / ID trong một hệ thống." },
+        body: { en: "Language coverage and quality are defined for the languages required by your use case.", vi: "Phạm vi ngôn ngữ và chất lượng được xác định theo yêu cầu của bài toán." },
       },
       {
         title: { en: "On-premise option", vi: "Tùy chọn on-premise" },
@@ -153,12 +153,12 @@ const MODULES = {
       { title: { en: "Train", vi: "Huấn luyện" }, body: { en: "Fine-tune on your data, test on your cases.", vi: "Tinh chỉnh trên dữ liệu của bạn, kiểm thử trên case của bạn." } },
       { title: { en: "Ship", vi: "Triển khai" }, body: { en: "Cloud or on-premise — with monitoring from day one.", vi: "Cloud hoặc on-premise — có giám sát từ ngày đầu." } },
     ],
-    caseStudy: {
-      label: { en: "Case: FinTech support center", vi: "Case: Trung tâm CSKH FinTech" },
-      result: "CSAT 3.8 → 4.7",
+    successMeasures: {
+      label: { en: "Pilot success measures", vi: "Chỉ số đánh giá pilot" },
+      result: { en: "Baseline → agreed target", vi: "Mức cơ sở → mục tiêu thống nhất" },
       body: {
-        en: "An AI assistant now answers 70% of customer questions around the clock. Satisfaction rose within six months.",
-        vi: "Trợ lý AI hiện trả lời 70% câu hỏi khách hàng suốt ngày đêm. Mức hài lòng tăng trong 6 tháng.",
+        en: "Evaluate answer quality, task resolution, escalation accuracy and user feedback on representative conversations.",
+        vi: "Đánh giá chất lượng câu trả lời, khả năng xử lý yêu cầu, độ chính xác khi chuyển tiếp và phản hồi người dùng trên hội thoại đại diện.",
       },
     },
   },
@@ -168,23 +168,23 @@ const MODULES = {
     widget: StatusWidget,
     title: { en: "Cloud Computing", vi: "Điện toán đám mây" },
     lead: {
-      en: "Move to the cloud without downtime — and pay less after.",
-      vi: "Lên đám mây không gián đoạn — và trả ít hơn sau đó.",
+      en: "Plan a cloud migration around continuity, cost and availability requirements.",
+      vi: "Lập kế hoạch di trú cloud theo yêu cầu duy trì vận hành, chi phí và tính sẵn sàng.",
     },
     intro: {
-      en: "We manage 500+ production environments on AWS, Google Cloud and Azure. Migrations run on a structured 6-week program; costs typically drop 34% through right-sizing.",
-      vi: "Chúng tôi quản lý 500+ môi trường sản xuất trên AWS, Google Cloud và Azure. Di trú theo lộ trình 6 tuần có cấu trúc; chi phí thường giảm 34% nhờ right-sizing.",
+      en: "We assess cloud architecture, workloads and operating requirements across AWS, Google Cloud and Azure. Migration scope, schedule and potential savings depend on the current environment.",
+      vi: "Chúng tôi đánh giá kiến trúc cloud, workload và yêu cầu vận hành trên AWS, Google Cloud và Azure. Phạm vi di trú, lịch trình và cơ hội tiết kiệm phụ thuộc vào môi trường hiện tại.",
     },
     stats: [
-      { value: "99.98%", label: { en: "Uptime SLA", vi: "Uptime SLA" } },
-      { value: "500+", label: { en: "Environments managed", vi: "Môi trường quản lý" } },
-      { value: "−34%", label: { en: "Cloud cost", vi: "Chi phí cloud" } },
+      { value: "KPI", label: { en: "Availability", vi: "Tính sẵn sàng" } },
+      { value: "KPI", label: { en: "Cloud spend", vi: "Chi phí cloud" } },
+      { value: "KPI", label: { en: "Migration risk", vi: "Rủi ro di trú" } },
     ],
     chips: ["AWS", "Google Cloud", "Azure", "Kubernetes", "Terraform", "Prometheus"],
     features: [
       {
-        title: { en: "Zero-downtime migration", vi: "Di trú không gián đoạn" },
-        body: { en: "Critical systems stay online through the move.", vi: "Hệ thống trọng yếu vẫn chạy suốt quá trình chuyển." },
+        title: { en: "Migration continuity planning", vi: "Lập kế hoạch duy trì vận hành khi di trú" },
+        body: { en: "Continuity and cutover plans are designed to minimize disruption; achievable service windows are agreed for each workload.", vi: "Kế hoạch duy trì và chuyển đổi được thiết kế để giảm gián đoạn; khung thời gian dịch vụ được thống nhất cho từng workload." },
       },
       {
         title: { en: "Multi-cloud orchestration", vi: "Điều phối đa đám mây" },
@@ -196,20 +196,20 @@ const MODULES = {
       },
       {
         title: { en: "Security operations", vi: "Vận hành bảo mật" },
-        body: { en: "SOC 2 & ISO 27001 aligned practices, monitoring 24/7.", vi: "Thực hành tuân thủ SOC 2 & ISO 27001, giám sát 24/7." },
+        body: { en: "Security controls and monitoring are scoped to your environment and documented requirements.", vi: "Kiểm soát bảo mật và giám sát được xác định theo môi trường và yêu cầu đã thống nhất." },
       },
     ],
     steps: [
       { title: { en: "Assess", vi: "Đánh giá" }, body: { en: "Inventory workloads, pick the right targets.", vi: "Kiểm kê workload, chọn đúng đích chuyển." } },
-      { title: { en: "Migrate", vi: "Di trú" }, body: { en: "Structured plan, rehearsed, zero downtime.", vi: "Kế hoạch có cấu trúc, diễn tập trước, không gián đoạn." } },
+      { title: { en: "Migrate", vi: "Di trú" }, body: { en: "Use a structured, rehearsed plan with service windows agreed for each workload.", vi: "Thực hiện theo kế hoạch có cấu trúc, được diễn tập; thống nhất khung thời gian dịch vụ cho từng workload." } },
       { title: { en: "Optimize", vi: "Tối ưu" }, body: { en: "Right-size and govern cost continuously.", vi: "Right-size và quản trị chi phí liên tục." } },
     ],
-    caseStudy: {
-      label: { en: "Case: Manufacturing group", vi: "Case: Tập đoàn sản xuất" },
-      result: "−41%",
+    successMeasures: {
+      label: { en: "Pilot success measures", vi: "Chỉ số đánh giá pilot" },
+      result: { en: "Baseline → agreed target", vi: "Mức cơ sở → mục tiêu thống nhất" },
       body: {
-        en: "Cloud bill down 41% in the first year after migration — with faster release cycles.",
-        vi: "Hóa đơn cloud giảm 41% năm đầu sau di trú — kèm chu trình ra mắt nhanh hơn.",
+        en: "Compare cloud spend, availability and operational effort with the agreed baseline, while documenting migration risks and dependencies.",
+        vi: "So sánh chi phí cloud, tính sẵn sàng và công sức vận hành với mức cơ sở đã thống nhất, đồng thời ghi nhận rủi ro và điều kiện phụ thuộc khi di trú.",
       },
     },
   },
@@ -219,17 +219,17 @@ const MODULES = {
     widget: LakeWidget,
     title: { en: "Big Data Processing", vi: "Xử lý Big Data" },
     lead: {
-      en: "All your data, one lake, real-time answers.",
-      vi: "Toàn bộ dữ liệu của bạn, một data lake, câu trả lời thời gian thực.",
+      en: "Bring data sources together in an architecture designed for your workload.",
+      vi: "Hợp nhất các nguồn dữ liệu trong kiến trúc phù hợp với workload.",
     },
     intro: {
-      en: "Sensor streams, transaction logs, product events — unified on Spark and Kafka. Billions of events a day, under 100ms latency for real-time decisions.",
-      vi: "Luồng cảm biến, log giao dịch, sự kiện sản phẩm — hợp nhất trên Spark và Kafka. Hàng tỷ sự kiện mỗi ngày, độ trễ dưới 100ms cho quyết định thời gian thực.",
+      en: "Unify sensor streams, transaction logs and product events with a governed data architecture. Throughput and latency targets are set against your expected workload.",
+      vi: "Hợp nhất luồng cảm biến, log giao dịch và sự kiện sản phẩm trong kiến trúc dữ liệu có quản trị. Mục tiêu thông lượng và độ trễ được xác định theo tải dự kiến.",
     },
     stats: [
-      { value: "<100ms", label: { en: "Stream latency", vi: "Độ trễ luồng" } },
-      { value: "85PB", label: { en: "Processed to date", vi: "Đã xử lý" } },
-      { value: "24/7", label: { en: "Pipeline uptime", vi: "Pipeline hoạt động" } },
+      { value: "KPI", label: { en: "Event latency", vi: "Độ trễ sự kiện" } },
+      { value: "KPI", label: { en: "Pipeline reliability", vi: "Độ tin cậy pipeline" } },
+      { value: "KPI", label: { en: "Data quality", vi: "Chất lượng dữ liệu" } },
     ],
     chips: ["Apache Spark", "Apache Kafka", "Delta Lake", "Airflow", "ClickHouse", "dbt"],
     features: [
@@ -239,11 +239,11 @@ const MODULES = {
       },
       {
         title: { en: "Lakehouse architecture", vi: "Kiến trúc lakehouse" },
-        body: { en: "ACID transactions on petabyte scale.", vi: "Giao dịch ACID ở quy mô petabyte." },
+        body: { en: "Architecture and storage options are selected for your workload, consistency and retention requirements.", vi: "Kiến trúc và phương án lưu trữ được lựa chọn theo tải, yêu cầu nhất quán và thời gian lưu dữ liệu." },
       },
       {
         title: { en: "Real-time detection", vi: "Phát hiện thời gian thực" },
-        body: { en: "Fraud and anomaly alerts in under 50ms.", vi: "Cảnh báo gian lận, bất thường dưới 50ms." },
+        body: { en: "Fraud and anomaly detection targets are validated against representative data and latency requirements.", vi: "Mục tiêu phát hiện gian lận và bất thường được kiểm chứng bằng dữ liệu đại diện và yêu cầu độ trễ." },
       },
       {
         title: { en: "Managed ETL", vi: "ETL được quản lý" },
@@ -255,12 +255,12 @@ const MODULES = {
       { title: { en: "Process", vi: "Xử lý" }, body: { en: "Batch and streams, automated and monitored.", vi: "Batch và stream, tự động và được giám sát." } },
       { title: { en: "Serve", vi: "Phục vụ" }, body: { en: "Fast queries where decisions are made.", vi: "Truy vấn nhanh ngay nơi ra quyết định." } },
     ],
-    caseStudy: {
-      label: { en: "Case: Logistics network", vi: "Case: Mạng logistics" },
-      result: "−31%",
+    successMeasures: {
+      label: { en: "Pilot success measures", vi: "Chỉ số đánh giá pilot" },
+      result: { en: "Baseline → agreed target", vi: "Mức cơ sở → mục tiêu thống nhất" },
       body: {
-        en: "Data incidents and downtime cut by 31% — dispatchers see the whole fleet live.",
-        vi: "Sự cố dữ liệu và gián đoạn giảm 31% — điều phối viên nhìn toàn đội xe trực tiếp.",
+        en: "Measure event latency, data completeness and pipeline recovery against agreed workload and service requirements.",
+        vi: "Đo độ trễ sự kiện, mức đầy đủ dữ liệu và khả năng khôi phục pipeline theo tải và yêu cầu dịch vụ đã thống nhất.",
       },
     },
   },
@@ -356,30 +356,30 @@ export default function TechDetail({ module, onNavigate }) {
         </div>
       </section>
 
-      {/* Case study + CTA */}
+      {/* Pilot measures + CTA */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="glass-high animate-fade-in-up p-8">
-            <div className="mono-label">{t(m.caseStudy.label)}</div>
+            <div className="mono-label">{t(m.successMeasures.label)}</div>
             <div className="mt-4 inline-flex rounded-full border border-primary-glow/30 bg-primary/10 px-3 py-1 font-mono text-sm text-primary-glow">
-              {m.caseStudy.result}
+              {t(m.successMeasures.result)}
             </div>
             <p className="mt-4 text-sm leading-relaxed text-[#5d5d5d] dark:text-[#ececec]">
-              {t(m.caseStudy.body)}
+              {t(m.successMeasures.body)}
             </p>
           </div>
           <div className="glass-high animate-fade-in-up flex flex-col justify-center p-8 text-center">
             <h3 className="text-2xl font-semibold">
-              {t({ en: "See it on your data — free.", vi: "Thử trên dữ liệu của bạn — miễn phí." })}
+              {t({ en: "Discuss a pilot for your data.", vi: "Trao đổi về pilot trên dữ liệu của bạn." })}
             </h3>
             <p className="mt-3 text-sm text-[#5d5d5d] dark:text-[#b4b4b4]">
               {t({
-                en: "A 30-minute audit maps what this module does for your business.",
-                vi: "Buổi kiểm tra 30 phút cho thấy module này làm gì cho doanh nghiệp bạn.",
+                en: "Start with a 30-minute introductory conversation. Assessment scope and any fees are agreed separately.",
+                vi: "Bắt đầu bằng buổi trao đổi ban đầu 30 phút. Phạm vi đánh giá và chi phí (nếu có) được thống nhất riêng.",
               })}
             </p>
             <button className="btn-primary btn-shine mx-auto mt-6" onClick={() => onNavigate("contact")}>
-              {t({ en: "Book Free Audit", vi: "Đặt kiểm tra miễn phí" })}
+              {t({ en: "Book an intro call", vi: "Đặt lịch trao đổi" })}
             </button>
           </div>
         </div>

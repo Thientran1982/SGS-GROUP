@@ -27,8 +27,8 @@ const PROCESS = [
     title: { en: "Audit", vi: "Kiểm tra" },
     time: { en: "Week 1–2", vi: "Tuần 1–2" },
     body: {
-      en: "We map your systems and data quality. You get a findings report — not a sales deck.",
-      vi: "Chúng tôi khảo sát hệ thống và chất lượng dữ liệu. Bạn nhận báo cáo phát hiện — không phải tài liệu bán hàng.",
+      en: "We review your systems, data and goals. Deliverables, timeline and any audit fee are agreed before the assessment starts.",
+      vi: "Chúng tôi tìm hiểu hệ thống, dữ liệu và mục tiêu của bạn. Hạng mục bàn giao, thời gian và chi phí audit (nếu có) được thống nhất trước khi đánh giá.",
     },
   },
   {
@@ -36,8 +36,8 @@ const PROCESS = [
     title: { en: "Pilot", vi: "Thử nghiệm" },
     time: { en: "Week 3–6", vi: "Tuần 3–6" },
     body: {
-      en: "A fixed-scope pilot on real data. Measurable results, or you pay nothing.",
-      vi: "Pilot phạm vi cố định trên dữ liệu thực. Kết quả đo lường được, hoặc không mất phí.",
+      en: "A fixed-scope pilot on agreed real data. Baseline, success measures and acceptance criteria are set before work begins; outcomes depend on scope and data access.",
+      vi: "Pilot có phạm vi cố định trên dữ liệu thực đã thống nhất. Mức cơ sở, chỉ số thành công và tiêu chí nghiệm thu được chốt trước khi bắt đầu; kết quả phụ thuộc vào phạm vi và quyền truy cập dữ liệu.",
     },
   },
   {
@@ -45,8 +45,8 @@ const PROCESS = [
     title: { en: "Deploy", vi: "Triển khai" },
     time: { en: "Month 2–3", vi: "Tháng 2–3" },
     body: {
-      en: "Zero-downtime rollout, training and documentation for your team.",
-      vi: "Triển khai không gián đoạn, kèm đào tạo và tài liệu cho đội của bạn.",
+      en: "A production rollout plan, with continuity measures, training and documentation tailored to your environment.",
+      vi: "Lập kế hoạch triển khai production, biện pháp duy trì vận hành, đào tạo và tài liệu phù hợp với môi trường của bạn.",
     },
   },
   {
@@ -54,8 +54,8 @@ const PROCESS = [
     title: { en: "Support", vi: "Hỗ trợ" },
     time: { en: "Month 4+", vi: "Tháng 4+" },
     body: {
-      en: "24/7 monitoring, monthly reports, SLA response: 15 min for critical issues.",
-      vi: "Giám sát 24/7, báo cáo tháng, phản hồi SLA: 15 phút cho sự cố nghiêm trọng.",
+      en: "Monitoring, reporting and response targets are defined in the support plan and SLA.",
+      vi: "Phạm vi giám sát, báo cáo và mục tiêu phản hồi được xác định trong kế hoạch hỗ trợ và SLA.",
     },
   },
 ];
@@ -67,10 +67,10 @@ const MODULES = [
     widget: ForecastWidget,
     title: { en: "Data Analytics", vi: "Phân tích Dữ liệu" },
     body: {
-      en: "Forecasts, segmentation and live dashboards on your existing data. First insight in 2–4 weeks.",
-      vi: "Dự báo, phân khúc và dashboard trực quan trên dữ liệu sẵn có. Insight đầu trong 2–4 tuần.",
+      en: "Forecasts, segmentation and dashboards on your existing data. The pilot defines a baseline for forecast accuracy and inventory visibility.",
+      vi: "Dự báo, phân khúc và dashboard trên dữ liệu sẵn có. Pilot xác định mức cơ sở cho độ chính xác dự báo và khả năng quan sát tồn kho.",
     },
-    stat: { value: "38%", label: { en: "fewer stockouts", vi: "giảm hết hàng" } },
+    stat: { value: "KPI", label: { en: "forecast + inventory", vi: "dự báo + tồn kho" } },
   },
   {
     num: "02",
@@ -78,10 +78,10 @@ const MODULES = [
     widget: PipelineWidget,
     title: { en: "Automation", vi: "Tự động hóa" },
     body: {
-      en: "Bots handle invoices, KYC and reports 24/7. Processing time down 78% in 90 days.",
-      vi: "Bot lo hóa đơn, KYC, báo cáo 24/7. Thời gian xử lý giảm 78% trong 90 ngày.",
+      en: "Bots can support invoice, KYC and reporting workflows. Pilot measures cycle time, manual effort and exception handling.",
+      vi: "Bot có thể hỗ trợ quy trình hóa đơn, KYC và báo cáo. Pilot đo thời gian xử lý, công sức thủ công và cách xử lý ngoại lệ.",
     },
-    stat: { value: "78%", label: { en: "faster processing", vi: "xử lý nhanh hơn" } },
+    stat: { value: "KPI", label: { en: "time + exceptions", vi: "thời gian + ngoại lệ" } },
   },
   {
     num: "03",
@@ -89,10 +89,10 @@ const MODULES = [
     widget: TerminalWidget,
     title: { en: "AI Technology", vi: "Công nghệ AI" },
     body: {
-      en: "LLMs tuned for Vietnamese, vision systems for production lines. On-premise when data is sensitive.",
-      vi: "LLM hiểu tiếng Việt, thị giác máy tính cho dây chuyền. On-premise khi dữ liệu nhạy cảm.",
+      en: "Vietnamese language models and computer vision can be evaluated against your domain cases, with deployment options matched to data requirements.",
+      vi: "LLM tiếng Việt và thị giác máy tính có thể được đánh giá theo tình huống ngành của bạn, với phương án triển khai phù hợp yêu cầu dữ liệu.",
     },
-    stat: { value: "70%", label: { en: "auto-resolved", vi: "tự xử lý" } },
+    stat: { value: "KPI", label: { en: "quality + handoff", vi: "chất lượng + chuyển tiếp" } },
   },
   {
     num: "04",
@@ -100,10 +100,10 @@ const MODULES = [
     widget: StatusWidget,
     title: { en: "Cloud Computing", vi: "Điện toán đám mây" },
     body: {
-      en: "Migrate to AWS, GCP or Azure with zero downtime. Cloud bills drop ~34% after right-sizing.",
-      vi: "Di trú lên AWS, GCP, Azure không gián đoạn. Hóa đơn cloud giảm ~34% sau right-sizing.",
+      en: "Plan a migration to AWS, GCP or Azure. Measure cost, availability and operational risk against the current environment.",
+      vi: "Lập kế hoạch di trú lên AWS, GCP hoặc Azure. Đo chi phí, tính sẵn sàng và rủi ro vận hành so với môi trường hiện tại.",
     },
-    stat: { value: "99.98%", label: { en: "uptime SLA", vi: "uptime SLA" } },
+    stat: { value: "KPI", label: { en: "cost + availability", vi: "chi phí + tính sẵn sàng" } },
   },
   {
     num: "05",
@@ -111,10 +111,10 @@ const MODULES = [
     widget: LakeWidget,
     title: { en: "Big Data", vi: "Xử lý Big Data" },
     body: {
-      en: "One data lake for every source. Billions of events daily, queries under 100ms.",
-      vi: "Một data lake cho mọi nguồn. Hàng tỷ sự kiện mỗi ngày, truy vấn dưới 100ms.",
+      en: "Unify data sources in a governed lakehouse. Set latency, reliability and data-quality targets for the expected workload.",
+      vi: "Hợp nhất nguồn dữ liệu trong lakehouse có quản trị. Xác định mục tiêu độ trễ, độ tin cậy và chất lượng dữ liệu theo tải dự kiến.",
     },
-    stat: { value: "<100ms", label: { en: "stream latency", vi: "độ trễ luồng" } },
+    stat: { value: "KPI", label: { en: "latency + reliability", vi: "độ trễ + độ tin cậy" } },
   },
 ];
 

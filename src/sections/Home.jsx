@@ -4,7 +4,6 @@ import Marquee from "../components/Marquee.jsx";
 const STATS = [
   { value: "200+", label: { en: "Projects since 2020", vi: "Dự án từ 2020" } },
   { value: "50+", label: { en: "Enterprise clients served", vi: "Doanh nghiệp đã phục vụ" } },
-  { value: "99.98%", label: { en: "Uptime", vi: "Hoạt động" } },
   { value: "6", label: { en: "Weeks for a scoped pilot", vi: "Tuần cho pilot có phạm vi rõ ràng" } },
 ];
 
@@ -51,8 +50,8 @@ const MODULES = [
     view: "tech-analytics",
     title: { en: "Data Analytics", vi: "Phân tích Dữ liệu" },
     body: {
-      en: "Your data becomes decisions: forecasts, dashboards, alerts. First insight in 2–4 weeks.",
-      vi: "Dữ liệu thành quyết định: dự báo, dashboard, cảnh báo. Insight đầu trong 2–4 tuần.",
+      en: "Turn available data into forecasts, dashboards and alerts, with measures agreed for the pilot.",
+      vi: "Khai thác dữ liệu sẵn có cho dự báo, dashboard và cảnh báo; các chỉ số được thống nhất trong pilot.",
     },
   },
   {
@@ -60,8 +59,8 @@ const MODULES = [
     view: "tech-automation",
     title: { en: "Automation", vi: "Tự động hóa" },
     body: {
-      en: "Invoices, KYC, reports — done by bots 24/7. Processing time down 78% on average.",
-      vi: "Hóa đơn, KYC, báo cáo — bot lo 24/7. Thời gian xử lý giảm trung bình 78%.",
+      en: "Automate invoices, KYC and reporting where the process is suitable. Pilot measures cycle time, manual work and exceptions.",
+      vi: "Tự động hóa hóa đơn, KYC và báo cáo khi quy trình phù hợp. Pilot đo thời gian xử lý, thao tác thủ công và ngoại lệ.",
     },
   },
   {
@@ -69,8 +68,8 @@ const MODULES = [
     view: "tech-ai",
     title: { en: "AI Technology", vi: "Công nghệ AI" },
     body: {
-      en: "LLMs tuned for Vietnamese. Chatbots answer 70% of queries. On-premise when needed.",
-      vi: "LLM hiểu tiếng Việt. Chatbot trả lời 70% yêu cầu. On-premise khi cần.",
+      en: "Evaluate Vietnamese language models and conversational AI against your use cases, with deployment options based on data requirements.",
+      vi: "Đánh giá LLM tiếng Việt và AI hội thoại theo tình huống sử dụng, với phương án triển khai dựa trên yêu cầu dữ liệu.",
     },
   },
   {
@@ -78,8 +77,8 @@ const MODULES = [
     view: "tech-cloud",
     title: { en: "Cloud Computing", vi: "Điện toán đám mây" },
     body: {
-      en: "Move to AWS, GCP or Azure with zero downtime. Costs down ~34% after migration.",
-      vi: "Lên AWS, GCP, Azure không gián đoạn. Chi phí giảm ~34% sau di trú.",
+      en: "Plan a move to AWS, GCP or Azure with continuity measures. Assess cost and availability against your current environment.",
+      vi: "Lập kế hoạch chuyển lên AWS, GCP hoặc Azure kèm biện pháp duy trì vận hành. Đánh giá chi phí và tính sẵn sàng so với môi trường hiện tại.",
     },
   },
   {
@@ -87,8 +86,8 @@ const MODULES = [
     view: "tech-bigdata",
     title: { en: "Big Data", vi: "Xử lý Big Data" },
     body: {
-      en: "All sources, one lake. Billions of events a day, answers under 100ms.",
-      vi: "Mọi nguồn về một lake. Hàng tỷ sự kiện mỗi ngày, trả lời dưới 100ms.",
+      en: "Unify data in a governed lakehouse, with throughput and latency targets defined for your workload.",
+      vi: "Hợp nhất dữ liệu trong lakehouse có quản trị, với mục tiêu thông lượng và độ trễ được xác định theo workload.",
     },
   },
 ];

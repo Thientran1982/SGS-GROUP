@@ -1,1 +1,2 @@
 - [B.AI model compatibility](bai-api-provider.md) — model availability and endpoint support vary by model; discover enabled models and prefer chat-compatible free models.
+- [SGS brand-claim evidence](sgs-brand-claims.md) — separate site-published figures from verified outcomes, and scope pilot timelines and commitments.

@@ -1,16 +1,16 @@
 import { useT } from "../lang.jsx";
 
 const VALUES = [
-  { en: "Results in the contract, not the pitch deck", vi: "Kết quả ghi trong hợp đồng, không phải bản thuyết trình" },
-  { en: "Pilot on real data before full commitment", vi: "Chạy thử trên dữ liệu thực trước khi cam kết" },
+  { en: "Agree on success measures before the pilot", vi: "Thống nhất chỉ số thành công trước pilot" },
+  { en: "Pilot on real data before production rollout", vi: "Pilot trên dữ liệu thực trước khi triển khai production" },
   { en: "Vietnamese engineers, deep local expertise", vi: "Kỹ sư Việt Nam, am hiểu thị trường nội địa" },
-  { en: "Compliant with Law 24/2018 & PDPA", vi: "Tuân thủ Luật An ninh mạng 24/2018 & PDPA" },
+  { en: "Security and compliance scoped to each engagement", vi: "Phạm vi bảo mật và tuân thủ được xác định theo từng dự án" },
 ];
 
 const COUNTERS = [
   { value: "200+", label: { en: "Projects since 2020", vi: "Dự án từ 2020" } },
-  { value: "40+", label: { en: "Engineers on staff", vi: "Kỹ sư đang làm việc" } },
-  { value: "6", label: { en: "Countries served", vi: "Quốc gia phục vụ" } },
+  { value: "50+", label: { en: "Enterprise clients served", vi: "Doanh nghiệp đã phục vụ" } },
+  { value: "2020", label: { en: "Founded in Vietnam", vi: "Thành lập tại Việt Nam" } },
 ];
 
 const TEAM = [
@@ -40,17 +40,17 @@ const TEAM = [
     name: "Pham Minh Khoa",
     role: { en: "Head of Delivery", vi: "Trưởng bộ phận Triển khai" },
     bio: {
-      en: "8 years delivering AI and automation for retail, logistics and finance. Keeps our 98.7% on-time rate.",
-      vi: "8 năm triển khai AI và tự động hóa cho bán lẻ, logistics, tài chính. Duy trì tỷ lệ bàn giao đúng hạn 98.7%.",
+      en: "8 years delivering AI and automation for retail, logistics and finance, with a focus on dependable project delivery.",
+      vi: "8 năm triển khai AI và tự động hóa cho bán lẻ, logistics và tài chính, tập trung vào chất lượng bàn giao.",
     },
   },
 ];
 
 const GUARANTEE_CHIPS = [
-  { en: "6-week pilot window", vi: "Pilot trong 6 tuần" },
-  { en: "Signed SLA before start", vi: "Ký SLA trước khi bắt đầu" },
-  { en: "100% refund if no results", vi: "Hoàn 100% nếu không có kết quả" },
-  { en: "12-month support included", vi: "Bao gồm 12 tháng hỗ trợ" },
+  { en: "Pilot scope agreed upfront", vi: "Thống nhất phạm vi pilot từ đầu" },
+  { en: "Success measures agreed upfront", vi: "Thống nhất chỉ số thành công từ đầu" },
+  { en: "Six-week pilot window where scope allows", vi: "Khung pilot sáu tuần khi phạm vi phù hợp" },
+  { en: "Production rollout planned separately", vi: "Lộ trình production được lập riêng" },
 ];
 
 const PARTNERS = ["Google Cloud", "AWS", "Microsoft Azure", "NVIDIA", "Intel", "IBM"];
@@ -73,8 +73,8 @@ export default function AboutUs() {
           </h1>
           <p className="animate-fade-in-up mt-6 max-w-2xl leading-relaxed text-[#5d5d5d] dark:text-[#b4b4b4]" style={{ animationDelay: "220ms" }}>
             {t({
-              en: "Founded in 2020 by engineers who solved these problems inside Vietnamese enterprises — then built the tools they couldn't buy. Everything we sell was proven in production first.",
-              vi: "Thành lập 2020 bởi những kỹ sư từng giải quyết vấn đề này ngay trong doanh nghiệp Việt — rồi tự xây công cụ không nơi nào bán. Mọi dịch vụ đều chạy thật trước khi bán.",
+              en: "Founded in 2020, SGS GROUP works with Vietnamese and Southeast Asian enterprises on analytics, automation, AI, cloud and data platforms. Each engagement starts by understanding the operating context and defining how success will be measured.",
+              vi: "Thành lập năm 2020, SGS GROUP đồng hành cùng doanh nghiệp Việt Nam và Đông Nam Á trong các bài toán phân tích dữ liệu, tự động hóa, AI, cloud và nền tảng dữ liệu. Mỗi hợp tác bắt đầu bằng việc hiểu bối cảnh vận hành và xác định cách đo lường thành công.",
             })}
           </p>
         </div>
@@ -86,8 +86,8 @@ export default function AboutUs() {
           <h4 className="text-lg font-semibold">{t({ en: "Our journey", vi: "Hành trình" })}</h4>
           <p className="mt-3 text-sm leading-relaxed text-[#5d5d5d] dark:text-[#b4b4b4]">
             {t({
-              en: "2020: automated our own finance operations. 2021: first client analytics platform. 2022: first Vietnamese-language LLM. 2024: 50+ enterprises run our systems. We never demo what hasn't run in production.",
-              vi: "2020: tự động hóa tài chính của chính mình. 2021: nền tảng phân tích cho khách hàng đầu tiên. 2022: LLM tiếng Việt đầu tiên. 2024: 50+ doanh nghiệp dùng hệ thống của chúng tôi. Chúng tôi không demo thứ chưa từng chạy thật.",
+              en: "Since 2020, our work has spanned analytics, automation, AI, cloud and data platforms. We begin with the client's current process, data and constraints, then define a pilot and success measures before planning a production rollout.",
+              vi: "Từ năm 2020, SGS GROUP triển khai các giải pháp phân tích dữ liệu, tự động hóa, AI, cloud và nền tảng dữ liệu. Chúng tôi bắt đầu từ quy trình, dữ liệu và giới hạn thực tế của khách hàng, sau đó xác định pilot và chỉ số thành công trước khi lập kế hoạch production.",
             })}
           </p>
         </div>
@@ -140,17 +140,17 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* Delivery guarantee */}
+      {/* Pilot and delivery approach */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <div className="glass-high terminal animate-fade-in-up p-8 md:p-10">
-          <div className="mono-label">{t({ en: "Our delivery guarantee", vi: "Cam kết giao hàng" })}</div>
+          <div className="mono-label">{t({ en: "Our pilot and delivery approach", vi: "Cách triển khai pilot và dự án" })}</div>
           <h3 className="mt-3 max-w-2xl text-2xl font-semibold md:text-3xl">
-            {t({ en: "No results in 6 weeks? You pay nothing.", vi: "Không kết quả trong 6 tuần? Bạn không trả tiền." })}
+            {t({ en: "Validate the pilot. Scope production with evidence.", vi: "Kiểm chứng pilot. Lập phạm vi production dựa trên dữ liệu." })}
           </h3>
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-[#5d5d5d] dark:text-[#b4b4b4]">
             {t({
-              en: "Every project starts with a fixed-scope pilot on your real data. If we can't show measurable improvement in the pilot window, we refund 100% — no questions asked.",
-              vi: "Mọi dự án bắt đầu bằng pilot phạm vi cố định trên dữ liệu thực. Nếu không chứng minh được cải thiện đo lường được trong thời gian pilot, chúng tôi hoàn 100% — không hỏi lý do.",
+              en: "A pilot can run for up to six weeks when scope, data access and dependencies allow. Baseline, success measures, deliverables, fees and any remedies are agreed in writing before work starts. Full production rollout is scoped separately.",
+              vi: "Pilot có thể kéo dài tối đa sáu tuần khi phạm vi, quyền truy cập dữ liệu và các điều kiện phụ thuộc cho phép. Mức cơ sở, chỉ số thành công, hạng mục bàn giao, chi phí và biện pháp xử lý (nếu có) cần được thống nhất bằng văn bản trước khi bắt đầu. Triển khai production được xác định phạm vi riêng.",
             })}
           </p>
           <div className="mt-6 flex flex-wrap gap-2">

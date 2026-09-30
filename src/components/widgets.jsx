@@ -9,7 +9,7 @@ export function ForecastWidget() {
   const bars = [34, 42, 38, 52, 47, 63, 58, 74];
   return (
     <div className={frame}>
-      <div className="mono-label mb-3">{t({ en: "Sales forecast", vi: "Dự báo bán hàng" })}</div>
+      <div className="mono-label mb-3">{t({ en: "Illustrative forecast", vi: "Minh họa dự báo" })}</div>
       <div className="flex h-24 items-end gap-1.5">
         {bars.map((h, i) => (
           <div
@@ -19,9 +19,9 @@ export function ForecastWidget() {
           />
         ))}
       </div>
-      <div className="mt-3 flex items-center justify-between font-mono text-[11px] text-[#8f8f8f]">
-        <span>$2,463k → <span className="text-primary-glow">AI: $2,902k</span></span>
-        <span>{t({ en: "Confidence: 96%", vi: "Độ tin cậy: 96%" })}</span>
+      <div className="mt-3 flex items-center justify-between gap-3 font-mono text-[11px] text-[#8f8f8f]">
+        <span>{t({ en: "Example visualization", vi: "Biểu đồ minh họa" })}</span>
+        <span className="text-right">{t({ en: "Validate against pilot data", vi: "Kiểm chứng bằng dữ liệu pilot" })}</span>
       </div>
     </div>
   );

@@ -46,8 +46,8 @@ export default function Footer({ onNavigate }) {
           <div className="mono-label mt-2">Technology</div>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-[#5d5d5d] dark:text-[#b4b4b4]">
             {t({
-              en: "AI and automation for enterprises in Vietnam & Southeast Asia. Measurable results since 2020.",
-              vi: "AI và tự động hóa cho doanh nghiệp Việt Nam & Đông Nam Á. Kết quả đo lường được từ 2020.",
+              en: "AI and automation for enterprises in Vietnam & Southeast Asia, with outcomes measured against agreed business goals.",
+              vi: "AI và tự động hóa cho doanh nghiệp Việt Nam & Đông Nam Á, với kết quả được đo theo mục tiêu kinh doanh đã thống nhất.",
             })}
           </p>
           <div className="mt-5 flex gap-2">
@@ -128,13 +128,6 @@ export default function Footer({ onNavigate }) {
           {subscribed && (
             <p className="mt-2 font-mono text-[11px] text-ok">✓ {t({ en: "Subscribed", vi: "Đã đăng ký" })}</p>
           )}
-          <div className="mt-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-[#8f8f8f]">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <rect x="5" y="11" width="14" height="10" rx="2" />
-              <path d="M8 11V7a4 4 0 0 1 8 0v4" />
-            </svg>
-            AES-256 {t({ en: "Encrypted", vi: "Mã hóa" })}
-          </div>
         </div>
       </div>
 

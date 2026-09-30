@@ -33,8 +33,8 @@ export default function Contact() {
         </h2>
         <p className="mt-3 max-w-2xl text-[#5d5d5d] dark:text-[#b4b4b4]">
           {t({
-            en: "Tell us what's slowing your business down. We reply within one business day.",
-            vi: "Cho chúng tôi biết điều gì làm chậm doanh nghiệp của bạn. Phản hồi trong 1 ngày làm việc.",
+            en: "Tell us what's slowing your business down and what you'd like to improve.",
+            vi: "Cho chúng tôi biết điều gì đang làm chậm doanh nghiệp và bạn muốn cải thiện điều gì.",
           })}
         </p>
       </div>
@@ -48,7 +48,7 @@ export default function Contact() {
             </h3>
             <span className="chip">
               <span className="h-1.5 w-1.5 rounded-full bg-ok animate-pulse-slow" />
-              {t({ en: "Secure", vi: "Bảo mật" })}
+              {t({ en: "Contact SGS", vi: "Liên hệ SGS" })}
             </span>
           </div>
 
@@ -57,8 +57,8 @@ export default function Contact() {
               <div className="font-mono text-sm text-ok">✓ {t({ en: "Message sent", vi: "Đã gửi thành công" })}</div>
               <p className="mt-2 text-sm text-[#5d5d5d] dark:text-[#b4b4b4]">
                 {t({
-                  en: "We reply within 1 business day (Mon–Fri, 9:00–18:00 GMT+7).",
-                  vi: "Chúng tôi phản hồi trong 1 ngày làm việc (Thứ 2–6, 9:00–18:00 GMT+7).",
+                  en: "For direct contact, email info@sgsgroup.vn.",
+                  vi: "Để liên hệ trực tiếp, hãy gửi email tới info@sgsgroup.vn.",
                 })}
               </p>
             </div>
@@ -110,8 +110,8 @@ export default function Contact() {
               </button>
               <p className="text-center font-mono text-[10px] text-[#8f8f8f]">
                 {t({
-                  en: "We reply within 1 business day (Mon–Fri, 9:00–18:00 GMT+7).",
-                  vi: "Phản hồi trong 1 ngày làm việc (Thứ 2–6, 9:00–18:00 GMT+7).",
+                  en: "For direct contact, email info@sgsgroup.vn.",
+                  vi: "Để liên hệ trực tiếp, hãy gửi email tới info@sgsgroup.vn.",
                 })}
               </p>
             </form>

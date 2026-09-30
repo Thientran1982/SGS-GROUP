@@ -21,8 +21,8 @@ const SUGGESTIONS = [
 ];
 
 const FALLBACK = {
-  en: "I can't reach my reasoning engine right now. Please try again in a minute — or contact us directly at info@sgsgroup.vn / +84 379281 445 and we'll respond within 24 hours.",
-  vi: "Tôi chưa kết nối được bộ suy luận lúc này. Bạn thử lại sau một phút — hoặc liên hệ trực tiếp info@sgsgroup.vn / +84 379281 445, chúng tôi phản hồi trong 24 giờ.",
+  en: "I can't reach the AI service right now. Please try again later, or contact us at info@sgsgroup.vn / +84 379281 445.",
+  vi: "Hiện tôi chưa kết nối được dịch vụ AI. Bạn thử lại sau hoặc liên hệ info@sgsgroup.vn / +84 379281 445.",
 };
 
 function NewChatIcon() {
