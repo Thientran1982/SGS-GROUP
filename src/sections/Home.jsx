@@ -94,8 +94,8 @@ const MODULES = [
     view: "tech-forecast",
     title: { en: "Demand Forecasting", vi: "Dự báo nhu cầu" },
     body: {
-      en: "Work with forecasting partner GMDH Streamline to use demand history for inventory and replenishment planning. Evaluate fit against an agreed baseline.",
-      vi: "Đồng hành cùng đối tác dự báo GMDH Streamline, khai thác lịch sử nhu cầu để hỗ trợ hoạch định tồn kho và bổ sung hàng. Đánh giá dự báo theo mức cơ sở đã thống nhất.",
+      en: "As an official GMDH Streamline platform partner, SGS GROUP helps assess historical demand and build forecasts for inventory and replenishment planning. Pilot performance is evaluated against an agreed baseline.",
+      vi: "Là đối tác chính thức của nền tảng GMDH Streamline, SGS GROUP hỗ trợ đánh giá dữ liệu nhu cầu lịch sử và xây dựng dự báo phục vụ hoạch định tồn kho, bổ sung hàng. Pilot được đánh giá theo mức cơ sở đã thống nhất.",
     },
   },
 ];

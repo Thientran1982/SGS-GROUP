@@ -271,7 +271,7 @@ const MODULES = {
     widget: ForecastWidget,
     title: { en: "Demand Forecasting", vi: "Dự báo nhu cầu" },
     partner: {
-      label: { en: "Forecasting partner", vi: "Đối tác dự báo" },
+      label: { en: "Official platform partner", vi: "Đối tác chính thức của nền tảng" },
       name: "GMDH Streamline",
     },
     lead: {
@@ -279,8 +279,8 @@ const MODULES = {
       vi: "Khai thác lịch sử nhu cầu để hỗ trợ lập kế hoạch tồn kho và bổ sung hàng.",
     },
     intro: {
-      en: "This module is delivered with forecasting partner GMDH Streamline. We review sales or order history, seasonality, lead times and other available business signals. Forecast scope, planning horizon and system connections depend on data readiness and your workflow.",
-      vi: "Module này được triển khai cùng đối tác dự báo GMDH Streamline. Chúng tôi xem xét lịch sử bán hàng hoặc đơn hàng, mùa vụ, thời gian cung ứng và các tín hiệu kinh doanh sẵn có. Phạm vi dự báo, kỳ hạn và kết nối hệ thống phụ thuộc vào mức độ sẵn sàng của dữ liệu và quy trình lập kế hoạch.",
+      en: "SGS GROUP is an official platform partner of GMDH Streamline. We review sales or order history, seasonality, lead times and other available business signals. Forecast scope, planning horizon and system connections depend on data readiness and your workflow.",
+      vi: "SGS GROUP là đối tác chính thức của nền tảng GMDH Streamline. Chúng tôi xem xét lịch sử bán hàng hoặc đơn hàng, mùa vụ, thời gian cung ứng và các tín hiệu kinh doanh sẵn có. Phạm vi dự báo, kỳ hạn và kết nối hệ thống phụ thuộc vào mức độ sẵn sàng của dữ liệu và quy trình lập kế hoạch.",
     },
     stats: [
       { value: "KPI", label: { en: "Forecast error", vi: "Sai số dự báo" } },

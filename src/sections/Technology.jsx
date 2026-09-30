@@ -20,7 +20,7 @@ const TECH = [
   ["Backend", "FastAPI"],
   ["Database", "PostgreSQL"],
   ["Analytics", "dbt"],
-  ["Forecasting partner", "GMDH Streamline"],
+  ["Official platform partner", "GMDH Streamline"],
 ];
 
 const PROCESS = [
@@ -124,8 +124,8 @@ const MODULES = [
     widget: ForecastWidget,
     title: { en: "Demand Forecasting", vi: "Dự báo nhu cầu" },
     body: {
-      en: "Delivered with forecasting partner GMDH Streamline. Evaluate demand forecasts from historical sales and available business signals against an agreed baseline.",
-      vi: "Triển khai cùng đối tác dự báo GMDH Streamline. Đánh giá dự báo từ lịch sử bán hàng và tín hiệu kinh doanh sẵn có theo mức cơ sở đã thống nhất.",
+      en: "SGS GROUP is an official platform partner of GMDH Streamline. Assess demand forecasts from historical sales and available business signals against an agreed baseline.",
+      vi: "SGS GROUP là đối tác chính thức của nền tảng GMDH Streamline. Đánh giá dự báo từ lịch sử bán hàng và tín hiệu kinh doanh sẵn có theo mức cơ sở đã thống nhất.",
     },
     stat: { value: "KPI", label: { en: "forecast error + bias", vi: "sai số + độ lệch dự báo" } },
   },
