@@ -2,13 +2,14 @@ import { useT } from "../lang.jsx";
 import Marquee from "../components/Marquee.jsx";
 
 const STATS = [
-  { value: "200+", label: { en: "Projects since 2020", vi: "Dự án từ 2020" } },
+  { value: "50+", label: { en: "Projects since 2020", vi: "Dự án từ 2020" } },
   { value: "50+", label: { en: "Enterprise clients served", vi: "Doanh nghiệp đã phục vụ" } },
   { value: "6", label: { en: "Weeks for a scoped pilot", vi: "Tuần cho pilot có phạm vi rõ ràng" } },
+  { value: "2020", label: { en: "Founded in Vietnam", vi: "Thành lập tại Việt Nam" } },
 ];
 
 const BADGES = [
-  { en: "200+ projects since 2020", vi: "200+ dự án từ 2020" },
+  { en: "50+ projects since 2020", vi: "50+ dự án từ 2020" },
   { en: "50+ enterprise clients served", vi: "Đã phục vụ 50+ doanh nghiệp" },
   { en: "Six-week scoped pilot", vi: "Pilot phạm vi rõ ràng trong sáu tuần" },
   { en: "Success measures agreed upfront", vi: "Thống nhất chỉ số thành công từ đầu" },
@@ -123,15 +124,15 @@ export default function Home({ onNavigate }) {
           </div>
 
           <h1 className="animate-fade-in-up mx-auto mt-7 max-w-4xl text-4xl font-semibold leading-[1.12] tracking-tight sm:text-5xl md:text-6xl" style={{ animationDelay: "80ms" }}>
-            {t({ en: "AI built around measurable outcomes.", vi: "AI hướng đến kết quả đo lường được." })}
+            {t({ en: "AI solutions for real business needs.", vi: "Giải pháp AI cho nhu cầu thực tế của doanh nghiệp." })}
             <br />
-            <span className="text-gradient">{t({ en: "Prove the pilot. Then scale.", vi: "Kiểm chứng qua pilot. Mở rộng sau." })}</span>
+            <span className="text-gradient">{t({ en: "Start small. Measure results before expanding.", vi: "Thử nghiệm quy mô nhỏ. Đo hiệu quả rồi mới mở rộng." })}</span>
           </h1>
 
           <p className="animate-fade-in-up mx-auto mt-6 max-w-2xl text-base leading-relaxed text-[#5d5d5d] dark:text-[#b4b4b4]" style={{ animationDelay: "160ms" }}>
             {t({
-              en: "We agree on the baseline and pilot scope, test on your real data, then plan production rollout around validated requirements. A defined pilot can run for six weeks.",
-              vi: "Hai bên thống nhất mức cơ sở và phạm vi pilot, thử nghiệm trên dữ liệu thực, rồi lập lộ trình production theo yêu cầu đã kiểm chứng. Pilot có phạm vi rõ ràng có thể kéo dài sáu tuần.",
+              en: "We agree on what you want to improve, test a solution with your real data and measure the results. If it works for your needs, we plan the next steps together. A scoped trial may take up to six weeks.",
+              vi: "Hai bên thống nhất điều cần cải thiện, thử giải pháp trên dữ liệu thực tế và đo kết quả. Nếu phù hợp, chúng ta sẽ cùng lên kế hoạch tiếp theo. Thời gian thử nghiệm có thể kéo dài tối đa sáu tuần, tùy phạm vi.",
             })}
           </p>
 
@@ -146,7 +147,7 @@ export default function Home({ onNavigate }) {
 
           <div className="mt-14 grid grid-cols-2 gap-3 md:grid-cols-4">
             {STATS.map((s, i) => (
-              <div key={s.value} className="glass animate-fade-in-up p-5" style={{ animationDelay: `${400 + i * 90}ms` }}>
+              <div key={s.label.en} className="glass animate-fade-in-up p-5" style={{ animationDelay: `${400 + i * 90}ms` }}>
                 <div className="font-mono text-2xl font-medium text-primary-glow md:text-3xl">{s.value}</div>
                 <div className="mt-1 font-mono text-[11px] uppercase tracking-widest text-[#8f8f8f]">{t(s.label)}</div>
               </div>
