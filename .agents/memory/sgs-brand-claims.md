@@ -3,7 +3,7 @@ name: SGS brand-claim evidence
 description: Evidence bar for SGS website copy and the SGS AI assistant's public claims.
 ---
 
-Treat the website's 200+ projects and 50+ enterprise clients as cumulative figures currently published by SGS, not independently verified facts; do not add qualifiers or derived claims. A six-week window may describe a scoped pilot only when data access and dependencies allow. Production rollout, fees, deliverables, support terms and schedules are scoped separately.
+Treat the website's 50+ projects and 50+ enterprise clients as cumulative figures currently published by SGS, not independently verified facts; do not add qualifiers or derived claims. A six-week window may describe a scoped pilot only when data access and dependencies allow. Production rollout, fees, deliverables, support terms and schedules are scoped separately.
 
 Do not claim free audits or ROI work, guaranteed outcomes or refunds, zero downtime or breaches, certifications, compliance, SLAs, response deadlines, or quantified performance unless supported by current approved evidence or explicit project terms. Define outcomes using a baseline and agreed measures; label illustrative UI data as illustrative.
 

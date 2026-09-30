@@ -8,7 +8,7 @@ const VALUES = [
 ];
 
 const COUNTERS = [
-  { value: "200+", label: { en: "Projects since 2020", vi: "Dự án từ 2020" } },
+  { value: "50+", label: { en: "Projects since 2020", vi: "Dự án từ 2020" } },
   { value: "50+", label: { en: "Enterprise clients served", vi: "Doanh nghiệp đã phục vụ" } },
   { value: "2020", label: { en: "Founded in Vietnam", vi: "Thành lập tại Việt Nam" } },
 ];
@@ -73,8 +73,8 @@ export default function AboutUs() {
           </h1>
           <p className="animate-fade-in-up mt-6 max-w-2xl leading-relaxed text-[#5d5d5d] dark:text-[#b4b4b4]" style={{ animationDelay: "220ms" }}>
             {t({
-              en: "Founded in 2020, SGS GROUP works with Vietnamese and Southeast Asian enterprises on analytics, automation, AI, cloud and data platforms. Each engagement starts by understanding the operating context and defining how success will be measured.",
-              vi: "Thành lập năm 2020, SGS GROUP đồng hành cùng doanh nghiệp Việt Nam và Đông Nam Á trong các bài toán phân tích dữ liệu, tự động hóa, AI, cloud và nền tảng dữ liệu. Mỗi hợp tác bắt đầu bằng việc hiểu bối cảnh vận hành và xác định cách đo lường thành công.",
+              en: "Founded in 2020, SGS GROUP works with Vietnamese and Southeast Asian enterprises on analytics, demand forecasting, automation, AI, cloud and data platforms. Each engagement starts by understanding the operating context and defining how success will be measured.",
+              vi: "Thành lập năm 2020, SGS GROUP đồng hành cùng doanh nghiệp Việt Nam và Đông Nam Á trong các bài toán phân tích dữ liệu, dự báo nhu cầu, tự động hóa, AI, cloud và nền tảng dữ liệu. Mỗi hợp tác bắt đầu bằng việc hiểu bối cảnh vận hành và xác định cách đo lường thành công.",
             })}
           </p>
         </div>
@@ -86,8 +86,8 @@ export default function AboutUs() {
           <h4 className="text-lg font-semibold">{t({ en: "Our journey", vi: "Hành trình" })}</h4>
           <p className="mt-3 text-sm leading-relaxed text-[#5d5d5d] dark:text-[#b4b4b4]">
             {t({
-              en: "Since 2020, our work has spanned analytics, automation, AI, cloud and data platforms. We begin with the client's current process, data and constraints, then define a pilot and success measures before planning a production rollout.",
-              vi: "Từ năm 2020, SGS GROUP triển khai các giải pháp phân tích dữ liệu, tự động hóa, AI, cloud và nền tảng dữ liệu. Chúng tôi bắt đầu từ quy trình, dữ liệu và giới hạn thực tế của khách hàng, sau đó xác định pilot và chỉ số thành công trước khi lập kế hoạch production.",
+              en: "Since 2020, our work has spanned analytics, demand forecasting, automation, AI, cloud and data platforms. We begin with the client's current process, data and constraints, then define a pilot and success measures before planning a production rollout.",
+              vi: "Từ năm 2020, SGS GROUP triển khai các giải pháp phân tích dữ liệu, dự báo nhu cầu, tự động hóa, AI, cloud và nền tảng dữ liệu. Chúng tôi bắt đầu từ quy trình, dữ liệu và giới hạn thực tế của khách hàng, sau đó xác định pilot và chỉ số thành công trước khi lập kế hoạch production.",
             })}
           </p>
         </div>

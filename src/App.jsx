@@ -25,6 +25,9 @@ function TechCloud({ onNavigate }) {
 function TechBigData({ onNavigate }) {
   return <TechDetail module="bigdata" onNavigate={onNavigate} />;
 }
+function TechForecast({ onNavigate }) {
+  return <TechDetail module="forecast" onNavigate={onNavigate} />;
+}
 
 const VIEWS = {
   home: Home,
@@ -34,6 +37,7 @@ const VIEWS = {
   "tech-ai": TechAI,
   "tech-cloud": TechCloud,
   "tech-bigdata": TechBigData,
+  "tech-forecast": TechForecast,
   aihub: AIHub,
   about: AboutUs,
   contact: Contact,
@@ -48,6 +52,7 @@ const TITLES = {
     "tech-ai": "AI Technology — SGS GROUP",
     "tech-cloud": "Cloud Computing — SGS GROUP",
     "tech-bigdata": "Big Data Processing — SGS GROUP",
+    "tech-forecast": "Demand Forecasting — SGS GROUP",
     aihub: "AI Hub — SGS GROUP",
     about: "About Us — SGS GROUP",
     contact: "Contact — SGS GROUP",
@@ -60,6 +65,7 @@ const TITLES = {
     "tech-ai": "Công nghệ AI — SGS GROUP",
     "tech-cloud": "Điện toán đám mây — SGS GROUP",
     "tech-bigdata": "Xử lý Big Data — SGS GROUP",
+    "tech-forecast": "Dự báo nhu cầu — SGS GROUP",
     aihub: "AI Hub — SGS GROUP",
     about: "Về chúng tôi — SGS GROUP",
     contact: "Liên hệ — SGS GROUP",

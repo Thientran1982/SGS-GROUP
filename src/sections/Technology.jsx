@@ -1,6 +1,7 @@
 import { useT } from "../lang.jsx";
 import Marquee from "../components/Marquee.jsx";
 import {
+  AnalyticsWidget,
   ForecastWidget,
   PipelineWidget,
   TerminalWidget,
@@ -19,6 +20,7 @@ const TECH = [
   ["Backend", "FastAPI"],
   ["Database", "PostgreSQL"],
   ["Analytics", "dbt"],
+  ["Forecasting", "StatsForecast"],
 ];
 
 const PROCESS = [
@@ -64,13 +66,13 @@ const MODULES = [
   {
     num: "01",
     view: "tech-analytics",
-    widget: ForecastWidget,
+    widget: AnalyticsWidget,
     title: { en: "Data Analytics", vi: "Phân tích Dữ liệu" },
     body: {
-      en: "Forecasts, segmentation and dashboards on your existing data. The pilot defines a baseline for forecast accuracy and inventory visibility.",
-      vi: "Dự báo, phân khúc và dashboard trên dữ liệu sẵn có. Pilot xác định mức cơ sở cho độ chính xác dự báo và khả năng quan sát tồn kho.",
+      en: "Bring operational data into KPI dashboards, reports and alerts. The pilot agrees measures for data freshness and reporting coverage.",
+      vi: "Tổng hợp dữ liệu vận hành thành dashboard KPI, báo cáo và cảnh báo. Pilot thống nhất cách đo độ cập nhật và phạm vi báo cáo.",
     },
-    stat: { value: "KPI", label: { en: "forecast + inventory", vi: "dự báo + tồn kho" } },
+    stat: { value: "KPI", label: { en: "dashboards + reporting", vi: "dashboard + báo cáo" } },
   },
   {
     num: "02",
@@ -116,6 +118,17 @@ const MODULES = [
     },
     stat: { value: "KPI", label: { en: "latency + reliability", vi: "độ trễ + độ tin cậy" } },
   },
+  {
+    num: "06",
+    view: "tech-forecast",
+    widget: ForecastWidget,
+    title: { en: "Demand Forecasting", vi: "Dự báo nhu cầu" },
+    body: {
+      en: "Evaluate demand forecasts from historical sales and available business signals to support inventory and replenishment planning.",
+      vi: "Đánh giá dự báo nhu cầu từ lịch sử bán hàng và dữ liệu kinh doanh sẵn có để hỗ trợ lập kế hoạch tồn kho, bổ sung hàng.",
+    },
+    stat: { value: "KPI", label: { en: "forecast error + bias", vi: "sai số + độ lệch dự báo" } },
+  },
 ];
 
 export default function Technology({ onNavigate }) {
@@ -133,8 +146,8 @@ export default function Technology({ onNavigate }) {
           </h2>
           <p className="mt-3 max-w-2xl text-[#5d5d5d] dark:text-[#b4b4b4]">
             {t({
-              en: "Five modules, each with its own page. Click any card to see capabilities, process and results.",
-              vi: "Năm module, mỗi module một trang riêng. Nhấn vào thẻ bất kỳ để xem năng lực, quy trình và kết quả.",
+              en: "Six modules, each with its own page. Click any card to see capabilities, process and pilot measures.",
+              vi: "Sáu module, mỗi module có một trang riêng. Nhấn vào thẻ để xem năng lực, quy trình và cách đánh giá pilot.",
             })}
           </p>
         </div>

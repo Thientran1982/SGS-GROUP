@@ -1,5 +1,6 @@
 import { useT } from "../lang.jsx";
 import {
+  AnalyticsWidget,
   ForecastWidget,
   PipelineWidget,
   TerminalWidget,
@@ -12,30 +13,30 @@ import {
 const MODULES = {
   analytics: {
     num: "01",
-    widget: ForecastWidget,
+    widget: AnalyticsWidget,
     title: { en: "Data Analytics", vi: "Phân tích Dữ liệu" },
     lead: {
       en: "Turn the data you already have into decisions you can act on.",
-      vi: "Biến dữ liệu sẵn có thành quyết định có thể hành động ngay.",
+      vi: "Biến dữ liệu vận hành thành thông tin rõ ràng để hỗ trợ quyết định.",
     },
     intro: {
-      en: "We assess your data and systems, then scope pipelines and dashboards around the questions your team needs to answer.",
-      vi: "Chúng tôi kết nối hệ thống hiện có, xây dựng pipeline và dashboard phù hợp với đội ngũ của bạn. Phạm vi và thời gian có insight đầu tiên phụ thuộc vào mức độ sẵn sàng của dữ liệu.",
+      en: "We assess your data and systems, then scope dashboards and reports around the questions your team needs to answer. Forecasting is covered separately in Module 06.",
+      vi: "Chúng tôi đánh giá dữ liệu và hệ thống, sau đó xác định dashboard và báo cáo theo nhu cầu thông tin của đội ngũ. Nội dung dự báo được trình bày riêng tại Module 06.",
     },
     stats: [
-      { value: "KPI", label: { en: "Forecast accuracy", vi: "Độ chính xác dự báo" } },
-      { value: "KPI", label: { en: "Stockout rate", vi: "Tỷ lệ hết hàng" } },
+      { value: "KPI", label: { en: "Reporting coverage", vi: "Phạm vi báo cáo" } },
       { value: "KPI", label: { en: "Data freshness", vi: "Độ cập nhật dữ liệu" } },
+      { value: "KPI", label: { en: "Dashboard usage", vi: "Mức độ sử dụng dashboard" } },
     ],
     chips: ["Python", "TensorFlow", "Apache Spark", "dbt", "PostgreSQL", "Grafana"],
     features: [
       {
-        title: { en: "Predictive models", vi: "Mô hình dự báo" },
-        body: { en: "Demand, churn and fraud — tuned to your market.", vi: "Nhu cầu, churn, gian lận — tinh chỉnh theo thị trường của bạn." },
+        title: { en: "Operational dashboards", vi: "Dashboard vận hành" },
+        body: { en: "Bring agreed KPIs and operational signals into a shared, readable view.", vi: "Tổng hợp KPI và chỉ số vận hành đã thống nhất vào một giao diện dễ theo dõi." },
       },
       {
-        title: { en: "Customer segmentation", vi: "Phân khúc khách hàng" },
-        body: { en: "See who buys, who leaves, and why.", vi: "Biết ai mua, ai rời bỏ và vì sao." },
+        title: { en: "Business reporting", vi: "Báo cáo kinh doanh" },
+        body: { en: "Organize recurring reports around the decisions your team makes.", vi: "Sắp xếp báo cáo định kỳ theo các quyết định đội ngũ cần đưa ra." },
       },
       {
         title: { en: "Live dashboards", vi: "Dashboard trực quan" },
@@ -48,15 +49,15 @@ const MODULES = {
     ],
     steps: [
       { title: { en: "Connect", vi: "Kết nối" }, body: { en: "Plug into MySQL, PostgreSQL, MongoDB, Sheets or local ERP.", vi: "Cắm vào MySQL, PostgreSQL, MongoDB, Sheets hoặc ERP nội địa." } },
-      { title: { en: "Clean & model", vi: "Làm sạch & dựng mô hình" }, body: { en: "Data quality check, then ML trained on your numbers.", vi: "Kiểm tra chất lượng dữ liệu, rồi huấn luyện ML trên số liệu của bạn." } },
+      { title: { en: "Prepare data", vi: "Chuẩn bị dữ liệu" }, body: { en: "Review data quality, KPI definitions and reporting needs before building the agreed views.", vi: "Rà soát chất lượng dữ liệu, định nghĩa KPI và nhu cầu báo cáo trước khi xây dựng các giao diện đã thống nhất." } },
       { title: { en: "Decide", vi: "Quyết định" }, body: { en: "Dashboards and alerts your team checks every morning.", vi: "Dashboard và cảnh báo đội bạn mở mỗi sáng." } },
     ],
     successMeasures: {
       label: { en: "Pilot success measures", vi: "Chỉ số đánh giá pilot" },
       result: { en: "Baseline → agreed target", vi: "Mức cơ sở → mục tiêu thống nhất" },
       body: {
-        en: "Compare forecast accuracy, stockout rate and data freshness with a baseline established from your systems. Targets are set after reviewing data quality and scope.",
-        vi: "So sánh độ chính xác dự báo, tỷ lệ hết hàng và độ cập nhật dữ liệu với mức cơ sở từ hệ thống của bạn. Mục tiêu được xác định sau khi xem xét chất lượng dữ liệu và phạm vi.",
+        en: "Review reporting coverage, data freshness and dashboard usage against an agreed baseline. Measures are finalized after reviewing data quality and scope.",
+        vi: "Đánh giá phạm vi báo cáo, độ cập nhật dữ liệu và mức độ sử dụng dashboard so với mức cơ sở đã thống nhất. Chỉ số được chốt sau khi xem xét chất lượng dữ liệu và phạm vi.",
       },
     },
   },
@@ -264,9 +265,60 @@ const MODULES = {
       },
     },
   },
+
+  forecast: {
+    num: "06",
+    widget: ForecastWidget,
+    title: { en: "Demand Forecasting", vi: "Dự báo nhu cầu" },
+    lead: {
+      en: "Use demand history to support inventory and replenishment planning.",
+      vi: "Khai thác lịch sử nhu cầu để hỗ trợ lập kế hoạch tồn kho và bổ sung hàng.",
+    },
+    intro: {
+      en: "We review sales or order history, seasonality, lead times and other available business signals. Forecast scope, planning horizon and system connections depend on data readiness and your workflow.",
+      vi: "Chúng tôi xem xét lịch sử bán hàng hoặc đơn hàng, mùa vụ, thời gian cung ứng và các tín hiệu kinh doanh sẵn có. Phạm vi dự báo, kỳ hạn và kết nối hệ thống phụ thuộc vào mức độ sẵn sàng của dữ liệu và quy trình lập kế hoạch.",
+    },
+    stats: [
+      { value: "KPI", label: { en: "Forecast error", vi: "Sai số dự báo" } },
+      { value: "KPI", label: { en: "Forecast bias", vi: "Độ lệch dự báo" } },
+      { value: "KPI", label: { en: "SKU / period coverage", vi: "Phạm vi SKU / kỳ dự báo" } },
+    ],
+    chips: ["Python", "SQL", "POS / ERP data", "Inventory systems", "Planning workflows"],
+    features: [
+      {
+        title: { en: "Historical demand patterns", vi: "Mẫu hình nhu cầu lịch sử" },
+        body: { en: "Assess sales and order history by product, location and time period where the data supports that level of detail.", vi: "Phân tích lịch sử bán hàng và đơn đặt theo sản phẩm, địa điểm, khoảng thời gian khi dữ liệu đáp ứng được mức chi tiết đó." },
+      },
+      {
+        title: { en: "Seasonality and business signals", vi: "Mùa vụ và tín hiệu kinh doanh" },
+        body: { en: "Test whether calendar effects, promotions, stock availability or lead times can be used reliably in the forecast.", vi: "Kiểm tra khả năng sử dụng các yếu tố lịch, khuyến mãi, tình trạng hàng và thời gian cung ứng trong dự báo." },
+      },
+      {
+        title: { en: "Backtesting against a baseline", vi: "Kiểm thử so với mức cơ sở" },
+        body: { en: "Compare candidate forecasts with a simple baseline on agreed products, periods and planning horizons before selecting an approach.", vi: "So sánh các phương án dự báo với mức cơ sở đơn giản trên sản phẩm, kỳ dữ liệu và khoảng hoạch định đã thống nhất trước khi chọn cách tiếp cận." },
+      },
+      {
+        title: { en: "Planning workflow fit", vi: "Phù hợp quy trình hoạch định" },
+        body: { en: "Shape forecast outputs for review by planners and assess spreadsheet, API or enterprise-system connections where available.", vi: "Định dạng kết quả để nhân sự hoạch định xem xét và đánh giá khả năng kết nối bảng tính, API hoặc hệ thống doanh nghiệp nếu có." },
+      },
+    ],
+    steps: [
+      { title: { en: "Review data", vi: "Rà soát dữ liệu" }, body: { en: "Check history, granularity, missing periods and the planning decisions the forecast should support.", vi: "Kiểm tra dữ liệu lịch sử, mức chi tiết, kỳ bị thiếu và quyết định hoạch định mà dự báo cần hỗ trợ." } },
+      { title: { en: "Backtest options", vi: "Kiểm thử phương án" }, body: { en: "Compare suitable methods with a baseline using agreed products, time periods and evaluation measures.", vi: "So sánh phương pháp phù hợp với mức cơ sở trên sản phẩm, khoảng thời gian và chỉ số đánh giá đã thống nhất." } },
+      { title: { en: "Review and integrate", vi: "Rà soát và tích hợp" }, body: { en: "Review forecasts with your team, then scope how approved outputs fit the existing planning workflow.", vi: "Cùng đội ngũ rà soát dự báo, sau đó xác định cách đưa kết quả đã duyệt vào quy trình hoạch định hiện có." } },
+    ],
+    successMeasures: {
+      label: { en: "Pilot success measures", vi: "Chỉ số đánh giá pilot" },
+      result: { en: "Baseline → agreed target", vi: "Mức cơ sở → mục tiêu thống nhất" },
+      body: {
+        en: "Backtest forecast error, bias and coverage against an agreed baseline by product and horizon. Set targets only after reviewing data quality, planning context and pilot scope.",
+        vi: "Kiểm thử sai số, độ lệch và phạm vi dự báo so với mức cơ sở đã thống nhất theo sản phẩm và kỳ hạn. Chỉ xác định mục tiêu sau khi xem xét chất lượng dữ liệu, bối cảnh hoạch định và phạm vi pilot.",
+      },
+    },
+  },
 };
 
-const ORDER = ["analytics", "automation", "ai", "cloud", "bigdata"];
+const ORDER = ["analytics", "automation", "ai", "cloud", "bigdata", "forecast"];
 
 export default function TechDetail({ module, onNavigate }) {
   const t = useT();

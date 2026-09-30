@@ -3,7 +3,7 @@ import { useT } from "../lang.jsx";
 
 const frame = "terminal glass rounded-xl p-4";
 
-/* Module 01 — sales forecast chart */
+/* Module 06 — illustrative demand forecast chart */
 export function ForecastWidget() {
   const t = useT();
   const bars = [34, 42, 38, 52, 47, 63, 58, 74];
@@ -22,6 +22,42 @@ export function ForecastWidget() {
       <div className="mt-3 flex items-center justify-between gap-3 font-mono text-[11px] text-[#8f8f8f]">
         <span>{t({ en: "Example visualization", vi: "Biểu đồ minh họa" })}</span>
         <span className="text-right">{t({ en: "Validate against pilot data", vi: "Kiểm chứng bằng dữ liệu pilot" })}</span>
+      </div>
+    </div>
+  );
+}
+
+/* Module 01 — illustrative dashboard */
+export function AnalyticsWidget() {
+  const t = useT();
+  const bars = [36, 52, 43, 67, 55, 76, 61, 84];
+  return (
+    <div className={frame}>
+      <div className="mono-label mb-3">{t({ en: "Illustrative dashboard", vi: "Dashboard minh họa" })}</div>
+      <div className="grid grid-cols-3 gap-2">
+        {[
+          { en: "Business KPI", vi: "KPI kinh doanh" },
+          { en: "Data freshness", vi: "Độ cập nhật dữ liệu" },
+          { en: "Report status", vi: "Trạng thái báo cáo" },
+        ].map((item) => (
+          <div key={item.en} className="rounded-md border border-black/10 px-2 py-2 dark:border-white/10">
+            <div className="font-mono text-[9px] text-[#8f8f8f]">{t(item)}</div>
+            <div className="mt-1 font-mono text-sm text-primary-glow">—</div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-3 flex h-14 items-end gap-1">
+        {bars.map((height, i) => (
+          <div
+            key={i}
+            className="flex-1 rounded-t-sm bg-gradient-to-t from-accent/60 to-primary-glow/70"
+            style={{ height: `${height}%` }}
+          />
+        ))}
+      </div>
+      <div className="mt-2 flex items-center justify-between gap-3 font-mono text-[10px] text-[#8f8f8f]">
+        <span>{t({ en: "Example visualization", vi: "Biểu đồ minh họa" })}</span>
+        <span>{t({ en: "KPIs defined with your team", vi: "Thống nhất KPI cùng đội ngũ" })}</span>
       </div>
     </div>
   );

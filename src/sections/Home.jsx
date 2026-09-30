@@ -5,7 +5,7 @@ const STATS = [
   { value: "50+", label: { en: "Projects since 2020", vi: "Dự án từ 2020" } },
   { value: "50+", label: { en: "Enterprise clients served", vi: "Doanh nghiệp đã phục vụ" } },
   { value: "6", label: { en: "Weeks max · depends on scope", vi: "Tuần tối đa · tùy phạm vi" } },
-  { value: "5", label: { en: "Technology areas", vi: "Mảng công nghệ" } },
+  { value: "6", label: { en: "Technology modules", vi: "Module công nghệ" } },
 ];
 
 const BADGES = [
@@ -49,8 +49,8 @@ const MODULES = [
     view: "tech-analytics",
     title: { en: "Data Analytics", vi: "Phân tích Dữ liệu" },
     body: {
-      en: "Turn available data into forecasts, dashboards and alerts, with measures agreed for the pilot.",
-      vi: "Khai thác dữ liệu sẵn có để dự báo, làm dashboard và gửi cảnh báo; hai bên thống nhất cách đo trong đợt thử nghiệm.",
+      en: "Bring operational data into dashboards, reports and alerts, with measures agreed for the pilot.",
+      vi: "Tổng hợp dữ liệu vận hành thành dashboard, báo cáo và cảnh báo; hai bên thống nhất cách đo trong đợt thử nghiệm.",
     },
   },
   {
@@ -89,6 +89,15 @@ const MODULES = [
       vi: "Hợp nhất dữ liệu trong lakehouse có quản trị, với mục tiêu thông lượng và độ trễ được xác định theo workload.",
     },
   },
+  {
+    num: "06",
+    view: "tech-forecast",
+    title: { en: "Demand Forecasting", vi: "Dự báo nhu cầu" },
+    body: {
+      en: "Use historical demand and relevant business data to support inventory and replenishment planning. Forecast fit is evaluated against an agreed baseline.",
+      vi: "Khai thác lịch sử nhu cầu và dữ liệu kinh doanh liên quan để hỗ trợ lập kế hoạch tồn kho, bổ sung hàng. Mức độ phù hợp của dự báo được đánh giá so với mức cơ sở đã thống nhất.",
+    },
+  },
 ];
 
 const SUCCESS_MEASURES = [
@@ -97,8 +106,8 @@ const SUCCESS_MEASURES = [
     body: { en: "Track cycle time, manual effort and exception rates against the current process.", vi: "Theo dõi thời gian xử lý, công sức thủ công và tỷ lệ ngoại lệ so với quy trình hiện tại." },
   },
   {
-    title: { en: "Decision quality", vi: "Chất lượng quyết định" },
-    body: { en: "Compare forecast accuracy, data freshness and inventory visibility with an agreed baseline.", vi: "So sánh độ chính xác dự báo, độ cập nhật dữ liệu và khả năng quan sát tồn kho với mức cơ sở đã thống nhất." },
+    title: { en: "Data visibility", vi: "Khả năng quan sát dữ liệu" },
+    body: { en: "Review reporting coverage, data freshness and shared KPI definitions against an agreed baseline.", vi: "Đánh giá phạm vi báo cáo, độ cập nhật dữ liệu và định nghĩa KPI chung so với mức cơ sở đã thống nhất." },
   },
   {
     title: { en: "AI service quality", vi: "Chất lượng dịch vụ AI" },
@@ -189,7 +198,7 @@ export default function Home({ onNavigate }) {
           <div className="animate-fade-in-up">
             <div className="mono-label">{t({ en: "What we build", vi: "Chúng tôi xây dựng gì" })}</div>
             <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
-              {t({ en: "Five technologies. One partner.", vi: "Năm công nghệ. Một đối tác." })}
+              {t({ en: "Six technology modules. One partner.", vi: "Sáu module công nghệ. Một đối tác." })}
             </h2>
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
