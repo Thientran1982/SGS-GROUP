@@ -4,7 +4,7 @@ import Marquee from "../components/Marquee.jsx";
 const STATS = [
   { value: "50+", label: { en: "Projects since 2020", vi: "Dự án từ 2020" } },
   { value: "50+", label: { en: "Enterprise clients served", vi: "Doanh nghiệp đã phục vụ" } },
-  { value: "6", label: { en: "Up to six weeks for a scoped trial", vi: "Tối đa sáu tuần, tùy phạm vi thử nghiệm" } },
+  { value: "6", label: { en: "Weeks max · depends on scope", vi: "Tuần tối đa · tùy phạm vi" } },
   { value: "5", label: { en: "Technology areas", vi: "Mảng công nghệ" } },
 ];
 
@@ -122,15 +122,15 @@ export default function Home({ onNavigate }) {
           </div>
 
           <h1 className="animate-fade-in-up mx-auto mt-7 max-w-4xl text-4xl font-semibold leading-[1.12] tracking-tight sm:text-5xl md:text-6xl" style={{ animationDelay: "80ms" }}>
-            {t({ en: "AI for real business challenges.", vi: "AI cho bài toán thực tế." })}
+            {t({ en: "AI and automation for business.", vi: "AI và tự động hóa cho doanh nghiệp." })}
             <br />
-            <span className="text-gradient">{t({ en: "Start small. Measure value. Scale when ready.", vi: "Thử trước. Đo hiệu quả. Mở rộng khi phù hợp." })}</span>
+            <span className="text-gradient">{t({ en: "Measure results before scaling.", vi: "Đo hiệu quả trước khi mở rộng." })}</span>
           </h1>
 
           <p className="animate-fade-in-up mx-auto mt-6 max-w-2xl text-base leading-relaxed text-[#5d5d5d] dark:text-[#b4b4b4]" style={{ animationDelay: "160ms" }}>
             {t({
-              en: "Start with one workflow, test it with your data and measure against agreed goals.",
-              vi: "Bắt đầu với một quy trình, thử trên dữ liệu thật và đo theo mục tiêu đã thống nhất.",
+              en: "Choose one process, test it with real data and agree how to evaluate it.",
+              vi: "Chọn một quy trình, thử trên dữ liệu thật và thống nhất cách đánh giá.",
             })}
           </p>
 
