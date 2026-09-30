@@ -20,7 +20,7 @@ const TECH = [
   ["Backend", "FastAPI"],
   ["Database", "PostgreSQL"],
   ["Analytics", "dbt"],
-  ["Forecasting", "StatsForecast"],
+  ["Forecasting partner", "GMDH Streamline"],
 ];
 
 const PROCESS = [
@@ -124,8 +124,8 @@ const MODULES = [
     widget: ForecastWidget,
     title: { en: "Demand Forecasting", vi: "Dự báo nhu cầu" },
     body: {
-      en: "Evaluate demand forecasts from historical sales and available business signals to support inventory and replenishment planning.",
-      vi: "Đánh giá dự báo nhu cầu từ lịch sử bán hàng và dữ liệu kinh doanh sẵn có để hỗ trợ lập kế hoạch tồn kho, bổ sung hàng.",
+      en: "Delivered with forecasting partner GMDH Streamline. Evaluate demand forecasts from historical sales and available business signals against an agreed baseline.",
+      vi: "Triển khai cùng đối tác dự báo GMDH Streamline. Đánh giá dự báo từ lịch sử bán hàng và tín hiệu kinh doanh sẵn có theo mức cơ sở đã thống nhất.",
     },
     stat: { value: "KPI", label: { en: "forecast error + bias", vi: "sai số + độ lệch dự báo" } },
   },

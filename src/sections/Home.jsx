@@ -94,8 +94,8 @@ const MODULES = [
     view: "tech-forecast",
     title: { en: "Demand Forecasting", vi: "Dự báo nhu cầu" },
     body: {
-      en: "Use historical demand and relevant business data to support inventory and replenishment planning. Forecast fit is evaluated against an agreed baseline.",
-      vi: "Khai thác lịch sử nhu cầu và dữ liệu kinh doanh liên quan để hỗ trợ lập kế hoạch tồn kho, bổ sung hàng. Mức độ phù hợp của dự báo được đánh giá so với mức cơ sở đã thống nhất.",
+      en: "Work with forecasting partner GMDH Streamline to use demand history for inventory and replenishment planning. Evaluate fit against an agreed baseline.",
+      vi: "Đồng hành cùng đối tác dự báo GMDH Streamline, khai thác lịch sử nhu cầu để hỗ trợ hoạch định tồn kho và bổ sung hàng. Đánh giá dự báo theo mức cơ sở đã thống nhất.",
     },
   },
 ];

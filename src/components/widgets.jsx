@@ -9,7 +9,7 @@ export function ForecastWidget() {
   const bars = [34, 42, 38, 52, 47, 63, 58, 74];
   return (
     <div className={frame}>
-      <div className="mono-label mb-3">{t({ en: "Illustrative forecast", vi: "Minh họa dự báo" })}</div>
+      <div className="mono-label mb-3">{t({ en: "GMDH Streamline · illustrative forecast", vi: "GMDH Streamline · dự báo minh họa" })}</div>
       <div className="flex h-24 items-end gap-1.5">
         {bars.map((h, i) => (
           <div

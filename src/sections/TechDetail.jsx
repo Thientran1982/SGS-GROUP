@@ -270,20 +270,24 @@ const MODULES = {
     num: "06",
     widget: ForecastWidget,
     title: { en: "Demand Forecasting", vi: "Dự báo nhu cầu" },
+    partner: {
+      label: { en: "Forecasting partner", vi: "Đối tác dự báo" },
+      name: "GMDH Streamline",
+    },
     lead: {
       en: "Use demand history to support inventory and replenishment planning.",
       vi: "Khai thác lịch sử nhu cầu để hỗ trợ lập kế hoạch tồn kho và bổ sung hàng.",
     },
     intro: {
-      en: "We review sales or order history, seasonality, lead times and other available business signals. Forecast scope, planning horizon and system connections depend on data readiness and your workflow.",
-      vi: "Chúng tôi xem xét lịch sử bán hàng hoặc đơn hàng, mùa vụ, thời gian cung ứng và các tín hiệu kinh doanh sẵn có. Phạm vi dự báo, kỳ hạn và kết nối hệ thống phụ thuộc vào mức độ sẵn sàng của dữ liệu và quy trình lập kế hoạch.",
+      en: "This module is delivered with forecasting partner GMDH Streamline. We review sales or order history, seasonality, lead times and other available business signals. Forecast scope, planning horizon and system connections depend on data readiness and your workflow.",
+      vi: "Module này được triển khai cùng đối tác dự báo GMDH Streamline. Chúng tôi xem xét lịch sử bán hàng hoặc đơn hàng, mùa vụ, thời gian cung ứng và các tín hiệu kinh doanh sẵn có. Phạm vi dự báo, kỳ hạn và kết nối hệ thống phụ thuộc vào mức độ sẵn sàng của dữ liệu và quy trình lập kế hoạch.",
     },
     stats: [
       { value: "KPI", label: { en: "Forecast error", vi: "Sai số dự báo" } },
       { value: "KPI", label: { en: "Forecast bias", vi: "Độ lệch dự báo" } },
       { value: "KPI", label: { en: "SKU / period coverage", vi: "Phạm vi SKU / kỳ dự báo" } },
     ],
-    chips: ["Python", "SQL", "POS / ERP data", "Inventory systems", "Planning workflows"],
+    chips: ["GMDH Streamline", "Python", "SQL", "POS / ERP data", "Inventory systems"],
     features: [
       {
         title: { en: "Historical demand patterns", vi: "Mẫu hình nhu cầu lịch sử" },
@@ -346,6 +350,12 @@ export default function TechDetail({ module, onNavigate }) {
               <h1 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
                 {t(m.title)}
               </h1>
+              {m.partner && (
+                <div className="mt-4 inline-flex flex-wrap items-center gap-2 rounded-full border border-primary-glow/30 bg-primary/5 px-3 py-2">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-[#8f8f8f]">{t(m.partner.label)}</span>
+                  <span className="text-sm font-semibold text-primary-glow">{m.partner.name}</span>
+                </div>
+              )}
               <p className="mt-4 text-lg leading-relaxed text-[#5d5d5d] dark:text-[#b4b4b4]">
                 {t(m.lead)}
               </p>
