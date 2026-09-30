@@ -123,8 +123,6 @@ export default function Home({ onNavigate }) {
 
           <h1 className="animate-fade-in-up mx-auto mt-7 max-w-4xl text-4xl font-semibold leading-[1.12] tracking-tight sm:text-5xl md:text-6xl" style={{ animationDelay: "80ms" }}>
             {t({ en: "AI and automation for business.", vi: "AI và tự động hóa cho doanh nghiệp." })}
-            <br />
-            <span className="text-gradient">{t({ en: "Measure results before scaling.", vi: "Đo hiệu quả trước khi mở rộng." })}</span>
           </h1>
 
           <p className="animate-fade-in-up mx-auto mt-6 max-w-2xl text-base leading-relaxed text-[#5d5d5d] dark:text-[#b4b4b4]" style={{ animationDelay: "160ms" }}>
