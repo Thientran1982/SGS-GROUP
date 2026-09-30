@@ -2,49 +2,45 @@ import { useT } from "../lang.jsx";
 import Marquee from "../components/Marquee.jsx";
 
 const STATS = [
-  { value: "200+", label: { en: "Projects", vi: "Dự án" } },
-  { value: "50+", label: { en: "Clients", vi: "Khách hàng" } },
+  { value: "200+", label: { en: "Projects since 2020", vi: "Dự án từ 2020" } },
+  { value: "50+", label: { en: "Enterprise clients served", vi: "Doanh nghiệp đã phục vụ" } },
   { value: "99.98%", label: { en: "Uptime", vi: "Hoạt động" } },
-  { value: "6", label: { en: "Weeks to deploy", vi: "Tuần triển khai" } },
+  { value: "6", label: { en: "Weeks for a scoped pilot", vi: "Tuần cho pilot có phạm vi rõ ràng" } },
 ];
 
 const BADGES = [
-  { en: "200+ projects delivered", vi: "200+ dự án đã triển khai" },
-  { en: "Uptime 99.98%", vi: "Hoạt động 99.98%" },
-  { en: "Clients in 6+ countries", vi: "Khách hàng 6+ quốc gia" },
-  { en: "6-week deployment", vi: "Triển khai 6 tuần" },
-  { en: "30–78% cost reduction", vi: "Giảm 30–78% chi phí" },
-  { en: "100% money-back pilot", vi: "Hoàn tiền 100% pilot" },
-  { en: "ISO 27001 aligned", vi: "Tuân thủ ISO 27001" },
-  { en: "Response <24h", vi: "Phản hồi <24h" },
-  { en: "Zero data breaches", vi: "Không rò rỉ dữ liệu" },
-  { en: "24/7 support", vi: "Hỗ trợ 24/7" },
-  { en: "Founded 2020 · 40+ engineers", vi: "Thành lập 2020 · 40+ kỹ sư" },
+  { en: "200+ projects since 2020", vi: "200+ dự án từ 2020" },
+  { en: "50+ enterprise clients served", vi: "Đã phục vụ 50+ doanh nghiệp" },
+  { en: "Six-week scoped pilot", vi: "Pilot phạm vi rõ ràng trong sáu tuần" },
+  { en: "Success measures agreed upfront", vi: "Thống nhất chỉ số thành công từ đầu" },
+  { en: "Pilot on real data", vi: "Pilot trên dữ liệu thực" },
+  { en: "Production rollout scoped separately", vi: "Lộ trình production được xác định riêng" },
+  { en: "Outcomes measured against a baseline", vi: "Đo kết quả theo mức cơ sở" },
 ];
 
-const GUARANTEES = [
+const ENGAGEMENT_PRINCIPLES = [
   {
     num: "01",
-    title: { en: "6-week deployment", vi: "Triển khai 6 tuần" },
+    title: { en: "A focused six-week pilot", vi: "Pilot tập trung trong sáu tuần" },
     body: {
-      en: "Fixed-scope pilot on your real data. Success metrics agreed before any code is written.",
-      vi: "Pilot phạm vi cố định trên dữ liệu thực. Chốt chỉ số thành công trước khi viết code.",
+      en: "The six-week window is for a defined pilot on agreed data—not a promise that every production rollout takes six weeks.",
+      vi: "Sáu tuần là khung thời gian cho pilot đã xác định trên dữ liệu được thống nhất, không phải cam kết mọi hệ thống production đều triển khai xong trong sáu tuần.",
     },
   },
   {
     num: "02",
-    title: { en: "100% money-back", vi: "Hoàn tiền 100%" },
+    title: { en: "Success measures agreed upfront", vi: "Thống nhất cách đo thành công từ đầu" },
     body: {
-      en: "No measurable results in 6 weeks? Full refund — written into the contract.",
-      vi: "Không có kết quả đo lường được trong 6 tuần? Hoàn đủ — ghi trong hợp đồng.",
+      en: "We document the baseline, pilot scope, acceptance criteria and dependencies before work begins.",
+      vi: "Trước khi bắt đầu, hai bên thống nhất mức cơ sở, phạm vi pilot, tiêu chí nghiệm thu và các điều kiện phụ thuộc.",
     },
   },
   {
     num: "03",
-    title: { en: "Zero data breaches", vi: "Không rò rỉ dữ liệu" },
+    title: { en: "A production plan based on evidence", vi: "Lộ trình production dựa trên dữ liệu thực tế" },
     body: {
-      en: "ISO 27001, AES-256, PDPA compliant. On-premise available for banking and healthcare.",
-      vi: "ISO 27001, AES-256, tuân thủ PDPA. Có bản on-premise cho ngân hàng, y tế.",
+      en: "After the pilot, deployment scope, timeline, security controls and investment are sized to the validated requirements.",
+      vi: "Sau pilot, phạm vi triển khai, thời gian, kiểm soát bảo mật và ngân sách được xác định theo yêu cầu đã kiểm chứng.",
     },
   },
 ];
@@ -97,39 +93,18 @@ const MODULES = [
   },
 ];
 
-const TESTIMONIALS = [
+const SUCCESS_MEASURES = [
   {
-    result: "3 days → 2 hrs",
-    initials: "NT",
-    name: "Nguyen Thi Lan",
-    role: "CFO · VietRetail Corp.",
-    meta: { en: "Retail · Q3 2025", vi: "Bán lẻ · Q3 2025" },
-    quote: {
-      en: "Invoice processing went from 3 days to under 2 hours. The finance team now works on strategy, not data entry.",
-      vi: "Xử lý hóa đơn từ 3 ngày xuống dưới 2 giờ. Đội tài chính giờ làm chiến lược, không phải nhập liệu.",
-    },
+    title: { en: "Workflow efficiency", vi: "Hiệu quả quy trình" },
+    body: { en: "Track cycle time, manual effort and exception rates against the current process.", vi: "Theo dõi thời gian xử lý, công sức thủ công và tỷ lệ ngoại lệ so với quy trình hiện tại." },
   },
   {
-    result: "+40% accuracy",
-    initials: "JP",
-    name: "James Pham",
-    role: { en: "Operations Director · LogiViet", vi: "Giám đốc Vận hành · LogiViet" },
-    meta: { en: "Logistics · Q1 2025", vi: "Logistics · Q1 2025" },
-    quote: {
-      en: "Real-time visibility across 14 warehouses. Demand forecasts 40% more accurate in one quarter.",
-      vi: "Nhìn thời gian thực 14 kho. Dự báo nhu cầu chính xác hơn 40% sau một quý.",
-    },
+    title: { en: "Decision quality", vi: "Chất lượng quyết định" },
+    body: { en: "Compare forecast accuracy, data freshness and inventory visibility with an agreed baseline.", vi: "So sánh độ chính xác dự báo, độ cập nhật dữ liệu và khả năng quan sát tồn kho với mức cơ sở đã thống nhất." },
   },
   {
-    result: "CSAT 3.8 → 4.7",
-    initials: "TM",
-    name: "Tran Minh Duc",
-    role: { en: "Head of CX · FinTech One", vi: "Trưởng bộ phận CX · FinTech One" },
-    meta: { en: "FinTech · Q4 2024", vi: "FinTech · Q4 2024" },
-    quote: {
-      en: "The AI chatbot handles 70% of queries around the clock. Satisfaction jumped within six months.",
-      vi: "Chatbot AI xử lý 70% yêu cầu suốt ngày đêm. Mức hài lòng tăng vọt trong 6 tháng.",
-    },
+    title: { en: "AI service quality", vi: "Chất lượng dịch vụ AI" },
+    body: { en: "Evaluate answer quality, resolution rate and safe handoff to a human reviewer.", vi: "Đánh giá chất lượng câu trả lời, tỷ lệ xử lý thành công và khả năng chuyển tiếp an toàn cho nhân viên." },
   },
 ];
 
@@ -145,25 +120,25 @@ export default function Home({ onNavigate }) {
         <div className="relative mx-auto max-w-6xl px-4 pb-14 pt-32 text-center sm:px-6 md:pt-40">
           <div className="animate-fade-in-up mono-label inline-flex items-center gap-2 rounded-full border border-black/10 px-4 py-2 dark:border-white/15">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary-glow animate-pulse-slow" />
-            {t({ en: "Trusted by 50+ enterprises · Vietnam & SEA", vi: "Tin cậy bởi 50+ doanh nghiệp · Việt Nam & ĐNA" })}
+            {t({ en: "50+ enterprise clients served · Vietnam & SEA", vi: "Đã phục vụ 50+ doanh nghiệp · Việt Nam & ĐNA" })}
           </div>
 
           <h1 className="animate-fade-in-up mx-auto mt-7 max-w-4xl text-4xl font-semibold leading-[1.12] tracking-tight sm:text-5xl md:text-6xl" style={{ animationDelay: "80ms" }}>
-            {t({ en: "AI that delivers results.", vi: "AI tạo kết quả thực." })}
+            {t({ en: "AI built around measurable outcomes.", vi: "AI hướng đến kết quả đo lường được." })}
             <br />
-            <span className="text-gradient">{t({ en: "In 6 weeks — or free.", vi: "Trong 6 tuần — hoặc miễn phí." })}</span>
+            <span className="text-gradient">{t({ en: "Prove the pilot. Then scale.", vi: "Kiểm chứng qua pilot. Mở rộng sau." })}</span>
           </h1>
 
           <p className="animate-fade-in-up mx-auto mt-6 max-w-2xl text-base leading-relaxed text-[#5d5d5d] dark:text-[#b4b4b4]" style={{ animationDelay: "160ms" }}>
             {t({
-              en: "We audit your process, pilot on your real data, and deploy production AI in 6 weeks. Success metrics are written into your contract.",
-              vi: "Chúng tôi kiểm tra quy trình, chạy thử trên dữ liệu thực và triển khai AI trong 6 tuần. Chỉ số thành công ghi rõ trong hợp đồng.",
+              en: "We agree on the baseline and pilot scope, test on your real data, then plan production rollout around validated requirements. A defined pilot can run for six weeks.",
+              vi: "Hai bên thống nhất mức cơ sở và phạm vi pilot, thử nghiệm trên dữ liệu thực, rồi lập lộ trình production theo yêu cầu đã kiểm chứng. Pilot có phạm vi rõ ràng có thể kéo dài sáu tuần.",
             })}
           </p>
 
           <div className="animate-fade-in-up mt-8 flex flex-wrap items-center justify-center gap-3" style={{ animationDelay: "240ms" }}>
             <button className="btn-primary btn-shine" onClick={() => onNavigate("contact")}>
-              {t({ en: "Book a free 30-min audit", vi: "Đặt kiểm tra miễn phí 30 phút" })}
+              {t({ en: "Book a 30-minute intro call", vi: "Đặt lịch trao đổi 30 phút" })}
             </button>
             <button className="btn-ghost btn-shine" onClick={() => onNavigate("tech")}>
               {t({ en: "Explore technologies", vi: "Xem các công nghệ" })}
@@ -196,13 +171,13 @@ export default function Home({ onNavigate }) {
       {/* Guarantees */}
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
         <div className="animate-fade-in-up">
-          <div className="mono-label">{t({ en: "Zero-risk engagement", vi: "Cam kết không rủi ro" })}</div>
+            <div className="mono-label">{t({ en: "A clear way to evaluate", vi: "Cách đánh giá rõ ràng" })}</div>
           <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
-            {t({ en: "Three guarantees. In writing.", vi: "Ba cam kết. Bằng văn bản." })}
+            {t({ en: "Prove value before scaling.", vi: "Kiểm chứng giá trị trước khi mở rộng." })}
           </h2>
         </div>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {GUARANTEES.map((g, i) => (
+          {ENGAGEMENT_PRINCIPLES.map((g, i) => (
             <div key={g.num} className="glass animate-fade-in-up p-6 transition-colors hover:border-primary-glow/40" style={{ animationDelay: `${i * 90}ms` }}>
               <div className="text-gradient font-mono text-3xl font-medium">{g.num}</div>
               <div className="mt-4 font-mono text-sm font-medium uppercase tracking-wider">{t(g.title)}</div>
@@ -245,32 +220,24 @@ export default function Home({ onNavigate }) {
       <section className="border-y border-black/10 py-20 dark:border-white/10">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="animate-fade-in-up">
-            <div className="mono-label">{t({ en: "Client results", vi: "Kết quả khách hàng" })}</div>
+            <div className="mono-label">{t({ en: "How we measure progress", vi: "Cách đo lường tiến độ" })}</div>
             <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
-              {t({ en: "Numbers our clients report", vi: "Con số khách hàng của chúng tôi" })}
+              {t({ en: "Define success before the pilot starts.", vi: "Xác định thành công trước khi pilot bắt đầu." })}
             </h2>
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#5d5d5d] dark:text-[#b4b4b4]">
+              {t({
+                en: "Every engagement starts with a baseline and agreed measures. Actual outcomes depend on your data, scope and operating environment.",
+                vi: "Mỗi hợp tác bắt đầu bằng mức cơ sở và chỉ số được thống nhất. Kết quả thực tế phụ thuộc vào dữ liệu, phạm vi và môi trường vận hành của bạn.",
+              })}
+            </p>
           </div>
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {TESTIMONIALS.map((c, i) => (
-              <figure key={c.name} className="glass animate-fade-in-up flex flex-col p-6" style={{ animationDelay: `${i * 90}ms` }}>
-                <div className="inline-flex w-fit rounded-full border border-primary-glow/30 bg-primary/10 px-3 py-1 font-mono text-[11px] text-primary-glow">
-                  {c.result}
-                </div>
-                <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-[#5d5d5d] dark:text-[#ececec]">
-                  “{t(c.quote)}”
-                </blockquote>
-                <figcaption className="mt-6 flex items-center gap-3 border-t border-black/10 pt-4 dark:border-white/10">
-                  <span className="grid h-10 w-10 place-items-center rounded-full bg-[#e3e3e3] font-mono text-xs font-medium text-[#0d0d0d] dark:bg-white/10 dark:text-[#e3e3e3]">
-                    {c.initials}
-                  </span>
-                  <span>
-                    <span className="block text-sm font-semibold">{c.name}</span>
-                    <span className="block font-mono text-[10px] uppercase tracking-wider text-[#8f8f8f]">
-                      {t(c.role)} · {t(c.meta)}
-                    </span>
-                  </span>
-                </figcaption>
-              </figure>
+            {SUCCESS_MEASURES.map((measure, i) => (
+              <article key={measure.title.en} className="glass animate-fade-in-up flex flex-col p-6" style={{ animationDelay: `${i * 90}ms` }}>
+                <div className="mono-label">{t({ en: `Measure 0${i + 1}`, vi: `Chỉ số 0${i + 1}` })}</div>
+                <h3 className="mt-4 text-lg font-semibold">{t(measure.title)}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-[#5d5d5d] dark:text-[#b4b4b4]">{t(measure.body)}</p>
+              </article>
             ))}
           </div>
         </div>
@@ -279,28 +246,28 @@ export default function Home({ onNavigate }) {
       {/* Final CTA */}
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
         <div className="glass-high terminal animate-fade-in-up relative overflow-hidden p-10 text-center md:p-14">
-          <div className="mono-label">{t({ en: "Zero-risk engagement", vi: "Cam kết không rủi ro" })}</div>
+          <div className="mono-label">{t({ en: "Start with a conversation", vi: "Bắt đầu bằng một cuộc trao đổi" })}</div>
           <h2 className="mx-auto mt-4 max-w-2xl text-3xl font-semibold md:text-4xl">
-            {t({ en: "See results in 6 weeks — or pay nothing.", vi: "Nhìn kết quả trong 6 tuần — hoặc không trả tiền." })}
+            {t({ en: "Find out whether a pilot is right for your team.", vi: "Xác định pilot có phù hợp với đội ngũ của bạn không." })}
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-[#5d5d5d] dark:text-[#b4b4b4]">
             {t({
-              en: "A free 30-minute audit maps your automation opportunities with a concrete ROI projection.",
-              vi: "Buổi kiểm tra miễn phí 30 phút vẽ ra cơ hội tự động hóa kèm dự phóng ROI cụ thể.",
+              en: "Book a 30-minute introductory conversation. Audit scope, ROI estimates and project terms are defined separately after we understand your needs.",
+              vi: "Đặt lịch trao đổi ban đầu trong 30 phút. Phạm vi audit, ước tính ROI và điều khoản dự án sẽ được xác định riêng sau khi hiểu nhu cầu của bạn.",
             })}
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <button className="btn-primary btn-shine" onClick={() => onNavigate("contact")}>
-              {t({ en: "Book free audit now", vi: "Đặt kiểm tra miễn phí" })}
+              {t({ en: "Book an intro call", vi: "Đặt lịch trao đổi" })}
             </button>
             <button className="btn-ghost btn-shine" onClick={() => onNavigate("aihub")}>
               {t({ en: "Ask the AI Hub", vi: "Hỏi AI Hub" })}
             </button>
           </div>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-x-6 gap-y-1.5 font-mono text-[11px] uppercase tracking-widest text-[#8f8f8f]">
-            <span>✓ {t({ en: "30-min free audit", vi: "Kiểm tra miễn phí 30 phút" })}</span>
-            <span>✓ {t({ en: "100% money-back", vi: "Hoàn tiền 100%" })}</span>
-            <span>✓ {t({ en: "Reply within 24h", vi: "Phản hồi trong 24h" })}</span>
+            <span>✓ {t({ en: "30-minute intro call", vi: "Trao đổi ban đầu 30 phút" })}</span>
+            <span>✓ {t({ en: "Pilot scope agreed upfront", vi: "Thống nhất phạm vi pilot từ đầu" })}</span>
+            <span>✓ {t({ en: "Outcomes measured against a baseline", vi: "Đo kết quả theo mức cơ sở" })}</span>
           </div>
         </div>
       </section>
